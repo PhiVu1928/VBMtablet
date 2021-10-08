@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VBMTablet._pages._login.login_page"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:sfinput="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource vbmwhite}">
+    <ScrollView>
+
+        <Grid>
+
+            <ff:CachedImage Source="bgloginpage" 
+                            Aspect="Fill"/>
+
+            <StackLayout Orientation="Horizontal"
+                         VerticalOptions="Start"
+                         HorizontalOptions="Start"
+                         Margin="10"
+                         Spacing="20">
+                
+                <ff:CachedImage Source="Shape"
+                                Aspect="Fill"
+                                WidthRequest="{OnIdiom Phone=30,Tablet=40}"
+                                HeightRequest="{OnIdiom Phone=30,Tablet=40}"
+                                BackgroundColor="White"/>
+                
+                <Label Text="Việt Nam"  
+                       FontSize="{OnIdiom Phone=10,Tablet=25}"
+                       TextColor="{StaticResource vbmdeepgray}"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"/>
+                
+            </StackLayout>
+            
+            <StackLayout HorizontalOptions="Center"
+                         VerticalOptions="Center"
+                         Margin="{OnIdiom Phone='0,70,0,0',Tablet='0,120,0,0'}"
+                         WidthRequest="{OnIdiom Phone=250,Tablet=400}">
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="90"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid>
+
+                        <Label Text="Makeline" 
+                               FontSize="{OnIdiom Phone=16,Tablet=36}" 
+                               LineHeight="40" 
+                               FontAttributes="Bold"
+                               HorizontalOptions="Start"
+                               VerticalOptions="Center"/>
+
+                        <ff:CachedImage Source="onbttn_"
+                                        Aspect="AspectFill"
+                                        HeightRequest="74"
+                                        WidthRequest="{OnIdiom Phone=75,Tablet=150}"
+                                        HorizontalOptions="End"
+                                        VerticalOptions="Center"/>
+
+                    </Grid>
+
+                    <StackLayout Grid.Row="1"
+                                 Spacing="20">
+
+                        <border:SfBorder CornerRadius="30"
+                                         BackgroundColor="{StaticResource vbmlightgray}"
+                                         BorderColor="{StaticResource vbmlightgray}"
+                                         HasShadow="False"
+                                         WidthRequest="450"
+                                         HeightRequest="{OnIdiom Phone=80,Tablet=100}">
+
+                            <Grid Padding="10">
+
+                                <ff:CachedImage Source="shopicon"
+                                                Aspect="Fill"
+                                                HeightRequest="50"
+                                                WidthRequest="50"
+                                                HorizontalOptions="Start"
+                                                VerticalOptions="Center"/>
+
+                                <sfinput:SfTextInputLayout BackgroundColor="Transparent"
+                                                           FocusedColor="Transparent"
+                                                           UnfocusedColor="Transparent"
+                                                           ContainerType="Outlined"
+                                                           Margin="{OnIdiom Phone='0,5',Tablet='0,4'}">
+                                    <Picker Title="Danh sách cửa hàng"
+                                            x:Name="sfpickstore"          
+                                            SelectedItem="{Binding shopname}"
+                                            FontSize="{OnIdiom Phone=13, Tablet=25}"                         
+                                            TextColor="#707b77"
+                                            TitleColor="#707b77"                                            
+                                            WidthRequest="{OnIdiom Phone=120,Tablet=260}"
+                                            HorizontalOptions="Center"                                                   
+                                            ItemsSource="{Binding name}"
+                                            VerticalOptions="Center"/>
+
+                                </sfinput:SfTextInputLayout>
+
+                                <ff:CachedImage Source="Polygon"
+                                                Aspect="Fill"
+                                                HorizontalOptions="End"
+                                                VerticalOptions="Center"
+                                                Margin="0,0,28,0"/>
+
+                            </Grid>
+
+                        </border:SfBorder>
+
+                        <border:SfBorder CornerRadius="30"
+                                         BackgroundColor="{StaticResource vbmlightgray}"
+                                         BorderColor="{StaticResource vbmlightgray}"
+                                         HasShadow="False"
+                                         WidthRequest="450"
+                                         HeightRequest="{OnIdiom Phone=80,Tablet=100}">
+
+                            <StackLayout Orientation="Horizontal"
+                                         VerticalOptions="Center"
+                                         Margin="20,0,0,0">
+
+                                <ff:CachedImage Source="mobileicon"
+                                                Aspect="Fill"
+                                                HorizontalOptions="Start"
+                                                VerticalOptions="Center"/>
+
+                                <sfinput:SfTextInputLayout BackgroundColor="Transparent"
+                                                           FocusedColor="Transparent"
+                                                           UnfocusedColor="Transparent"
+                                                           ContainerType="Outlined"
+                                                           WidthRequest="300"
+                                                           Margin="{OnIdiom Phone='0,5',Tablet='0,10'}">
+                                    
+                                    <Entry Placeholder="Số điện thoại"
+                                           FontSize="{OnIdiom Phone=15,Tablet=25}"/>
+                                    
+                                </sfinput:SfTextInputLayout>
+                                                           
+
+                            </StackLayout>
+
+                        </border:SfBorder>
+
+                        <border:SfBorder CornerRadius="30"
+                                         BackgroundColor="{StaticResource vbmlightgray}"
+                                         BorderColor="{StaticResource vbmlightgray}"
+                                         HasShadow="False"
+                                         WidthRequest="450"
+                                         HeightRequest="{OnIdiom Phone=80,Tablet=100}">
+
+                            <StackLayout Orientation="Horizontal"
+                                         VerticalOptions="Center"
+                                         Margin="20,0,0,0">
+
+                                <ff:CachedImage Source="passicon"
+                                                Aspect="Fill"
+                                                HorizontalOptions="Start"
+                                                VerticalOptions="Center"/>
+
+                                <sfinput:SfTextInputLayout BackgroundColor="Transparent"
+                                                           FocusedColor="Transparent"
+                                                           UnfocusedColor="Transparent"
+                                                           ContainerType="Outlined"
+                                                           WidthRequest="300"
+                                                           Margin="{OnIdiom Phone='0,5',Tablet='0,10'}">
+
+                                    <Entry Placeholder="Mật khẩu"
+                                           IsPassword="True"
+                                           FontSize="{OnIdiom Phone=15,Tablet=25}"/>
+
+                                </sfinput:SfTextInputLayout>
+
+
+                            </StackLayout>
+
+                        </border:SfBorder>
+
+                        <border:SfBorder BackgroundColor="{StaticResource vbmlightyellow}"
+                                         BorderColor="{StaticResource vbmlightyellow}"
+                                         HasShadow="False"
+                                         HeightRequest="{OnIdiom Phone=56,Tablet=86}"
+                                         WidthRequest="278"
+                                         CornerRadius="50"
+                                         Margin="{OnIdiom Phone='60,0,60,30',Tablet='60,30,60,0'}"
+                                         x:Name="btnlogin">
+
+                            <Label Text="Đăng nhập"
+                                   TextColor="{StaticResource vbmgreen}"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   FontSize="{OnIdiom Phone=15,Tablet=24}"/>
+
+                            <border:SfBorder.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="login_Tapped"/>
+                            </border:SfBorder.GestureRecognizers>
+
+                        </border:SfBorder>
+
+                    </StackLayout>
+
+                </Grid>
+
+            </StackLayout>
+
+        </Grid>
+
+    </ScrollView>
+
+</ContentPage>

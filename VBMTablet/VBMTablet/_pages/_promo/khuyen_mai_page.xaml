@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:sf="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             x:Class="VBMTablet._pages._promo.khuyen_mai_page"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource vbmwhite}">
+    <Grid Margin="{OnIdiom Phone='0',Tablet='0,50,0,0'}">
+
+        <sf:SfListView Orientation="Vertical"
+                           IsScrollBarVisible="False"
+                           ItemSize="{OnIdiom Phone=120,Tablet=190}"
+                           ItemSpacing="20,10"
+                           SelectionBackgroundColor="Transparent"
+                           x:Name="lstpromo">
+            <sf:SfListView.ItemTemplate>
+                <DataTemplate>
+                    <border:SfBorder CornerRadius="60"
+                                         BorderWidth="0"
+                                         BorderColor="{StaticResource vbmdeeplightgray}"
+                                         HasShadow="True"
+                                         ShadowColor="{StaticResource vbmdeeplightgray}">
+
+                        <Grid>
+
+                            <ff:CachedImage Source="Group"
+                                                Aspect="Fill"
+                                                WidthRequest="{OnIdiom Phone=84,Tablet=134}"
+                                                HeightRequest="74"
+                                                BackgroundColor="Transparent"
+                                                HorizontalOptions="End"/>
+
+                            <StackLayout Padding="{OnIdiom Phone=15,Tablet=30}"
+                                             Orientation="Vertical"
+                                             HorizontalOptions="Start"
+                                             VerticalOptions="Center"
+                                             Spacing="10">
+
+                                <Label Text="{Binding name_vn}"
+                                           TextColor="{StaticResource vbmdeepgreen}"
+                                           FontSize="{OnIdiom Phone=15,Tablet=35}"
+                                           FontAttributes="Bold"
+                                           HorizontalOptions="Start"
+                                           VerticalOptions="Start"/>
+
+                                <StackLayout Orientation="Horizontal"
+                                                 Spacing="26">
+
+                                    <ff:CachedImage Source="timeicon"
+                                                        Aspect="Fill"
+                                                        WidthRequest="{OnIdiom Phone=25,Tablet=35}"
+                                                        HeightRequest="25"/>
+
+                                    <Label Text=""
+                                               FontSize="{OnIdiom Phone=15,Tablet=25}"
+                                               TextColor="{StaticResource vbmgray}"/>
+
+                                </StackLayout>
+
+                            </StackLayout>
+
+                        </Grid>
+                        <border:SfBorder.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                        </border:SfBorder.GestureRecognizers>
+                    </border:SfBorder>
+
+                </DataTemplate>
+            </sf:SfListView.ItemTemplate>
+        </sf:SfListView>
+        <busyindicator:SfBusyIndicator
+                        x:Name="busyindicator"
+                        AnimationType="Cupertino"
+                        HeightRequest="100"
+                        HorizontalOptions="Center"
+                        IsBusy="True"
+                        TextColor="#1d5234"
+                        VerticalOptions="Center"
+                        WidthRequest="100" />
+    </Grid>
+
+</ContentView>

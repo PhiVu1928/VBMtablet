@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             x:Class="VBMTablet._pages._home.script_page">
+    <StackLayout Orientation="Vertical"
+                 Spacing="20">
+
+        <border:SfBorder BackgroundColor="{StaticResource vbmlightsky}"
+                         BorderColor="Transparent"
+                         HasShadow="False"
+                         CornerRadius="30">
+
+            <StackLayout Orientation="Vertical"
+                         Padding="15"
+                         Spacing="10">
+
+                <Label Text="Phản hồi của khách"
+                       FontSize="{OnIdiom Phone=15,Tablet=30}" />
+
+                <Label Text="Khách đã có 3 lần trải nghiệm không tốt"
+                       FontSize="{OnIdiom Phone=15,Tablet=30}"
+                       TextColor="{StaticResource vbmyellow}"
+                       FontAttributes="Bold" />
+
+                <Label Text="Lý do:"
+                       FontSize="{OnIdiom Phone=15,Tablet=30}"
+                       TextColor="{StaticResource vbmyellow}"
+                       FontAttributes="Bold" />
+
+                <Label Text=" • Note không ớt mà vẫn để"
+                       FontSize="{OnIdiom Phone=15,Tablet=30}"
+                       TextColor="{StaticResource vbmpinttext}"
+                       FontAttributes="Bold" />
+
+                <Label Text=" • Chả cá có mùi hôi"
+                       FontSize="{OnIdiom Phone=15,Tablet=30}"
+                       TextColor="{StaticResource vbmpinttext}"
+                       FontAttributes="Bold" />
+
+                <Label Text=" • Bánh mì không nóng"
+                       FontSize="{OnIdiom Phone=15,Tablet=30}"
+                       TextColor="{StaticResource vbmpinttext}"
+                       FontAttributes="Bold" />
+
+                <Label Text="Xin lỗi anh/chi về lần trước, tụi em đã cẩn thận cho lần này. Hy vọng anh/chị sẽ hài lòng. Cảm ơn anh/chị nhiều ạ!"
+                       FontSize="{OnIdiom Phone=10,Tablet=25}" />
+
+            </StackLayout>
+
+        </border:SfBorder>
+
+        <border:SfBorder BackgroundColor="{StaticResource vbmlightmiddlegray}"
+                         BorderColor="Transparent"
+                         HasShadow="False"
+                         CornerRadius="30">
+
+            <StackLayout Orientation="Vertical"
+                         Spacing="20"
+                         Padding="15">
+
+                <Label Text="HƯỚNG DẪN  TƯƠNG TÁC  VỚI KHÁCH HÀNG"
+                       FontSize="{OnIdiom Phone=15,Tablet=30}"/>
+
+                <Label Text="Bước 1: Chào khách 'Xin chào anh/chị đến với Vua Bánh Mì, em có thể giúp gì được ạ?'"
+                       FontSize="{OnIdiom Phone=10,Tablet=25}"
+                       TextColor="{StaticResource vbmdeepgray}"/>
+
+                <Label Text="Bước 2: Lấy order - Offter khuyến mãi đang có '.............'"
+                       FontSize="{OnIdiom Phone=10,Tablet=25}"
+                       TextColor="{StaticResource vbmdeepgray}"/>
+
+                <Label Text="Bước 3: Xác nhận đơn hàng '.............'"
+                       FontSize="{OnIdiom Phone=10,Tablet=25}"
+                       TextColor="{StaticResource vbmdeepgray}"/>
+
+            </StackLayout>
+        </border:SfBorder>
+
+    </StackLayout>
+</ContentView>

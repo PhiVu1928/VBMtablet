@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             x:Class="VBMTablet._pages._home.customer_page">
+  <StackLayout Orientation="Vertical"
+               Spacing="20">
+
+    <border:SfBorder BackgroundColor="{StaticResource vbmlightsky}"
+                     BorderColor="Transparent"
+                     HasShadow="False"
+                     CornerRadius="30">
+
+      <StackLayout Orientation="Vertical"
+                   Padding="{OnIdiom Phone=10,Tablet=30}"
+                   Spacing="20">
+
+        <Label Text="Những chương trình khuyến mãi khách tham gia:"
+               FontSize="{OnIdiom Phone=15,Tablet=30}" />
+
+        <Label Text="Năng lượng xanh:  04 "
+               FontSize="{OnIdiom Phone=20,Tablet=40}"
+               TextColor="{StaticResource vbmyellow}"
+               FontAttributes="Bold" />
+
+        <Label Text="Spaghetti Day:  04 "
+               FontSize="{OnIdiom Phone=20,Tablet=40}"
+               TextColor="{StaticResource vbmyellow}"
+               FontAttributes="Bold" />
+
+        <Label Text="Ơn Giời, cuối tuần đây rồi:  04 "
+               FontSize="{OnIdiom Phone=20,Tablet=40}"
+               TextColor="{StaticResource vbmyellow}"
+               FontAttributes="Bold" />
+
+        <StackLayout Orientation="Horizontal">
+
+          <StackLayout Orientation="Vertical"
+                       WidthRequest="{OnIdiom Phone=220,Tablet=345}">
+
+            <Label Text="Món khách dùng nhiều nhất"
+                   FontSize="{OnIdiom Phone=12,Tablet=22}"
+                   TextColor="{StaticResource vbmgreen}" />
+
+            <Label Text="BM Nấm Chay: 12"
+                   FontSize="{OnIdiom Phone=10,Tablet=22}"
+                   TextColor="{StaticResource vbmdeeplightgray}" />
+
+            <Label Text="BM Đậu hũ phá lấu: 05"
+                   FontSize="{OnIdiom Phone=10,Tablet=22}"
+                   TextColor="{StaticResource vbmdeeplightgray}" />
+
+          </StackLayout>
+
+          <StackLayout Orientation="Vertical">
+
+            <Label Text="Zeromeat khách dùng nhiều nhất"
+                   FontSize="{OnIdiom Phone=12,Tablet=22}"
+                   TextColor="{StaticResource vbmgreen}" />
+
+            <Label Text="BM Nấm Chay: 12"
+                   FontSize="{OnIdiom Phone=10,Tablet=22}"
+                   TextColor="{StaticResource vbmdeeplightgray}" />
+
+            <Label Text="BM Đậu hũ phá lấu: 05"
+                   FontSize="{OnIdiom Phone=10,Tablet=22}"
+                   TextColor="{StaticResource vbmdeeplightgray}" />
+
+          </StackLayout>
+
+        </StackLayout>
+
+      </StackLayout>
+
+    </border:SfBorder>
+
+    <border:SfBorder BackgroundColor="{StaticResource vbmlightmiddlegray}"
+                     BorderColor="{StaticResource vbmwhite}"
+                     CornerRadius="30"
+                     HasShadow="False"
+                     Padding="{OnIdiom Phone=15,Tablet=20}">
+
+      <StackLayout Orientation="Vertical"
+                   Spacing="20">
+
+        <Grid>
+
+          <Label Text="NGUYỄN VĂN KHẢI"
+                 FontSize="{OnIdiom Phone=10,Tablet=30}"
+                 FontAttributes="Bold"
+                 HorizontalOptions="Start"
+                 VerticalOptions="Center" />
+
+          <Label Text="Khách Mua Tại Tiệm"
+                 FontSize="{OnIdiom Phone=10,Tablet=25}"
+                 TextColor="{StaticResource vbmgray}"
+                 HorizontalOptions="End"
+                 VerticalOptions="Center" />
+
+        </Grid>
+
+        <Label Text="22/02/1994"
+               TextColor="{StaticResource vbmgray}"
+               FontSize="{OnIdiom Phone=10,Tablet=25}" />
+
+      </StackLayout>
+
+    </border:SfBorder>
+
+    <border:SfBorder BackgroundColor="{StaticResource vbmlightmiddlegray}"
+                     BorderColor="{StaticResource vbmwhite}"
+                     CornerRadius="30"
+                     HasShadow="False"
+                     Padding="{OnIdiom Phone=15,Tablet=20}">
+
+      <StackLayout Orientation="Vertical"
+                   Spacing="20">
+                   
+        <Grid>
+
+          <Label Text="Điểm: 905"
+                 FontSize="{OnIdiom Phone=10,Tablet=20}"
+                 TextColor="{StaticResource vbmgray}"
+                 HorizontalOptions="Start"
+                 VerticalOptions="Center" />
+
+          <Label Text="Bánh Mì Tích Lũy: 5"
+                 FontSize="{OnIdiom Phone=10,Tablet=20}"
+                 TextColor="{StaticResource vbmgray}"
+                 HorizontalOptions="End"
+                 VerticalOptions="Center" />
+        </Grid>
+
+        <Grid>
+
+          <Label Text="Member"
+                 FontSize="{OnIdiom Phone=10,Tablet=20}"
+                 TextColor="{StaticResource vbmgray}"
+                 HorizontalOptions="Start"
+                 VerticalOptions="Center" />
+
+          <Label Text="Số quà khả dụng"
+                 FontSize="{OnIdiom Phone=10,Tablet=20}"
+                 TextColor="{StaticResource vbmgray}"
+                 HorizontalOptions="End"
+                 VerticalOptions="Center" /> 
+
+        </Grid>
+
+      </StackLayout>
+
+    </border:SfBorder>
+
+  </StackLayout>
+  
+</ContentView>

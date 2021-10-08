@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             x:Class="VBMTablet.App">
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <!--  fontfamily  -->
+            <OnPlatform x:Key="lb" x:TypeArguments="x:String">
+                <On Platform="Android" Value="Lato-Black.ttf#Lato" />
+                <On Platform="iOS" Value="Lato-Black" />
+            </OnPlatform>
+            <OnPlatform x:Key="lbi" x:TypeArguments="x:String">
+                <On Platform="Android" Value="Lato-BlackItalic.ttf#Lato" />
+                <On Platform="iOS" Value="Lato-BlackItalic" />
+            </OnPlatform>
+            <OnPlatform x:Key="lbo" x:TypeArguments="x:String">
+                <On Platform="Android" Value="Lato-Bold.ttf#Lato" />
+                <On Platform="iOS" Value="Lato-Bold" />
+            </OnPlatform>
+            <OnPlatform x:Key="lboi" x:TypeArguments="x:String">
+                <On Platform="Android" Value="Lato-BoldItalic.ttf#Lato" />
+                <On Platform="iOS" Value="Lato-BoldItalic" />
+            </OnPlatform>
+            <OnPlatform x:Key="li" x:TypeArguments="x:String">
+                <On Platform="Android" Value="Lato-Italic.ttf#Lato" />
+                <On Platform="iOS" Value="Lato-Italic" />
+            </OnPlatform>
+            <OnPlatform x:Key="ll" x:TypeArguments="x:String">
+                <On Platform="Android" Value="Lato-Light.ttf#Lato" />
+                <On Platform="iOS" Value="Lato-Light" />
+            </OnPlatform>
+            <OnPlatform x:Key="lli" x:TypeArguments="x:String">
+                <On Platform="Android" Value="Lato-LightItalic.ttf#Lato" />
+                <On Platform="iOS" Value="Lato-LightItalic" />
+            </OnPlatform>
+            <OnPlatform x:Key="lr" x:TypeArguments="x:String">
+                <On Platform="Android" Value="Lato-Regular.ttf#Lato" />
+                <On Platform="iOS" Value="Lato-Regular" />
+            </OnPlatform>
+            <OnPlatform x:Key="lt" x:TypeArguments="x:String">
+                <On Platform="Android" Value="Lato-Thin.ttf#Lato" />
+                <On Platform="iOS" Value="Lato-Thin" />
+            </OnPlatform>
+            <OnPlatform x:Key="lti" x:TypeArguments="x:String">
+                <On Platform="Android" Value="Lato-ThinItalic.ttf#Lato" />
+                <On Platform="iOS" Value="Lato-ThinItalic" />
+            </OnPlatform>
+            <OnPlatform x:Key="pb" x:TypeArguments="x:String">
+                <On Platform="Android" Value="PuppyBellies.ttf#PuppyBellies" />
+                <On Platform="iOS" Value="PuppyBellies" />
+            </OnPlatform>
+
+            <!--  color  -->
+            <Color x:Key="vbmgreen">#477B72</Color>
+            <Color x:Key="vbmlightgreen">#18794D</Color>
+            <Color x:Key="vbmlightyellow">#FBE200</Color>
+            <Color x:Key="vbmdeepgreen">#266248</Color>
+            <Color x:Key="vbmyellow">#F7BA34</Color>
+            <Color x:Key="vbmwhite">#FFFFFF</Color>
+            <Color x:Key="vbmbrick">#f47b0a</Color>
+            <Color x:Key="vbmpinttext">#fa4a0c</Color>
+            <Color x:Key="vbmwarning">#A43939</Color>
+            <Color x:Key="vbmgray">#7EA39C</Color>
+            <Color x:Key="vbmlightgray">#F6F9F8</Color>
+            <Color x:Key="vbmlightmiddlegray">#ededed</Color>
+            <Color x:Key="vbmdeepgray">#BBCBC5</Color>
+            <Color x:Key="vbmdeepmiddlegray">#71867B</Color>
+            <Color x:Key="vbmdeeplightgray">#BBCBC5</Color>
+            <Color x:Key="vbmpagebackground">#FFFFFF</Color>
+            <Color x:Key="vbmblack">#000000</Color>
+
+            <Style TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource lr}" />
+                <Setter Property="FontSize" Value="15" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="TextColor" Value="{StaticResource vbmgreen}" />
+            </Style>
+            <Style TargetType="border:SfBorder">
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="HasShadow" Value="True" />
+                <Setter Property="BorderColor" Value="#d2d2d2" />
+                <Setter Property="BorderWidth" Value=".5" />
+                <Setter Property="Padding" Value="0" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

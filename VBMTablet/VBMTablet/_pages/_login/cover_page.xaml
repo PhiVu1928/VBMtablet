@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="VBMTablet._pages._login.cover_page"
+             NavigationPage.HasNavigationBar="False"
+             Title="VBM"
+             BackgroundColor="{StaticResource vbmwhite}">
+    <ContentPage.Content>
+        <Grid>
+            <ff:CachedImage Source="coverpage" Aspect="Fill"/>
+            <busyindicator:SfBusyIndicator
+                    x:Name="busyindicator"
+                    AnimationType="Material"
+                    BackgroundColor="Transparent"
+                    HeightRequest="80"
+                    HorizontalOptions="Center"
+                    TextColor="{StaticResource vbmyellow}"
+                    VerticalOptions="Center"
+                    ViewBoxHeight="80"
+                    ViewBoxWidth="80"
+                    WidthRequest="80" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

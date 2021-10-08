@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:sf="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             xmlns:sfinput="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             xmlns:local="clr-namespace:VBM._pages._customer"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="VBMTablet._pages._home.home_page"
+             BackgroundColor="{StaticResource vbmwhite}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="{OnIdiom Phone=80,Tablet=Auto}"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="{OnIdiom Phone=80,Tablet=115}"/>
+        </Grid.RowDefinitions>
+
+        <StackLayout Margin="{OnIdiom Phone='0,20,0,0',Tablet='0,46,0,0'}"
+                     Orientation="Vertical">
+
+            <Grid>
+
+                <ff:CachedImage Source="Stroke"
+                                WidthRequest="50"
+                                HeightRequest="25"
+                                HorizontalOptions="Start"
+                                VerticalOptions="Center"
+                                BackgroundColor="White">
+                    <ff:CachedImage.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ff_backicon_tapped"/>
+                    </ff:CachedImage.GestureRecognizers>
+                </ff:CachedImage>
+
+                <Label Text="Nguyễn Văn Khải"
+                       FontSize="{OnIdiom Phone=16,Tablet=36}"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       HorizontalTextAlignment="Center"/>
+
+                <ff:CachedImage Source="refreshicon"
+                                HorizontalOptions="End"
+                                VerticalOptions="Center"
+                                WidthRequest="{OnIdiom Phone=30,Tablet=40}"
+                                HeightRequest="{OnIdiom Phone=30,Tablet=40}"
+                                Margin="0,0,28,0"
+                                BackgroundColor="White"/>
+
+
+            </Grid>
+
+        </StackLayout>
+
+        <Grid Grid.Row="1">
+            
+            <StackLayout x:Name="stlHomeMenu"/>
+            <StackLayout x:Name="stlEmMenu"/>
+            <StackLayout x:Name="stlPromoMenu"/>
+            <StackLayout x:Name="stlCartMenu"/>
+
+        </Grid>
+
+        <Grid Grid.Row="2">
+
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center"
+                         Spacing="{OnIdiom Phone=40,Tablet=100}">
+
+                <ff:CachedImage Source="khachiconpress"
+                                Aspect="Fill"
+                                WidthRequest="30"
+                                HeightRequest="30"
+                                x:Name="khachicon">
+                    <ff:CachedImage.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ff_homeicon_tapped"/>
+                    </ff:CachedImage.GestureRecognizers>
+                </ff:CachedImage>
+
+                <ff:CachedImage Source="menuicon"
+                                x:Name="menuicon"
+                                Aspect="Fill"
+                                WidthRequest="30"
+                                HeightRequest="30">
+                    <ff:CachedImage.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ff_menuicon_tapped"/>
+                    </ff:CachedImage.GestureRecognizers>
+                </ff:CachedImage>
+
+                <ff:CachedImage Source="promotionicon"
+                                x:Name="Promoicon"
+                                Aspect="Fill"
+                                WidthRequest="30"
+                                HeightRequest="30">
+                    <ff:CachedImage.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ff_promoicon_tapped"/>
+                    </ff:CachedImage.GestureRecognizers>
+                </ff:CachedImage>
+
+            </StackLayout>
+
+            <Grid HorizontalOptions="End"
+                  VerticalOptions="Center">
+
+                <border:SfBorder WidthRequest="193"
+                                 HeightRequest="93"
+                                 CornerRadius="50"
+                                 BackgroundColor="{StaticResource vbmlightyellow}"
+                                 BorderColor="{StaticResource vbmwhite}"
+                                 HasShadow="False"
+                                 HorizontalOptions="End"
+                                 VerticalOptions="Center"
+                                 Margin="{OnIdiom Phone='0,0,-125,10',Tablet='0,0,-65,10'}"
+                                 x:Name="carticon">
+
+                    <ff:CachedImage Source="promotionicon1"
+                                    x:Name="ffcarticon"
+                                    WidthRequest="30"
+                                    HeightRequest="30"
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="Center"
+                                    Margin="30,0"
+                                    Aspect="Fill"/>
+
+                    <border:SfBorder.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ff_cart_tapped"/>
+                    </border:SfBorder.GestureRecognizers>
+                    
+                </border:SfBorder>
+
+                <border:SfBorder WidthRequest="34"
+                                 HeightRequest="34"
+                                 CornerRadius="30"
+                                 BackgroundColor="Red"
+                                 BorderColor="{StaticResource vbmwhite}"
+                                 HasShadow="False"
+                                 HorizontalOptions="Start"
+                                 VerticalOptions="Start">
+
+                    <Label Text="{Binding Cartcount}"
+                           x:Name="Cartcount"
+                           FontSize="{OnIdiom Phone=10,Tablet=20}"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           TextColor="{StaticResource vbmwhite}"/>
+
+                </border:SfBorder>
+
+            </Grid>
+
+
+
+        </Grid>
+        
+    </Grid>
+    
+</ContentPage>

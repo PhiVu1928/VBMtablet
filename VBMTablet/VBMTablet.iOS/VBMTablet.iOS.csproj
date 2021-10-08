@@ -1,0 +1,356 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C59548CE-369D-4299-8D2C-E4238476838D}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TemplateGuid>{6143fdea-f3c2-4a09-aafa-6e230626515e}</TemplateGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>VBMTablet.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>VBMTablet.iOS</AssemblyName>
+    <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+    <ProvisioningType>automatic</ProvisioningType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchLink>None</MtouchLink>
+    <MtouchDebug>true</MtouchDebug>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>None</MtouchLink>
+    <MtouchInterpreter>-all</MtouchInterpreter>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <None Include="Entitlements.plist" />
+    <None Include="Info.plist" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <BundleResource Include="Resources\Lato-BoldItalic.ttf" />
+    <BundleResource Include="Resources\Lato-Italic.ttf" />
+    <BundleResource Include="Resources\Lato-Light.ttf" />
+    <BundleResource Include="Resources\Lato-LightItalic.ttf" />
+    <BundleResource Include="Resources\Lato-Regular.ttf" />
+    <BundleResource Include="Resources\Lato-Thin.ttf" />
+    <BundleResource Include="Resources\Lato-ThinItalic.ttf" />
+    <BundleResource Include="Resources\Lato-Black.ttf" />
+    <BundleResource Include="Resources\Lato-BlackItalic.ttf" />
+    <BundleResource Include="Resources\Lato-Bold.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon1024.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon180.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon167.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon152.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon120.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon87.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon80.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon76.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon60.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon58.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon40.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon29.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Acr.UserDialogs">
+      <Version>7.2.0.534</Version>
+    </PackageReference>
+    <PackageReference Include="Rg.Plugins.Popup">
+      <Version>2.0.0.13</Version>
+    </PackageReference>
+    <PackageReference Include="sqlite-net-pcl">
+      <Version>1.8.116</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.Buttons">
+      <Version>19.3.0.44</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfBusyIndicator">
+      <Version>19.3.0.44</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfListView">
+      <Version>19.3.0.44</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfPicker">
+      <Version>19.3.0.44</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfTabView">
+      <Version>19.3.0.44</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.FFImageLoading">
+      <Version>2.4.11.982</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.FFImageLoading.Forms">
+      <Version>2.4.11.982</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2125" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\VBMTablet\VBMTablet.csproj">
+      <Project>{063F9707-10EB-4A2D-BD64-9C784DD5F837}</Project>
+      <Name>VBMTablet</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logomomo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logouticon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\menuicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\menuiconpress.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mobileicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\nhanbahicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\offbttn_.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\onbttn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\onbttn_.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ordericon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\passicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Polygon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\promotionicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\promotionicon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\promotionicon-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\promotioniconpress.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\promotioniconpress1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\promotioniconpress-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\qricon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\quabinhthuonng.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\quazenomeat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\refreshicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\searchicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Shape.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\shopicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Stroke.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Stroke1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Stroke2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sudungicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tienmaticon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\timeicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\usericon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\viewicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\vinidlogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\vouchericon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\vouchericonvang.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\walleticon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\walleticonvang.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\zalopay.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\atmicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bgloginpage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\chuanbiicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\coverpage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default-568h%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default-Portrait.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default-Portrait%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\extokenicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\giaviicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\gifticon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\gifticonpress.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Group.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\historyicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\historyiconpress.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\infoicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\khachicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\khachiconpress.png" />
+  </ItemGroup>
+</Project>

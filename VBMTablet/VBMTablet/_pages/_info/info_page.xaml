@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VBMTablet._pages._info.info_page"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             NavigationPage.HasNavigationBar="False">
+    <Grid BackgroundColor="{StaticResource vbmwhite}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="{OnIdiom Phone=115,Tablet=150}"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+
+        <Grid Margin="10,10,10,0">
+
+            <ff:CachedImage Source="infoicon"
+                            Aspect="Fill"
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"
+                            HeightRequest="20"
+                            WidthRequest="30">
+                <ff:CachedImage.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ffimg_left_tapped" />
+                </ff:CachedImage.GestureRecognizers>
+            </ff:CachedImage>
+
+            <Label Text="Vua Bánh Mì Ung Văn Khiêm Cash" 
+                   TextColor="{StaticResource vbmgreen}"
+                   FontSize="{OnIdiom Phone=15,Tablet=30}"
+                   WidthRequest="{OnIdiom Phone=150,Tablet=387}"
+                   HorizontalTextAlignment="Center"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"/>
+
+            <ff:CachedImage Source="offbttn_"
+                            BackgroundColor="White"
+                            x:Name="offbtn"
+                            Aspect="Fill"
+                            HorizontalOptions="End"
+                            VerticalOptions="Center"
+                            HeightRequest="{OnIdiom Phone=60,Tablet=80}"
+                            WidthRequest="{OnIdiom Phone=60,Tablet=80}">
+                <ff:CachedImage.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ffimg_right_tapped"/>
+                </ff:CachedImage.GestureRecognizers>
+            </ff:CachedImage>
+
+        </Grid>
+
+        <ScrollView Grid.Row="1">
+
+            <StackLayout Orientation="Vertical"
+                         Padding="10"
+                         Spacing="{OnIdiom Tablet=30,Phone=10}">
+
+                <border:SfBorder BackgroundColor="{StaticResource vbmlightmiddlegray}"
+                                 BorderColor="{StaticResource vbmlightmiddlegray}"
+                                 CornerRadius="100"
+                                 Margin="10,0,10,0"
+                                 HasShadow="False"
+                                 HeightRequest="{OnIdiom Phone=77,Tablet=107}">
+
+                    <Label Text="TIN TỨC MỚI"
+                       TextColor="{StaticResource vbmgreen}"
+                       HorizontalOptions="Center"
+                       FontAttributes="Bold"
+                       FontSize="{OnIdiom Phone=15,Tablet=30}"/>
+
+                </border:SfBorder>
+
+                <StackLayout Padding="10"
+                             Orientation="Horizontal"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center">
+
+                    <ff:CachedImage Source="refreshicon"                                    
+                                    HeightRequest="{OnIdiom Tablet=30,Phone=20}"
+                                    WidthRequest="{OnIdiom Tablet=60, Phone=30}"
+                                    Aspect="Fill"/>
+
+                    <Label Text="Refresh các đơn đã hoàn thành và giao cho khách nhé bạn."
+                           FontSize="{OnIdiom Phone=13,Tablet=25}"
+                           Margin="20,0,0,0"/>
+
+                </StackLayout>
+
+                <border:SfBorder CornerRadius="30"
+                                 BorderColor="White"
+                                 BackgroundColor="{StaticResource vbmlightmiddlegray}"
+                                 HasShadow="False"
+                                 Margin="10">
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="{OnIdiom Tablet=102,Phone=62}"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid Padding="{OnIdiom Phone=0,Tablet=10}"
+                              BackgroundColor="{StaticResource vbmgray}">
+
+                            <Label Text="89232 02/06/2021"
+                                   HorizontalTextAlignment="Start"
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="Center"
+                                   TextColor="White"
+                                   FontSize="{OnIdiom Phone=10,Tablet=25}"
+                                   WidthRequest="{OnIdiom Phone=102,Tablet=152}"
+                                   Margin="20,0"/>
+
+                            <Label Text="11:31:00"
+                               HorizontalTextAlignment="Start"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               TextColor="White"
+                               FontSize="{OnIdiom Phone=10,Tablet=25}"/>
+
+                            <Label Text="Nguyễn Văn Khải"
+                               HorizontalTextAlignment="Start"
+                               HorizontalOptions="End"
+                               VerticalOptions="Center"
+                               TextColor="{StaticResource vbmlightyellow}"
+                               FontSize="{OnIdiom Phone=8,Tablet=25}"
+                               Margin="0,0,20,0"/>
+
+                        </Grid>
+
+                        <StackLayout Orientation="Vertical"
+                                     Padding="10"
+                                     Spacing="{OnIdiom Phone=10,Tablet=20}"
+                                     Grid.Row="1">
+
+                            <Label Text="Bánh mì thịt chả (L) X1"
+                                       FontSize="{OnIdiom Phone=15,Tablet=30}"
+                                       LineHeight="36"/>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <StackLayout Orientation="Vertical">
+
+                                    <border:SfBorder HeightRequest="{OnIdiom Phone=47,Tablet=67}"
+                                                     BackgroundColor="{StaticResource vbmdeeplightgray}"
+                                                     CornerRadius="50">
+
+                                        <Label Text="GIAO CHO KHÁCH" 
+                                               TextColor="White"
+                                               FontSize="{OnIdiom Phone=10,Tablet=25}"
+                                               HorizontalOptions="Center"
+                                               VerticalOptions="Center"
+                                               HorizontalTextAlignment="Center"/>
+
+                                    </border:SfBorder>
+
+                                    <StackLayout Orientation="Horizontal" 
+                                                 HorizontalOptions="Center"
+                                                 HeightRequest="{OnIdiom Phone=47,Tablet=67}"
+                                                 VerticalOptions="Center"
+                                                 Margin="{OnIdiom Phone='0',Tablet='0,20,0,0'}"
+                                                 Spacing="{OnIdiom Phone=5,Tablet=20}">
+
+                                        <border:SfBorder WidthRequest="160"
+                                                         HeightRequest="67"
+                                                         BackgroundColor="{StaticResource vbmgreen}"
+                                                         CornerRadius="50"
+                                                         HorizontalOptions="Start">
+
+                                            <Label Text="IN BILL" 
+                                                   FontSize="{OnIdiom Phone=10,Tablet=20}"
+                                                   HorizontalOptions="Center"
+                                                   VerticalOptions="Center"
+                                                   HorizontalTextAlignment="Center"
+                                                   TextColor="{StaticResource vbmlightyellow}"/>
+
+                                        </border:SfBorder>
+
+                                        <border:SfBorder WidthRequest="160"
+                                                         HeightRequest="67"
+                                                         BackgroundColor="{StaticResource vbmlightyellow}"
+                                                         CornerRadius="50"
+                                                         HorizontalOptions="End">
+
+                                            <Label Text="IN LABEL" 
+                                                   FontSize="{OnIdiom Phone=10,Tablet=20}"
+                                                   HorizontalOptions="Center"
+                                                   VerticalOptions="Center"
+                                                   HorizontalTextAlignment="Center"
+                                                   TextColor="{StaticResource vbmgreen}"/>
+
+                                        </border:SfBorder>
+
+                                    </StackLayout>
+
+                                </StackLayout>
+
+                                <StackLayout Grid.Column="1" 
+                                             Orientation="Vertical"
+                                             Margin="{OnIdiom Phone='20,0,0,0',Tablet='40,0,0,0'}">
+
+                                    <Entry Placeholder="Mã nhân viên"
+                                           TextColor="{StaticResource vbmgreen}"
+                                           FontSize="{OnIdiom Phone=10,Tablet=25}"
+                                           HorizontalTextAlignment="Center"/>
+
+                                    <Grid Margin="{OnIdiom Phone='0,20,0,0',Tablet='0,40,0,0'}">
+
+                                        <Label Text="Tiền Thu:"
+                                               FontSize="{OnIdiom Phone=10,Tablet=25}"
+                                               HorizontalOptions="Start"
+                                               VerticalOptions="Center"/>
+
+                                        <Label Text="40.000"
+                                               FontSize="{OnIdiom Phone=10,Tablet=25}"
+                                               HorizontalOptions="End"
+                                               VerticalOptions="Center"
+                                               TextColor="{StaticResource vbmpinttext}"/>
+
+                                    </Grid>
+
+                                </StackLayout>
+
+                            </Grid>
+
+                        </StackLayout>
+
+                    </Grid>
+
+                </border:SfBorder>                
+
+            </StackLayout>           
+
+        </ScrollView>
+
+        <Grid Grid.Row="2">
+
+            <ff:CachedImage Source="ordericon"
+                            x:Name="ordericon"
+                            Aspect="Fill"
+                            WidthRequest="70"
+                            HeightRequest="70"
+                            Margin="0,0,30,21"
+                            HorizontalOptions="End"
+                            VerticalOptions="Center">
+                <ff:CachedImage.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ff_order_tapped"/>
+                </ff:CachedImage.GestureRecognizers>
+            </ff:CachedImage>
+
+
+        </Grid>
+        
+    </Grid>
+    
+</ContentPage>

@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<popup:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:popup="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 xmlns:animation="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+                 xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+                 xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+                 xmlns:sf="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+                 x:Class="VBMTablet._pages._thanhtoan.hinh_thuc_thanh_toan_page"                >
+    <popup:PopupPage.Animation>
+        <animation:ScaleAnimation
+            PositionIn="Center"
+            PositionOut="Center"
+           
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True">
+        </animation:ScaleAnimation>
+    </popup:PopupPage.Animation>
+
+    <StackLayout HorizontalOptions="Center"
+                 VerticalOptions="Center">
+
+        <border:SfBorder CornerRadius="50"
+                         HasShadow="True"
+                         ShadowColor="WhiteSmoke"
+                         BackgroundColor="White"
+                         Margin="20,50">
+            <Grid Padding="{OnIdiom Phone=20,Tablet=50}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <ff:CachedImage Source="Close"
+                                x:Name="close"
+                                Aspect="Fill"
+                                HeightRequest="20"
+                                WidthRequest="20"
+                                HorizontalOptions="End"
+                                VerticalOptions="Start">
+                    <ff:CachedImage.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ff_close_tapped"/>
+                    </ff:CachedImage.GestureRecognizers>
+                </ff:CachedImage>
+
+                <Label Text="HÌNH THỨC THANH TOÁN"
+                       HorizontalTextAlignment="Center"
+                       FontSize="{OnIdiom Phone=16,Tablet=36}"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       Grid.Row="1"/>
+
+                
+                <Grid Grid.Row="2">
+                    <sf:SfListView ItemsSource="{Binding payments}"
+                                   IsScrollingEnabled="False"
+                                   ItemSize="{OnIdiom Tablet=64,Phone=34}"
+                                   ItemSpacing="0,20,0,0"
+                                   HorizontalOptions="Center"
+                                   SelectionBackgroundColor="Transparent"
+                                   Orientation="Vertical">
+                        <sf:SfListView.ItemTemplate>
+                            <DataTemplate>
+
+                                <Grid>
+                                    
+                                    <ff:CachedImage Source="{Binding Image}"
+                                                    Aspect="AspectFit"
+                                                    HorizontalOptions="Start"/>
+
+                                    <Label Text="{Binding Name}"
+                                               FontSize="{OnIdiom Tablet=25,Phone=10}"
+                                               HorizontalOptions="Start"
+                                               Margin="{OnIdiom Phone='50,0,0,0',Tablet='100,0,0,0'}"/>
+
+
+                                    <ff:CachedImage Source="{Binding SelectImage}"
+                                                    Aspect="Fill"
+                                                    HorizontalOptions="End"
+                                                    VerticalOptions="Center"
+                                                    IsVisible="{Binding Selected}"/>
+                                    
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>    
+                                    </Grid.GestureRecognizers>
+                                    
+                                </Grid>
+                                   
+                                    
+                            </DataTemplate>
+                        </sf:SfListView.ItemTemplate>
+                    </sf:SfListView>
+                </Grid>
+
+            </Grid>
+        </border:SfBorder>
+        
+    </StackLayout>
+    
+</popup:PopupPage>
