@@ -23,8 +23,8 @@ namespace VBMTablet._objs._cartObjs
         public int BillType { get; set; }
         public string TableNotes { get; set; }
         public int UserID { get; set; }
-        public string Datitude { get; set; }
-        public string Dlongtitude { get; set; }
+        public double Datitude { get; set; }
+        public double Dlongtitude { get; set; }
         public string deliverAddress { get; set; }
         public double giamGia { get; set; }
         public DateTime henGioLay { get; set; }
@@ -63,10 +63,10 @@ namespace VBMTablet._objs._cartObjs
             {
                 BillDate = DateTime.Now,
                 BillType = 1,
-                Datitude = "",
+                Datitude = 0,
                 deliverAddress = "",
                 DiscountJSON = discountJson,
-                Dlongtitude = "",
+                Dlongtitude = 0,
                 giamGia = price.Item1 - price.Item2,
                 henGioLay = DateTime.Now,
                 isHenGioLay = 0,
