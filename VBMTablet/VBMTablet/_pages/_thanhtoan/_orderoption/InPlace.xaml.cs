@@ -191,7 +191,7 @@ namespace VBMTablet._pages._thanhtoan._orderoption
 						if(isEnoughMoney)
                         {
 							bill.TableNotes = lblNote.Text;
-							//var res = await BillCreateDoAddBill.orderAction(bill);
+						    var res = await BillCreateDoAddBill.orderAction(bill);	
 							string dt = JsonConvert.SerializeObject(bill);
 							if(dt != null)
                             {

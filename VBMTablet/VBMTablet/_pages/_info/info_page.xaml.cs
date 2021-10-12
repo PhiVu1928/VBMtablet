@@ -49,20 +49,18 @@ namespace VBMTablet._pages._info
 
         async void ff_order_tapped(object sender, EventArgs e)
         {
-            this.IsEnabled = false;
             await ordericon.ScaleTo(0.9, 1);
             await this.FadeTo(0.9, 1);
             try
             {
                 var popup = new _pages._info.popup_xacnhan();
                 await Navigation.PushPopupAsync(popup);
-                this.IsEnabled = true;
+
                 await ordericon.ScaleTo(1, 100);
                 await this.FadeTo(1, 100);
             }
             catch(Exception)
             {
-                this.IsEnabled = false;
                 //error show here
                 await ordericon.ScaleTo(0.9, 1);
                 await this.FadeTo(0.9, 1);

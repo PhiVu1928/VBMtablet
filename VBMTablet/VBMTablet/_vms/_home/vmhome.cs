@@ -7,6 +7,8 @@ using System.ComponentModel;
 using Xamarin.Forms;
 using System.Threading.Tasks;
 
+using VBMTablet._objs._userObjs;
+
 namespace VBMTablet._vms._home
 {
     public class vmhome : INotifyPropertyChanged
@@ -16,12 +18,51 @@ namespace VBMTablet._vms._home
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
-        public ObservableCollection<MenuTab> menuTabs { get; set; }
         public vmhome()
         {
-            CreateMenuTab();
+
         }
+        #region bien
+        bool visUserInfo_ = false;
+        bool visNonUserInfo_ = true;
+        string sdt_;
         int Cartcount_;
+        public bool visUserInfo
+        {
+            get
+            {
+                return visUserInfo_;
+            }
+            set
+            {
+                visUserInfo_ = value;
+                OnPropertyChanged("visUserInfo");
+            }
+        }
+        public bool visNonUserInfo
+        {
+            get
+            {
+                return visNonUserInfo_;
+            }
+            set
+            {
+                visNonUserInfo_ = value;
+                OnPropertyChanged("visNonUserInfo");
+            }
+        }
+        public string sdt
+        {
+            get
+            {
+                return sdt_;
+            }
+            set
+            {
+                sdt_ = value;
+                OnPropertyChanged("sdt");
+            }
+        }
         public int Cartcount
         {
             get
@@ -34,80 +75,107 @@ namespace VBMTablet._vms._home
                 OnPropertyChanged("Cartcount");
             }
         }
-        void CreateMenuTab()
-        {
-            menuTabs = new ObservableCollection<MenuTab>();
-            for(int i = 0; i <= 3; i++ )
-            {
-                menuTabs.Add(new MenuTab(i));
-            }
-        }
+        #endregion
+
     }
-    public class MenuTab : INotifyPropertyChanged
+    public class vmCustomerGift
+    {
+        public vmCustomerGift()
+        {
+
+        }
+        public vmCustomerGift(UserGiftObjs userGiftObjs)
+        {
+            var gift = new ObservableCollection<CustomerGiftStatus>();
+            foreach(var item in userGiftObjs.lst_gifts)
+            {
+                gift.Add(new CustomerGiftStatus(item));
+            }
+            customerGiftStatuses = gift;
+        }
+        #region bien
+        public ObservableCollection<CustomerGiftStatus> customerGiftStatuses { get; set; }
+        #endregion
+    }
+    public class CustomerGiftStatus : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        void OnPropertyChanged(string name)
+        public void OnPropertyChanged(string name)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
-        public MenuTab(int id)
+        public CustomerGiftStatus(giftObjs giftObjs)
         {
-            this.Index = id;
-            if(id == 0)
-            {
-                Name = "KHÁCH HÀNG";
-                Selected = true;
-            }
-            if(id == 1 )
-            {
-                Name = "SCRIPT";
-            }
-            if(id == 2)
-            {
-                Name = "QUÀ TẶNG";
-            }
-            if(id == 3)
-            {
-                Name = "ĐƠN HÀNG";
-            }
+            this.name = giftObjs.nameVN;
+            this.solg = "Số lượng: " + giftObjs.slg.ToString();
+            this.expireDate = "Hạn sử dụng:" + giftObjs.expireDate.ToString("dd/MM/yyyy");
+            this.GiftObjs = giftObjs;
         }
-        Color _TextColor;
+        public string name { get; set; }
+        public string solg { get; set; }
+        public string expireDate { get; set; }
+        public giftObjs GiftObjs { get; set; }
+    }
+    public class CustomerBmls
+    {
+        public CustomerBmls(bmls_obj bmls_Obj)
+        {
+            this.bmls_Obj = bmls_Obj;
+        }
+        public bmls_obj bmls_Obj { get; set; }
+    }
+    public class CustomerStatus : INotifyPropertyChanged
+    {
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged(string name)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+        public CustomerStatus(userinfo userinfo)
+        {
+            this.Userinfo = userinfo;
+            this.name = userinfo.Fullname;
+            this.userlevel = userinfo.UserLevel;
+            switch (userinfo.UserStatus)
+            {
+                case 0:
+                    this.userStatus = (Color)Application.Current.Resources["vbmdeepgreen"];
+                    break;
+                case -1:
+                    this.userStatus = (Color)Application.Current.Resources["vbmred"];
+                    break;
+                case -2:
+                    this.userStatus = (Color)Application.Current.Resources["vbmlightyellow"];
+                    break;
+            }
+            this.birthDay = userinfo.Birthday.ToString("dd/MM/yyyy");
+            this.point = "Điểm:" + userinfo.Point.ToString();
+            this.soquatichluy = "Số quà khả dụng:" + userinfo.SoBanhTichLuy.ToString();
+            this.banhmitichluy = "Bánh Mì Tích Lũy:" + userinfo.SoBanhTichLuy.ToString();
+        }
+        Color userStatus_;
+
+        public string name { get; set; }
+        public string birthDay { get; set; }
+        public string point { get; set; }
+        public string banhmitichluy { get; set; }
+        public string userlevel { get; set; }
+        public string soquatichluy { get; set; }
         
-        bool _Selected;
-        public Color TextColor
+        public Color userStatus
         {
             get
             {
-                return _TextColor;
+                return userStatus_;
             }
             set
             {
-                _TextColor = value;
-                OnPropertyChanged("TextColor");
+                userStatus_ = value;
+                OnPropertyChanged("userStatus");
             }
         }
-        public bool Selected
-        {
-            get
-            {
-                return _Selected;
-            }
-            set
-            {
-                _Selected = value;
-                if(value)
-                {
-                    TextColor = (Color)Application.Current.Resources["vbmgreen"];
-                }
-                else
-                {
-                    TextColor = (Color)Application.Current.Resources["vbmdeeplightgray"];
-                }
-                OnPropertyChanged("Selected");
-            }
-        }
-        public int Index { get; set; }
-        public string Name { get; set; }
+        public userinfo Userinfo { get; set; }
+
     }
 
 }

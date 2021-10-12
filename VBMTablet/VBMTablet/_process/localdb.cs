@@ -3,11 +3,18 @@ using System.Collections.Generic;
 using System.Text;
 using VBMTablet._objs._menuObjs;
 using VBMTablet._objs._cartObjs;
+using VBMTablet._objs._promoObjs;
+using VBMTablet._objs._storeObjs;
+using VBMTablet._objs._userObjs;
+using VBMTablet._objs._staffObjs;
+
+using VBMTablet._objs.OtherServices;
 using VBMTablet._pages._login;
 using VBMTablet._pages._info;
 using VBMTablet._pages._menu;
 using VBMTablet._pages._home;
 using VBMTablet._pages._thanhtoan;
+
 using VBMTablet._process;
 
 namespace VBMTablet._process
@@ -19,8 +26,15 @@ namespace VBMTablet._process
         public static string mapKey { get; set; } = "AIzaSyDpRFj41NIorY3s3JCluX0fgp8IobZQ0Zg";
         public static SQLiteBase SQLiteBase { get; set; }
 
+        //data
         public static List<groupMenu> groupMenus { get; set; }
+        public static List<promotionObjs> promotionObjs { get; set; }
+        public static List<storeObj> storeObjs { get; set; }
         public static extra_spices extra_Spices { get; set; }
+        public static storeObj SelectedStore { get; set; }
+        public static userinfo userinfo { get; set; }
+        public static staff NhanVieninfo { get; set; }
+        public static List<staff> FullNhanVienInfo { get; set; }
         public static List<CartProd> CartProd { get; set; } = new List<CartProd>();
 
         //pages

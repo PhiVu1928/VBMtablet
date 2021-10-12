@@ -40,6 +40,7 @@ namespace VBMTablet._objs._storeObjs
                         {
                             var str = tools.GetJArrayValue(jOb, "Datas");
                             var res = JsonConvert.DeserializeObject<List<storeObj>>(str);
+                            localdb.storeObjs = res;
                             return res;
                         }
                         else

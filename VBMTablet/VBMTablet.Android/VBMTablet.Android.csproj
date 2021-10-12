@@ -75,6 +75,9 @@
     <PackageReference Include="Syncfusion.Xamarin.SfPicker">
       <Version>19.3.0.44</Version>
     </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfPopupLayout">
+      <Version>19.3.0.44</Version>
+    </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfTabView">
       <Version>19.3.0.44</Version>
     </PackageReference>

@@ -57,10 +57,12 @@
             <Color x:Key="vbmlightgreen">#18794D</Color>
             <Color x:Key="vbmlightyellow">#FBE200</Color>
             <Color x:Key="vbmdeepgreen">#266248</Color>
+            <Color x:Key="vbmlightsky">#FFFEE7</Color>
             <Color x:Key="vbmyellow">#F7BA34</Color>
             <Color x:Key="vbmwhite">#FFFFFF</Color>
             <Color x:Key="vbmbrick">#f47b0a</Color>
             <Color x:Key="vbmpinttext">#fa4a0c</Color>
+            <Color x:Key="vbmred">#DF2C2C</Color>
             <Color x:Key="vbmwarning">#A43939</Color>
             <Color x:Key="vbmgray">#7EA39C</Color>
             <Color x:Key="vbmlightgray">#F6F9F8</Color>

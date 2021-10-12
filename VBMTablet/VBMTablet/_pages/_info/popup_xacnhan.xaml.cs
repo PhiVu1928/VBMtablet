@@ -24,14 +24,11 @@ namespace VBMTablet._pages._info
             await xacnhan.ScaleTo(0.9, 1);
             await xacnhan.FadeTo(0.9, 1);
             try
-            {
-                Device.BeginInvokeOnMainThread(() =>
-                {
-                    var homepage = new VBMTablet._pages._home.home_page();
-                    Navigation.PushAsync(homepage);
-                    homepage.render();
-                });
-                Navigation.PopPopupAsync();
+            {                
+                var homepage = new VBMTablet._pages._home.home_page();
+                await Navigation.PushAsync(homepage);
+                homepage.render();
+                await Navigation.PopPopupAsync();
                 await xacnhan.ScaleTo(1, 100);
                 await this.FadeTo(1, 100);
             }

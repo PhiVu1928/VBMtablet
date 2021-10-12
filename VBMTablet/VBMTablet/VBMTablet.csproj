@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <PackageReference Include="Acr.UserDialogs" Version="7.2.0.534" />
+    <PackageReference Include="Microsoft.AspNet.SignalR.Client" Version="2.4.2" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.13" />
     <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
@@ -19,6 +20,7 @@
     <PackageReference Include="Syncfusion.Xamarin.SfBusyIndicator" Version="19.3.0.44" />
     <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="19.3.0.44" />
     <PackageReference Include="Syncfusion.Xamarin.SfPicker" Version="19.3.0.44" />
+    <PackageReference Include="Syncfusion.Xamarin.SfPopupLayout" Version="19.3.0.44" />
     <PackageReference Include="Syncfusion.Xamarin.SfTabView" Version="19.3.0.44" />
     <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
@@ -44,6 +46,9 @@
     </EmbeddedResource>
     <EmbeddedResource Update="_pages\_login\login_page.xaml">
       <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="_pages\_promo\promo_detail.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="_pages\_thanhtoan\_orderoption\InPlace.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>

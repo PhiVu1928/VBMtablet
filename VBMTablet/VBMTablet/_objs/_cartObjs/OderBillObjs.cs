@@ -62,7 +62,7 @@ namespace VBMTablet._objs._cartObjs
             var res = new BillCreateDoAddBill
             {
                 BillDate = DateTime.Now,
-                BillType = 0,
+                BillType = 1,
                 Datitude = "",
                 deliverAddress = "",
                 DiscountJSON = discountJson,

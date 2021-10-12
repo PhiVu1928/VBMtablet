@@ -5,351 +5,354 @@
              xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              x:Class="VBMTablet._pages._home.historypage"
              BackgroundColor="{StaticResource vbmwhite}">
-    <StackLayout Margin="{OnIdiom Phone=0,Tablet='20,0'}"
+    <ScrollView>
+        <StackLayout Margin="{OnIdiom Phone=0,Tablet='20,0'}"
                  Spacing="20">
 
-        <border:SfBorder BackgroundColor="{StaticResource vbmlightgray}"
+            <border:SfBorder BackgroundColor="{StaticResource vbmlightgray}"
                          BorderColor="{StaticResource vbmwhite}"
                          HasShadow="False"
                          CornerRadius="30"
                          Padding="30">
-            <Grid>
+                <Grid>
 
-                <StackLayout Spacing="20"
+                    <StackLayout Spacing="20"
                              Orientation="Vertical">
 
-                    <Label Text="24/03/2021"
+                        <Label Text="24/03/2021"
                        FontAttributes="Bold"
                        TextColor="{StaticResource vbmgray}"
                        FontSize="{OnIdiom Phone=10,Tablet=25}"/>
 
 
-                    <Grid VerticalOptions="Center">
+                        <Grid VerticalOptions="Center">
 
 
-                        <Label Text="Bánh mì thịt nướng + Trà chanh"
+                            <Label Text="Bánh mì thịt nướng + Trà chanh"
                            FontSize="{OnIdiom Phone=10,Tablet=25}"
                            TextColor="{StaticResource vbmgray}"
                            HorizontalOptions="Start"
                            VerticalOptions="Center"/>
 
-                        <Label Text="x2"
+                            <Label Text="x2"
                            FontSize="{OnIdiom Phone=10,Tablet=25}"
                            TextColor="{StaticResource vbmgray}"
                            HorizontalOptions="End"
                            VerticalOptions="Center"/>
 
-                    </Grid>
+                        </Grid>
 
-                    <StackLayout Orientation="Horizontal"
+                        <StackLayout Orientation="Horizontal"
                              HorizontalOptions="Start"
                              VerticalOptions="End"
                              Spacing="20">
 
-                        <ff:CachedImage Source="chuanbiicon"
+                            <ff:CachedImage Source="chuanbiicon"
                                     Aspect="Fill"
                                     WidthRequest="30"
                                     HeightRequest="30"/>
 
-                        <Label Text="Đặt lại theo đơn hàng này"
+                            <Label Text="Đặt lại theo đơn hàng này"
                            FontSize="{OnIdiom Phone=10,Tablet=25}"
                            FontAttributes="Bold"/>
+
+                        </StackLayout>
+
 
                     </StackLayout>
 
 
-                </StackLayout>
+                </Grid>
 
+            </border:SfBorder>
 
-            </Grid>
-
-        </border:SfBorder>
-
-        <border:SfBorder BackgroundColor="{StaticResource vbmlightgray}"
+            <border:SfBorder BackgroundColor="{StaticResource vbmlightgray}"
                          BorderColor="{StaticResource vbmwhite}"
                          HasShadow="False"
                          CornerRadius="30"
                          Padding="30">
-            <Grid>
+                <Grid>
 
-                <StackLayout Spacing="20"
+                    <StackLayout Spacing="20"
                              Orientation="Vertical">
 
-                    <Label Text="24/03/2021"
+                        <Label Text="24/03/2021"
                        FontAttributes="Bold"
                        TextColor="{StaticResource vbmgray}"
                        FontSize="{OnIdiom Phone=10,Tablet=25}"/>
 
 
-                    <Grid VerticalOptions="Center">
+                        <Grid VerticalOptions="Center">
 
 
-                        <Label Text="Bánh mì thịt nướng + Trà chanh"
+                            <Label Text="Bánh mì thịt nướng + Trà chanh"
                            FontSize="{OnIdiom Phone=10,Tablet=25}"
                            TextColor="{StaticResource vbmgray}"
                            HorizontalOptions="Start"
                            VerticalOptions="Center"/>
 
-                        <Label Text="x2"
+                            <Label Text="x2"
                            FontSize="{OnIdiom Phone=10,Tablet=25}"
                            TextColor="{StaticResource vbmgray}"
                            HorizontalOptions="End"
                            VerticalOptions="Center"/>
 
-                    </Grid>
+                        </Grid>
 
-                    <StackLayout Orientation="Horizontal"
+                        <StackLayout Orientation="Horizontal"
                              HorizontalOptions="Start"
                              VerticalOptions="End"
                              Spacing="20">
 
-                        <ff:CachedImage Source="chuanbiicon"
+                            <ff:CachedImage Source="chuanbiicon"
                                     Aspect="Fill"
                                     WidthRequest="30"
                                     HeightRequest="30"/>
 
-                        <Label Text="Đặt lại theo đơn hàng này"
+                            <Label Text="Đặt lại theo đơn hàng này"
                            FontSize="{OnIdiom Phone=10,Tablet=25}"
                            FontAttributes="Bold"/>
+
+                        </StackLayout>
+
 
                     </StackLayout>
 
 
-                </StackLayout>
+                </Grid>
 
+            </border:SfBorder>
 
-            </Grid>
-
-        </border:SfBorder>
-
-        <border:SfBorder BackgroundColor="{StaticResource vbmlightgray}"
+            <border:SfBorder BackgroundColor="{StaticResource vbmlightgray}"
                          BorderColor="{StaticResource vbmwhite}"
                          HasShadow="False"
                          CornerRadius="30"
                          Padding="30">
-            <Grid>
+                <Grid>
 
-                <StackLayout Spacing="20"
+                    <StackLayout Spacing="20"
                              Orientation="Vertical">
 
-                    <Label Text="24/03/2021"
+                        <Label Text="24/03/2021"
                        FontAttributes="Bold"
                        TextColor="{StaticResource vbmgray}"
                        FontSize="{OnIdiom Phone=10,Tablet=25}"/>
 
 
-                    <Grid VerticalOptions="Center">
+                        <Grid VerticalOptions="Center">
 
 
-                        <Label Text="Bánh mì thịt nướng + Trà chanh"
+                            <Label Text="Bánh mì thịt nướng + Trà chanh"
                            FontSize="{OnIdiom Phone=10,Tablet=25}"
                            TextColor="{StaticResource vbmgray}"
                            HorizontalOptions="Start"
                            VerticalOptions="Center"/>
 
-                        <Label Text="x2"
+                            <Label Text="x2"
                            FontSize="{OnIdiom Phone=10,Tablet=25}"
                            TextColor="{StaticResource vbmgray}"
                            HorizontalOptions="End"
                            VerticalOptions="Center"/>
 
-                    </Grid>
+                        </Grid>
 
-                    <StackLayout Orientation="Horizontal"
+                        <StackLayout Orientation="Horizontal"
                              HorizontalOptions="Start"
                              VerticalOptions="End"
                              Spacing="20">
 
-                        <ff:CachedImage Source="chuanbiicon"
+                            <ff:CachedImage Source="chuanbiicon"
                                     Aspect="Fill"
                                     WidthRequest="30"
                                     HeightRequest="30"/>
 
-                        <Label Text="Đặt lại theo đơn hàng này"
+                            <Label Text="Đặt lại theo đơn hàng này"
                            FontSize="{OnIdiom Phone=10,Tablet=25}"
                            FontAttributes="Bold"/>
+
+                        </StackLayout>
+
 
                     </StackLayout>
 
 
-                </StackLayout>
+                </Grid>
 
+            </border:SfBorder>
 
-            </Grid>
-
-        </border:SfBorder>
-
-        <border:SfBorder BackgroundColor="{StaticResource vbmlightgray}"
+            <border:SfBorder BackgroundColor="{StaticResource vbmlightgray}"
                          BorderColor="{StaticResource vbmwhite}"
                          HasShadow="False"
                          CornerRadius="30"
                          Padding="30">
-            <Grid>
+                <Grid>
 
-                <StackLayout Spacing="20"
+                    <StackLayout Spacing="20"
                              Orientation="Vertical">
 
-                    <Label Text="24/03/2021"
+                        <Label Text="24/03/2021"
                        FontAttributes="Bold"
                        TextColor="{StaticResource vbmgray}"
                        FontSize="{OnIdiom Phone=10,Tablet=25}"/>
 
 
-                    <Grid VerticalOptions="Center">
+                        <Grid VerticalOptions="Center">
 
 
-                        <Label Text="Bánh mì thịt nướng + Trà chanh"
+                            <Label Text="Bánh mì thịt nướng + Trà chanh"
                            FontSize="{OnIdiom Phone=10,Tablet=25}"
                            TextColor="{StaticResource vbmgray}"
                            HorizontalOptions="Start"
                            VerticalOptions="Center"/>
 
-                        <Label Text="x2"
+                            <Label Text="x2"
                            FontSize="{OnIdiom Phone=10,Tablet=25}"
                            TextColor="{StaticResource vbmgray}"
                            HorizontalOptions="End"
                            VerticalOptions="Center"/>
 
-                    </Grid>
+                        </Grid>
 
-                    <StackLayout Orientation="Horizontal"
+                        <StackLayout Orientation="Horizontal"
                              HorizontalOptions="Start"
                              VerticalOptions="End"
                              Spacing="20">
 
-                        <ff:CachedImage Source="chuanbiicon"
+                            <ff:CachedImage Source="chuanbiicon"
                                     Aspect="Fill"
                                     WidthRequest="30"
                                     HeightRequest="30"/>
 
-                        <Label Text="Đặt lại theo đơn hàng này"
+                            <Label Text="Đặt lại theo đơn hàng này"
                            FontSize="{OnIdiom Phone=10,Tablet=25}"
                            FontAttributes="Bold"/>
+
+                        </StackLayout>
+
 
                     </StackLayout>
 
 
-                </StackLayout>
+                </Grid>
 
+            </border:SfBorder>
 
-            </Grid>
-
-        </border:SfBorder>
-
-        <border:SfBorder BackgroundColor="{StaticResource vbmlightgray}"
+            <border:SfBorder BackgroundColor="{StaticResource vbmlightgray}"
                          BorderColor="{StaticResource vbmwhite}"
                          HasShadow="False"
                          CornerRadius="30"
                          Padding="30">
-            <Grid>
+                <Grid>
 
-                <StackLayout Spacing="20"
+                    <StackLayout Spacing="20"
                              Orientation="Vertical">
 
-                    <Label Text="24/03/2021"
+                        <Label Text="24/03/2021"
                        FontAttributes="Bold"
                        TextColor="{StaticResource vbmgray}"
                        FontSize="{OnIdiom Phone=10,Tablet=25}"/>
 
 
-                    <Grid VerticalOptions="Center">
+                        <Grid VerticalOptions="Center">
 
 
-                        <Label Text="Bánh mì thịt nướng + Trà chanh"
+                            <Label Text="Bánh mì thịt nướng + Trà chanh"
                            FontSize="{OnIdiom Phone=10,Tablet=25}"
                            TextColor="{StaticResource vbmgray}"
                            HorizontalOptions="Start"
                            VerticalOptions="Center"/>
 
-                        <Label Text="x2"
+                            <Label Text="x2"
                            FontSize="{OnIdiom Phone=10,Tablet=25}"
                            TextColor="{StaticResource vbmgray}"
                            HorizontalOptions="End"
                            VerticalOptions="Center"/>
 
-                    </Grid>
+                        </Grid>
 
-                    <StackLayout Orientation="Horizontal"
+                        <StackLayout Orientation="Horizontal"
                              HorizontalOptions="Start"
                              VerticalOptions="End"
                              Spacing="20">
 
-                        <ff:CachedImage Source="chuanbiicon"
+                            <ff:CachedImage Source="chuanbiicon"
                                     Aspect="Fill"
                                     WidthRequest="30"
                                     HeightRequest="30"/>
 
-                        <Label Text="Đặt lại theo đơn hàng này"
+                            <Label Text="Đặt lại theo đơn hàng này"
                            FontSize="{OnIdiom Phone=10,Tablet=25}"
                            FontAttributes="Bold"/>
+
+                        </StackLayout>
+
 
                     </StackLayout>
 
 
-                </StackLayout>
+                </Grid>
 
+            </border:SfBorder>
 
-            </Grid>
-
-        </border:SfBorder>
-
-        <border:SfBorder BackgroundColor="{StaticResource vbmlightgray}"
+            <border:SfBorder BackgroundColor="{StaticResource vbmlightgray}"
                          BorderColor="{StaticResource vbmwhite}"
                          HasShadow="False"
                          CornerRadius="30"
                          Padding="30">
-            <Grid>
+                <Grid>
 
-                <StackLayout Spacing="20"
+                    <StackLayout Spacing="20"
                              Orientation="Vertical">
 
-                    <Label Text="24/03/2021"
+                        <Label Text="24/03/2021"
                        FontAttributes="Bold"
                        TextColor="{StaticResource vbmgray}"
                        FontSize="{OnIdiom Phone=10,Tablet=25}"/>
 
 
-                    <Grid VerticalOptions="Center">
+                        <Grid VerticalOptions="Center">
 
 
-                        <Label Text="Bánh mì thịt nướng + Trà chanh"
+                            <Label Text="Bánh mì thịt nướng + Trà chanh"
                            FontSize="{OnIdiom Phone=10,Tablet=25}"
                            TextColor="{StaticResource vbmgray}"
                            HorizontalOptions="Start"
                            VerticalOptions="Center"/>
 
-                        <Label Text="x2"
+                            <Label Text="x2"
                            FontSize="{OnIdiom Phone=10,Tablet=25}"
                            TextColor="{StaticResource vbmgray}"
                            HorizontalOptions="End"
                            VerticalOptions="Center"/>
 
-                    </Grid>
+                        </Grid>
 
-                    <StackLayout Orientation="Horizontal"
+                        <StackLayout Orientation="Horizontal"
                              HorizontalOptions="Start"
                              VerticalOptions="End"
                              Spacing="20">
 
-                        <ff:CachedImage Source="chuanbiicon"
+                            <ff:CachedImage Source="chuanbiicon"
                                     Aspect="Fill"
                                     WidthRequest="30"
                                     HeightRequest="30"/>
 
-                        <Label Text="Đặt lại theo đơn hàng này"
+                            <Label Text="Đặt lại theo đơn hàng này"
                            FontSize="{OnIdiom Phone=10,Tablet=25}"
                            FontAttributes="Bold"/>
+
+                        </StackLayout>
+
 
                     </StackLayout>
 
 
-                </StackLayout>
+                </Grid>
+
+            </border:SfBorder>
 
 
-            </Grid>
+        </StackLayout>
 
-        </border:SfBorder>
-
-
-    </StackLayout>
+    </ScrollView>
 </ContentView>

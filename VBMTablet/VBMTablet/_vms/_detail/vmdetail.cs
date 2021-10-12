@@ -155,7 +155,7 @@ namespace VBMTablet._vms._detail
             var sizerender = new ObservableCollection<SizeRender>();
             foreach(var item in eMenu.lst_size.OrderBy(x => x.price))
             {
-                if(item.size == 2 && item.size > 1)
+                if(item.size == 2 || item.size < 1)
                 {
                     sizerender.Add(new SizeRender(item, true));
                     monid = item.id;

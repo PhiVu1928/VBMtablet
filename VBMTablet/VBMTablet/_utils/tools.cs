@@ -7,8 +7,12 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
+
 using VBMTablet._objs._menuObjs;
+using VBMTablet._objs._promoObjs;
+using VBMTablet._objs._storeObjs;
 using VBMTablet._process;
+
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -98,7 +102,17 @@ namespace VBMTablet._utils
                 return sb.ToString();
             }
         }
-
+        public static string EncodePassword(string value)
+        {
+            MD5 algorithm = MD5.Create();
+            byte[] data = algorithm.ComputeHash(Encoding.UTF8.GetBytes(value));
+            string sh1 = "";
+            for (int i = 0; i < data.Length; i++)
+            {
+                sh1 += data[i].ToString("x2").ToUpperInvariant();
+            }
+            return sh1;
+        }
         public static string EncryptAES(string text)
         {
             string keyString = "VnVQaG9uZ01haVRodXk@ppcafe890vbm"; //replace with your key
@@ -159,6 +173,32 @@ namespace VBMTablet._utils
             var cl = new HttpClient();
             cl.Timeout = TimeSpan.FromSeconds(10);
             return cl;
+        }
+        public static async void startAppAction()
+        {
+            try
+            {
+                if (localdb.groupMenus != null && localdb.extra_Spices != null && localdb.promotionObjs != null && localdb.storeObjs != null)
+                {
+                    localdb.cover_Page.start_app();
+                }
+                else
+                {
+                    var menu = await groupMenu.getMenuData();
+                    var extraSpices = await extra_spices.getExsSpisData();
+                    var store = await storeObj.getLstStores();
+                    var promo = await promotionObjs.getPromotions();
+                    if (menu != null && extraSpices != null && store != null && promo != null)
+                    {
+                        localdb.cover_Page.start_app();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Application.Current.MainPage.DisplayAlert("Error", ex.ToString(), "OK");
+            }
+
         }
     }
 }

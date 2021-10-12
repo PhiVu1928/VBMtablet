@@ -5,6 +5,8 @@
              xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
              xmlns:sfinput="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             xmlns:btn="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:popuplayout="clr-namespace:Syncfusion.XForms.PopupLayout;assembly=Syncfusion.SfPopupLayout.XForms"
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="{StaticResource vbmwhite}">
     <ScrollView>
@@ -86,16 +88,19 @@
                                                            FocusedColor="Transparent"
                                                            UnfocusedColor="Transparent"
                                                            ContainerType="Outlined"
-                                                           Margin="{OnIdiom Phone='0,5',Tablet='0,4'}">
+                                                           Margin="{OnIdiom Phone='0,5',Tablet='0,4'}"
+                                                           >
                                     <Picker Title="Danh sách cửa hàng"
                                             x:Name="sfpickstore"          
-                                            SelectedItem="{Binding shopname}"
+                                            SelectedItem="{Binding name}"
+                                            ItemDisplayBinding="{Binding name}"
+                                            ItemsSource="{Binding storeStatuses}"
+                                            SelectedIndexChanged="sfpickstore_SelectedIndexChanged"
                                             FontSize="{OnIdiom Phone=13, Tablet=25}"                         
                                             TextColor="#707b77"
                                             TitleColor="#707b77"                                            
                                             WidthRequest="{OnIdiom Phone=120,Tablet=260}"
                                             HorizontalOptions="Center"                                                   
-                                            ItemsSource="{Binding name}"
                                             VerticalOptions="Center"/>
 
                                 </sfinput:SfTextInputLayout>
@@ -134,6 +139,8 @@
                                                            Margin="{OnIdiom Phone='0,5',Tablet='0,10'}">
                                     
                                     <Entry Placeholder="Số điện thoại"
+                                           Keyboard="Telephone"
+                                           Text="{Binding sdt, Mode=TwoWay}"
                                            FontSize="{OnIdiom Phone=15,Tablet=25}"/>
                                     
                                 </sfinput:SfTextInputLayout>
@@ -167,6 +174,7 @@
                                                            Margin="{OnIdiom Phone='0,5',Tablet='0,10'}">
 
                                     <Entry Placeholder="Mật khẩu"
+                                           Text="{Binding pwd,Mode=TwoWay}"
                                            IsPassword="True"
                                            FontSize="{OnIdiom Phone=15,Tablet=25}"/>
 

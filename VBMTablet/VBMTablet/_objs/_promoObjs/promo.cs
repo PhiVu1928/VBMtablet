@@ -54,7 +54,7 @@ namespace VBMTablet._objs._promoObjs
                 {
                     using (var cl = tools.createHttpClient())
                     {
-                        string url = $"{localdb.endpoin}all_promotions?channel=1";
+                        string url = $"{localdb.endpoin}all_promotions?channel=2";
                         var res1 = await cl.GetAsync(url);
                         var res2 = await res1.Content.ReadAsStringAsync();
                         var job = JObject.Parse(res2);
@@ -62,7 +62,9 @@ namespace VBMTablet._objs._promoObjs
                         if (success)
                         {
                             var datas = tools.GetJArrayValue(job, "Datas");
-                            return JsonConvert.DeserializeObject<List<promotionObjs>>(datas);
+                            var res = JsonConvert.DeserializeObject<List<promotionObjs>>(datas);
+                            localdb.promotionObjs = res;
+                            return res;
                         }
                         else
                         {

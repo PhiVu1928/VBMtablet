@@ -137,12 +137,19 @@ namespace VBMTablet._pages._thanhtoan
                             case 0:
                                 if (cv.id == 0 && cv.id == item.id)
                                 {
-                                    var price = localdb.thanh_Toan_Page.vmcart.CallMoney();
-                                    var bill = BillCreateDoAddBill.createDoAddBill("", 0);
-                                    var Inplace = new VBMTablet._pages._thanhtoan._orderoption.InPlace();
-                                    await Navigation.PushPopupAsync(Inplace);
-                                    Inplace.Render(bill);
-                                    item.Selected = true;
+                                    if(localdb.CartProd.Count == 0)
+                                    {
+                                        await Application.Current.MainPage.DisplayAlert("Không có sản phẩm nào trong giỏ hàng", "Vui lòng chọn sản phẩm và thực hiện thanh toán lại bạn nhé !", "Ok");
+                                    }
+                                    else
+                                    {
+                                        var price = localdb.thanh_Toan_Page.vmcart.CallMoney();
+                                        var bill = BillCreateDoAddBill.createDoAddBill("", 0);
+                                        var Inplace = new VBMTablet._pages._thanhtoan._orderoption.InPlace();
+                                        await Navigation.PushPopupAsync(Inplace);
+                                        Inplace.Render(bill);
+                                        item.Selected = true;
+                                    }                                    
                                 }
                                 else
                                 {
@@ -151,8 +158,15 @@ namespace VBMTablet._pages._thanhtoan
                                 break;
                             case 1:
                                 if (cv.id == 1 && cv.id == item.id)
-                                {                                   
-                                    item.Selected = true;
+                                {
+                                    if (localdb.CartProd.Count == 0)
+                                    {
+                                        await Application.Current.MainPage.DisplayAlert("Không có sản phẩm nào trong giỏ hàng", "Vui lòng chọn sản phẩm và thực hiện thanh toán lại bạn nhé !", "Ok");
+                                    }
+                                    else
+                                    {                                        
+                                        item.Selected = true;
+                                    }
                                 }
                                 else
                                 {
@@ -162,7 +176,14 @@ namespace VBMTablet._pages._thanhtoan
                             case 2:
                                 if (cv.id == 2 && cv.id == item.id)
                                 {
-                                    item.Selected = true;
+                                    if (localdb.CartProd.Count == 0)
+                                    {
+                                        await Application.Current.MainPage.DisplayAlert("Không có sản phẩm nào trong giỏ hàng", "Vui lòng chọn sản phẩm và thực hiện thanh toán lại bạn nhé !", "Ok");
+                                    }
+                                    else
+                                    {
+                                        item.Selected = true;
+                                    }
                                 }
                                 else
                                 {
@@ -183,12 +204,23 @@ namespace VBMTablet._pages._thanhtoan
         }
         async void lbldeletecart_tapped(object sender, EventArgs e)
         {
-            var ctr = sender as Label;
+            var ctr = sender as Grid;
             await ctr.ScaleTo(0.9, 1);
             await this.FadeTo(0.9, 1);
             try
             {
-                
+                var cv = (cartItem)ctr.BindingContext;
+                var ques = await Application.Current.MainPage.DisplayAlert("", "Bạn thực sự muốn xóa sản phẩm này ?", "Ok", "No");
+                if (ques)
+                {
+                    localdb.CartProd.Remove(cv.prod);
+                    vmcart.RenderCartItem();
+                    vmcart.CallMoney();
+                }
+                if (localdb.home_Page != null)
+                    localdb.home_Page.updateSlCart();
+                await ctr.ScaleTo(1, 100);
+                await this.FadeTo(1, 100);
             }
             catch (Exception ex)
             {
@@ -207,9 +239,16 @@ namespace VBMTablet._pages._thanhtoan
             try
             {
                 var cv = (cartItem)ctr.BindingContext;
-                if(cv.prod.slg == 1)
+                if (cv.prod.slg == 1)
                 {
-                    localdb.CartProd.Remove(cv.prod);
+                    var ques = await Application.Current.MainPage.DisplayAlert("", "Bạn thực sự muốn xóa sản phẩm này ?", "Ok", "No");
+                    if (ques)
+                    {
+                        localdb.CartProd.Remove(cv.prod);
+                        vmcart.RenderCartItem();
+                        vmcart.CallMoney();
+                    }
+                    
                 }
                 else
                 {

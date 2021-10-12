@@ -10,53 +10,64 @@
              BackgroundColor="{StaticResource vbmwhite}">
     <Grid Margin="{OnIdiom Phone='0',Tablet='0,50,0,0'}">
 
-        <sf:SfListView Orientation="Vertical"
-                           IsScrollBarVisible="False"
-                           ItemSize="{OnIdiom Phone=120,Tablet=190}"
-                           ItemSpacing="20,10"
-                           SelectionBackgroundColor="Transparent"
-                           x:Name="lstpromo">
-            <sf:SfListView.ItemTemplate>
+        <StackLayout Orientation="Vertical"
+                     HorizontalOptions="Center"
+                     VerticalOptions="Center"
+                     Spacing="20"
+                     Margin="10,0"
+                     BindableLayout.ItemsSource="{Binding promos}">
+            <BindableLayout.ItemTemplate>
                 <DataTemplate>
                     <border:SfBorder CornerRadius="60"
-                                         BorderWidth="0"
-                                         BorderColor="{StaticResource vbmdeeplightgray}"
-                                         HasShadow="True"
-                                         ShadowColor="{StaticResource vbmdeeplightgray}">
+                                     HeightRequest="190"
+                                     WidthRequest="620"
+                                     BorderWidth="0"
+                                     BorderColor="{StaticResource vbmdeeplightgray}"
+                                     HasShadow="True"
+                                     ShadowColor="{StaticResource vbmdeeplightgray}">
 
                         <Grid>
 
                             <ff:CachedImage Source="Group"
-                                                Aspect="Fill"
-                                                WidthRequest="{OnIdiom Phone=84,Tablet=134}"
-                                                HeightRequest="74"
-                                                BackgroundColor="Transparent"
-                                                HorizontalOptions="End"/>
+                                            Aspect="Fill"
+                                            WidthRequest="{OnIdiom Phone=84,Tablet=134}"
+                                            HeightRequest="74"
+                                            BackgroundColor="Transparent"
+                                            HorizontalOptions="End"/>
 
                             <StackLayout Padding="{OnIdiom Phone=15,Tablet=30}"
-                                             Orientation="Vertical"
-                                             HorizontalOptions="Start"
-                                             VerticalOptions="Center"
-                                             Spacing="10">
+                                         Orientation="Vertical"
+                                         HorizontalOptions="Start"
+                                         VerticalOptions="Center"
+                                         Spacing="10">
 
-                                <Label Text="{Binding name_vn}"
-                                           TextColor="{StaticResource vbmdeepgreen}"
-                                           FontSize="{OnIdiom Phone=15,Tablet=35}"
-                                           FontAttributes="Bold"
-                                           HorizontalOptions="Start"
-                                           VerticalOptions="Start"/>
+                                <Label Text="{Binding name}"
+                                       TextColor="{StaticResource vbmdeepgreen}"
+                                       FontSize="{OnIdiom Phone=15,Tablet=35}"
+                                       FontAttributes="Bold"
+                                       HorizontalOptions="Start"
+                                       VerticalOptions="Start"/>
 
                                 <StackLayout Orientation="Horizontal"
-                                                 Spacing="26">
+                                             Spacing="26">
 
                                     <ff:CachedImage Source="timeicon"
-                                                        Aspect="Fill"
-                                                        WidthRequest="{OnIdiom Phone=25,Tablet=35}"
-                                                        HeightRequest="25"/>
+                                                    Aspect="Fill"
+                                                    WidthRequest="{OnIdiom Phone=25,Tablet=35}"
+                                                    HeightRequest="25"/>
 
-                                    <Label Text=""
+                                    <Label Text="13:00 - 17:00"
+                                           FontSize="{OnIdiom Phone=15,Tablet=25}"
+                                           TextColor="{StaticResource vbmgray}"/>
+
+                                    <Grid>
+                                        <Label Text="Chi Tiết"
                                                FontSize="{OnIdiom Phone=15,Tablet=25}"
-                                               TextColor="{StaticResource vbmgray}"/>
+                                               TextColor="{StaticResource vbmpinttext}"/>
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="GrPromoDetail_Tapped"/>
+                                        </Grid.GestureRecognizers>
+                                    </Grid>
 
                                 </StackLayout>
 
@@ -64,19 +75,20 @@
 
                         </Grid>
                         <border:SfBorder.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                            <TapGestureRecognizer Tapped="bdpromo_tapped"/>
                         </border:SfBorder.GestureRecognizers>
                     </border:SfBorder>
 
                 </DataTemplate>
-            </sf:SfListView.ItemTemplate>
-        </sf:SfListView>
+            </BindableLayout.ItemTemplate>
+        </StackLayout>
         <busyindicator:SfBusyIndicator
                         x:Name="busyindicator"
                         AnimationType="Cupertino"
                         HeightRequest="100"
                         HorizontalOptions="Center"
-                        IsBusy="True"
+                        IsBusy="{Binding isbusy}"
+                        IsVisible="{Binding isbusy}"
                         TextColor="#1d5234"
                         VerticalOptions="Center"
                         WidthRequest="100" />
