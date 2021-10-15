@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<popup:PopupPage
+    x:Class="VBMTablet._pages._home.addNewCustomer_page"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+    xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+    xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:popup="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:sfinput="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms">
+    <popup:PopupPage.Animation>
+        <animations:ScaleAnimation
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"
+            PositionIn="Center"
+            PositionOut="Center" />
+    </popup:PopupPage.Animation>
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+
+        <Frame
+            BackgroundColor="{StaticResource vbmwhite}"
+            CornerRadius="50"
+            HorizontalOptions="FillAndExpand"
+            Margin="20">
+
+            <Grid Padding="20">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid>
+                    <Label
+                    Margin="0,30,0,0"
+                    FontSize="36"
+                    HorizontalOptions="Center"
+                    Text="KHÁCH HÀNG MỚI"
+                    VerticalOptions="Start"/>
+
+                    <ff:CachedImage
+                    x:Name="close"
+                    Aspect="Fill"
+                    HeightRequest="20"
+                    HorizontalOptions="End"
+                    Source="Close"
+                    VerticalOptions="Start"
+                    WidthRequest="20">
+                        <ff:CachedImage.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ff_close_tapped" />
+                        </ff:CachedImage.GestureRecognizers>
+                    </ff:CachedImage>
+                </Grid>
+                
+
+
+                <StackLayout Orientation="Vertical"
+                             HorizontalOptions="FillAndExpand"
+                             VerticalOptions="Center"
+                             Grid.Row="1">
+                    <border:SfBorder
+                        Padding="10"
+                        BackgroundColor="{StaticResource vbmlightgray}"
+                        BorderColor="{StaticResource vbmwhite}"
+                        CornerRadius="30"
+                        HasShadow="False"
+                        HeightRequest="{OnIdiom Phone=55,
+                                                Tablet=85}"
+                        HorizontalOptions="Fill"
+                        VerticalOptions="Center">
+
+                        <sfinput:SfTextInputLayout
+                            BackgroundColor="Transparent"
+                            ContainerType="Outlined"
+                            FocusedColor="Transparent"
+                            UnfocusedColor="Transparent"
+                            WidthRequest="300">
+
+                            <Entry
+                                FontSize="{OnIdiom Tablet=25,
+                                                   Phone=10}"
+                                Keyboard="Telephone"
+                                Placeholder="Tên khách hàng" 
+                                x:Name="ETInputMNV"/>
+
+                        </sfinput:SfTextInputLayout>
+
+                    </border:SfBorder>
+
+                    <Label Text="Độ tuổi của khách ( Dự đoán):"
+                           TextColor="{StaticResource vbmgreen}"
+                           FontSize="{OnIdiom Phone=20,Tablet=30}"/>
+
+                    <StackLayout Orientation="Vertical"
+                                 Padding="20"
+                                 BindableLayout.ItemsSource="{Binding userAgeStatuses}">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Orientation="Horizontal"
+                                             Spacing="20">
+                                    <border:SfBorder WidthRequest="50"
+                                                     HeightRequest="50"
+                                                     CornerRadius="30"
+                                                     HasShadow="False"
+                                                     BackgroundColor="{StaticResource vbmwhite}"
+                                                     BorderColor="{StaticResource vbmdeepgreen}"
+                                                     HorizontalOptions="Start"
+                                                     VerticalOptions="Center">
+                                        <ff:CachedImage Source="Stroke2"
+                                                        Aspect="AspectFill"
+                                                        HorizontalOptions="Center"
+                                                        VerticalOptions="Center"
+                                                        IsVisible="{Binding visCheck}"/>
+                                    </border:SfBorder>
+
+                                    <Label Text="{Binding age}"
+                                           FontSize="{OnIdiom Phone=18,Tablet=27}"
+                                           TextColor="{StaticResource vbmdeepmiddlegray}"/>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="stlAge_Tapped"/>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+
+                    <Label Text="Giới tính của khách:"
+                           TextColor="{StaticResource vbmgreen}"
+                           FontSize="{OnIdiom Phone=20,Tablet=30}"/>
+
+                    <StackLayout Orientation="Vertical"
+                                 BindableLayout.ItemsSource="{Binding userGioiTinhStatuses}"
+                                 Padding="20">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Orientation="Horizontal"
+                                             Spacing="20">
+                                    <border:SfBorder WidthRequest="50"
+                                                     HeightRequest="50"
+                                                     CornerRadius="30"
+                                                     HasShadow="False"
+                                                     BackgroundColor="{StaticResource vbmwhite}"
+                                                     BorderColor="{StaticResource vbmdeepgreen}"
+                                                     HorizontalOptions="Start"
+                                                     VerticalOptions="Center">
+                                        <ff:CachedImage Source="Stroke2"
+                                                        Aspect="AspectFill"
+                                                        HorizontalOptions="Center"
+                                                        VerticalOptions="Center"
+                                                        IsVisible="{Binding visCheck}"/>
+                                    </border:SfBorder>
+
+                                    <Label Text="{Binding gioiTinh}"
+                                           FontSize="{OnIdiom Phone=18,Tablet=27}"
+                                           TextColor="{StaticResource vbmdeepmiddlegray}"/>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="stlGioiTinh_tapped"/>
+                                    </StackLayout.GestureRecognizers>
+                                    
+                                </StackLayout>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+
+                    <border:SfBorder
+                    x:Name="xacnhan"
+                    BackgroundColor="{StaticResource vbmlightyellow}"
+                    BorderColor="{StaticResource vbmwhite}"
+                    CornerRadius="30"
+                    HasShadow="False"
+                    HeightRequest="55"
+                    HorizontalOptions="Center"
+                    VerticalOptions="End"
+                    WidthRequest="160">
+
+                        <Label
+                        FontSize="20"
+                        HorizontalOptions="Center"
+                        Text="OK"
+                        VerticalOptions="Center" />
+
+
+                    </border:SfBorder>
+
+
+                </StackLayout>
+
+
+            </Grid>
+
+        </Frame>
+
+    </StackLayout>
+
+</popup:PopupPage>

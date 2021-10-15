@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using VBMTablet._process;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,29 +15,40 @@ namespace VBMTablet._pages._info
         public outline_page()
         {
             InitializeComponent();
+            localdb.outlinePage = this;
         }
+
         protected override void OnAppearing()
         {
-            base.OnAppearing();            
-            
+            base.OnAppearing();
         }
+
         public async Task start_app()
         {
             try
             {
-                var hpage = new VBMTablet._pages._info.info_page();
-                flypage.Detail = hpage;
-                var fpage = new VBMTablet._pages._info.menu_info_page();
-                flypage.Flyout = fpage;
-                flypage.Title = "vbm";
+                var hpage = new info_page();
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    flypage.Detail = hpage;
+                });
+                
+                var fpage = new menu_info_page();
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    flypage.Flyout = fpage;
+                });
+
+                hpage.render();
+                fpage.render();
+
                 busyindicator.IsRunning = false;
                 busyindicator.IsVisible = false;
             }
             catch(Exception ex)
             {
-                App.Current.MainPage.DisplayAlert("error", ex.ToString(), "OK");
+                await App.Current.MainPage.DisplayAlert("error", ex.ToString(), "OK");
             }
-            
         }
 
         public void open_flyout()

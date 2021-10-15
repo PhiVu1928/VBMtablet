@@ -6,6 +6,7 @@ using System.Text;
 
 using VBMTablet._objs._storeObjs;
 using VBMTablet._process;
+using Xamarin.Forms;
 
 namespace VBMTablet._vms._login
 {
@@ -24,6 +25,10 @@ namespace VBMTablet._vms._login
         #region bien
         string sdt_;
         string pwd_;
+        bool isMl_=true;
+        Color swichBg_=Color.FromHex("#7EA39C");
+        LayoutOptions swichLayout_=LayoutOptions.End;
+
         public string sdt
         {
             get
@@ -48,6 +53,52 @@ namespace VBMTablet._vms._login
                 OnPropertyChanged("pwd");
             }
         }
+        public bool isMl
+        {
+            get
+            {
+                return isMl_;
+            }
+            set
+            {
+                isMl_ = value;
+                if (value)
+                {
+                    swichBg = Color.FromHex("#7EA39C");
+                    swichLayout = LayoutOptions.End;
+                }
+                else
+                {
+                    swichBg = Color.FromHex("#d2d2d2");
+                    swichLayout = LayoutOptions.Start;
+                }
+            }
+        }
+        public Color swichBg
+        {
+            get
+            {
+                return swichBg_;
+            }
+            set
+            {
+                swichBg_ = value;
+                OnPropertyChanged("swichBg");
+            }
+        }
+        public LayoutOptions swichLayout
+        {
+            get
+            {
+                return swichLayout_;
+            }
+            set
+            {
+                swichLayout_ = value;
+                OnPropertyChanged("swichLayout");
+            }
+        }
+
         public ObservableCollection<StoreStatus> storeStatuses { get; set; }
         #endregion
 

@@ -174,31 +174,5 @@ namespace VBMTablet._utils
             cl.Timeout = TimeSpan.FromSeconds(10);
             return cl;
         }
-        public static async void startAppAction()
-        {
-            try
-            {
-                if (localdb.groupMenus != null && localdb.extra_Spices != null && localdb.promotionObjs != null && localdb.storeObjs != null)
-                {
-                    localdb.cover_Page.start_app();
-                }
-                else
-                {
-                    var menu = await groupMenu.getMenuData();
-                    var extraSpices = await extra_spices.getExsSpisData();
-                    var store = await storeObj.getLstStores();
-                    var promo = await promotionObjs.getPromotions();
-                    if (menu != null && extraSpices != null && store != null && promo != null)
-                    {
-                        localdb.cover_Page.start_app();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Application.Current.MainPage.DisplayAlert("Error", ex.ToString(), "OK");
-            }
-
-        }
     }
 }

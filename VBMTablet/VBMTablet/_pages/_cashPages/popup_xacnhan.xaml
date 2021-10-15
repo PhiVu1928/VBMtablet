@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<popup:PopupPage
+    x:Class="VBMTablet._pages._info.popup_xacnhan"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+    xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+    xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:popup="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:sfinput="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms">
+
+    <popup:PopupPage.Animation>
+        <animations:ScaleAnimation
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"
+            PositionIn="Center"
+            PositionOut="Center" />
+    </popup:PopupPage.Animation>
+
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+
+        <Frame
+            BackgroundColor="{StaticResource vbmwhite}"
+            CornerRadius="15"
+            HeightRequest="309"
+            WidthRequest="{OnIdiom Tablet=495,
+                                   Phone=250}">
+
+            <Grid>
+
+                <Label
+                    Margin="0,30,0,0"
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    HorizontalOptions="Center"
+                    Text="Xác nhận nhân viên"
+                    VerticalOptions="Start" />
+
+                <ff:CachedImage
+                    x:Name="close"
+                    Aspect="Fill"
+                    HeightRequest="20"
+                    HorizontalOptions="End"
+                    Source="Close"
+                    VerticalOptions="Start"
+                    WidthRequest="20">
+                    <ff:CachedImage.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ff_close_tapped" />
+                    </ff:CachedImage.GestureRecognizers>
+                </ff:CachedImage>
+
+
+                <border:SfBorder
+                    Padding="10"
+                    BackgroundColor="{StaticResource vbmlightgray}"
+                    BorderColor="{StaticResource vbmwhite}"
+                    CornerRadius="30"
+                    HasShadow="False"
+                    HeightRequest="{OnIdiom Phone=55,
+                                            Tablet=85}"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Center">
+
+                    <StackLayout
+                        Margin="20,0,0,0"
+                        Orientation="Horizontal"
+                        VerticalOptions="Center">
+
+                        <ff:CachedImage
+                            Aspect="Fill"
+                            HorizontalOptions="Start"
+                            Source="searchicon"
+                            VerticalOptions="Center" />
+
+                        <sfinput:SfTextInputLayout
+                            BackgroundColor="Transparent"
+                            ContainerType="Outlined"
+                            FocusedColor="Transparent"
+                            UnfocusedColor="Transparent"
+                            WidthRequest="300">
+
+                            <Entry
+                                FontSize="{OnIdiom Tablet=25,
+                                                   Phone=10}"
+                                Keyboard="Telephone"
+                                Placeholder="Số điện thoại" 
+                                x:Name="ETInputMNV"/>
+
+                        </sfinput:SfTextInputLayout>
+
+
+                    </StackLayout>
+
+                </border:SfBorder>
+
+                <border:SfBorder
+                    x:Name="xacnhan"
+                    BackgroundColor="{StaticResource vbmlightyellow}"
+                    BorderColor="{StaticResource vbmwhite}"
+                    CornerRadius="30"
+                    HasShadow="False"
+                    HeightRequest="55"
+                    HorizontalOptions="Center"
+                    VerticalOptions="End"
+                    WidthRequest="160">
+
+                    <Label
+                        FontSize="20"
+                        HorizontalOptions="Center"
+                        Text="OK"
+                        VerticalOptions="Center" />
+
+                    <border:SfBorder.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ff_ok_tapped" />
+                    </border:SfBorder.GestureRecognizers>
+
+                </border:SfBorder>
+
+            </Grid>
+
+        </Frame>
+
+    </StackLayout>
+
+</popup:PopupPage>

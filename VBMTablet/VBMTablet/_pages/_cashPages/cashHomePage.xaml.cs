@@ -14,6 +14,9 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Newtonsoft.Json;
 using Syncfusion.XForms.TabView;
+using System.Net.Http;
+using Newtonsoft.Json.Linq;
+using Rg.Plugins.Popup.Extensions;
 
 namespace VBMTablet._pages._home
 {
@@ -200,26 +203,42 @@ namespace VBMTablet._pages._home
                 {
                     await Application.Current.MainPage.DisplayAlert("", "Bạn chưa nhập số điện thoại", "Ok");
                 }
-                if (sdt.Length < 9 && sdt != "555" && sdt != "777" && sdt != "1")
+                if (sdt.Length < 10 && sdt != "555" && sdt != "777" && sdt != "1")
                 {
                     await Application.Current.MainPage.DisplayAlert("", "Vui long kiểm tra lại số diện thoại khách hàng!", "Ok");
                 }
                 if (sdt.Length == 10)
                 {
-                    var user = await userinfo.getUserData(sdt);
-                    if (user != null)
+                     using(var progress = UserDialogs.Instance.Loading("Loading...",null,null,true,MaskType.Black))
                     {
-                        vmhome.visNonUserInfo = false;
-                        vmhome.visUserInfo = true;
-                        var Customer = new VBMTablet._pages._home.customer_page();
-                        tvCustomer.Items[0].Content = Customer;
-                        Customer.Render(localdb.userinfo);
-                    }
-                    else
-                    {
-                        await Application.Current.MainPage.DisplayAlert("", "Không tìm thấy thông tin khách hàng", "Ok");
+                        var user = await userinfo.getUserData(sdt);
+                        if (user != null)
+                        {
+                            tvCustomer.Items[1].Content = null;
+                            tvCustomer.Items[2].Content = null;
+                            tvCustomer.Items[3].Content = null;
+                            vmhome.visNonUserInfo = false;
+                            vmhome.visUserInfo = true;
+                            lblTenKhachHang.Text = localdb.userinfo.Fullname;
+                            var Customer = new VBMTablet._pages._home.customer_page();
+                            tvCustomer.Items[0].Content = Customer;
+                            Customer.Render(localdb.userinfo);
+                        }
+                        else
+                        {
+                            var ques = await Application.Current.MainPage.DisplayAlert("", "Không tìm thấy thông tin khách hàng, bạn có muốn thêm khách hàng mới không", "Thêm khách mới", "NO");
+                            if(ques)
+                            {
+                                var NewCustomerPage = new addNewCustomer_page();
+                                await Navigation.PushPopupAsync(NewCustomerPage);
+                                NewCustomerPage.Render();
+                            }
+                        }                        
+
                     }
                 }
+                await ctr.ScaleTo(1, 100);
+                await this.FadeTo(1, 100);
             }
             catch
             {
@@ -239,23 +258,47 @@ namespace VBMTablet._pages._home
                     }
                     break;
                 case 2:
-                    if (tvCustomer.Items[2].Content == null)
+                    if (tvCustomer.Items[2].Content == null && vmhome.sdt.Length != 1)
                     {
-                        string sdt = vmhome.sdt;
-                        UserGiftObjs userGiftObjs = await UserGiftObjs.getUserGiftData(vmhome.sdt, localdb.userinfo.UserID);
-                        if(userGiftObjs != null)
-                        {                            
-                            var giftPage = new VBMTablet._pages._home.gift_page();
-                            tvCustomer.Items[2].Content = giftPage;
-                            giftPage.Render(userGiftObjs);
+                        using (var progress = UserDialogs.Instance.Loading("Loading...", null, null, true, MaskType.Black))
+                        {
+                            string sdt = vmhome.sdt;
+                            UserGiftObjs userGiftObjs = await UserGiftObjs.getUserGiftData(vmhome.sdt, localdb.userinfo.UserID);
+                            if (userGiftObjs != null)
+                            {
+                                var giftPage = new VBMTablet._pages._home.gift_page();
+                                tvCustomer.Items[2].Content = giftPage;
+                                giftPage.Render(userGiftObjs);
+                            }
                         }
                     }
                     break;
                 case 3:
                     if(tvCustomer.Items[3].Content == null)
                     {
-                        var historyPage = new VBMTablet._pages._home.historypage();
-                        tvCustomer.Items[3].Content = historyPage;
+                        using (var progress = UserDialogs.Instance.Loading("Loading...", null, null, true, MaskType.Black))
+                        {
+                            string url = $"{localdb.endpoin}get_ordered_bills?sdt={vmhome.sdt}&userid={localdb.userinfo.UserID}";
+                            if (tools.isConn())
+                            {
+                                using (var cl = new HttpClient())
+                                {
+                                    var res1 = await cl.GetAsync(url);
+                                    var res2 = await res1.Content.ReadAsStringAsync();
+                                    var jOb = JObject.Parse(res2);
+                                    var success = bool.Parse(tools.GetJArrayValue(jOb, "Success"));
+                                    if (success)
+                                    {
+                                        var str = tools.GetJArrayValue(jOb, "Datas");
+                                        var data = JsonConvert.DeserializeObject<List<userOrdered>>(str);
+                                        List<userOrdered> userOrdereds = data;
+                                        var historyPage = new VBMTablet._pages._home.historypage();
+                                        tvCustomer.Items[3].Content = historyPage;
+                                        historyPage.Render(userOrdereds);
+                                    }
+                                }
+                            }
+                        }
                     }
                     break;
             }

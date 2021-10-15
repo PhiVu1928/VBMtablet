@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Acr.UserDialogs;
 using Rg.Plugins.Popup.Extensions;
-
+using VBMTablet._process;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -25,10 +25,20 @@ namespace VBMTablet._pages._info
             await xacnhan.FadeTo(0.9, 1);
             try
             {                
-                var homepage = new VBMTablet._pages._home.home_page();
-                await Navigation.PushAsync(homepage);
-                homepage.render();
-                await Navigation.PopPopupAsync();
+                if(localdb.NhanVieninfo != null)
+                {
+                    if(ETInputMNV.Text == localdb.NhanVieninfo.UserID.ToString())
+                    {
+                        var homepage = new _home.home_page();
+                        await Navigation.PushAsync(homepage);
+                        homepage.render();
+                        await Navigation.PopPopupAsync();
+                    }
+                    else
+                    {
+                        await Application.Current.MainPage.DisplayAlert("", "Mã nhân viên không đúng", "OK");
+                    }
+                }                
                 await xacnhan.ScaleTo(1, 100);
                 await this.FadeTo(1, 100);
             }

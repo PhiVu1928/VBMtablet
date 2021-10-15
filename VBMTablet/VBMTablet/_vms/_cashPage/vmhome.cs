@@ -78,6 +78,26 @@ namespace VBMTablet._vms._home
         #endregion
 
     }
+    public class vmCustomerOrdered
+    {
+        public vmCustomerOrdered()
+        {
+
+        }
+        public vmCustomerOrdered(List<userOrdered> userOrdereds)
+        {
+            var order = new ObservableCollection<CustomerOrderedStatus>();
+            foreach (var item in userOrdereds)
+            {
+                order.Add(new CustomerOrderedStatus(item));
+            }
+            orderedStatuses = order;
+        }
+        #region bien
+        public ObservableCollection<CustomerOrderedStatus> orderedStatuses { get; set; }
+        #endregion
+    }
+
     public class vmCustomerGift
     {
         public vmCustomerGift()
@@ -141,10 +161,10 @@ namespace VBMTablet._vms._home
                 case 0:
                     this.userStatus = (Color)Application.Current.Resources["vbmdeepgreen"];
                     break;
-                case -1:
+                case 1:
                     this.userStatus = (Color)Application.Current.Resources["vbmred"];
                     break;
-                case -2:
+                case 2:
                     this.userStatus = (Color)Application.Current.Resources["vbmlightyellow"];
                     break;
             }
@@ -176,6 +196,25 @@ namespace VBMTablet._vms._home
         }
         public userinfo Userinfo { get; set; }
 
+    }
+        public class CustomerOrderedStatus
+    {
+        public CustomerOrderedStatus(userOrdered userOrdered)
+        {
+            this.ordered = userOrdered;
+            this.orderedDate = userOrdered.BillDate.ToString("dd/MM/yyyy");
+            this.listBillDetail = userOrdered.ListBillDetails;
+            foreach(var item in userOrdered.ListBillDetails)
+            {
+                this.name = item.SpName;
+                this.solg = "x " + item.SoLg.ToString();
+            }
+        }
+        public userOrdered ordered { get; set; }
+        public List<ListBillDetail> listBillDetail { get; set; }
+        public string orderedDate { get; set; }
+        public string name { get; set; }
+        public string solg { get; set; }
     }
 
 }

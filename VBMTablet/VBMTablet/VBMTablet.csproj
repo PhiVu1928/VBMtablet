@@ -16,42 +16,69 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.13" />
     <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
-    <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="19.3.0.44" />
-    <PackageReference Include="Syncfusion.Xamarin.SfBusyIndicator" Version="19.3.0.44" />
-    <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="19.3.0.44" />
-    <PackageReference Include="Syncfusion.Xamarin.SfPicker" Version="19.3.0.44" />
-    <PackageReference Include="Syncfusion.Xamarin.SfPopupLayout" Version="19.3.0.44" />
-    <PackageReference Include="Syncfusion.Xamarin.SfTabView" Version="19.3.0.44" />
+    <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="19.3.0.45" />
+    <PackageReference Include="Syncfusion.Xamarin.SfBusyIndicator" Version="19.3.0.45" />
+    <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="19.3.0.45" />
+    <PackageReference Include="Syncfusion.Xamarin.SfPicker" Version="19.3.0.45" />
+    <PackageReference Include="Syncfusion.Xamarin.SfPopupLayout" Version="19.3.0.45" />
+    <PackageReference Include="Syncfusion.Xamarin.SfTabView" Version="19.3.0.45" />
     <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2125" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+    <PackageReference Include="Xamarin.HotReload" Version="2.0.16" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="_pages\_info\info_page.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="_pages\_info\menu_info_page.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="_pages\_info\outline_page.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="_pages\_info\popup_xacnhan.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="_pages\_login\cover_page.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="_pages\_login\login_page.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="_pages\_promo\promo_detail.xaml">
+    <Compile Update="_pages\_cashPages\cashHomePage.xaml.cs">
+      <DependentUpon>cashHomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="_pages\_home\mainHome.xaml.cs">
+      <DependentUpon>mainHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="_pages\_home\floatingPage.xaml.cs">
+      <DependentUpon>floatingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="_pages\_startApp\loginPage.xaml.cs">
+      <DependentUpon>loginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="_pages\_startApp\waitingStartPage.xaml.cs">
+      <DependentUpon>waitingStartPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="_pages\_cashPages\_customer\addNewCustomer_page.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="_pages\_thanhtoan\_orderoption\InPlace.xaml">
+    <EmbeddedResource Update="_pages\_home\mainHome.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="_pages\_home\floatingPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="_pages\_home\outline_page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="_pages\_cashPages\popup_xacnhan.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="_pages\_startApp\waitingStartPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="_pages\_startApp\loginPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="_pages\_cashPages\_promo\promo_detail.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="_pages\_cashPages\_thanhtoan\_orderoption\InPlace.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="_utils\_cash\" />
+    <Folder Include="_utils\_makeline\" />
   </ItemGroup>
 </Project>

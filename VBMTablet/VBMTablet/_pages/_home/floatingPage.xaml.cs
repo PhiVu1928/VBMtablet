@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using VBMTablet._process;
+using VBMTablet._vms._homeVMs;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,9 +14,21 @@ namespace VBMTablet._pages._info
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class menu_info_page : ContentPage
     {
+
+        floatingPageVM vm;
+
         public menu_info_page()
         {
             InitializeComponent();
+        }
+
+        public async Task render()
+        {
+            vm = new floatingPageVM();
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                this.BindingContext = vm;
+            });
         }
 
         async void Tinhtrangdon_Tapped(object sender, EventArgs e)
@@ -88,5 +101,17 @@ namespace VBMTablet._pages._info
             }
         }
 
+        async void grdLogOut_tapped(object sender, EventArgs e)
+        {
+            var ctr = sender as Grid;
+            await ctr.ScaleTo(0.9, 1);
+            await this.FadeTo(0.9, 1);
+            localdb.NhanVieninfo = null;
+            var loginPage = new VBMTablet._pages._login.login_page();
+            await Navigation.PushAsync(loginPage);
+            loginPage.Render();
+            await ctr.ScaleTo(1, 100);
+            await this.FadeTo(1, 100);
+        }
     }
 }

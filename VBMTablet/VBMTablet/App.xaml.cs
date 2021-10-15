@@ -9,13 +9,15 @@ namespace VBMTablet
         public App()
         {
             InitializeComponent();
-
+            #if DEBUG
+            HotReloader.Current.Run(this);
+            #endif
             MainPage = new MainPage();
         }
 
         protected override void OnStart()
         {          
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NDIzMzcyQDMxMzkyZTMxMmUzMFd5Q3VEbkFlWFIzY0F3bExsZlRlK2ExSzREZFVHdUxHSTlJL002eDQreEU9");
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NTE3NDY5QDMxMzkyZTMzMmUzME0vcHpQc21LMVZaQ2xRd3JBN3dKdGhKSmFKQzNzeUZ5V1FjdnZCZkd3RUk9");
             MainPage = new NavigationPage(new _pages._login.cover_page());
         }
 

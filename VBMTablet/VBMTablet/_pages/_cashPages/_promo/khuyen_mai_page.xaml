@@ -8,17 +8,18 @@
              x:Class="VBMTablet._pages._promo.khuyen_mai_page"
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="{StaticResource vbmwhite}">
-    <Grid Margin="{OnIdiom Phone='0',Tablet='0,50,0,0'}">
+    <ScrollView>
+        <Grid Margin="{OnIdiom Phone='0',Tablet='0,50,0,0'}">
 
-        <StackLayout Orientation="Vertical"
+            <StackLayout Orientation="Vertical"
                      HorizontalOptions="Center"
                      VerticalOptions="Center"
                      Spacing="20"
                      Margin="10,0"
                      BindableLayout.ItemsSource="{Binding promos}">
-            <BindableLayout.ItemTemplate>
-                <DataTemplate>
-                    <border:SfBorder CornerRadius="60"
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <border:SfBorder CornerRadius="60"
                                      HeightRequest="190"
                                      WidthRequest="620"
                                      BorderWidth="0"
@@ -26,63 +27,63 @@
                                      HasShadow="True"
                                      ShadowColor="{StaticResource vbmdeeplightgray}">
 
-                        <Grid>
+                            <Grid>
 
-                            <ff:CachedImage Source="Group"
+                                <ff:CachedImage Source="Group"
                                             Aspect="Fill"
                                             WidthRequest="{OnIdiom Phone=84,Tablet=134}"
                                             HeightRequest="74"
                                             BackgroundColor="Transparent"
                                             HorizontalOptions="End"/>
 
-                            <StackLayout Padding="{OnIdiom Phone=15,Tablet=30}"
+                                <StackLayout Padding="{OnIdiom Phone=15,Tablet=30}"
                                          Orientation="Vertical"
                                          HorizontalOptions="Start"
                                          VerticalOptions="Center"
                                          Spacing="10">
 
-                                <Label Text="{Binding name}"
+                                    <Label Text="{Binding name}"
                                        TextColor="{StaticResource vbmdeepgreen}"
                                        FontSize="{OnIdiom Phone=15,Tablet=35}"
                                        FontAttributes="Bold"
                                        HorizontalOptions="Start"
                                        VerticalOptions="Start"/>
 
-                                <StackLayout Orientation="Horizontal"
+                                    <StackLayout Orientation="Horizontal"
                                              Spacing="26">
 
-                                    <ff:CachedImage Source="timeicon"
+                                        <ff:CachedImage Source="timeicon"
                                                     Aspect="Fill"
                                                     WidthRequest="{OnIdiom Phone=25,Tablet=35}"
                                                     HeightRequest="25"/>
 
-                                    <Label Text="13:00 - 17:00"
+                                        <Label Text="13:00 - 17:00"
                                            FontSize="{OnIdiom Phone=15,Tablet=25}"
                                            TextColor="{StaticResource vbmgray}"/>
 
-                                    <Grid>
-                                        <Label Text="Chi Tiết"
+                                        <Grid>
+                                            <Label Text="Chi Tiết"
                                                FontSize="{OnIdiom Phone=15,Tablet=25}"
                                                TextColor="{StaticResource vbmpinttext}"/>
-                                        <Grid.GestureRecognizers>
-                                            <TapGestureRecognizer Tapped="GrPromoDetail_Tapped"/>
-                                        </Grid.GestureRecognizers>
-                                    </Grid>
+                                            <Grid.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="GrPromoDetail_Tapped"/>
+                                            </Grid.GestureRecognizers>
+                                        </Grid>
+
+                                    </StackLayout>
 
                                 </StackLayout>
 
-                            </StackLayout>
+                            </Grid>
+                            <border:SfBorder.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="bdpromo_tapped"/>
+                            </border:SfBorder.GestureRecognizers>
+                        </border:SfBorder>
 
-                        </Grid>
-                        <border:SfBorder.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="bdpromo_tapped"/>
-                        </border:SfBorder.GestureRecognizers>
-                    </border:SfBorder>
-
-                </DataTemplate>
-            </BindableLayout.ItemTemplate>
-        </StackLayout>
-        <busyindicator:SfBusyIndicator
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </StackLayout>
+            <busyindicator:SfBusyIndicator
                         x:Name="busyindicator"
                         AnimationType="Cupertino"
                         HeightRequest="100"
@@ -92,6 +93,8 @@
                         TextColor="#1d5234"
                         VerticalOptions="Center"
                         WidthRequest="100" />
-    </Grid>
+        </Grid>
+
+    </ScrollView>
 
 </ContentView>

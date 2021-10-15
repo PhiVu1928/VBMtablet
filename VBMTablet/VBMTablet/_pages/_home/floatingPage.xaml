@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="VBMTablet._pages._info.menu_info_page"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    Title="vbm"
+    ios:Page.UseSafeArea="True"
+    BackgroundColor="{StaticResource vbmwhite}">
+
+    <StackLayout
+        Margin="10"
+        Orientation="Vertical"
+        Spacing="{OnIdiom Phone=20,
+                          Tablet=40}">
+
+        <Grid>
+
+            <ff:CachedImage
+                Aspect="Fill"
+                HeightRequest="{OnIdiom Phone=30,
+                                        Tablet=40}"
+                HorizontalOptions="Start"
+                Source="usericon"
+                VerticalOptions="Center"
+                WidthRequest="{OnIdiom Phone=30,
+                                       Tablet=40}" />
+
+            <Label
+                Margin="64,0,0,0"
+                FontSize="{OnIdiom Phone=10,
+                                   Tablet=25}"
+                HorizontalTextAlignment="Start"
+                Text="Nguyễn Văn Hải " />
+
+        </Grid>
+
+        <Grid x:Name="tinhtrang">
+
+            <ff:CachedImage
+                Aspect="Fill"
+                HeightRequest="{OnIdiom Phone=30,
+                                        Tablet=40}"
+                HorizontalOptions="Start"
+                Source="viewicon"
+                VerticalOptions="Center"
+                WidthRequest="{OnIdiom Phone=30,
+                                       Tablet=40}" />
+
+            <Label
+                Margin="64,0,0,0"
+                FontSize="{OnIdiom Phone=10,
+                                   Tablet=25}"
+                HorizontalTextAlignment="Start"
+                Text="Xem tình trạng đơn" />
+
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="Tinhtrangdon_Tapped" />
+            </Grid.GestureRecognizers>
+
+        </Grid>
+
+        <Grid x:Name="ready">
+
+            <ff:CachedImage
+                Aspect="Fill"
+                HeightRequest="{OnIdiom Phone=30,
+                                        Tablet=40}"
+                HorizontalOptions="Start"
+                Source="chuanbiicon"
+                VerticalOptions="Center"
+                WidthRequest="{OnIdiom Phone=30,
+                                       Tablet=40}" />
+
+            <Label
+                Margin="64,0,0,0"
+                FontSize="{OnIdiom Phone=10,
+                                   Tablet=25}"
+                HorizontalTextAlignment="Start"
+                Text="Chuẩn bị nguyên liệu" />
+
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="Chuanbi_Tapped" />
+            </Grid.GestureRecognizers>
+
+        </Grid>
+
+        <Grid>
+
+            <ff:CachedImage
+                Aspect="Fill"
+                HeightRequest="{OnIdiom Phone=30,
+                                        Tablet=40}"
+                HorizontalOptions="Start"
+                Source="sudungicon"
+                VerticalOptions="Center"
+                WidthRequest="{OnIdiom Phone=30,
+                                       Tablet=40}" />
+
+            <Label
+                Margin="64,0,0,0"
+                FontSize="{OnIdiom Phone=10,
+                                   Tablet=25}"
+                HorizontalTextAlignment="Start"
+                Text="Sử dụng nguyên liệu" />
+
+        </Grid>
+
+        <Grid>
+
+            <ff:CachedImage
+                x:Name="tokenicon"
+                Aspect="Fill"
+                HeightRequest="{OnIdiom Phone=30,
+                                        Tablet=40}"
+                HorizontalOptions="Start"
+                Source="extokenicon"
+                VerticalOptions="Center"
+                WidthRequest="{OnIdiom Phone=30,
+                                       Tablet=40}" />
+
+            <Label
+                Margin="64,0,0,0"
+                FontSize="{OnIdiom Phone=10,
+                                   Tablet=25}"
+                HorizontalTextAlignment="Start"
+                Text="Lấy Extoken của tiệm" />
+
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="tokenpage_tapped" />
+            </Grid.GestureRecognizers>
+
+        </Grid>
+
+        <Grid>
+
+            <ff:CachedImage
+                Aspect="Fill"
+                HeightRequest="{OnIdiom Phone=30,
+                                        Tablet=40}"
+                HorizontalOptions="Start"
+                Source="logouticon"
+                VerticalOptions="Center"
+                WidthRequest="{OnIdiom Phone=30,
+                                       Tablet=40}" />
+
+            <Label
+                Margin="64,0,0,0"
+                FontSize="{OnIdiom Phone=10,
+                                   Tablet=25}"
+                HorizontalTextAlignment="Start"
+                Text="Đăng xuất" />
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="grdLogOut_tapped"/>
+            </Grid.GestureRecognizers>
+
+        </Grid>
+
+        <Grid Margin="0,250,0,0">
+
+            <ff:CachedImage
+                Aspect="Fill"
+                BackgroundColor="White"
+                HeightRequest="{OnIdiom Phone=30,
+                                        Tablet=40}"
+                HorizontalOptions="Start"
+                Source="Shape"
+                VerticalOptions="End"
+                WidthRequest="{OnIdiom Phone=30,
+                                       Tablet=40}" />
+
+            <Label
+                Margin="64,0,0,0"
+                FontSize="{OnIdiom Phone=10,
+                                   Tablet=25}"
+                HorizontalTextAlignment="Start"
+                Text="Việt Nam" />
+
+        </Grid>
+
+    </StackLayout>
+
+</ContentPage>

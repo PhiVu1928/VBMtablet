@@ -4,12 +4,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using VBMTablet._objs._staffObjs;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using VBMTablet._pages;
 using Xamarin.Forms;
+using VBMTablet._process;
 
 
 /// <summary>
@@ -31,7 +33,7 @@ namespace VBMTablet._objs.OtherServices
 
         }
 
-        private IHubProxy HubProxy { get; set; }
+        public IHubProxy HubProxy { get; set; }
         const string ServerURI = "http://vuabanhmi.com:1984/signalr";
         private HubConnection Connection { get; set; }
         public bool isConn = false;
@@ -148,6 +150,11 @@ namespace VBMTablet._objs.OtherServices
                     case "doListAllNV":
                         {
                             //E gui _dât sang bên ham kia de parse thanh obj thông tin nhân viên
+                            var data = staff.parseNV(_data);
+                            if(data != null)
+                            {
+                                localdb.FullNhanVienInfo = data;
+                            }
                             break;
                         }
                     default:

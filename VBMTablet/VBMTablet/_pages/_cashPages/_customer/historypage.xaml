@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="VBMTablet._pages._home.historypage"
+             BackgroundColor="{StaticResource vbmwhite}">
+    <ScrollView>
+        <StackLayout Margin="{OnIdiom Phone=0,Tablet='20,0'}"
+                     BindableLayout.ItemsSource="{Binding orderedStatuses}"
+                     Spacing="20">
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <border:SfBorder BackgroundColor="{StaticResource vbmlightgray}"
+                                     BorderColor="{StaticResource vbmwhite}"
+                                     HasShadow="False"
+                                     CornerRadius="30"
+                                     Padding="30">
+                        <Grid>
+
+                            <StackLayout Spacing="20"
+                                         Orientation="Vertical">
+
+                                <Label Text="{Binding orderedDate}"
+                                       FontAttributes="Bold"
+                                       TextColor="{StaticResource vbmgray}"
+                                       FontSize="{OnIdiom Phone=10,Tablet=25}"/>
+
+
+                                <Grid VerticalOptions="Center">
+
+
+                                    <Label Text="{Binding name}"
+                                           FontSize="{OnIdiom Phone=10,Tablet=25}"
+                                           TextColor="{StaticResource vbmgray}"
+                                           HorizontalOptions="Start"
+                                           VerticalOptions="Center"/>
+
+                                    <Label Text="{Binding solg}"
+                                           FontSize="{OnIdiom Phone=10,Tablet=25}"
+                                           TextColor="{StaticResource vbmgray}"
+                                           HorizontalOptions="End"
+                                           VerticalOptions="Center"/>
+
+                                </Grid>
+
+                                <StackLayout Orientation="Horizontal"
+                                             HorizontalOptions="Start"
+                                             VerticalOptions="End"
+                                             Spacing="20">
+
+                                    <ff:CachedImage Source="chuanbiicon"
+                                                    Aspect="Fill"
+                                                    WidthRequest="30"
+                                                    HeightRequest="30"/>
+
+                                    <Label Text="Đặt lại theo đơn hàng này"
+                                           FontSize="{OnIdiom Phone=10,Tablet=25}"
+                                           FontAttributes="Bold"/>
+
+                                </StackLayout>
+
+                            </StackLayout>
+
+                        </Grid>
+
+                    </border:SfBorder>
+
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+
+        </StackLayout>
+
+    </ScrollView>
+</ContentView>
