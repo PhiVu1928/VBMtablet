@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VBMTablet._pages._home._menuFloatingPages.usingNLPage"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             BackgroundColor="{StaticResource vbmwhite}"
+             NavigationPage.HasNavigationBar="False">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="90"/>
+        </Grid.RowDefinitions>
+
+        <StackLayout Orientation="Vertical"
+                     Margin="0,46,0,0"
+                     Spacing="{OnIdiom Phone=20,Tablet=40}">
+
+            <Grid>
+
+                <ff:CachedImage Source="Stroke"
+                                WidthRequest="50"
+                                HeightRequest="25"
+                                HorizontalOptions="Start"
+                                VerticalOptions="Center"
+                                BackgroundColor="White">
+                    <ff:CachedImage.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ff_backicon_tapped"/>
+                    </ff:CachedImage.GestureRecognizers>
+                </ff:CachedImage>
+
+                <Label Text="Sử Dụng Nguyên Liệu"
+                       FontSize="{OnIdiom Phone=16,Tablet=36}"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       HorizontalTextAlignment="Center"/>
+
+
+            </Grid>
+
+        </StackLayout>
+
+        <ScrollView Grid.Row="1">
+
+
+            <StackLayout Orientation="Vertical"
+                             Spacing="71"
+                             Padding="50"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center">
+
+                <StackLayout Orientation="Horizontal"
+                             Spacing="47">
+
+                    <ff:CachedImage Source="qricon"
+                                    Aspect="Fill"
+                                    HeightRequest="100"
+                                    WidthRequest="100"
+                                    VerticalOptions="Center"/>
+
+                    <Label Text="SCAN BARCODE"
+                           TextColor="{StaticResource vbmgreen}"
+                           FontSize="{OnIdiom Phone=10,Tablet=30}"
+                           VerticalOptions="Center"/>
+
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="stlOpenQR_tapped"/>
+                    </StackLayout.GestureRecognizers>
+
+                </StackLayout>
+
+                <Grid>
+
+                    <Label Text="Nguyên liệu:"
+                           FontSize="{OnIdiom Phone=10,Tablet=30}"
+                           TextColor="{StaticResource vbmgreen}"
+                           VerticalOptions="Center"/>
+                    <Label FontSize="{OnIdiom Phone=10,Tablet=30}"
+                           TextColor="{StaticResource vbmgreen}"
+                           VerticalOptions="Center"
+                           HorizontalOptions="End"
+                           x:Name="lblNguyenLieu"/>
+
+                </Grid>
+
+                <Grid>
+
+                    <Label Text="Số lượng còn lại:"
+                               FontSize="{OnIdiom Phone=10,Tablet=30}"
+                               TextColor="{StaticResource vbmgreen}"
+                               VerticalOptions="Center"/>
+                    <Label FontSize="{OnIdiom Phone=10,Tablet=30}"
+                           TextColor="{StaticResource vbmgreen}"
+                           VerticalOptions="Center"
+                           HorizontalOptions="End"
+                           x:Name="lblSlConLai"/>
+                </Grid>
+
+                <Grid>
+
+                    <Label Text="Barcode:"
+                               FontSize="{OnIdiom Phone=10,Tablet=30}"
+                               TextColor="{StaticResource vbmgreen}"
+                               VerticalOptions="Center"/>
+                    <Label FontSize="{OnIdiom Phone=10,Tablet=30}"
+                           TextColor="{StaticResource vbmgreen}"
+                           VerticalOptions="Center"
+                           HorizontalOptions="End"
+                           x:Name="lblBarCode"/>
+                </Grid>
+
+                <Grid>
+
+                    <Label Text="Ngày hết hạn:"
+                               FontSize="{OnIdiom Phone=10,Tablet=30}"
+                               TextColor="{StaticResource vbmgreen}"
+                               VerticalOptions="Center"/>
+                    <Label FontSize="{OnIdiom Phone=10,Tablet=30}"
+                           TextColor="{StaticResource vbmgreen}"
+                           VerticalOptions="Center"
+                           HorizontalOptions="End"
+                           x:Name="lblNgayHetHan"/>
+                </Grid>
+
+                <StackLayout Orientation="Vertical">
+
+                    <Label Text="Lượng sử dụng:"
+                               FontSize="{OnIdiom Phone=10,Tablet=30}"
+                               TextColor="{StaticResource vbmgreen}"
+                               VerticalOptions="Center"/>
+
+                    <Entry FontSize="22"
+                           x:Name="etSlSD"
+                               VerticalOptions="Center"                           
+                               Margin="{OnIdiom Phone=0,Tablet='0,50,90,0'}"/>
+
+                    <Label Text="*Phần số lẻ ngăn cách bằng dấu chấm (.)"
+                               FontSize="{OnIdiom Phone=10,Tablet=30}"
+                               FontAttributes="Italic"
+                               TextColor="{StaticResource vbmgreen}"
+                               VerticalOptions="Center"/>
+
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical">
+
+                    <Label Text="Ghi chú:"
+                               FontSize="{OnIdiom Phone=10,Tablet=30}"
+                               TextColor="{StaticResource vbmgreen}"
+                               VerticalOptions="Center"/>
+
+                    <Entry FontSize="22"
+                           x:Name="etNote"
+                               VerticalOptions="Center"                           
+                               Margin="{OnIdiom Phone=0,Tablet='0,50,90,0'}"/>
+
+                </StackLayout>
+
+            </StackLayout>
+
+
+        </ScrollView>
+
+        <border:SfBorder BackgroundColor="{StaticResource vbmlightyellow}"
+                         BorderColor="{StaticResource vbmwhite}"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center"
+                         WidthRequest="160"
+                         HeightRequest="67"
+                         CornerRadius="30"
+                         HasShadow="False"
+                         Margin="10"
+                         Grid.Row="2">
+
+            <Label Text="Lưu"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   FontSize="15"/>
+            <border:SfBorder.GestureRecognizers>
+                <TapGestureRecognizer Tapped="brdSave_tapped"/>
+            </border:SfBorder.GestureRecognizers>
+        </border:SfBorder>
+
+    </Grid>
+</ContentPage>

@@ -29,25 +29,24 @@ namespace VBMTablet._pages._info
             {
                 this.BindingContext = vm;
             });
+            lblStaffName.Text = localdb.NhanVieninfo.HoTen;
         }
 
         async void Tinhtrangdon_Tapped(object sender, EventArgs e)
         {
-            this.IsEnabled = false;
             await tinhtrang.ScaleTo(0.9, 1);
             await tinhtrang.FadeTo(0.9, 1);
             try
             {
-                using(var process = UserDialogs.Instance.Loading("Loading...",null,null,true,MaskType.Black))
-                {
-                   
-                    await tinhtrang.ScaleTo(1, 100);
-                    await this.FadeTo(1, 100);
-                }
+                var billInDayPage = new VBMTablet._pages._home._menuFloatingPages.billInDayPage();
+                await Navigation.PushAsync(billInDayPage);
+                billInDayPage.Render();
+
+                await tinhtrang.ScaleTo(1, 100);
+                await this.FadeTo(1, 100);
             }
             catch(Exception)
             {
-                this.IsEnabled = true;
                 await tinhtrang.ScaleTo(1, 100);
                 await tinhtrang.FadeTo(1, 100);
             }
@@ -55,51 +54,25 @@ namespace VBMTablet._pages._info
 
         async void Chuanbi_Tapped(object sender, EventArgs e)
         {
-            this.IsEnabled = false;
             await ready.ScaleTo(0.9, 1);
             await this.FadeTo(0.9, 1);
             try
             {
-                using (var progress = UserDialogs.Instance.Loading("Loading...", null, null, true, MaskType.Black))
-                {
-                    
-                    await ready.ScaleTo(1, 100);
-                    await this.FadeTo(1, 100);
-                }
+                var prepareNlPage = new VBMTablet._pages._home._menuFloatingPages.prepareNLPage();
+                await Navigation.PushAsync(prepareNlPage);
+                prepareNlPage.Render();
+
+                await ready.ScaleTo(1, 100);
+                await this.FadeTo(1, 100);
             }
             catch
             {
-                //alert
                 //log error
-                this.IsEnabled = true;
                 await ready.ScaleTo(1, 100);
                 await this.FadeTo(1, 100);
             }
         }
 
-        async void tokenpage_tapped(object sender, EventArgs e)
-        {
-            this.IsEnabled = false;
-            await tokenicon.ScaleTo(0.9, 1);
-            await this.FadeTo(0.9, 1);
-            try
-            {
-                using (var progress = UserDialogs.Instance.Loading("Loading...", null, null, true, MaskType.Black))
-                {
-                   
-                    await tokenicon.ScaleTo(1, 100);
-                    await this.FadeTo(1, 100);
-                }
-            }
-            catch
-            {
-                //alert
-                //log error
-                this.IsEnabled = true;
-                await tokenicon.ScaleTo(1, 100);
-                await this.FadeTo(1, 100);
-            }
-        }
 
         async void grdLogOut_tapped(object sender, EventArgs e)
         {
@@ -112,6 +85,27 @@ namespace VBMTablet._pages._info
             loginPage.Render();
             await ctr.ScaleTo(1, 100);
             await this.FadeTo(1, 100);
+        }
+
+        async void grdUsingNL_Tapped(object sender, EventArgs e)
+        {
+            var ctr = sender as Grid;
+            await ctr.ScaleTo(0.9, 1);
+            await this.FadeTo(0.9, 1);
+            try
+            {
+                var UsingNlPage = new VBMTablet._pages._home._menuFloatingPages.usingNLPage();
+                await Navigation.PushAsync(UsingNlPage);
+                UsingNlPage.Render();
+                await ctr.ScaleTo(1, 100);
+                await this.FadeTo(1, 100);
+            }
+            catch
+            {
+                //log error
+                await ctr.ScaleTo(1, 100);
+                await this.FadeTo(1, 100);
+            }
         }
     }
 }

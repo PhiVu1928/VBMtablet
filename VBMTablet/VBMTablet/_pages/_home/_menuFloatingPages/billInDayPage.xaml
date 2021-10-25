@@ -1,0 +1,326 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VBMTablet._pages._home._menuFloatingPages.billInDayPage"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:sfinput="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             BackgroundColor="{StaticResource vbmwhite}"
+             NavigationPage.HasNavigationBar="False">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="{OnIdiom Phone=300,Tablet=350}"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackLayout Orientation="Vertical"
+                     Margin="0,46,0,0"
+                     Spacing="40">
+
+            <Grid>
+
+                <ff:CachedImage Source="Stroke"
+                                WidthRequest="50"
+                                HeightRequest="25"
+                                HorizontalOptions="Start"
+                                VerticalOptions="Center"
+                                BackgroundColor="White">
+                    <ff:CachedImage.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="FF_left_Tapped"/>
+                    </ff:CachedImage.GestureRecognizers>
+                </ff:CachedImage>
+
+                <Label Text="Danh sách đơn hàng"
+                       FontSize="{OnIdiom Phone=16,Tablet=36}"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       HorizontalTextAlignment="Center"/>
+
+
+            </Grid>
+
+            <StackLayout Orientation="Vertical"
+                         Spacing="20"
+                         Margin="{OnIdiom Phone='50,0',Tablet='88,0'}"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center">
+                <Grid>
+
+                    <border:SfBorder BackgroundColor="{StaticResource vbmlightgray}"
+                                     HorizontalOptions="Center"
+                                     VerticalOptions="Center"
+                                     BorderColor="White"
+                                     HasShadow="False"
+                                     WidthRequest="624"
+                                     HeightRequest="83"
+                                     CornerRadius="30">
+
+                        <StackLayout Orientation="Horizontal"
+                                     HorizontalOptions="Start"
+                                     VerticalOptions="Center">
+
+                            <ff:CachedImage Source="searchicon"
+                                            HeightRequest="30"
+                                            WidthRequest="30"                                           
+                                            Margin="29,0,0,0"/>
+
+                            <sfinput:SfTextInputLayout Margin="5"    
+                                                       ContainerType="Outlined"                                                       
+                                                       BackgroundColor="Transparent"
+                                                       FocusedColor="Transparent"
+                                                       WidthRequest="200"
+                                                       UnfocusedColor="Transparent">
+
+                                <Entry Placeholder="Mã đơn hàng"
+                                       Keyboard="Telephone"
+                                       FontSize="{OnIdiom Phone=13,Tablet=22}"
+                                       VerticalOptions="Start"/>
+
+                            </sfinput:SfTextInputLayout>
+
+                        </StackLayout>
+
+                    </border:SfBorder>
+
+
+                </Grid>
+
+                <StackLayout Orientation="Horizontal">
+
+                    <border:SfBorder BackgroundColor="{StaticResource vbmlightgray}"
+                                     BorderColor="White"
+                                     HasShadow="False"
+                                     HorizontalOptions="Start"
+                                     VerticalOptions="Center"
+                                     HeightRequest="67"
+                                     WidthRequest="260"
+                                     CornerRadius="30"
+                                     x:Name="btnBill">
+
+                        <Label Text="HIỆN BILL TẠI TIỆM"
+                               x:Name="lblbilltiem"
+                               FontSize="{OnIdiom Phone=10,Tablet=20}"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               HorizontalTextAlignment="Center"/>
+                        
+
+                    </border:SfBorder>
+
+                    <border:SfBorder BackgroundColor="{StaticResource vbmgray}"
+                                     BorderColor="White"
+                                     HasShadow="False"
+                                     HorizontalOptions="End"
+                                     VerticalOptions="Center"
+                                     HeightRequest="67"
+                                     WidthRequest="260"
+                                     CornerRadius="30"
+                                     x:Name="btnbilldeli">
+
+                        <Label Text="HIỆN BILL DELIVERY"
+                               x:Name="lblbilldeli"
+                               FontSize="{OnIdiom Phone=10,Tablet=20}"
+                               TextColor="{StaticResource vbmwhite}"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               HorizontalTextAlignment="Center"/>
+
+                        
+                    </border:SfBorder>
+
+                </StackLayout>
+
+
+            </StackLayout>
+
+        </StackLayout>
+
+        <ScrollView Grid.Row="1">
+
+            <Grid>
+
+                <StackLayout Orientation="Vertical"
+                             BindableLayout.ItemsSource="{Binding billStatuses}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <border:SfBorder CornerRadius="30"
+                                             BorderColor="White"
+                                             BackgroundColor="{StaticResource vbmlightgray}"
+                                             HasShadow="False"
+                                             Margin="10">
+
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="{OnIdiom Phone=65,Tablet=102}"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Grid Padding="{OnIdiom Phone=10,Tablet=20}"
+                                          BackgroundColor="{StaticResource vbmgray}">
+
+                                        <Label Text="{Binding name}"
+                                               HorizontalTextAlignment="Start"
+                                               HorizontalOptions="Start"
+                                               VerticalOptions="Center"
+                                               WidthRequest="200"
+                                               TextColor="{StaticResource vbmwhite}"
+                                               FontSize="{OnIdiom Phone=10,Tablet=25}"/>
+
+                                        <Label Text="{Binding BillID}"
+                                               HorizontalTextAlignment="Start"
+                                               HorizontalOptions="Center"
+                                               VerticalOptions="Center"
+                                               TextColor="{StaticResource vbmwhite}"
+                                               FontSize="{OnIdiom Phone=10,Tablet=25}"/>
+
+                                        <Label Text="{Binding BillDate}"
+                                               HorizontalTextAlignment="End"
+                                               HorizontalOptions="End"
+                                               VerticalOptions="Center"
+                                               TextColor="{StaticResource vbmwhite}"
+                                               FontSize="{OnIdiom Phone=10,Tablet=25}"
+                                               WidthRequest="{OnIdiom Phone=122,Tablet=152}"/>
+
+                                    </Grid>
+
+                                    <StackLayout Orientation="Vertical"
+                                                 Grid.Row="1"
+                                                 IsVisible="{Binding visDetail}"
+                                                 BindableLayout.ItemsSource="{Binding billDetails}">
+                                        <BindableLayout.ItemTemplate>
+                                            <DataTemplate>
+                                                <Grid>
+                                                    <Label Text="{Binding name}"
+                                                           HorizontalOptions="Start"
+                                                           VerticalOptions="Center"
+                                                           TextColor="{StaticResource vbmgray}"/>
+
+                                                    <Label Text="{Binding solg}"
+                                                           HorizontalOptions="Center"
+                                                           VerticalOptions="Center"
+                                                           TextColor="{StaticResource vbmgray}"/>
+
+                                                    <Label Text="{Binding price}"
+                                                           HorizontalOptions="End"
+                                                           VerticalOptions="Center"
+                                                           TextColor="{StaticResource vbmgray}"/>
+
+                                                </Grid>
+                                            </DataTemplate>
+                                        </BindableLayout.ItemTemplate>
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Vertical"
+                                                 Padding="{OnIdiom Phone=10,Tablet=20}"
+                                                 Spacing="{OnIdiom Phone=10,Tablet=20}"
+                                                 Grid.Row="2">
+
+                                        <Grid>
+
+                                            <Label Text="{Binding BillType}"
+                                                   FontSize="{OnIdiom Phone=13,Tablet=30}"
+                                                   TextColor="{StaticResource vbmgray}"
+                                                   HorizontalOptions="Start"
+                                                   VerticalOptions="Center"/>
+
+                                            <Label Text="{Binding billStatus}"
+                                                   FontSize="{OnIdiom Phone=13,Tablet=30}"
+                                                   TextColor="{Binding BillStatusColor}"
+                                                   HorizontalOptions="Center"
+                                                   VerticalOptions="Center"/>
+
+                                            <Label Text="{Binding tgTien}"
+                                                   FontSize="{OnIdiom Phone=13,Tablet=30}"
+                                                   TextColor="{StaticResource vbmpinttext}"
+                                                   HorizontalOptions="End"
+                                                   VerticalOptions="Center"/>
+
+
+                                        </Grid>
+
+                                        <StackLayout Orientation="Horizontal"
+                                                     HeightRequest="{OnIdiom Phone=47, Tablet=67}"
+                                                     Spacing="20">
+
+                                            <border:SfBorder BackgroundColor="{StaticResource vbmgreen}"
+                                                             BorderColor="{StaticResource vbmwhite}"
+                                                             HasShadow="False"
+                                                             WidthRequest="160"
+                                                             HeightRequest="67"
+                                                             CornerRadius="30">
+
+                                                <Label Text="IN BILL"
+                                                       TextColor="{StaticResource vbmlightyellow}"
+                                                       FontSize="{OnIdiom Phone=10,Tablet=20}"
+                                                       HorizontalOptions="Center"
+                                                       VerticalOptions="Center"/>
+
+                                            </border:SfBorder>
+
+                                            <border:SfBorder BackgroundColor="{StaticResource vbmlightyellow}"
+                                                             BorderColor="{StaticResource vbmwhite}"
+                                                             HasShadow="False"
+                                                             WidthRequest="160"
+                                                             HeightRequest="67"
+                                                             CornerRadius="30">
+
+                                                <Label Text="IN LABEL"
+                                                       TextColor="{StaticResource vbmgreen}"
+                                                       FontSize="{OnIdiom Phone=10,Tablet=20}"
+                                                       HorizontalOptions="Center"
+                                                       VerticalOptions="Center"/>
+
+
+                                            </border:SfBorder>
+
+                                            <border:SfBorder BackgroundColor="{StaticResource vbmgray}"
+                                                             BorderColor="{StaticResource vbmwhite}"
+                                                             HasShadow="False"
+                                                             WidthRequest="190"
+                                                             HeightRequest="67"
+                                                             CornerRadius="30"
+                                                             Margin="20,0,0,0">
+
+                                                <Label Text="XEM CHI TIẾT"
+                                                       TextColor="{StaticResource vbmwhite}"
+                                                       FontSize="{OnIdiom Phone=10,Tablet=20}"
+                                                       HorizontalTextAlignment="Center"
+                                                       HorizontalOptions="Center"
+                                                       VerticalOptions="Center"/>
+                                                <border:SfBorder.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="brdBillDetail_tapped"/>
+                                                </border:SfBorder.GestureRecognizers>
+
+                                            </border:SfBorder>
+
+                                        </StackLayout>
+
+                                    </StackLayout>
+
+                                </Grid>
+
+                            </border:SfBorder>
+
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+
+                </StackLayout>
+
+            </Grid>
+
+        </ScrollView>
+
+        <busyindicator:SfBusyIndicator
+                        x:Name="busyindicator"
+                        AnimationType="Cupertino"
+                        HeightRequest="100"
+                        HorizontalOptions="Center"
+                        IsBusy="{Binding isbusy}"
+                        IsVisible="{Binding isbusy}"
+                        TextColor="#1d5234"
+                        VerticalOptions="Center"
+                        WidthRequest="100" />
+    </Grid>
+</ContentPage>

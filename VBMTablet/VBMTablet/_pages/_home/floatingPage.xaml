@@ -32,7 +32,7 @@
                 FontSize="{OnIdiom Phone=10,
                                    Tablet=25}"
                 HorizontalTextAlignment="Start"
-                Text="Nguyễn Văn Hải " />
+                x:Name="lblStaffName"/>
 
         </Grid>
 
@@ -104,31 +104,8 @@
                                    Tablet=25}"
                 HorizontalTextAlignment="Start"
                 Text="Sử dụng nguyên liệu" />
-
-        </Grid>
-
-        <Grid>
-
-            <ff:CachedImage
-                x:Name="tokenicon"
-                Aspect="Fill"
-                HeightRequest="{OnIdiom Phone=30,
-                                        Tablet=40}"
-                HorizontalOptions="Start"
-                Source="extokenicon"
-                VerticalOptions="Center"
-                WidthRequest="{OnIdiom Phone=30,
-                                       Tablet=40}" />
-
-            <Label
-                Margin="64,0,0,0"
-                FontSize="{OnIdiom Phone=10,
-                                   Tablet=25}"
-                HorizontalTextAlignment="Start"
-                Text="Lấy Extoken của tiệm" />
-
             <Grid.GestureRecognizers>
-                <TapGestureRecognizer Tapped="tokenpage_tapped" />
+                <TapGestureRecognizer Tapped="grdUsingNL_Tapped"/>
             </Grid.GestureRecognizers>
 
         </Grid>

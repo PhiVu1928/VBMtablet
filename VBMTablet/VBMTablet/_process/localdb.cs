@@ -7,6 +7,7 @@ using VBMTablet._objs._promoObjs;
 using VBMTablet._objs._storeObjs;
 using VBMTablet._objs._userObjs;
 using VBMTablet._objs._staffObjs;
+using VBMTablet._objs._cashObjs._barcodeObjs;
 
 using VBMTablet._objs.OtherServices;
 using VBMTablet._pages._login;
@@ -14,6 +15,7 @@ using VBMTablet._pages._info;
 using VBMTablet._pages._menu;
 using VBMTablet._pages._home;
 using VBMTablet._pages._thanhtoan;
+using VBMTablet._pages._home._menuFloatingPages;
 
 using VBMTablet._process;
 
@@ -38,6 +40,7 @@ namespace VBMTablet._process
         public static cover_page cover_Page { get; set; } // Trang start App
         public static login_page login_Page { get; set; }
         public static outline_page outlinePage { get; set; } // trang chu co detail va floating Pages
+        public static usingNLPage usingNLPage { get; set; } // trang su dung nguyen lieu
 
 
         //page & view of cash mode
@@ -49,6 +52,7 @@ namespace VBMTablet._process
         //Bien process
         public static bool isdeburg { get; set; } = true;
         public static long shopID { get; set; }
+        public static nlBarcode nlBarcode { get; set; }
         public static staff NhanVieninfo { get; set; }
         public static List<staff> FullNhanVienInfo { get; set; }
         public static bool isMLMode { get; set; }

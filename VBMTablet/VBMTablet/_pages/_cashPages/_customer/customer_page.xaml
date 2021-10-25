@@ -5,7 +5,7 @@
              x:Class="VBMTablet._pages._home.customer_page">
     <ScrollView>
         <StackLayout Orientation="Vertical"
-               Spacing="20">
+                   Spacing="20">
 
             <border:SfBorder BackgroundColor="{StaticResource vbmlightsky}"
                              BorderColor="Transparent"
@@ -13,8 +13,8 @@
                              CornerRadius="30">
 
                 <StackLayout Orientation="Vertical"
-                           Padding="{OnIdiom Phone=10,Tablet=30}"
-                           Spacing="20">
+                             Padding="{OnIdiom Phone=10,Tablet=30}"
+                             Spacing="20">
 
                     <Label Text="Những chương trình khuyến mãi khách tham gia:"
                            FontSize="{OnIdiom Phone=15,Tablet=30}" />
@@ -89,16 +89,16 @@
                         <Grid Margin="0,0,30,0">
 
                             <Label Text="{Binding name}"
-                               FontSize="{OnIdiom Phone=10,Tablet=30}"
-                               FontAttributes="Bold"
-                               HorizontalOptions="Start"
-                               VerticalOptions="Center" />
+                                   FontSize="{OnIdiom Phone=10,Tablet=30}"
+                                   FontAttributes="Bold"
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="Center" />
 
                             <Label Text="Khách Mua Tại Tiệm"
-                               FontSize="{OnIdiom Phone=10,Tablet=25}"
-                               TextColor="{StaticResource vbmgray}"
-                               HorizontalOptions="End"
-                               VerticalOptions="Center" />
+                                   FontSize="{OnIdiom Phone=10,Tablet=25}"
+                                   TextColor="{StaticResource vbmgray}"
+                                   HorizontalOptions="End"
+                                   VerticalOptions="Center" />
 
                         </Grid>
 
@@ -117,42 +117,42 @@
             </border:SfBorder>
 
             <border:SfBorder BackgroundColor="{StaticResource vbmlightmiddlegray}"
-                     BorderColor="{StaticResource vbmwhite}"
-                     CornerRadius="30"
-                     HasShadow="False"
-                     Padding="{OnIdiom Phone=15,Tablet=20}">
+                             BorderColor="{StaticResource vbmwhite}"
+                             CornerRadius="30"
+                             HasShadow="False"
+                             Padding="{OnIdiom Phone=15,Tablet=20}">
 
                 <StackLayout Orientation="Vertical"
-                   Spacing="20">
+                             Spacing="20">
 
                     <Grid>
 
                         <Label Text="{Binding point}"
-                 FontSize="{OnIdiom Phone=10,Tablet=20}"
-                 TextColor="{StaticResource vbmgray}"
-                 HorizontalOptions="Start"
-                 VerticalOptions="Center" />
+                               FontSize="{OnIdiom Phone=10,Tablet=20}"
+                               TextColor="{StaticResource vbmgray}"
+                               HorizontalOptions="Start"
+                               VerticalOptions="Center" />
 
                         <Label Text="{Binding banhmitichluy}"
-                 FontSize="{OnIdiom Phone=10,Tablet=20}"
-                 TextColor="{StaticResource vbmgray}"
-                 HorizontalOptions="End"
-                 VerticalOptions="Center" />
+                               FontSize="{OnIdiom Phone=10,Tablet=20}"
+                               TextColor="{StaticResource vbmgray}"
+                               HorizontalOptions="End"
+                               VerticalOptions="Center" />
                     </Grid>
 
                     <Grid>
 
                         <Label Text="{Binding userlevel}"
-                 FontSize="{OnIdiom Phone=10,Tablet=20}"
-                 TextColor="{StaticResource vbmgray}"
-                 HorizontalOptions="Start"
-                 VerticalOptions="Center" />
+                               FontSize="{OnIdiom Phone=10,Tablet=20}"
+                               TextColor="{StaticResource vbmgray}"
+                               HorizontalOptions="Start"
+                               VerticalOptions="Center" />
 
                         <Label Text="{Binding soquatichluy}"
-                 FontSize="{OnIdiom Phone=10,Tablet=20}"
-                 TextColor="{StaticResource vbmgray}"
-                 HorizontalOptions="End"
-                 VerticalOptions="Center" />
+                               FontSize="{OnIdiom Phone=10,Tablet=20}"
+                               TextColor="{StaticResource vbmgray}"
+                               HorizontalOptions="End"
+                               VerticalOptions="Center" />
 
                     </Grid>
 

@@ -174,5 +174,36 @@ namespace VBMTablet._utils
             cl.Timeout = TimeSpan.FromSeconds(10);
             return cl;
         }
+        public static string signSHA256(string message, string key)
+        {
+            byte[] keyByte = Encoding.UTF8.GetBytes(key);
+            byte[] messageBytes = Encoding.UTF8.GetBytes(message);
+            using (var hmacsha256 = new HMACSHA256(keyByte))
+            {
+                byte[] hashmessage = hmacsha256.ComputeHash(messageBytes);
+                string hex = BitConverter.ToString(hashmessage);
+                hex = hex.Replace("-", "").ToLower();
+                return hex;
+
+            }
+        }
+        public static string genToken()
+        {
+            string based = "abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            int salt = 0;
+            string res = "";
+            Random rnd = new Random();
+            for (int i = 0; i < 7; i++)
+            {
+                try
+                {
+                    salt = rnd.Next(61);
+                    res += based.Substring(salt, 1);
+                }
+                catch { }
+            }
+
+            return res;
+        }
     }
 }
