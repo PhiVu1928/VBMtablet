@@ -9,15 +9,18 @@
     ios:Page.UseSafeArea="True"
     BackgroundColor="{StaticResource vbmwhite}">
 
-    <StackLayout
-        Margin="10"
-        Orientation="Vertical"
-        Spacing="{OnIdiom Phone=20,
-                          Tablet=40}">
+    <Grid Margin="10">
+        <StackLayout            
+            Orientation="Vertical"
+            VerticalOptions="Start"
+            HorizontalOptions="Start"
+            Spacing="{OnIdiom Phone=20,
+                              Tablet=40}">
 
-        <Grid>
 
-            <ff:CachedImage
+            <Grid>
+
+                <ff:CachedImage
                 Aspect="Fill"
                 HeightRequest="{OnIdiom Phone=30,
                                         Tablet=40}"
@@ -27,18 +30,18 @@
                 WidthRequest="{OnIdiom Phone=30,
                                        Tablet=40}" />
 
-            <Label
+                <Label
                 Margin="64,0,0,0"
                 FontSize="{OnIdiom Phone=10,
                                    Tablet=25}"
                 HorizontalTextAlignment="Start"
                 x:Name="lblStaffName"/>
 
-        </Grid>
+            </Grid>
 
-        <Grid x:Name="tinhtrang">
+            <Grid x:Name="tinhtrang">
 
-            <ff:CachedImage
+                <ff:CachedImage
                 Aspect="Fill"
                 HeightRequest="{OnIdiom Phone=30,
                                         Tablet=40}"
@@ -48,22 +51,22 @@
                 WidthRequest="{OnIdiom Phone=30,
                                        Tablet=40}" />
 
-            <Label
+                <Label
                 Margin="64,0,0,0"
                 FontSize="{OnIdiom Phone=10,
                                    Tablet=25}"
                 HorizontalTextAlignment="Start"
                 Text="Xem tình trạng đơn" />
 
-            <Grid.GestureRecognizers>
-                <TapGestureRecognizer Tapped="Tinhtrangdon_Tapped" />
-            </Grid.GestureRecognizers>
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Tinhtrangdon_Tapped" />
+                </Grid.GestureRecognizers>
 
-        </Grid>
+            </Grid>
 
-        <Grid x:Name="ready">
+            <Grid x:Name="ready">
 
-            <ff:CachedImage
+                <ff:CachedImage
                 Aspect="Fill"
                 HeightRequest="{OnIdiom Phone=30,
                                         Tablet=40}"
@@ -73,22 +76,22 @@
                 WidthRequest="{OnIdiom Phone=30,
                                        Tablet=40}" />
 
-            <Label
+                <Label
                 Margin="64,0,0,0"
                 FontSize="{OnIdiom Phone=10,
                                    Tablet=25}"
                 HorizontalTextAlignment="Start"
                 Text="Chuẩn bị nguyên liệu" />
 
-            <Grid.GestureRecognizers>
-                <TapGestureRecognizer Tapped="Chuanbi_Tapped" />
-            </Grid.GestureRecognizers>
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Chuanbi_Tapped" />
+                </Grid.GestureRecognizers>
 
-        </Grid>
+            </Grid>
 
-        <Grid>
+            <Grid>
 
-            <ff:CachedImage
+                <ff:CachedImage
                 Aspect="Fill"
                 HeightRequest="{OnIdiom Phone=30,
                                         Tablet=40}"
@@ -98,21 +101,21 @@
                 WidthRequest="{OnIdiom Phone=30,
                                        Tablet=40}" />
 
-            <Label
+                <Label
                 Margin="64,0,0,0"
                 FontSize="{OnIdiom Phone=10,
                                    Tablet=25}"
                 HorizontalTextAlignment="Start"
                 Text="Sử dụng nguyên liệu" />
-            <Grid.GestureRecognizers>
-                <TapGestureRecognizer Tapped="grdUsingNL_Tapped"/>
-            </Grid.GestureRecognizers>
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="grdUsingNL_Tapped"/>
+                </Grid.GestureRecognizers>
 
-        </Grid>
+            </Grid>
 
-        <Grid>
+            <Grid>
 
-            <ff:CachedImage
+                <ff:CachedImage
                 Aspect="Fill"
                 HeightRequest="{OnIdiom Phone=30,
                                         Tablet=40}"
@@ -122,19 +125,22 @@
                 WidthRequest="{OnIdiom Phone=30,
                                        Tablet=40}" />
 
-            <Label
+                <Label
                 Margin="64,0,0,0"
                 FontSize="{OnIdiom Phone=10,
                                    Tablet=25}"
                 HorizontalTextAlignment="Start"
                 Text="Đăng xuất" />
-            <Grid.GestureRecognizers>
-                <TapGestureRecognizer Tapped="grdLogOut_tapped"/>
-            </Grid.GestureRecognizers>
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="grdLogOut_tapped"/>
+                </Grid.GestureRecognizers>
 
-        </Grid>
+            </Grid>           
 
-        <Grid Margin="0,250,0,0">
+        </StackLayout>
+
+        <Grid HorizontalOptions="Start"
+              VerticalOptions="End">
 
             <ff:CachedImage
                 Aspect="Fill"
@@ -155,7 +161,6 @@
                 Text="Việt Nam" />
 
         </Grid>
-
-    </StackLayout>
+    </Grid>
 
 </ContentPage>

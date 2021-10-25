@@ -39,6 +39,7 @@ namespace VBMTablet._pages._home._menuFloatingPages
                 {
                     Application.Current.MainPage.DisplayAlert("Scanned Result", result.Text, "OK");
                 });
+                zxScanBarCode.IsScanning = false;
             }
             catch (Exception ex)
             {
