@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using VBMTablet._vms._billsInDay;
+using VBMTablet._vms._orderedInDay;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;

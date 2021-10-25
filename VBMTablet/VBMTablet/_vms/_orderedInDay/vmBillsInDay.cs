@@ -9,7 +9,7 @@ using VBMTablet._objs._cashObjs._orderedInDayObjs;
 using VBMTablet._process;
 using Xamarin.Forms;
 
-namespace VBMTablet._vms._billsInDay
+namespace VBMTablet._vms._orderedInDay
 {
     public class vmBillsInDay : INotifyPropertyChanged
     {

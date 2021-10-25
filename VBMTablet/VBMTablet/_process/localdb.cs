@@ -52,7 +52,7 @@ namespace VBMTablet._process
         //Bien process
         public static bool isdeburg { get; set; } = true;
         public static long shopID { get; set; }
-        public static nlBarcode nlBarcode { get; set; }
+        public static nlBarcode nlBarcode { get; set; } //day la bien de luu thong tin nguyen lieu khi doc barcode
         public static staff NhanVieninfo { get; set; }
         public static List<staff> FullNhanVienInfo { get; set; }
         public static bool isMLMode { get; set; }

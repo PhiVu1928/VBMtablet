@@ -26,12 +26,19 @@ namespace VBMTablet._pages._home._menuFloatingPages
         {
             try
             {
+                // ở đây em dùng signalR để đọc thông tin barcode nhưng em không có qr để test thử có gì anh xem giúp em nha
+                //Device.BeginInvokeOnMainThread(() =>
+                //{
+                //    localdb.signalR.HubProxy.Invoke("SystemAction", "getBarCodeInfo{}" + result.Text + "{}");
+                //});
+                //zxScanBarCode.IsScanning = false;
+                //await Navigation.PopPopupAsync();
+
+                //ở đây em để tạm dùng để đọc result thôi
                 Device.BeginInvokeOnMainThread(() =>
                 {
-                    localdb.signalR.HubProxy.Invoke("SystemAction", "getBarCodeInfo{}" + result.Text + "{}");
+                    Application.Current.MainPage.DisplayAlert("Scanned Result", result.Text, "OK");
                 });
-                zxScanBarCode.IsScanning = false;
-                await Navigation.PopPopupAsync();
             }
             catch (Exception ex)
             {
