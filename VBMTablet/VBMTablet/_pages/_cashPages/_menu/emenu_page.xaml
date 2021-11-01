@@ -14,18 +14,18 @@
                            ItemsSource="{Binding emenu}"
                            ItemSize="230"
                            Margin="0,20,0,0"
-                           ItemSpacing="{OnIdiom Phone='0,0,0,20',Tablet=0}"
+                           ItemSpacing="0"
                            SelectionBackgroundColor="Transparent"
                            HorizontalOptions="Center"
                            VerticalOptions="Start"
                            Grid.Row="1">
             <sf:SfListView.LayoutManager>
-                <sf:GridLayout SpanCount="{OnIdiom Phone=2, Tablet=3}"/>
+                <sf:GridLayout SpanCount="3"/>
             </sf:SfListView.LayoutManager>
             <sf:SfListView.ItemTemplate>
                 <DataTemplate>
                     <StackLayout Orientation="Horizontal"                             
-                                Spacing="{OnIdiom Phone=10,Tablet=70}"
+                                Spacing="70"
                                 VerticalOptions="Center"
                                 HorizontalOptions="Center">
                         <Grid>
@@ -43,7 +43,7 @@
                                 <Grid>
 
                                     <Label Text="{Binding name}"
-                                       FontSize="{OnIdiom Phone=13,Tablet=18}"
+                                       FontSize="18"
                                        FontAttributes="Bold"
                                        Margin="25,20"
                                        HorizontalOptions="Center"
@@ -56,8 +56,8 @@
 
                             </border:SfBorder>
 
-                            <border:SfBorder WidthRequest="{OnIdiom Phone=113,Tablet=123}"
-                                         HeightRequest="{OnIdiom Phone=128,Tablet=138}"
+                            <border:SfBorder WidthRequest="123"
+                                         HeightRequest="138"
                                          CornerRadius="20"
                                          HasShadow="False"
                                          HorizontalOptions="Center"

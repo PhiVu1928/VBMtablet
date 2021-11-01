@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<popup:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+                 xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+                 xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+                 xmlns:btn="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+                 xmlns:popup="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 x:Class="VBMTablet._pages._cashPages._customer.chooseSlgBmls_page">
+    <popup:PopupPage.Animation>
+        <animations:ScaleAnimation
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"
+            PositionIn="Bottom"
+            PositionOut="Bottom" />
+    </popup:PopupPage.Animation>
+    <border:SfBorder
+        Padding="20"
+        BackgroundColor="{StaticResource vbmpagebackground}"
+        BorderColor="{StaticResource vbmlightgray}"
+        BorderWidth="1"
+        CornerRadius="20,20,0,0"
+        VerticalOptions="End">
+        <StackLayout Spacing="20">
+            <Grid>
+                <Label
+                    x:Name="lblName"
+                    FontFamily="{StaticResource lbo}"
+                    FontSize="15"
+                    HorizontalOptions="Start"
+                    TextColor="{StaticResource vbmgreen}"
+                    VerticalTextAlignment="Center" />
+                <StackLayout
+                    HorizontalOptions="End"
+                    Orientation="Horizontal"
+                    Spacing="0"
+                    VerticalOptions="Center">
+                    <Grid>
+                        <Label Text="-"
+                               FontSize="20"
+                               VerticalOptions="Center"/>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="grdSub_tapped"/>
+                        </Grid.GestureRecognizers>
+                    </Grid>
+                    <Label
+                        x:Name="lblSlg"
+                        Margin="5,0"
+                        FontFamily="{StaticResource lbo}"
+                        FontSize="15"
+                        TextColor="{StaticResource vbmgreen}"
+                        VerticalTextAlignment="Center" />
+                    <Grid>
+                        <Label Text="+"
+                               FontSize="20"
+                               VerticalOptions="Center"/>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="grdPlus_tapped"/>
+                        </Grid.GestureRecognizers>
+                    </Grid>
+                </StackLayout>
+            </Grid>
+            <btn:SfButton
+                x:Name="btnOK"
+                Text="Thêm vào giỏ hàng"
+                Clicked="btnOK_Clicked"
+                Padding="5,0"
+                BackgroundColor="{StaticResource vbmyellow}"
+                BorderThickness="0"
+                CornerRadius="10"
+                FontFamily="{StaticResource lr}"
+                FontSize="10"
+                HeightRequest="50"
+                HorizontalTextAlignment="Center"
+                TextColor="{StaticResource vbmgreen}"
+                VerticalOptions="Center" />
+        </StackLayout>
+    </border:SfBorder>
+</popup:PopupPage>

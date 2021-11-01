@@ -79,6 +79,59 @@ namespace VBMTablet._objs._cartObjs
             }
             return null;
         }
+        public static CartProd createAddHisProd(long mainId)
+        {
+            CartProd data = null;
+            foreach(var t1 in localdb.groupMenus)
+            {
+                foreach(var t2 in t1.lst_sub_menu)
+                {
+                    foreach(var t3 in t2.lst_emes)
+                    {
+                        foreach(var t4 in t3.lst_size)
+                        {
+                            foreach(var t5 in t3.lst_combo)
+                            {
+                                if (t4.id == mainId)
+                                {
+                                    data = new CartProd
+                                    {
+                                        dongia = t4.price,
+                                        groupID = t1.id,
+                                        id = t4.id,
+                                        isGetLater = false,
+                                        isGetLaterOption = false,
+                                        LstExts = new List<cartExtra>(),
+                                        LstSpls = new List<cartSpice>(),
+                                        nguyengia = t4.price,
+                                        orderCode = "",
+                                        orderType = 0,
+                                    };
+                                }
+                                else if (t5.id == mainId)
+                                {
+                                    data = new CartProd
+                                    {
+                                        groupID = 0,
+                                        dongia = t5.price,
+                                        id = t5.id,
+                                        isGetLater = false,
+                                        isGetLaterOption = false,
+                                        LstExts = new List<cartExtra>(),
+                                        LstSpls = new List<cartSpice>(),
+                                        nguyengia = t5.price,
+                                        orderCode = "",
+                                        orderType = 0,
+                                    };
+                                    return data;
+                                }
+                            }                                                     
+                        }
+                    }
+                }
+            }
+            return data;
+        }
         public static CartProd createAddProd(long mainId, long drinkID)
         {
             CartProd data = null;

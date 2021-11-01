@@ -41,9 +41,15 @@ namespace VBMTablet._pages._home
             stlCartMenu.IsVisible = false;
         }
         
-        private void ff_backicon_tapped(object sender, EventArgs e)
+        async void ff_backicon_tapped(object sender, EventArgs e)
         {
-            Navigation.RemovePage(this);
+            var ques = await Application.Current.MainPage.DisplayAlert("", "Thông tin khách hàng và giỏ hàng sẽ mất, bạn có muốn quay lại không ?", "Ok", "No");
+            if(ques)
+            {
+                localdb.fullUserInfo = null;
+                localdb.CartProd.Clear();
+                Navigation.RemovePage(this);
+            }
         }
 
         async void ff_homeicon_tapped(object sender, EventArgs e)
@@ -219,10 +225,10 @@ namespace VBMTablet._pages._home
                             tvCustomer.Items[3].Content = null;
                             vmhome.visNonUserInfo = false;
                             vmhome.visUserInfo = true;
-                            lblTenKhachHang.Text = localdb.userinfo.Fullname;
+                            lblTenKhachHang.Text = localdb.fullUserInfo.UserInfo.Fullname;
                             var Customer = new VBMTablet._pages._home.customer_page();
                             tvCustomer.Items[0].Content = Customer;
-                            Customer.Render(localdb.userinfo);
+                            Customer.Render(localdb.fullUserInfo.UserInfo);
                         }
                         else
                         {
@@ -263,7 +269,7 @@ namespace VBMTablet._pages._home
                         using (var progress = UserDialogs.Instance.Loading("Loading...", null, null, true, MaskType.Black))
                         {
                             string sdt = vmhome.sdt;
-                            UserGiftObjs userGiftObjs = await UserGiftObjs.getUserGiftData(vmhome.sdt, localdb.userinfo.UserID);
+                            UserGiftObjs userGiftObjs = await UserGiftObjs.getUserGiftData(vmhome.sdt, localdb.fullUserInfo.UserInfo.UserID);
                             if (userGiftObjs != null)
                             {
                                 var giftPage = new VBMTablet._pages._home.gift_page();
@@ -278,7 +284,7 @@ namespace VBMTablet._pages._home
                     {
                         using (var progress = UserDialogs.Instance.Loading("Loading...", null, null, true, MaskType.Black))
                         {
-                            string url = $"{localdb.endpoin}get_ordered_bills?sdt={vmhome.sdt}&userid={localdb.userinfo.UserID}";
+                            string url = $"{localdb.endpoin}get_ordered_bills?sdt={vmhome.sdt}&userid={localdb.fullUserInfo.UserInfo.UserID}";
                             if (tools.isConn())
                             {
                                 using (var cl = new HttpClient())
@@ -302,6 +308,24 @@ namespace VBMTablet._pages._home
                     }
                     break;
             }
+        }
+
+        async void grdResetCart_tapped(object sender, EventArgs e)
+        {
+            var ctr = sender as Grid;
+            await ctr.ScaleTo(0.9, 1);
+            await this.FadeTo(0.9, 1);
+            if(localdb.CartProd != null)
+            {
+                var ques = await Application.Current.MainPage.DisplayAlert("", "Bạn có muốn làm mới giỏ hàng ?", "Ok", "No");
+                if(ques)
+                {
+                    localdb.CartProd.Clear();
+                    localdb.home_Page.updateSlCart();
+                }
+            }
+            await ctr.ScaleTo(1, 100);
+            await this.FadeTo(1, 100);
         }
     }
 }

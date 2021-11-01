@@ -67,8 +67,7 @@
                         BorderColor="{StaticResource vbmwhite}"
                         CornerRadius="30"
                         HasShadow="False"
-                        HeightRequest="{OnIdiom Phone=55,
-                                                Tablet=85}"
+                        HeightRequest="85"
                         HorizontalOptions="Fill"
                         VerticalOptions="Center">
 
@@ -80,8 +79,7 @@
                             WidthRequest="300">
 
                             <Entry
-                                FontSize="{OnIdiom Tablet=25,
-                                                   Phone=10}"
+                                FontSize="25"
                                 Keyboard="Telephone"
                                 Placeholder="Tên khách hàng" 
                                 x:Name="ETInputMNV"/>
@@ -92,7 +90,7 @@
 
                     <Label Text="Độ tuổi của khách ( Dự đoán):"
                            TextColor="{StaticResource vbmgreen}"
-                           FontSize="{OnIdiom Phone=20,Tablet=30}"/>
+                           FontSize="30"/>
 
                     <StackLayout Orientation="Vertical"
                                  Padding="20"
@@ -117,7 +115,7 @@
                                     </border:SfBorder>
 
                                     <Label Text="{Binding age}"
-                                           FontSize="{OnIdiom Phone=18,Tablet=27}"
+                                           FontSize="27"
                                            TextColor="{StaticResource vbmdeepmiddlegray}"/>
                                     <StackLayout.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="stlAge_Tapped"/>
@@ -154,7 +152,7 @@
                                     </border:SfBorder>
 
                                     <Label Text="{Binding gioiTinh}"
-                                           FontSize="{OnIdiom Phone=18,Tablet=27}"
+                                           FontSize="27"
                                            TextColor="{StaticResource vbmdeepmiddlegray}"/>
                                     <StackLayout.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="stlGioiTinh_tapped"/>

@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             xmlns:sf="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             x:Class="VBMTablet._pages._cashPages._customer.giftDetail_Page"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource vbmwhite}">
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <StackLayout Margin="0,46,0,0" Orientation="Vertical">
+
+                <Grid>
+
+                    <ff:CachedImage
+                        BackgroundColor="White"
+                        HeightRequest="25"
+                        HorizontalOptions="Start"
+                        Source="Stroke"
+                        VerticalOptions="Center"
+                        WidthRequest="50">
+                        <ff:CachedImage.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ff_backicon_tapped" />
+                        </ff:CachedImage.GestureRecognizers>
+                    </ff:CachedImage>
+
+                    <Label
+                        FontSize="36"
+                        HorizontalOptions="Center"
+                        HorizontalTextAlignment="Center"
+                        VerticalOptions="Center"
+                        Text="{Binding titlePage}"/>
+
+                </Grid>
+
+            </StackLayout>
+
+            <sf:SfListView ItemsSource="{Binding giftDetailItems}"
+                           ItemSize="230"
+                           Margin="0,20,0,0"
+                           ItemSpacing="0"
+                           SelectionBackgroundColor="Transparent"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Start"
+                           Grid.Row="1">
+                <sf:SfListView.LayoutManager>
+                    <sf:GridLayout SpanCount="3"/>
+                </sf:SfListView.LayoutManager>
+                <sf:SfListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal"                             
+                                     Spacing="70"
+                                     VerticalOptions="Center"
+                                     HorizontalOptions="Center">
+                            <Grid>
+
+                                <border:SfBorder BackgroundColor="{StaticResource vbmwhite}"
+                                                 HeightRequest="197"
+                                                 WidthRequest="161"
+                                                 BorderWidth="1"
+                                                 BorderColor="#E5E5E5"
+                                                 HasShadow="True"
+                                                 ShadowColor="#E5E5E5"
+                                                 CornerRadius="30"
+                                                 HorizontalOptions="Center"
+                                                 VerticalOptions="Center">
+                                    <Grid>
+
+                                        <Label Text="{Binding name}"
+                                               FontSize="18"
+                                               FontAttributes="Bold"
+                                               Margin="25,20"
+                                               HorizontalOptions="Center"
+                                               VerticalOptions="End"
+                                               HorizontalTextAlignment="Center"/>
+
+                                    </Grid>
+
+
+
+                                </border:SfBorder>
+
+                                <border:SfBorder WidthRequest="123"
+                                                 HeightRequest="138"
+                                                 CornerRadius="20"
+                                                 HasShadow="False"
+                                                 HorizontalOptions="Center"
+                                                 VerticalOptions="Start">
+                                    <ff:CachedImage Source="{Binding img}"
+                                                    Aspect="Fill"/>
+                                </border:SfBorder>
+
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="grdChooseGiftItem_tapped"/>
+                                </Grid.GestureRecognizers>
+
+                            </Grid>
+
+                        </StackLayout>
+
+                    </DataTemplate>
+                </sf:SfListView.ItemTemplate>
+            </sf:SfListView>
+
+
+        </Grid>
+
+        <busyindicator:SfBusyIndicator
+                        x:Name="busyindicator"
+                        AnimationType="Cupertino"
+                        HeightRequest="100"
+                        HorizontalOptions="Center"
+                        IsBusy="{Binding isbusy}"
+                        IsVisible="{Binding isbusy}"
+                        TextColor="#1d5234"
+                        VerticalOptions="Center"
+                        WidthRequest="100" />
+
+
+    </Grid>
+
+</ContentPage>

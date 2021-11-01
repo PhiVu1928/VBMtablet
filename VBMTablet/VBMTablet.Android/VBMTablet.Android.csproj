@@ -136,7 +136,6 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\VBMTablet\VBMTablet.csproj">
       <Project>{063F9707-10EB-4A2D-BD64-9C784DD5F837}</Project>

@@ -254,6 +254,259 @@ namespace VBMTablet._vms._detail
 
         #endregion
     }
+    public class vmCartEdit : INotifyPropertyChanged
+    {
+        public event PropertyChangedEventHandler PropertyChanged;
+        void OnPropertyChanged(string name)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+        public vmCartEdit(CartProd cartProd)
+        {
+            isbusy = true;
+            this.CartProd = cartProd;
+            this.eMenu = CartProd.getDetailInfo(cartProd.id);
+            this.name = eMenu.nameVN;
+            if (cartProd.groupID == 0)
+            {
+                var combo = eMenu.lst_combo.Where(p => p.id == cartProd.id).FirstOrDefault();
+                monid = long.Parse(combo.combine_id.Split('#')[0]);
+                nuocid = long.Parse(combo.combine_id.Split('#')[1]);
+            }
+            else
+            {
+                monid = cartProd.id;
+            }
+            generateUI();
+        }
+        #region bien
+
+        bool _isbusy;
+        bool _visSize;
+        int _slg;
+        string _price;
+        ObservableCollection<SizeRender> _sizeRenders;
+        ObservableCollection<DrinkComboRender> _drink_Combos;
+        ObservableCollection<SpiceStatus> _spiceStatuses;
+        ObservableCollection<ExtraStatus> _extraStatuses;
+
+        public string price
+        {
+            get
+            {
+                return _price;
+            }
+            set
+            {
+                _price = value;
+                OnPropertyChanged("price");
+            }
+        }
+        public int slg
+        {
+            get
+            {
+                return _slg;
+            }
+            set
+            {
+                _slg = value;
+                OnPropertyChanged("slg");
+            }
+        }
+        public ObservableCollection<ExtraStatus> extraStatuses
+        {
+            get
+            {
+                return _extraStatuses;
+            }
+            set
+            {
+                _extraStatuses = value;
+                OnPropertyChanged("extraStatuses");
+            }
+        }
+        public ObservableCollection<SpiceStatus> spiceStatuses
+        {
+            get
+            {
+                return _spiceStatuses;
+            }
+            set
+            {
+                _spiceStatuses = value;
+                OnPropertyChanged("spiceStatuses");
+            }
+        }
+        public string name { get; set; }
+        public bool visSize
+        {
+            get
+            {
+                return _visSize;
+            }
+            set
+            {
+                _visSize = value;
+                OnPropertyChanged("visSize");
+            }
+        }
+        public long monid { get; set; }
+        public long nuocid { get; set; }
+        public List<drink_combo> lstDrinkcb { get; set; }
+        public ObservableCollection<DrinkComboRender> drink_Combos
+        {
+            get
+            {
+                return _drink_Combos;
+            }
+            set
+            {
+                _drink_Combos = value;
+                OnPropertyChanged("drink_Combos");
+            }
+        }
+        public ObservableCollection<SizeRender> sizeRenders
+        {
+            get
+            {
+                return _sizeRenders;
+            }
+            set
+            {
+                _sizeRenders = value;
+                OnPropertyChanged("sizeRenders");
+            }
+        }
+        public eMenu eMenu { get; set; }
+        public CartProd CartProd { get; set; }
+        public bool isbusy
+        {
+            get
+            {
+                return _isbusy;
+            }
+            set
+            {
+                _isbusy = value;
+                OnPropertyChanged("isbusy");
+            }
+        }
+        #endregion
+        #region progress
+        async void generateUI()
+        {
+            var size = new ObservableCollection<SizeRender>();
+            int SelectedSize = eMenu.lst_size.Where(x => x.id == monid).FirstOrDefault().size;
+            foreach (var item in eMenu.lst_size.OrderBy(x => x.size).ToList())
+            {
+                if (item.size == SelectedSize)
+                {
+                    size.Add(new SizeRender(item, true));
+                }
+                else
+                {
+                    size.Add(new SizeRender(item, false));
+                }
+            }
+            sizeRenders = size;
+            if (sizeRenders.Count > 1 && CartProd.orderType >= 0)
+            {
+                visSize = true;
+            }
+            else
+            {
+                visSize = false;
+            }
+
+            var drk_Combos = new ObservableCollection<DrinkComboRender>();
+            try
+            {
+                lstDrinkcb = await drink_combo.getLstDrCbs(monid);
+            }
+            catch { }
+            if (lstDrinkcb != null)
+            {
+                foreach (var item in lstDrinkcb)
+                {
+                    drk_Combos.Add(new DrinkComboRender(item, nuocid));
+                }
+            }
+            drink_Combos = drk_Combos;
+
+            var spice = new ObservableCollection<SpiceStatus>();
+            try
+            {
+                foreach (var item in localdb.extra_Spices.spices)
+                {
+                    var cond = false;
+                    foreach (var t in eMenu.lst_size)
+                    {
+                        if (item.mons.Contains(t.id))
+                        {
+                            cond = true;
+                            break;
+                        }
+                    }
+                    if (cond)
+                    {
+                        spice.Add(new SpiceStatus(item, CartProd.LstSpls));
+                    }
+                }
+            }
+            catch { }
+            spiceStatuses = spice;
+
+            var extra = new ObservableCollection<ExtraStatus>();
+            try
+            {
+                if (eMenu.class_id == 1)
+                {
+                    foreach (var item in localdb.extra_Spices.extras)
+                    {
+                        extra.Add(new ExtraStatus(item, CartProd));
+                    }
+                }
+            }
+            catch { }
+            extraStatuses = extra;
+            slg = CartProd.slg;
+            ChangePrice();
+            isbusy = false;
+        }
+        public void ChangePrice()
+        {
+            try
+            {
+                var currentProduct = eMenu.lst_size.Where(x => x.id == monid).FirstOrDefault();
+                double cost = currentProduct.price;
+                if(CartProd.orderType < 0)
+                {
+                    cost = CartProd.dongia;
+                }                
+                if(nuocid != 0)
+                {
+                    foreach (var item in drink_Combos)
+                    {
+                        if (item.Selected == true)
+                        {
+                            cost += item.dongia;
+                        }
+                    }
+                }
+                foreach (var item in extraStatuses)
+                {
+                    cost += item.sl * item.Extra.price;
+                }
+                cost *= slg;
+                price = cost.ToString("#,##0") + " đ";
+            }
+            catch { }
+        }
+
+        #endregion
+
+    }
     public class SizeRender : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
@@ -344,6 +597,21 @@ namespace VBMTablet._vms._detail
             this.name = drink_Combo.nameVN;
             this.dongia = drink_Combo.dongia;
         }
+        public DrinkComboRender(drink_combo drink_Combo, long nuocid)
+        {
+            this.Drink_Combo = drink_Combo;
+            if(nuocid == drink_Combo.spId)
+            {
+                this.name = drink_Combo.nameVN;
+                this.dongia = drink_Combo.dongia;
+                this.Selected = true;
+            }
+            else
+            {
+                this.name = drink_Combo.nameVN;
+                this.dongia = drink_Combo.dongia;
+            }
+        }
         double _dongia;
         bool _Selected;
         Color _Textcolor = (Color)Application.Current.Resources["vbmgray"];
@@ -416,10 +684,21 @@ namespace VBMTablet._vms._detail
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
-        public SpiceStatus(spices spices)
+        public SpiceStatus(spices spices,List<cartSpice> cartSpices = null)
         {
             this.Spices = spices;
-            RenderSpiceSize();
+            if(cartSpices == null)
+            {
+                RenderSpiceSize();
+            }
+            else
+            {
+                spiceSizeStatuses = new ObservableCollection<SpiceSizeStatus>();
+                foreach (var item in spices.lst_items)
+                {
+                    spiceSizeStatuses.Add(new SpiceSizeStatus(item, cartSpices));
+                }
+            }
         }
         public spices Spices { get; set; }
         public ObservableCollection<SpiceSizeStatus> spiceSizeStatuses { get; set; }
@@ -431,7 +710,7 @@ namespace VBMTablet._vms._detail
                 spiceSizeStatuses.Add(new SpiceSizeStatus(item));
             }
         }
-        
+
     }
     public class SpiceSizeStatus : INotifyPropertyChanged
     {
@@ -444,6 +723,22 @@ namespace VBMTablet._vms._detail
         {
             this.SpicesItems = spiceItem;
             if(spiceItem.size == 2)
+            {
+                this.idselected = spiceItem.size;
+                this.name = spiceItem.nameVN;
+                this.Selected = true;
+            }
+            else
+            {
+                this.idselected = spiceItem.size;
+                this.name = spiceItem.nameVN;
+            }
+        }
+        public SpiceSizeStatus(spiceItem spiceItem, List<cartSpice> cartSpices)
+        {
+            this.SpicesItems = spiceItem;
+            var has = cartSpices.Where(x => x.id == spiceItem.id).FirstOrDefault();
+            if(has != null)
             {
                 this.idselected = spiceItem.size;
                 this.name = spiceItem.nameVN;

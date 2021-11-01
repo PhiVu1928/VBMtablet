@@ -14,6 +14,7 @@ using VBMTablet._objs._cartObjs;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using VBMTablet._process;
+using VBMTablet._objs._userObjs;
 
 namespace VBMTablet._pages._menu
 {
@@ -21,6 +22,7 @@ namespace VBMTablet._pages._menu
     public partial class detail_page : ContentPage
     {
         vmdetail vmdetail { get; set; }
+        vmCartEdit vmCartEdit { get; set; }
         public detail_page()
         {
             InitializeComponent();
@@ -34,9 +36,14 @@ namespace VBMTablet._pages._menu
                 this.BindingContext = vmdetail;
             });
         }
-        public async Task RenderPromo()
+        public async Task RenderCart(CartProd cartProd)
         {
-            
+            vmCartEdit = new vmCartEdit(cartProd);
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                this.BindingContext = vmCartEdit;
+            });
+            vmCartEdit.ChangePrice();
         }
         public void ff_backicon_tapped(object sender, EventArgs e)
         {
@@ -67,6 +74,23 @@ namespace VBMTablet._pages._menu
                         
                     }
                 }
+                if(vmCartEdit != null)
+                {
+                    foreach(var item in vmCartEdit.spiceStatuses)
+                    {
+                        foreach (var item1 in item.spiceSizeStatuses.Where(x => x.SpicesItems.ref_id == cv.SpicesItems.ref_id))
+                        {
+                            if (item1.SpicesItems.id == cv.SpicesItems.id)
+                            {
+                                item1.Selected = true;
+                            }
+                            else
+                            {
+                                item1.Selected = false;
+                            }
+                        }
+                    }
+                }
             }
             catch { }
         }
@@ -82,7 +106,32 @@ namespace VBMTablet._pages._menu
                 {
                     foreach (var item in vmdetail.drink_Combos)
                     {
-                        if (item.Drink_Combo.spId == cv.Drink_Combo.spId)
+                        if (item.Drink_Combo.spId == cv.Drink_Combo.spId && item.Selected == true)
+                        {
+                            item.Selected = false;
+                        }
+                        else if (item.Drink_Combo.spId == cv.Drink_Combo.spId)
+                        {
+                            item.Selected = true;
+                        }                        
+                        else
+                        {
+                            item.Selected = false;
+                        }
+                    }
+                    vmdetail.ChangePrice();
+                }
+                if(vmCartEdit != null)
+                {
+                    vmCartEdit.nuocid = cv.Drink_Combo.spId;
+                    vmCartEdit.ChangePrice();
+                    foreach(var item in vmCartEdit.drink_Combos)
+                    {
+                        if (item.Drink_Combo.spId == cv.Drink_Combo.spId && item.Selected == true)
+                        {
+                            item.Selected = false;
+                        }
+                        else if (item.Drink_Combo.spId == cv.Drink_Combo.spId)
                         {
                             item.Selected = true;
                         }
@@ -116,6 +165,10 @@ namespace VBMTablet._pages._menu
             {
                 vmdetail.ChangePrice();
             }
+            if(vmCartEdit != null)
+            {
+                vmCartEdit.ChangePrice();
+            }
         } 
         private void increaseExSl_tapped(object sender, EventArgs e)
         {
@@ -125,6 +178,10 @@ namespace VBMTablet._pages._menu
             if (vmdetail != null)
             {
                 vmdetail.ChangePrice();
+            }
+            if (vmCartEdit != null)
+            {
+                vmCartEdit.ChangePrice();
             }
         } 
         private void decreaseSl_tapped(object sender, EventArgs e)
@@ -137,13 +194,65 @@ namespace VBMTablet._pages._menu
                     vmdetail.ChangePrice();
                 }
             }
+            if(vmCartEdit != null)
+            {
+                if(vmCartEdit.slg > 1)
+                {
+                    vmCartEdit.slg--;
+                    vmCartEdit.ChangePrice();
+                }
+            }
         } 
-        private void increaseSl_tapped(object sender, EventArgs e)
+        async void increaseSl_tapped(object sender, EventArgs e)
         {
             if (vmdetail != null)
             {
                 vmdetail.slg++;
                 vmdetail.ChangePrice();
+            }
+            if(vmCartEdit != null)
+            {
+                if (vmCartEdit.CartProd.orderType < 0)
+                {
+                    if (vmCartEdit.CartProd.orderType == -1301)
+                    {
+                        var bmls = localdb.fullUserInfo.userGiftObjs.lst_bmls.Where(x => x.SpID == vmCartEdit.CartProd.id).FirstOrDefault();
+                        if (bmls != null)
+                        {
+                            if (bmls.SoLg - vmCartEdit.slg < 1)
+                            {
+                                await Application.Current.MainPage.DisplayAlert("", "Vượt quá số lượng cho phép", "Ok");
+                                return;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        List<giftObjs> giftObjs = null;
+                        if (localdb.fullUserInfo != null)
+                        {
+                            if(localdb.fullUserInfo.userGiftObjs != null)
+                            {
+                                giftObjs = localdb.fullUserInfo.userGiftObjs.lst_gifts;
+                            }
+                        }
+                        if(giftObjs != null)
+                        {
+                            var gift = localdb.fullUserInfo.userGiftObjs.lst_gifts.Where(x => x.TypeID == vmCartEdit.CartProd.orderType).ToList();
+                            if(gift.Count > 0)
+                            {
+                                var prods = localdb.CartProd.Where(x => x.orderType == vmCartEdit.CartProd.orderType).ToList();
+                                if (gift.Sum(p => p.slg) - (prods.Sum(p => p.slg) - vmCartEdit.CartProd.slg + vmCartEdit.slg) < 1)
+                                {
+                                    await Application.Current.MainPage.DisplayAlert("", "Vượt quá số lượng cho phép", "Ok");
+                                    return;
+                                }
+                            }
+                        }
+                    }
+                }
+                vmCartEdit.slg++;
+                vmCartEdit.ChangePrice();
             }
         }
 
@@ -188,6 +297,60 @@ namespace VBMTablet._pages._menu
                     }
                     localdb.CartProd.Add(data);                    
                 }
+                if(vmCartEdit != null)
+                {
+                    long id = 0;
+                    foreach (var item in vmCartEdit.drink_Combos)
+                    {
+                        if (item.Selected == true)
+                        {
+                            id = item.Drink_Combo.spId;
+                        }
+                    }
+                    if(id != 0)
+                    {
+                        vmCartEdit.nuocid = id;
+                    }
+                    else
+                    {
+                        vmCartEdit.nuocid = 0;
+                    }
+                    var data = CartProd.createAddProd(vmCartEdit.monid, vmCartEdit.nuocid);
+                    data.slg = vmCartEdit.slg;
+                    if (vmCartEdit.CartProd.orderType < 0)
+                    {
+                        data.orderType = vmCartEdit.CartProd.orderType;
+                        data.orderCode = vmCartEdit.CartProd.orderCode;
+                        data.dongia = vmCartEdit.CartProd.dongia;
+                        data.isGetLater = vmCartEdit.CartProd.isGetLater;
+                        data.isGetLaterOption = vmCartEdit.CartProd.isGetLaterOption;
+                    }
+
+                    foreach (var t1 in vmCartEdit.extraStatuses)
+                    {
+                        if (t1.sl > 0)
+                        {
+                            data.LstExts.Add(new cartExtra { dongia = t1.Extra.price, nguyengia = t1.Extra.price, id = t1.Extra.id, name = new Dictionary<string, string>(t1.Extra.names), solg = t1.sl });
+                        }
+                    }
+                    foreach (var t1 in vmCartEdit.spiceStatuses)
+                    {
+                        foreach (var t2 in t1.spiceSizeStatuses)
+                        {
+                            if (t2.idselected != 2 && t2.Selected == true)
+                            {
+                                data.LstSpls.Add(new cartSpice { id = t2.SpicesItems.id, name = new Dictionary<string, string>(t2.SpicesItems.names) });
+                            }
+                        }
+                    }
+                    localdb.CartProd.Insert(localdb.CartProd.IndexOf(vmCartEdit.CartProd), data);
+                    
+
+                    localdb.CartProd.Remove(vmCartEdit.CartProd);
+
+                    localdb.thanh_Toan_Page.vmcart.RenderCartItem();
+                    localdb.thanh_Toan_Page.vmcart.CallMoney();
+                }
                 Navigation.RemovePage(this);
 
                 if (localdb.home_Page != null)
@@ -222,6 +385,22 @@ namespace VBMTablet._pages._menu
                         }
                     }
                     vmdetail.ChangePrice();
+                }
+                if(vmCartEdit != null)
+                {
+                    vmCartEdit.monid = cv.Size.id;
+                    vmCartEdit.ChangePrice();
+                    foreach(var item in vmCartEdit.sizeRenders)
+                    {
+                        if(item.Size.id == cv.Size.id)
+                        {
+                            item.Selected = true;
+                        }
+                        else
+                        {
+                            item.Selected = false;
+                        }
+                    }
                 }
                 await ctr.ScaleTo(1, 100);
                 await this.FadeTo(1, 100);

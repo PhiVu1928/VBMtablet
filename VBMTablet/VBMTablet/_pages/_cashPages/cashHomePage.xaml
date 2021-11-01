@@ -15,12 +15,12 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="{OnIdiom Phone=80, Tablet=Auto}" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="{OnIdiom Phone=80, Tablet=115}" />
+            <RowDefinition Height="115" />
         </Grid.RowDefinitions>
 
-        <StackLayout Margin="{OnIdiom Phone='0,20,0,0', Tablet='0,46,0,0'}" Orientation="Vertical">
+        <StackLayout Margin="0,46,0,0" Orientation="Vertical">
 
             <Grid>
 
@@ -37,34 +37,34 @@
                 </ff:CachedImage>
 
                 <Label
-                    FontSize="{OnIdiom Phone=16,
-                                       Tablet=36}"
+                    FontSize="36"
                     x:Name="lblTenKhachHang"
                     HorizontalOptions="Center"
                     HorizontalTextAlignment="Center"
                     VerticalOptions="Center"
                     IsVisible="{Binding visUserInfo}"/>
-                
+
                 <Label
-                    FontSize="{OnIdiom Phone=16,
-                                       Tablet=36}"
+                    FontSize="36"
                     IsVisible="{Binding visNonUserInfo}"
-                    Margin="{OnIdiom Tablet='120,0,0,0',Phone='80,0,0,0'}"
+                    Margin="70,0,0,0"
                     HorizontalOptions="Center"
                     HorizontalTextAlignment="Center"
                     Text="Làm mới giỏ hàng"
                     VerticalOptions="Center" />
+                <Grid HorizontalOptions="End"
+                      Margin="0,0,28,0"
+                      VerticalOptions="Center">
+                    <ff:CachedImage
+                        BackgroundColor="White"
+                        HeightRequest="40"
+                        Source="refreshicon"
+                        WidthRequest="40" />
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="grdResetCart_tapped"/>
+                    </Grid.GestureRecognizers>
 
-                <ff:CachedImage
-                    Margin="0,0,28,0"
-                    BackgroundColor="White"
-                    HeightRequest="{OnIdiom Phone=30,
-                                            Tablet=40}"
-                    HorizontalOptions="End"
-                    Source="refreshicon"
-                    VerticalOptions="Center"
-                    WidthRequest="{OnIdiom Phone=30,
-                                           Tablet=40}" />
+                </Grid>
 
 
             </Grid>
@@ -84,8 +84,7 @@
                     </Grid.RowDefinitions>
 
                     <StackLayout
-                        Margin="{OnIdiom Phone='10,0',
-                                         Tablet='0,20'}"
+                        Margin="10,0"
                         Orientation="Horizontal"
                         Spacing="10">
 
@@ -97,10 +96,10 @@
                             CornerRadius="30"
                             HasShadow="False"
                             HeightRequest="83"
-                            WidthRequest="{OnIdiom Phone=300,
-                                                   Tablet=368}">
+                            WidthRequest="368">
 
-                            <Grid Margin="10,0" VerticalOptions="Center">
+                            <Grid VerticalOptions="Center"
+                                  RowSpacing="10">
 
                                 <ff:CachedImage
                                     Aspect="Fill"
@@ -109,8 +108,7 @@
                                     VerticalOptions="Center" />
 
                                 <sfinput:SfTextInputLayout
-                                    Margin="{OnIdiom Phone='10,0',
-                                                     Tablet=5}"
+                                    Margin="5"
                                     BackgroundColor="Transparent"
                                     ContainerType="Outlined"
                                     FocusedColor="Transparent"
@@ -120,18 +118,17 @@
                                     WidthRequest="200">
 
                                     <Entry
-                                        FontSize="{OnIdiom Phone=12,
-                                                           Tablet=22}"
+                                        FontSize="22"
                                         Keyboard="Telephone"
                                         Placeholder="Số điện thoại"
                                         Text="{Binding sdt, Mode=TwoWay}"
-                                        VerticalOptions="Center" />
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="Center"/>
 
                                 </sfinput:SfTextInputLayout>
 
                                 <Label
-                                    FontSize="{OnIdiom Phone=10,
-                                                       Tablet=20}"
+                                    FontSize="20"
                                     HorizontalOptions="End"
                                     Text=" X "
                                     TextColor="{StaticResource vbmgreen}" />
@@ -148,8 +145,7 @@
                             WidthRequest="160">
 
                             <Label
-                                FontSize="{OnIdiom Phone=10,
-                                                   Tablet=20}"
+                                FontSize="20"
                                 HorizontalOptions="Center"
                                 Text="Tìm kiếm"
                                 TextColor="{StaticResource vbmwhite}"
@@ -169,8 +165,7 @@
                             WidthRequest="160">
 
                             <Label
-                                FontSize="{OnIdiom Phone=10,
-                                                   Tablet=20}"
+                                FontSize="20"
                                 HorizontalOptions="Center"
                                 Text="Voucher"
                                 TextColor="{StaticResource vbmwhite}"
@@ -199,40 +194,35 @@
                                 Orientation="Vertical"
                                 Spacing="20">
 
-                                <Label FontSize="{OnIdiom Phone=15, Tablet=30}" Text="Thông tin chương trình True Lie" />
+                                <Label FontSize="30" Text="Thông tin chương trình True Lie" />
 
                                 <Label
                                     FontAttributes="Bold"
-                                    FontSize="{OnIdiom Phone=20,
-                                                       Tablet=40}"
+                                    FontSize="40"
                                     Text="Bánh mì zeromeat size vừa 15k"
                                     TextColor="{StaticResource vbmyellow}" />
 
                                 <Label
                                     FontAttributes="Bold"
-                                    FontSize="{OnIdiom Phone=20,
-                                                       Tablet=24}"
+                                    FontSize="24"
                                     Text="Số khách đã dùng chương trình: 03"
                                     TextColor="{StaticResource vbmgray}" />
 
                                 <Label
                                     FontAttributes="Bold"
-                                    FontSize="{OnIdiom Phone=20,
-                                                       Tablet=24}"
+                                    FontSize="24"
                                     Text="Zeromeat khách dùng nhiều nhất "
                                     TextColor="{StaticResource vbmgreen}" />
 
                                 <Label
                                     FontAttributes="Bold"
-                                    FontSize="{OnIdiom Phone=20,
-                                                       Tablet=24}"
+                                    FontSize="24"
                                     Text="BM Nấm Chay: 12 "
                                     TextColor="{StaticResource vbmgreen}" />
 
                                 <Label
                                     FontAttributes="Bold"
-                                    FontSize="{OnIdiom Phone=20,
-                                                       Tablet=24}"
+                                    FontSize="24"
                                     Text="BM Đậu hũ phá lấu: 05 "
                                     TextColor="{StaticResource vbmgreen}" />
 
@@ -294,8 +284,7 @@
             <StackLayout
                 HorizontalOptions="Center"
                 Orientation="Horizontal"
-                Spacing="{OnIdiom Phone=40,
-                                  Tablet=100}"
+                Spacing="100"
                 VerticalOptions="Center">
 
                 <ff:CachedImage
@@ -337,8 +326,7 @@
 
                 <border:SfBorder
                     x:Name="carticon"
-                    Margin="{OnIdiom Phone='0,0,-125,10',
-                                     Tablet='0,0,-65,10'}"
+                    Margin="0,0,-65,10"
                     BackgroundColor="{StaticResource vbmlightyellow}"
                     BorderColor="{StaticResource vbmwhite}"
                     CornerRadius="50"
@@ -376,8 +364,7 @@
 
                     <Label
                         x:Name="Cartcount"
-                        FontSize="{OnIdiom Phone=10,
-                                           Tablet=20}"
+                        FontSize="20"
                         HorizontalOptions="Center"
                         Text="{Binding Cartcount}"
                         TextColor="{StaticResource vbmwhite}"

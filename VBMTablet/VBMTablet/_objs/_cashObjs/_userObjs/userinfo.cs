@@ -9,6 +9,15 @@ using VBMTablet._utils;
 
 namespace VBMTablet._objs._userObjs
 {
+    public class fullUserInfo
+    {
+        public fullUserInfo(userinfo userInfo)
+        {
+            UserInfo = userInfo;
+        }
+        public userinfo UserInfo { get; set; }
+        public UserGiftObjs userGiftObjs { get; set; }
+    }
     public class userinfo
     {
         public string UserName { get; set; }
@@ -92,7 +101,8 @@ namespace VBMTablet._objs._userObjs
                         {
                             var str = tools.GetJArrayValue(jOb, "Data");
                             var res = JsonConvert.DeserializeObject<userinfo>(str);
-                            localdb.userinfo = res;
+                            var user = new fullUserInfo(res);
+                            localdb.fullUserInfo = user;
                             return res;
                         }
                     }

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using VBMTablet._objs._menuObjs;
+using VBMTablet._process;
 using VBMTablet._utils;
 
 namespace VBMTablet._objs._userObjs
@@ -50,6 +52,39 @@ namespace VBMTablet._objs._userObjs
 			lst_EmeIDs.ForEach(p => rt.lst_EmeIDs.Add(p));
 			return rt;
         }
+	}
+	public class bmls_obj
+	{
+		public long SpID { get; set; }
+
+		public int SoLg { get; set; }
+		public static eMenu findEme(long id)
+		{
+			foreach (var t1 in localdb.groupMenus)
+			{
+				foreach (var t2 in t1.lst_sub_menu)
+				{
+					foreach (var t3 in t2.lst_emes)
+					{
+						foreach (var t4 in t3.lst_size)
+						{
+							if (t4.id == id)
+							{
+								return t3;
+							}
+						}
+						foreach (var t4 in t3.lst_combo)
+						{
+							if (t4.id == id)
+							{
+								return t3;
+							}
+						}
+					}
+				}
+			}
+			return null;
+		}
 	}
 
 }

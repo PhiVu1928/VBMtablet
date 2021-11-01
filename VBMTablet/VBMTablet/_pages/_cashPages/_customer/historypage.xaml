@@ -6,7 +6,7 @@
              x:Class="VBMTablet._pages._home.historypage"
              BackgroundColor="{StaticResource vbmwhite}">
     <ScrollView>
-        <StackLayout Margin="{OnIdiom Phone=0,Tablet='20,0'}"
+        <StackLayout Margin="20,0"
                      BindableLayout.ItemsSource="{Binding orderedStatuses}"
                      Spacing="20">
             <BindableLayout.ItemTemplate>
@@ -24,20 +24,20 @@
                                 <Label Text="{Binding orderedDate}"
                                        FontAttributes="Bold"
                                        TextColor="{StaticResource vbmgray}"
-                                       FontSize="{OnIdiom Phone=10,Tablet=25}"/>
+                                       FontSize="25"/>
 
 
                                 <Grid VerticalOptions="Center">
 
 
                                     <Label Text="{Binding name}"
-                                           FontSize="{OnIdiom Phone=10,Tablet=25}"
+                                           FontSize="25"
                                            TextColor="{StaticResource vbmgray}"
                                            HorizontalOptions="Start"
                                            VerticalOptions="Center"/>
 
                                     <Label Text="{Binding solg}"
-                                           FontSize="{OnIdiom Phone=10,Tablet=25}"
+                                           FontSize="25"
                                            TextColor="{StaticResource vbmgray}"
                                            HorizontalOptions="End"
                                            VerticalOptions="Center"/>
@@ -53,10 +53,14 @@
                                                     Aspect="Fill"
                                                     WidthRequest="30"
                                                     HeightRequest="30"/>
-
-                                    <Label Text="Đặt lại theo đơn hàng này"
-                                           FontSize="{OnIdiom Phone=10,Tablet=25}"
+                                    <Grid>
+                                        <Label Text="Đặt lại theo đơn hàng này"
+                                           FontSize="25"
                                            FontAttributes="Bold"/>
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="grdReOrder_Tapped"/>
+                                        </Grid.GestureRecognizers>
+                                    </Grid>
 
                                 </StackLayout>
 

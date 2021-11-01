@@ -56,7 +56,7 @@ namespace VBMTablet._process
         public static staff NhanVieninfo { get; set; }
         public static List<staff> FullNhanVienInfo { get; set; }
         public static bool isMLMode { get; set; }
-        public static userinfo userinfo { get; set; }//Khach hang
+        public static fullUserInfo fullUserInfo { get; set; }//Khach hang
         public static List<CartProd> CartProd { get; set; } = new List<CartProd>();
 
     }

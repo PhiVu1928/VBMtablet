@@ -14,26 +14,22 @@
             Orientation="Vertical"
             VerticalOptions="Start"
             HorizontalOptions="Start"
-            Spacing="{OnIdiom Phone=20,
-                              Tablet=40}">
+            Spacing="40">
 
 
             <Grid>
 
                 <ff:CachedImage
                 Aspect="Fill"
-                HeightRequest="{OnIdiom Phone=30,
-                                        Tablet=40}"
+                HeightRequest="40"
                 HorizontalOptions="Start"
                 Source="usericon"
                 VerticalOptions="Center"
-                WidthRequest="{OnIdiom Phone=30,
-                                       Tablet=40}" />
+                WidthRequest="40" />
 
                 <Label
                 Margin="64,0,0,0"
-                FontSize="{OnIdiom Phone=10,
-                                   Tablet=25}"
+                FontSize="25"
                 HorizontalTextAlignment="Start"
                 x:Name="lblStaffName"/>
 
@@ -43,18 +39,15 @@
 
                 <ff:CachedImage
                 Aspect="Fill"
-                HeightRequest="{OnIdiom Phone=30,
-                                        Tablet=40}"
+                HeightRequest="40"
                 HorizontalOptions="Start"
                 Source="viewicon"
                 VerticalOptions="Center"
-                WidthRequest="{OnIdiom Phone=30,
-                                       Tablet=40}" />
+                WidthRequest="40" />
 
                 <Label
                 Margin="64,0,0,0"
-                FontSize="{OnIdiom Phone=10,
-                                   Tablet=25}"
+                FontSize="25"
                 HorizontalTextAlignment="Start"
                 Text="Xem tình trạng đơn" />
 
@@ -68,18 +61,15 @@
 
                 <ff:CachedImage
                 Aspect="Fill"
-                HeightRequest="{OnIdiom Phone=30,
-                                        Tablet=40}"
+                HeightRequest="40"
                 HorizontalOptions="Start"
                 Source="chuanbiicon"
                 VerticalOptions="Center"
-                WidthRequest="{OnIdiom Phone=30,
-                                       Tablet=40}" />
+                WidthRequest="40" />
 
                 <Label
                 Margin="64,0,0,0"
-                FontSize="{OnIdiom Phone=10,
-                                   Tablet=25}"
+                FontSize="25"
                 HorizontalTextAlignment="Start"
                 Text="Chuẩn bị nguyên liệu" />
 
@@ -93,18 +83,15 @@
 
                 <ff:CachedImage
                 Aspect="Fill"
-                HeightRequest="{OnIdiom Phone=30,
-                                        Tablet=40}"
+                HeightRequest="40"
                 HorizontalOptions="Start"
                 Source="sudungicon"
                 VerticalOptions="Center"
-                WidthRequest="{OnIdiom Phone=30,
-                                       Tablet=40}" />
+                WidthRequest="40" />
 
                 <Label
                 Margin="64,0,0,0"
-                FontSize="{OnIdiom Phone=10,
-                                   Tablet=25}"
+                FontSize="25"
                 HorizontalTextAlignment="Start"
                 Text="Sử dụng nguyên liệu" />
                 <Grid.GestureRecognizers>
@@ -117,18 +104,15 @@
 
                 <ff:CachedImage
                 Aspect="Fill"
-                HeightRequest="{OnIdiom Phone=30,
-                                        Tablet=40}"
+                HeightRequest="40"
                 HorizontalOptions="Start"
                 Source="logouticon"
                 VerticalOptions="Center"
-                WidthRequest="{OnIdiom Phone=30,
-                                       Tablet=40}" />
+                WidthRequest="40" />
 
                 <Label
                 Margin="64,0,0,0"
-                FontSize="{OnIdiom Phone=10,
-                                   Tablet=25}"
+                FontSize="25"
                 HorizontalTextAlignment="Start"
                 Text="Đăng xuất" />
                 <Grid.GestureRecognizers>
@@ -145,18 +129,15 @@
             <ff:CachedImage
                 Aspect="Fill"
                 BackgroundColor="White"
-                HeightRequest="{OnIdiom Phone=30,
-                                        Tablet=40}"
+                HeightRequest="40"
                 HorizontalOptions="Start"
                 Source="Shape"
                 VerticalOptions="End"
-                WidthRequest="{OnIdiom Phone=30,
-                                       Tablet=40}" />
+                WidthRequest="40" />
 
             <Label
                 Margin="64,0,0,0"
-                FontSize="{OnIdiom Phone=10,
-                                   Tablet=25}"
+                FontSize="25"
                 HorizontalTextAlignment="Start"
                 Text="Việt Nam" />
 

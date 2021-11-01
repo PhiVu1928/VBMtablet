@@ -53,6 +53,15 @@
     <EmbeddedResource Update="_pages\_cashPages\_customer\addNewCustomer_page.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="_pages\_cashPages\_customer\chooseGiftItem_page.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="_pages\_cashPages\_customer\chooseSlgBmls_page.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="_pages\_cashPages\_customer\giftDetail_Page.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="_pages\_home\mainHome.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>

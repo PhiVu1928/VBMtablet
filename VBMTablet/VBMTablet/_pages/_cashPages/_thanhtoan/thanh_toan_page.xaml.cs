@@ -11,6 +11,9 @@ using Xamarin.Forms.Xaml;
 using Syncfusion.XForms.Border;
 using VBMTablet._process;
 using System.Linq;
+using VBMTablet._pages._menu;
+using System.Collections.Generic;
+using VBMTablet._objs._userObjs;
 
 namespace VBMTablet._pages._thanhtoan
 {
@@ -280,6 +283,46 @@ namespace VBMTablet._pages._thanhtoan
             try
             {
                 var cv = (cartItem)ctr.BindingContext;
+                if(cv.prod.orderType == 0 )
+                {
+
+                }
+                else if (cv.prod.orderType == -1301)
+                {
+                    var bmls = localdb.fullUserInfo.userGiftObjs.lst_bmls.Where(x => x.SpID == cv.prod.id).FirstOrDefault();
+                    if (bmls != null)
+                    {
+                        if (bmls.SoLg - cv.prod.slg < 1)
+                        {
+                            await Application.Current.MainPage.DisplayAlert("", "Vượt quá số lượng cho phép", "Ok");
+                            return;
+                        }
+                    }
+                }
+                else if(cv.prod.orderType < 0)
+                {
+                    List<giftObjs> giftObjs = null;
+                    if (localdb.fullUserInfo != null)
+                    {
+                        if (localdb.fullUserInfo.userGiftObjs != null)
+                        {
+                            giftObjs = localdb.fullUserInfo.userGiftObjs.lst_gifts;
+                        }
+                    }
+                    if (giftObjs != null)
+                    {
+                        var gift = localdb.fullUserInfo.userGiftObjs.lst_gifts.Where(x => x.TypeID == cv.prod.orderType).ToList();
+                        if (gift.Count > 0)
+                        {
+                            var prods = localdb.CartProd.Where(x => x.orderType == cv.prod.orderType).ToList();
+                            if (gift.Sum(p => p.slg) - prods.Sum(p => p.slg) < 1)
+                            {
+                                await Application.Current.MainPage.DisplayAlert("", "Vượt quá số lượng cho phép", "Ok");
+                                return;
+                            }
+                        }
+                    }
+                }
                 cv.solg++;
                 cv.prod.slg++;
                 if (localdb.home_Page != null)
@@ -298,5 +341,17 @@ namespace VBMTablet._pages._thanhtoan
             }
         }
 
+        async void brEdit_tapped(object sender, EventArgs e)
+        {
+            var ctr = sender as SfBorder;
+            await ctr.ScaleTo(0.9, 1);
+            await this.FadeTo(0.9, 1);
+            var cv = (cartItem)ctr.BindingContext;
+            var page = new detail_page();
+            await Navigation.PushAsync(page);
+            page.RenderCart(cv.prod);
+            await ctr.ScaleTo(1, 100);
+            await this.FadeTo(1, 100);
+        }
     }
 }

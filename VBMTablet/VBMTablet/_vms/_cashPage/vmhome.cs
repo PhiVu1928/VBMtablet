@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using System.Threading.Tasks;
 
 using VBMTablet._objs._userObjs;
+using VBMTablet._process;
 
 namespace VBMTablet._vms._home
 {
@@ -106,8 +107,13 @@ namespace VBMTablet._vms._home
         }
         public vmCustomerGift(UserGiftObjs userGiftObjs)
         {
+            localdb.fullUserInfo.userGiftObjs = userGiftObjs;
             var gift = new ObservableCollection<CustomerGiftStatus>();
             foreach(var item in userGiftObjs.lst_gifts)
+            {
+                gift.Add(new CustomerGiftStatus(item));
+            }
+            foreach(var item in userGiftObjs.lst_bmls)
             {
                 gift.Add(new CustomerGiftStatus(item));
             }
@@ -131,18 +137,33 @@ namespace VBMTablet._vms._home
             this.expireDate = "Hạn sử dụng:" + giftObjs.expireDate.ToString("dd/MM/yyyy");
             this.GiftObjs = giftObjs;
         }
+        public CustomerGiftStatus(bmls_obj bmls_obj)
+        {
+            this.bmls_obj = bmls_obj;
+            var eme = bmls_obj.findEme(bmls_obj.SpID);
+            if(eme != null)
+            {
+                this.solg = "Số lượng: " + bmls_obj.SoLg.ToString();
+                var eme2 = eme.lst_size.Where(p => p.id == bmls_obj.SpID).FirstOrDefault();
+                if (eme2 == null)
+                {
+                    var eme3 = eme.lst_combo.Where(p => p.id == bmls_obj.SpID).FirstOrDefault();
+                    if (eme3 != null)
+                    {
+                        this.name = eme3.nameVN;
+                    }
+                }
+                else
+                {
+                    this.name = eme2.nameVN;
+                }
+            }
+        }
         public string name { get; set; }
         public string solg { get; set; }
         public string expireDate { get; set; }
         public giftObjs GiftObjs { get; set; }
-    }
-    public class CustomerBmls
-    {
-        public CustomerBmls(bmls_obj bmls_Obj)
-        {
-            this.bmls_Obj = bmls_Obj;
-        }
-        public bmls_obj bmls_Obj { get; set; }
+        public bmls_obj bmls_obj { get; set; }
     }
     public class CustomerStatus : INotifyPropertyChanged
     {
@@ -197,7 +218,7 @@ namespace VBMTablet._vms._home
         public userinfo Userinfo { get; set; }
 
     }
-        public class CustomerOrderedStatus
+    public class CustomerOrderedStatus
     {
         public CustomerOrderedStatus(userOrdered userOrdered)
         {
@@ -206,10 +227,15 @@ namespace VBMTablet._vms._home
             this.listBillDetail = userOrdered.ListBillDetails;
             foreach(var item in userOrdered.ListBillDetails)
             {
-                this.name = item.SpName;
-                this.solg = "x " + item.SoLg.ToString();
+                if(item.IsExtra == 0)
+                {
+                    this.name = item.SpName;
+                    this.solg = "x " + item.SoLg.ToString();
+                    this.spId = item.SpID;
+                }                
             }
         }
+        public int spId { get; set; }
         public userOrdered ordered { get; set; }
         public List<ListBillDetail> listBillDetail { get; set; }
         public string orderedDate { get; set; }

@@ -27,16 +27,13 @@
             <ff:CachedImage
                 Aspect="Fill"
                 BackgroundColor="White"
-                HeightRequest="{OnIdiom Phone=30,
-                                        Tablet=40}"
+                HeightRequest="40"
                 Source="Shape"
                 VerticalOptions="Center"
-                WidthRequest="{OnIdiom Phone=30,
-                                       Tablet=40}" />
+                WidthRequest="40" />
 
             <Label
-                FontSize="{OnIdiom Phone=10,
-                                   Tablet=20}"
+                FontSize="20"
                 HorizontalOptions="Center"
                 Text="Việt Nam"
                 TextColor="{StaticResource vbmdeepgray}"
@@ -54,8 +51,7 @@
 
                 <Label
                     FontAttributes="Bold"
-                    FontSize="{OnIdiom Phone=16,
-                                       Tablet=25}"
+                    FontSize="25"
                     HorizontalOptions="Start"
                     Text="Makeline"
                     TextColor="#7EA39C"
@@ -94,8 +90,7 @@
                 BorderWidth="1"
                 CornerRadius="30"
                 HasShadow="False"
-                HeightRequest="{OnIdiom Phone=50,
-                                        Tablet=80}">
+                HeightRequest="80">
 
                 <Grid>
 
@@ -108,8 +103,7 @@
                         WidthRequest="50" />
 
                     <sfinput:SfTextInputLayout
-                        Margin="{OnIdiom Phone='0,5',
-                                         Tablet='0,4'}"
+                        Margin="0,5"
                         BackgroundColor="Transparent"
                         ContainerType="Outlined"
                         FocusedColor="Transparent"
@@ -119,8 +113,7 @@
                             x:Name="sfpickstore"
                             Title="Danh sách cửa hàng"
                             Margin="200,0"
-                            FontSize="{OnIdiom Phone=13,
-                                               Tablet=20}"
+                            FontSize="20"
                             HorizontalOptions="FillAndExpand"
                             HorizontalTextAlignment="Center"
                             ItemDisplayBinding="{Binding name}"
@@ -152,8 +145,7 @@
                 BorderWidth="1"
                 CornerRadius="30"
                 HasShadow="False"
-                HeightRequest="{OnIdiom Phone=50,
-                                        Tablet=80}">
+                HeightRequest="80">
 
                 <Grid>
 
@@ -168,8 +160,7 @@
                     <Entry
                         Margin="60,0,20,0"
                         ClearButtonVisibility="WhileEditing"
-                        FontSize="{OnIdiom Phone=15,
-                                           Tablet=20}"
+                        FontSize="20"
                         Keyboard="Telephone"
                         Placeholder="Số điện thoại"
                         Text="{Binding sdt, Mode=TwoWay}" />
@@ -185,8 +176,7 @@
                 BorderWidth="1"
                 CornerRadius="30"
                 HasShadow="False"
-                HeightRequest="{OnIdiom Phone=50,
-                                        Tablet=80}">
+                HeightRequest="80">
 
                 <Grid>
 
@@ -201,8 +191,7 @@
                     <Entry
                         Margin="60,0,20,0"
                         ClearButtonVisibility="WhileEditing"
-                        FontSize="{OnIdiom Phone=15,
-                                           Tablet=20}"
+                        FontSize="20"
                         IsPassword="True"
                         Placeholder="Mật khẩu"
                         Text="{Binding pwd, Mode=TwoWay}" />
@@ -213,18 +202,15 @@
 
             <border:SfBorder
                 x:Name="btnlogin"
-                Margin="{OnIdiom Phone='60,0,60,30',
-                                 Tablet='60,30,60,0'}"
+                Margin="60,30,60,0"
                 BackgroundColor="{StaticResource vbmlightyellow}"
                 BorderColor="{StaticResource vbmlightyellow}"
                 CornerRadius="50"
                 HasShadow="False"
-                HeightRequest="{OnIdiom Phone=50,
-                                        Tablet=80}">
+                HeightRequest="80">
 
                 <Label
-                    FontSize="{OnIdiom Phone=15,
-                                       Tablet=25}"
+                    FontSize="25"
                     HorizontalOptions="Center"
                     Text="Đăng nhập"
                     TextColor="{StaticResource vbmgreen}"

@@ -26,7 +26,7 @@
                 </ff:CachedImage>
 
                 <Label x:Name="lblPrepareName"
-                       FontSize="{OnIdiom Phone=16,Tablet=36}"
+                       FontSize="36"
                        HorizontalOptions="Center"
                        VerticalOptions="Center"
                        HorizontalTextAlignment="Center"/>

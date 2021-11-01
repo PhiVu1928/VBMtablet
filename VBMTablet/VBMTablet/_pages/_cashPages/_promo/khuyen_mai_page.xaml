@@ -9,7 +9,7 @@
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="{StaticResource vbmwhite}">
     <ScrollView>
-        <Grid Margin="{OnIdiom Phone='0',Tablet='0,50,0,0'}">
+        <Grid Margin="0,50,0,0">
 
             <StackLayout Orientation="Vertical"
                      HorizontalOptions="Center"
@@ -31,12 +31,12 @@
 
                                 <ff:CachedImage Source="Group"
                                             Aspect="Fill"
-                                            WidthRequest="{OnIdiom Phone=84,Tablet=134}"
+                                            WidthRequest="134"
                                             HeightRequest="74"
                                             BackgroundColor="Transparent"
                                             HorizontalOptions="End"/>
 
-                                <StackLayout Padding="{OnIdiom Phone=15,Tablet=30}"
+                                <StackLayout Padding="30"
                                          Orientation="Vertical"
                                          HorizontalOptions="Start"
                                          VerticalOptions="Center"
@@ -44,7 +44,7 @@
 
                                     <Label Text="{Binding name}"
                                        TextColor="{StaticResource vbmdeepgreen}"
-                                       FontSize="{OnIdiom Phone=15,Tablet=35}"
+                                       FontSize="35"
                                        FontAttributes="Bold"
                                        HorizontalOptions="Start"
                                        VerticalOptions="Start"/>
@@ -54,16 +54,16 @@
 
                                         <ff:CachedImage Source="timeicon"
                                                     Aspect="Fill"
-                                                    WidthRequest="{OnIdiom Phone=25,Tablet=35}"
+                                                    WidthRequest="35"
                                                     HeightRequest="25"/>
 
                                         <Label Text="13:00 - 17:00"
-                                           FontSize="{OnIdiom Phone=15,Tablet=25}"
+                                           FontSize="25"
                                            TextColor="{StaticResource vbmgray}"/>
 
                                         <Grid>
                                             <Label Text="Chi Tiết"
-                                               FontSize="{OnIdiom Phone=15,Tablet=25}"
+                                               FontSize="25"
                                                TextColor="{StaticResource vbmpinttext}"/>
                                             <Grid.GestureRecognizers>
                                                 <TapGestureRecognizer Tapped="GrPromoDetail_Tapped"/>

@@ -12,7 +12,7 @@
     <Grid Grid.Row="1">
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="{OnIdiom Phone=250,Tablet=360}"/>
+            <RowDefinition Height="360"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -33,11 +33,11 @@
 
                             <Grid RowSpacing="0">
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="{OnIdiom Phone=51,Tablet=71}"/>
+                                    <RowDefinition Height="71"/>
                                     <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
 
-                                <Grid Padding="{OnIdiom Phone=0,Tablet=20}"
+                                <Grid Padding="10"
                                       BackgroundColor="{StaticResource vbmdeepgreen}">
 
                                     <StackLayout Orientation="Horizontal"
@@ -48,7 +48,7 @@
 
                                         <Grid>
                                             <Label Text="×"
-                                                   FontSize="{OnIdiom Phone=20,Tablet=40}"
+                                                   FontSize="40"
                                                    TextColor="{StaticResource vbmwhite}"/>
                                             <Grid.GestureRecognizers>
                                                 <TapGestureRecognizer Tapped="lbldeletecart_tapped"/>
@@ -56,13 +56,13 @@
                                         </Grid>
 
                                         <Label Text="{Binding tonggia}"
-                                           FontSize="{OnIdiom Phone=10,Tablet=23}"
+                                           FontSize="23"
                                            TextColor="{StaticResource vbmlightyellow}"/>
 
                                     </StackLayout>
 
                                     <Label Text="{Binding orderCode}"
-                                       FontSize="{OnIdiom Phone=10,Tablet=23}"
+                                       FontSize="23"
                                        HorizontalOptions="End"
                                        VerticalOptions="Center"
                                        TextColor="{StaticResource vbmwhite}"
@@ -77,7 +77,7 @@
                                     <Grid>
 
                                         <StackLayout Orientation="Horizontal"
-                                                     WidthRequest="{OnIdiom Tablet=250,Phone=100}"
+                                                     WidthRequest="250"
                                                      HeightRequest="70"
                                                      VerticalOptions="Center"
                                                      HorizontalOptions="Start"
@@ -85,12 +85,12 @@
 
                                             <Label Text="{Binding monchinh_name}"
                                                TextColor="{StaticResource vbmgray}"
-                                               FontSize="{OnIdiom Phone=10,Tablet=30}"/>
+                                               FontSize="30"/>
 
                                         </StackLayout>
 
                                         <StackLayout Orientation="Horizontal"
-                                                     HeightRequest="{OnIdiom Phone=40,Tablet=60}"
+                                                     HeightRequest="60"
                                                      HorizontalOptions="End"
                                                      VerticalOptions="Center"
                                                      Spacing="15">
@@ -100,40 +100,40 @@
                                                              HasShadow="False"
                                                              CornerRadius="50"
                                                              HeightRequest="60"
-                                                             WidthRequest="{OnIdiom Phone=84,Tablet=174}"
+                                                             WidthRequest="174"
                                                              HorizontalOptions="End"
                                                              VerticalOptions="Center">
 
                                                 <StackLayout Orientation="Horizontal"
                                                              VerticalOptions="Center"
                                                              HorizontalOptions="Center"
-                                                             Spacing="{OnIdiom Phone=10,Tablet=15}">
+                                                             Spacing="15">
 
                                                     <Grid>
                                                         <Label Text="-"
-                                                               FontSize="{OnIdiom Phone=20,Tablet=33}"
+                                                               FontSize="33"
                                                                TextColor="{StaticResource vbmgray}"/>
                                                         <Grid.GestureRecognizers>
                                                             <TapGestureRecognizer Tapped="lbldecreasecartitem_tapped"/>
                                                         </Grid.GestureRecognizers>
 
                                                     </Grid>
-                                                    
+
 
                                                     <Label Text="{Binding solg}"
-                                                           FontSize="{OnIdiom Phone=13,Tablet=23}"
+                                                           FontSize="23"
                                                            TextColor="{StaticResource vbmgray}"/>
 
                                                     <Grid>
                                                         <Label Text="+"
-                                                               FontSize="{OnIdiom Phone=20,Tablet=33}"
+                                                               FontSize="33"
                                                                TextColor="{StaticResource vbmgray}"/>
                                                         <Grid.GestureRecognizers>
                                                             <TapGestureRecognizer Tapped="lblincreasecartitem_tapped"/>
                                                         </Grid.GestureRecognizers>
 
                                                     </Grid>
-                                                    
+
 
                                                 </StackLayout>
 
@@ -141,7 +141,7 @@
 
                                             <Label Text="{Binding monchinh_dongia}"
                                                TextColor="{StaticResource vbmpinttext}"
-                                               FontSize="{OnIdiom Phone=10,Tablet=25}"
+                                               FontSize="25"
                                                HorizontalOptions="End"
                                                VerticalOptions="Center"/>
 
@@ -152,12 +152,12 @@
 
 
                                     <StackLayout Orientation="Horizontal"
-                                                 VerticalOptions="Center"
-                                                 HorizontalOptions="Center"
+                                                 VerticalOptions="Start"
+                                                 HorizontalOptions="Start"
                                                  Spacing="20">
                                         <Label Text="{Binding monchinh_giavi}"
                                                TextColor="{StaticResource vbmpinttext}"
-                                               FontSize="{OnIdiom Phone=10,Tablet=20}"/>
+                                               FontSize="20"/>
                                     </StackLayout>
 
 
@@ -165,7 +165,7 @@
                                     <Grid>
 
                                         <StackLayout Orientation="Horizontal"
-                                                     HeightRequest="{OnIdiom Phone=40,Tablet=75}"
+                                                     HeightRequest="75"
                                                      VerticalOptions="Center"
                                                      HorizontalOptions="Start"
                                                      Spacing="15"
@@ -176,13 +176,13 @@
 
                                                     <border:SfBorder BackgroundColor="{StaticResource vbmdeeplightgray}"
                                                                  BorderColor="Transparent"
-                                                                 WidthRequest="{OnIdiom Phone=85,Tablet=181}"                                                     
+                                                                 WidthRequest="181"                                                     
                                                                  HasShadow="False"
                                                                  CornerRadius="50"
                                                                  HeightRequest="60">
 
                                                         <Label Text="{Binding name}"
-                                                           FontSize="{OnIdiom Phone=10,Tablet=20}"
+                                                           FontSize="20"
                                                            TextColor="{StaticResource vbmwhite}"
                                                            HorizontalTextAlignment="Center"
                                                            HorizontalOptions="Center"
@@ -198,7 +198,7 @@
                                     </Grid>
                                     <Grid IsVisible="{Binding visDrinkCb}">
 
-                                        <Grid WidthRequest="{OnIdiom Phone=355,Tablet=550}">
+                                        <Grid WidthRequest="550">
 
                                             <StackLayout Orientation="Horizontal"
                                                      VerticalOptions="Center"
@@ -206,21 +206,21 @@
 
                                                 <Label Text="{Binding drinkname}"
                                                    TextColor="{StaticResource vbmgray}"
-                                                   FontSize="{OnIdiom Phone=10,Tablet=30}"
+                                                   FontSize="30"
                                                    HorizontalOptions="Start"
                                                    VerticalOptions="Center"/>
 
                                             </StackLayout>
 
                                             <StackLayout Orientation="Horizontal"
-                                                     HeightRequest="{OnIdiom Phone=40,Tablet=60}"
+                                                     HeightRequest="60"
                                                      HorizontalOptions="End"
                                                      VerticalOptions="Center">
 
 
                                                 <Label Text="{Binding drink_dongia}"
                                                    TextColor="{StaticResource vbmpinttext}"
-                                                   FontSize="{OnIdiom Phone=10,Tablet=25}"
+                                                   FontSize="25"
                                                    HorizontalOptions="End"
                                                    VerticalOptions="Center"/>
 
@@ -238,6 +238,10 @@
 
                             </Grid>
 
+                            <border:SfBorder.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="brEdit_tapped"/>
+                            </border:SfBorder.GestureRecognizers>
+                            
                         </border:SfBorder>
 
                     </DataTemplate>
@@ -276,7 +280,7 @@
                     <StackLayout Orientation="Horizontal"
                                      HorizontalOptions="Center"
                                      VerticalOptions="Center"
-                                     Spacing="{OnIdiom Phone=10,Tablet=50}"
+                                     Spacing="50"
                                      Margin="20,0">
 
                         <ff:CachedImage Source="walleticon"
@@ -285,7 +289,7 @@
 
                         <Label Text="TIỀN MẶT"
                                    x:Name="labelwallet"
-                                   FontSize="{OnIdiom Phone=10,Tablet=18}"
+                                   FontSize="18"
                                    TextColor="{StaticResource vbmgray}"
                                    FontAttributes="Bold"/>
 
@@ -308,7 +312,7 @@
                     <StackLayout Orientation="Horizontal"
                                      HorizontalOptions="Center"
                                      VerticalOptions="Center"
-                                     Spacing="{OnIdiom Phone=10,Tablet=50}"
+                                     Spacing="50"
                                      Margin="20,0">
 
                         <ff:CachedImage Source="vouchericon"
@@ -318,7 +322,7 @@
                         <Label Text="MÃ GIẢM GIÁ"
                                    x:Name="voucherlable"
                                    HorizontalTextAlignment="Center"
-                                   FontSize="{OnIdiom Phone=10,Tablet=18}"
+                                   FontSize="18"
                                    TextColor="{StaticResource vbmgray}"
                                    FontAttributes="Bold"/>
 
@@ -334,16 +338,16 @@
             <StackLayout Orientation="Horizontal"
                              HorizontalOptions="Center"
                              VerticalOptions="Center"
-                             Spacing="{OnIdiom Phone=10,Tablet=30}"
+                             Spacing="30"
                              Grid.Row="1">
 
                 <Entry Placeholder="Mật khẩu"
-                           FontSize="{OnIdiom Phone=10,Tablet=25}"
+                           FontSize="25"
                            HorizontalTextAlignment="Center"
                            TextColor="{StaticResource vbmgreen}"
                            HorizontalOptions="Start"
                            VerticalOptions="Center"
-                           WidthRequest="{OnIdiom Phone=85,Tablet=170}"/>
+                           WidthRequest="170"/>
 
                 <border:SfBorder BackgroundColor="{StaticResource vbmlightgray}"
                                      BorderColor="Transparent"
@@ -355,7 +359,7 @@
 
                     <Label Text="HOÁ ĐƠN ĐỎ"
                                x:Name="lblhoadon"
-                               FontSize="{OnIdiom Phone=10,Tablet=20}"
+                               FontSize="20"
                                TextColor="{StaticResource vbmgray}"
                                HorizontalOptions="Center"
                                VerticalOptions="Center"
@@ -377,7 +381,7 @@
 
                     <Label Text="COMBONV"
                                x:Name="lblcombo"
-                               FontSize="{OnIdiom Phone=10,Tablet=20}"
+                               FontSize="20"
                                TextColor="{StaticResource vbmgray}"
                                HorizontalOptions="Center"
                                VerticalOptions="Center"
@@ -411,7 +415,7 @@
                                                HorizontalOptions="Center"
                                                VerticalOptions="Center"
                                                HorizontalTextAlignment="Center"
-                                               FontSize="{OnIdiom Phone=10,Tablet=20}"
+                                               FontSize="20"
                                                TextColor="{Binding TextColor}"/>
                                 <border:SfBorder.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="orderOption_tapped"/>
@@ -429,16 +433,16 @@
                 <StackLayout Orientation="Vertical"
                                  HorizontalOptions="End"
                                  VerticalOptions="Center"
-                                 WidthRequest="{OnIdiom Phone=150,Tablet=350}">
+                                 WidthRequest="350">
 
                     <Grid VerticalOptions="Center">
 
                         <Label Text="Tổng Cộng"
-                                       FontSize="{OnIdiom Phone=10,Tablet=23}"
+                                       FontSize="23"
                                        HorizontalOptions="Start"/>
 
                         <Label Text="{Binding tongtien}"
-                                       FontSize="{OnIdiom Phone=10,Tablet=25}"
+                                       FontSize="25"
                                        HorizontalOptions="End"/>
 
                     </Grid>
@@ -447,11 +451,11 @@
 
                         <Label Text="VOUCHER"
                                        TextColor="{StaticResource vbmdeeplightgray}"
-                                       FontSize="{OnIdiom Phone=10,Tablet=25}"
+                                       FontSize="25"
                                        HorizontalOptions="Start"/>
 
                         <Label Text="000"
-                                       FontSize="{OnIdiom Phone=10,Tablet=25}"
+                                       FontSize="25"
                                        HorizontalOptions="End"/>
 
                     </Grid>
@@ -460,11 +464,11 @@
 
                         <Label Text="GIẢM GIÁ"
                                        TextColor="{StaticResource vbmdeeplightgray}"
-                                       FontSize="{OnIdiom Phone=10,Tablet=25}"
+                                       FontSize="25"
                                        HorizontalOptions="Start"/>
 
                         <Label Text="{Binding giamgia}"
-                                       FontSize="{OnIdiom Phone=10,Tablet=25}"
+                                       FontSize="25"
                                        HorizontalOptions="End"/>
 
                     </Grid>
@@ -473,12 +477,12 @@
 
                         <Label Text="THÀNH TIỀN"
                                        TextColor="{StaticResource vbmpinttext}"
-                                       FontSize="{OnIdiom Phone=10,Tablet=25}"
+                                       FontSize="25"
                                        HorizontalOptions="Start"/>
 
                         <Label Text="{Binding thanhtien}"
                                        TextColor="{StaticResource vbmpinttext}"
-                                       FontSize="{OnIdiom Phone=10,Tablet=25}"
+                                       FontSize="25"
                                        HorizontalOptions="End"/>
 
                     </Grid>
