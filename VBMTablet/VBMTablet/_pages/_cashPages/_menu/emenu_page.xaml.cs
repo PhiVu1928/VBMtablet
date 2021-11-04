@@ -19,29 +19,30 @@ namespace VBMTablet._pages._menu
         {
             InitializeComponent();
             this.BindingContext = groupMenu;
-        }           
-            
+        }
+
 
         async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             var ctr = sender as Grid;
             await ctr.ScaleTo(0.8, 1);
-            this.FadeTo(0.8, 1);
-            try
+            this.IsEnabled = false;
+            using (var progress = UserDialogs.Instance.Loading("...", null, null, true, MaskType.Black))
             {
-                var cv = (emenuRender)ctr.BindingContext;
-                var detail = new _pages._menu.detail_page();
-                await Navigation.PushAsync(detail);
-                detail.Render(cv.emenu);
-                await ctr.ScaleTo(1, 100);
-                this.FadeTo(1, 100);
+                try
+                {
+                    var cv = (emenuRender)ctr.BindingContext;
+                    var detail = new detail_page();
+                    await Navigation.PushAsync(detail);
+                    detail.Render(cv.emenu);
+                }
+                catch (Exception exc)
+                {
+                    await Application.Current.MainPage.DisplayAlert("", exc.Message, "OK");
+                }
             }
-            catch(Exception)
-            {
-                await ctr.ScaleTo(1, 100);
-                this.FadeTo(1, 100);
-            }
-            
+            await ctr.ScaleTo(1, 100);
+            this.IsEnabled = true;
         }
     }
 }

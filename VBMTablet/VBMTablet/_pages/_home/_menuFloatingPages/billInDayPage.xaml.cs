@@ -37,7 +37,7 @@ namespace VBMTablet._pages._home._menuFloatingPages
         {
             var ctr = sender as SfBorder;
             await ctr.ScaleTo(0.9, 1);
-            await this.FadeTo(0.9, 1);
+            this.IsEnabled = false;
             var cv = (BillStatus)ctr.BindingContext;
             foreach(var item in vm.billStatuses)
             {
@@ -51,7 +51,7 @@ namespace VBMTablet._pages._home._menuFloatingPages
                 }
             }
             await ctr.ScaleTo(1, 100);
-            await this.FadeTo(1, 100);
+            this.IsEnabled = true;
         }
     }
 }

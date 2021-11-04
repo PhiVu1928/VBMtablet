@@ -37,7 +37,7 @@ namespace VBMTablet._pages._cashPages._customer
         {
             var ctr = sender as Grid;
             await ctr.ScaleTo(0.9, 1);
-            await this.FadeTo(0.9, 1);
+            this.IsEnabled = false;
             int sl = int.Parse(lblSlg.Text);
             if(sl > 1)
             {
@@ -49,13 +49,13 @@ namespace VBMTablet._pages._cashPages._customer
                 await Navigation.PopPopupAsync();
             }
             await ctr.ScaleTo(0.9, 1);
-            await this.FadeTo(0.9, 1);
+            this.IsEnabled = true;
         }
         async void grdPlus_tapped(object sender, EventArgs e)
         {
             var ctr = sender as Grid;
             await ctr.ScaleTo(0.9, 1);
-            await this.FadeTo(0.9, 1);
+            this.IsEnabled = false;
             int sl = int.Parse(lblSlg.Text);
             sl++;
             var slgPreview = localdb.CartProd.Where(x => x.id == bmls.bmls_obj.SpID && x.orderType == -1301).ToList().Sum(x => x.slg) + sl;
@@ -69,20 +69,20 @@ namespace VBMTablet._pages._cashPages._customer
                await Application.Current.MainPage.DisplayAlert("", "Số lượng bánh đã đạt tối đa","OK");               
             }
             await ctr.ScaleTo(0.9, 1);
-            await this.FadeTo(0.9, 1);
+            this.IsEnabled = true;
         }
         async void btnOK_Clicked(object sender, EventArgs e)
         {
             var ctr = sender as SfButton;
             await ctr.ScaleTo(0.9, 1);
-            await this.FadeTo(0.9, 1);
+            this.IsEnabled = false;
 
             int sl = int.Parse(lblSlg.Text);
             gift_Page.addBMLSTCard(bmls, sl);
             await Navigation.PopPopupAsync();
 
             await ctr.ScaleTo(0.9, 1);
-            await this.FadeTo(0.9, 1);
+            this.IsEnabled = true;
         }
     }
 }

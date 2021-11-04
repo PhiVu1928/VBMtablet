@@ -192,7 +192,6 @@ namespace VBMTablet._vms._cart
                                 if (drink_giavi.Length > 0) drink_giavi = drink_giavi.Substring(0, drink_giavi.Length - 2);
                                 drink_nguyengia = ncDetail.price.ToString("#,##0") + " đ";
                                 drink_dongia = (prod.dongia - monchinhDetail.price).ToString("#,##0") + " đ";
-                                this.orderCode = "Dòng combo";
                             }
                         }
                     }
@@ -225,7 +224,6 @@ namespace VBMTablet._vms._cart
                         {
                             visRecommendCb = true;
                         }
-                        this.orderCode = "";
                     }
 
                 }
@@ -362,4 +360,5 @@ namespace VBMTablet._vms._cart
             }
         }
     }
+    
 }

@@ -40,7 +40,7 @@ namespace VBMTablet._pages._cashPages._customer
         {
             var ctr = sender as Image;
             await ctr.ScaleTo(0.9, 1);
-            await this.FadeTo(0.9, 1);
+            this.IsEnabled = false;
             if (vmChooseGiftItem.solg == 1)
             {
                 await Navigation.PopPopupAsync();
@@ -51,7 +51,7 @@ namespace VBMTablet._pages._cashPages._customer
             }
 
             await ctr.ScaleTo(1, 100);
-            await this.FadeTo(1, 100);
+            this.IsEnabled = true;
         }
         async void imgPlus_Tapped(object sender, EventArgs e)
         {
@@ -69,13 +69,13 @@ namespace VBMTablet._pages._cashPages._customer
             }
 
             await ctr.ScaleTo(1, 100);
-            await this.FadeTo(1, 100);
+            this.IsEnabled = true;
         }
         async void bdSize_Tapped(object sender, EventArgs e)
         {
             var ctr = sender as SfBorder;
             await ctr.ScaleTo(0.9, 1);
-            await this.FadeTo(0.9, 1);
+            this.IsEnabled = false;
 
             var cv = (chooseGiftItemSizeVM)ctr.BindingContext;
             if (!cv.selected)
@@ -88,21 +88,21 @@ namespace VBMTablet._pages._cashPages._customer
             }
 
             await ctr.ScaleTo(1, 100);
-            await this.FadeTo(1, 100);
+            this.IsEnabled = true;
         }
 
         async void btnOK_Clicked(object sender, EventArgs e)
         {
             var ctr = sender as SfButton;
             await ctr.ScaleTo(0.9, 1);
-            await this.FadeTo(0.9, 1);
+            this.IsEnabled = false;
 
             await Navigation.PopPopupAsync();
             var cv = vmChooseGiftItem.chooseGiftItemSizeVMs.Where(p => p.selected).FirstOrDefault();
             await giftDetail_Page.addGiftItemTCard(cv.giftSize, cv.size_menu.id, vmChooseGiftItem.solg);
 
             await ctr.ScaleTo(1, 100);
-            await this.FadeTo(1, 100);
+            this.IsEnabled = true;
         }
     }
 }

@@ -72,9 +72,6 @@
     <PackageReference Include="Syncfusion.Xamarin.SfListView">
       <Version>19.3.0.45</Version>
     </PackageReference>
-    <PackageReference Include="Syncfusion.Xamarin.SfPicker">
-      <Version>19.3.0.45</Version>
-    </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfPopupLayout">
       <Version>19.3.0.45</Version>
     </PackageReference>
@@ -103,6 +100,11 @@
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="_ctrs\_datePicker.cs" />
+    <Compile Include="_ctrs\_editor.cs" />
+    <Compile Include="_ctrs\_entry.cs" />
+    <Compile Include="_ctrs\_picker.cs" />
+    <Compile Include="_ctrs\_timePicker.cs" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\Lato-Regular.ttf" />
@@ -266,7 +268,7 @@
     <AndroidResource Include="Resources\drawable\Stroke1.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Stroke2.png" />
+    <AndroidResource Include="Resources\drawable\chooseicon.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\sudungicon.png" />
@@ -303,6 +305,21 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\zalopay.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\beamin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\GRAB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\kaipass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\splash_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\splash_screen.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

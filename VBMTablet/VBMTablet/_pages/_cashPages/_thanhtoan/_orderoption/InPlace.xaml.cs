@@ -172,8 +172,8 @@ namespace VBMTablet._pages._thanhtoan._orderoption
         {
 			var ctr = sender as SfButton;
 			await ctr.ScaleTo(0.9, 1);
-			await this.FadeTo(0.9, 1);
-            try
+			this.IsEnabled = false;
+			try
             {
 				bool success = false;
 				foreach(var item in customButton)

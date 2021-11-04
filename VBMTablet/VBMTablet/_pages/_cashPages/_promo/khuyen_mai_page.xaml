@@ -1,73 +1,78 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
-             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-             xmlns:sf="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
-             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
-             x:Class="VBMTablet._pages._promo.khuyen_mai_page"
-             NavigationPage.HasNavigationBar="False"
-             BackgroundColor="{StaticResource vbmwhite}">
+<ContentView
+    x:Class="VBMTablet._pages._promo.khuyen_mai_page"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+    xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+    xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:sf="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+    BackgroundColor="{StaticResource vbmwhite}"
+    NavigationPage.HasNavigationBar="False">
     <ScrollView>
         <Grid Margin="0,50,0,0">
 
-            <StackLayout Orientation="Vertical"
-                     HorizontalOptions="Center"
-                     VerticalOptions="Center"
-                     Spacing="20"
-                     Margin="10,0"
-                     BindableLayout.ItemsSource="{Binding promos}">
+            <StackLayout
+                Margin="10,0"
+                BindableLayout.ItemsSource="{Binding promos}"
+                HorizontalOptions="Center"
+                Orientation="Vertical"
+                Spacing="20"
+                VerticalOptions="Center">
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
-                        <border:SfBorder CornerRadius="60"
-                                     HeightRequest="190"
-                                     WidthRequest="620"
-                                     BorderWidth="0"
-                                     BorderColor="{StaticResource vbmdeeplightgray}"
-                                     HasShadow="True"
-                                     ShadowColor="{StaticResource vbmdeeplightgray}">
+                        <border:SfBorder
+                            BorderColor="{StaticResource vbmdeeplightgray}"
+                            BorderWidth="0"
+                            CornerRadius="60"
+                            HasShadow="True"
+                            HeightRequest="190"
+                            ShadowColor="{StaticResource vbmdeeplightgray}"
+                            WidthRequest="620">
 
                             <Grid>
 
-                                <ff:CachedImage Source="Group"
+                                <ff:CachedImage
+                                    Aspect="Fill"
+                                    BackgroundColor="Transparent"
+                                    HeightRequest="74"
+                                    HorizontalOptions="End"
+                                    Source="Group"
+                                    WidthRequest="134" />
+
+                                <StackLayout
+                                    Padding="30"
+                                    HorizontalOptions="Start"
+                                    Orientation="Vertical"
+                                    Spacing="10"
+                                    VerticalOptions="Center">
+
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="35"
+                                        HorizontalOptions="Start"
+                                        Text="{Binding name}"
+                                        TextColor="{StaticResource vbmdeepgreen}"
+                                        VerticalOptions="Start" />
+
+                                    <StackLayout Orientation="Horizontal" Spacing="26">
+
+                                        <ff:CachedImage
                                             Aspect="Fill"
-                                            WidthRequest="134"
-                                            HeightRequest="74"
-                                            BackgroundColor="Transparent"
-                                            HorizontalOptions="End"/>
+                                            HeightRequest="25"
+                                            Source="timeicon"
+                                            WidthRequest="35" />
 
-                                <StackLayout Padding="30"
-                                         Orientation="Vertical"
-                                         HorizontalOptions="Start"
-                                         VerticalOptions="Center"
-                                         Spacing="10">
-
-                                    <Label Text="{Binding name}"
-                                       TextColor="{StaticResource vbmdeepgreen}"
-                                       FontSize="35"
-                                       FontAttributes="Bold"
-                                       HorizontalOptions="Start"
-                                       VerticalOptions="Start"/>
-
-                                    <StackLayout Orientation="Horizontal"
-                                             Spacing="26">
-
-                                        <ff:CachedImage Source="timeicon"
-                                                    Aspect="Fill"
-                                                    WidthRequest="35"
-                                                    HeightRequest="25"/>
-
-                                        <Label Text="13:00 - 17:00"
-                                           FontSize="25"
-                                           TextColor="{StaticResource vbmgray}"/>
+                                        <Label
+                                            FontSize="25"
+                                            Text="13:00 - 17:00"
+                                            TextColor="{StaticResource vbmgray}" />
 
                                         <Grid>
-                                            <Label Text="Chi Tiết"
-                                               FontSize="25"
-                                               TextColor="{StaticResource vbmpinttext}"/>
-                                            <Grid.GestureRecognizers>
-                                                <TapGestureRecognizer Tapped="GrPromoDetail_Tapped"/>
-                                            </Grid.GestureRecognizers>
+                                            <Label
+                                                FontSize="25"
+                                                Text="Chi Tiết"
+                                                TextColor="{StaticResource vbmpinttext}" />
                                         </Grid>
 
                                     </StackLayout>
@@ -75,24 +80,16 @@
                                 </StackLayout>
 
                             </Grid>
+
                             <border:SfBorder.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="bdpromo_tapped"/>
+                                <TapGestureRecognizer Tapped="bdpromo_tapped" />
                             </border:SfBorder.GestureRecognizers>
+
                         </border:SfBorder>
 
                     </DataTemplate>
                 </BindableLayout.ItemTemplate>
             </StackLayout>
-            <busyindicator:SfBusyIndicator
-                        x:Name="busyindicator"
-                        AnimationType="Cupertino"
-                        HeightRequest="100"
-                        HorizontalOptions="Center"
-                        IsBusy="{Binding isbusy}"
-                        IsVisible="{Binding isbusy}"
-                        TextColor="#1d5234"
-                        VerticalOptions="Center"
-                        WidthRequest="100" />
         </Grid>
 
     </ScrollView>

@@ -19,10 +19,15 @@ namespace VBMTablet._pages._info
             InitializeComponent();
         }
 
+        protected override bool OnBackgroundClicked()
+        {
+            return false;
+        }
+
         async void ff_ok_tapped(object sender, EventArgs e)
         {
             await xacnhan.ScaleTo(0.9, 1);
-            await xacnhan.FadeTo(0.9, 1);
+            this.IsEnabled = false;
             try
             {                
                 if(localdb.NhanVieninfo != null)
@@ -39,15 +44,15 @@ namespace VBMTablet._pages._info
                         await Application.Current.MainPage.DisplayAlert("", "Mã nhân viên không đúng", "OK");
                     }
                 }                
-                await xacnhan.ScaleTo(1, 100);
-                await this.FadeTo(1, 100);
             }
             catch (Exception)
             {
-                await xacnhan.ScaleTo(1, 100);
-                await xacnhan.FadeTo(1, 100);
+                
             }
+            await xacnhan.ScaleTo(1, 100);
+            this.IsEnabled = true;
         }
+
         async void ff_close_tapped(object sender, EventArgs e)
         {
             await Navigation.PopPopupAsync();

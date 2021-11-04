@@ -38,7 +38,7 @@ namespace VBMTablet._pages._home
         {
             var ctr = sender as Grid;
             await ctr.ScaleTo(0.9, 1);
-            await this.FadeTo(0.9, 1);
+            this.IsEnabled = false;
             try
             {
                 var cv = (CustomerGiftStatus)ctr.BindingContext;
@@ -73,10 +73,11 @@ namespace VBMTablet._pages._home
                     }
                 }
                 await ctr.ScaleTo(1, 100);
-                await this.FadeTo(1, 100);
+                this.IsEnabled = true;
             }
             catch { }
         }
+
         public async Task addBMLSTCard(CustomerGiftStatus bmls, int slg)
         {
             using (var progress = UserDialogs.Instance.Loading("...", null, null, true, MaskType.Black))

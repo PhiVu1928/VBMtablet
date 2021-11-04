@@ -14,13 +14,15 @@ using System.Linq;
 using VBMTablet._pages._menu;
 using System.Collections.Generic;
 using VBMTablet._objs._userObjs;
+using VBMTablet._pages._cashPages._thanhtoan._orderoption;
 
 namespace VBMTablet._pages._thanhtoan
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class thanh_toan_page : ContentView
+    public partial class thanh_toan_page : ContentPage
     {
         public vmcart vmcart { get; set; }
+
         public thanh_toan_page()
         {
             InitializeComponent();
@@ -36,98 +38,76 @@ namespace VBMTablet._pages._thanhtoan
             localdb.thanh_Toan_Page = this;
         }
 
+        async void ff_backicon_tapped(object sender, EventArgs e)
+        {
+            this.IsEnabled = false;
+            await Navigation.PopAsync();
+            this.IsEnabled = true;
+        }
+
         async void ff_thanhtoan_tapped(object sender, EventArgs e)
         {
             this.IsEnabled = false;
             await borderwallet.ScaleTo(0.9, 1);
-            await this.FadeTo(0.9, 1);
             try
             {
-                borderwallet.BackgroundColor = (Color)Application.Current.Resources["vbmgreen"];
-                walleticon.Source = "walleticonvang";
-                labelwallet.TextColor = (Color)Application.Current.Resources["vbmwhite"];
                 var page = new _pages._thanhtoan.hinh_thuc_thanh_toan_page();
                 await Navigation.PushPopupAsync(page);
                 page.Render();
-                this.IsEnabled = true;
-
-                await borderwallet.ScaleTo(1, 100);
-                await this.FadeTo(1, 100);
             }
             catch
             {
-                //erros show here
-                await borderwallet.ScaleTo(1, 100);
-                await this.FadeTo(1, 100);
+                
             }
+            await borderwallet.ScaleTo(1, 100);
+            this.IsEnabled = true;
         }
+
         async void ff_discount_tapped(object sender, EventArgs e)
         {
             this.IsEnabled = false;
             await vouchericon.ScaleTo(0.9, 1);
-            await this.FadeTo(0.9, 1);
             try
             {
-                voucherborder.BackgroundColor = (Color)Application.Current.Resources["vbmgreen"];
-                vouchericon.Source = "vouchericonvang";
-                voucherlable.TextColor = (Color)Application.Current.Resources["vbmwhite"];
-                var page = new _pages._thanhtoan.discount_page();
+                var page = new discount_page();
                 await Navigation.PushPopupAsync(page);
                 page.Render();
-                this.IsEnabled = true;
-
-                await vouchericon.ScaleTo(1, 100);
-                await this.FadeTo(1, 100);
             }
-            catch
+            catch (Exception ex)
             {
-                //erros show here
-                await vouchericon.ScaleTo(1, 100);
-                await this.FadeTo(1, 100);
             }
+            this.IsEnabled = true;
+            await vouchericon.ScaleTo(1, 100);
         }
 
         async void ff_hoadon_tapped(object sender, EventArgs e)
         {
             this.IsEnabled = false;
             await brhoadon.ScaleTo(0.9, 1);
-            await this.FadeTo(0.9, 1);
+            this.IsEnabled = false;
             try
             {
-                brhoadon.BackgroundColor = (Color)Application.Current.Resources["vbmlightyellow"];
-                lblhoadon.TextColor = (Color)Application.Current.Resources["vbmgreen"];
                 var popuphoadon = new _pages._thanhtoan.hoa_don_page();
-                await Navigation.PushPopupAsync(popuphoadon);
-                this.IsEnabled = true;                
-
-                brcombo.BackgroundColor = (Color)Application.Current.Resources["vbmlightgray"];
-                lblcombo.TextColor = (Color)Application.Current.Resources["vbmgray"];
+                await Navigation.PushPopupAsync(popuphoadon);        
             }
             catch(Exception)
             {
                 //error show here
-                this.IsEnabled = false;
-                await brhoadon.ScaleTo(1, 100);
-                await this.FadeTo(1, 100);
             }
-            
+            this.IsEnabled = true;
+            await brhoadon.ScaleTo(1, 100);
         }
+
         public void ff_combo_tapped(object sender, EventArgs e)
         {
-            brcombo.BackgroundColor = (Color)Application.Current.Resources["vbmlightyellow"];
-            lblcombo.TextColor = (Color)Application.Current.Resources["vbmgreen"];
-
-            brhoadon.BackgroundColor = (Color)Application.Current.Resources["vbmlightgray"];
-            lblhoadon.TextColor = (Color)Application.Current.Resources["vbmgray"];
+            
         }
-
-        
 
         async void orderOption_tapped(object sender, EventArgs e)
         {
             var ctr = sender as SfBorder;
             await ctr.ScaleTo(0.9, 1);
-            await this.FadeTo(0.9, 1);
+            this.IsEnabled = false;
             try
             {
                 var cv = (OrderOption)ctr.BindingContext;
@@ -138,6 +118,7 @@ namespace VBMTablet._pages._thanhtoan
                         switch(cv.id)
                         {
                             case 0:
+                                //dat tai cho
                                 if (cv.id == 0 && cv.id == item.id)
                                 {
                                     if(localdb.CartProd.Count == 0)
@@ -160,6 +141,7 @@ namespace VBMTablet._pages._thanhtoan
                                 }
                                 break;
                             case 1:
+                                //dat den lay
                                 if (cv.id == 1 && cv.id == item.id)
                                 {
                                     if (localdb.CartProd.Count == 0)
@@ -167,7 +149,10 @@ namespace VBMTablet._pages._thanhtoan
                                         await Application.Current.MainPage.DisplayAlert("Không có sản phẩm nào trong giỏ hàng", "Vui lòng chọn sản phẩm và thực hiện thanh toán lại bạn nhé !", "Ok");
                                     }
                                     else
-                                    {                                        
+                                    {
+                                        var page = new PickUp();
+                                        await Navigation.PushPopupAsync(page);
+                                        page.Render();
                                         item.Selected = true;
                                     }
                                 }
@@ -177,6 +162,7 @@ namespace VBMTablet._pages._thanhtoan
                                 }
                                 break;
                             case 2:
+                                //dat mang di
                                 if (cv.id == 2 && cv.id == item.id)
                                 {
                                     if (localdb.CartProd.Count == 0)
@@ -185,6 +171,9 @@ namespace VBMTablet._pages._thanhtoan
                                     }
                                     else
                                     {
+                                        var page = new Delivery();
+                                        await Navigation.PushPopupAsync(page);
+                                        page.Render();
                                         item.Selected = true;
                                     }
                                 }
@@ -201,15 +190,16 @@ namespace VBMTablet._pages._thanhtoan
             {
                 //log error
                 App.Current.MainPage.DisplayAlert("error", ex.ToString(), "ok");
-                await ctr.ScaleTo(1, 100);
-                await this.FadeTo(1, 100);
             }
+            await ctr.ScaleTo(1, 100);
+            this.IsEnabled = true;
         }
+
         async void lbldeletecart_tapped(object sender, EventArgs e)
         {
             var ctr = sender as Grid;
             await ctr.ScaleTo(0.9, 1);
-            await this.FadeTo(0.9, 1);
+            this.IsEnabled = false;
             try
             {
                 var cv = (cartItem)ctr.BindingContext;
@@ -222,23 +212,21 @@ namespace VBMTablet._pages._thanhtoan
                 }
                 if (localdb.home_Page != null)
                     localdb.home_Page.updateSlCart();
-                await ctr.ScaleTo(1, 100);
-                await this.FadeTo(1, 100);
             }
             catch (Exception ex)
             {
                 //log error
                 App.Current.MainPage.DisplayAlert("error", ex.ToString(), "ok");
-                await ctr.ScaleTo(1, 100);
-                await this.FadeTo(1, 100);
             }
+            await ctr.ScaleTo(1, 100);
+            this.IsEnabled = true;
         }
 
         async void lbldecreasecartitem_tapped(object sender, EventArgs e)
         {
             var ctr = sender as Grid;
             await ctr.ScaleTo(0.9, 1);
-            await this.FadeTo(0.9, 1);
+            this.IsEnabled = false;
             try
             {
                 var cv = (cartItem)ctr.BindingContext;
@@ -269,17 +257,17 @@ namespace VBMTablet._pages._thanhtoan
             }
             catch (Exception)
             {
-                //log error
-                await ctr.ScaleTo(1, 100);
-                await this.FadeTo(1, 100);
+
             }
+            await ctr.ScaleTo(1, 100);
+            this.IsEnabled = true;
         }
 
         async void lblincreasecartitem_tapped(object sender, EventArgs e)
         {
             var ctr = sender as Grid;
             await ctr.ScaleTo(0.9, 1);
-            await this.FadeTo(0.9, 1);
+            this.IsEnabled = false;
             try
             {
                 var cv = (cartItem)ctr.BindingContext;
@@ -335,23 +323,25 @@ namespace VBMTablet._pages._thanhtoan
             }
             catch (Exception)
             {
-                //log error
-                await ctr.ScaleTo(1, 100);
-                await this.FadeTo(1, 100);
+
             }
+            await ctr.ScaleTo(1, 100);
+            this.IsEnabled = true;
         }
 
         async void brEdit_tapped(object sender, EventArgs e)
         {
-            var ctr = sender as SfBorder;
-            await ctr.ScaleTo(0.9, 1);
-            await this.FadeTo(0.9, 1);
-            var cv = (cartItem)ctr.BindingContext;
-            var page = new detail_page();
-            await Navigation.PushAsync(page);
-            page.RenderCart(cv.prod);
-            await ctr.ScaleTo(1, 100);
-            await this.FadeTo(1, 100);
+            this.IsEnabled = false;
+            using (var progress = UserDialogs.Instance.Loading("...", null, null, true, MaskType.Black))
+            {
+                var ctr = sender as Grid;
+                var cv = (cartItem)ctr.BindingContext;
+                var page = new detail_page();
+                await Navigation.PushAsync(page);
+                page.RenderCart(cv.prod);
+            }
+            this.IsEnabled = true;
         }
+
     }
 }

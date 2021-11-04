@@ -13,17 +13,6 @@
               Margin="10"
               RowSpacing="10"/>
 
-
-        <busyindicator:SfBusyIndicator
-                x:Name="busyindicator"
-                AnimationType="Cupertino"
-                HeightRequest="50"
-                HorizontalOptions="Center"
-                IsBusy="True"
-                TextColor="#1d5234"
-                VerticalOptions="Center"
-                WidthRequest="50" />
-
     </Grid>
 
 </ContentView>

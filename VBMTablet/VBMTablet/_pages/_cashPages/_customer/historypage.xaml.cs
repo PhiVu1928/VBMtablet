@@ -7,7 +7,6 @@ using VBMTablet._objs._cartObjs;
 using VBMTablet._objs._userObjs;
 using VBMTablet._process;
 using VBMTablet._vms._home;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -17,6 +16,7 @@ namespace VBMTablet._pages._home
     public partial class historypage : ContentView
     {
         vmCustomerOrdered CustomerOrderedStatus { get; set; }
+
         public historypage()
         {
             InitializeComponent();
@@ -32,9 +32,10 @@ namespace VBMTablet._pages._home
 
         async void grdReOrder_Tapped(object sender, EventArgs e)
         {
-            var ctr = sender as Grid;
+            var ctr = sender as StackLayout;
             await ctr.ScaleTo(0.9, 1);
-            await this.FadeTo(0.9, 1);
+            this.IsEnabled = false;
+
             try
             {
                 var cv = (CustomerOrderedStatus)ctr.BindingContext;
@@ -81,14 +82,15 @@ namespace VBMTablet._pages._home
                         localdb.home_Page.updateSlCart();
                     }
                 }
-                await ctr.ScaleTo(1, 100);
-                await this.FadeTo(1, 100);
             }
             catch(Exception ex)
             {
-                await ctr.ScaleTo(1, 100);
-                await this.FadeTo(1, 100);
+                
             }
+
+            await ctr.ScaleTo(1, 100);
+            this.IsEnabled = true;
         }
+
     }
 }

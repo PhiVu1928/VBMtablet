@@ -1,5 +1,6 @@
 ﻿using Acr.UserDialogs;
 using Rg.Plugins.Popup.Extensions;
+using Rg.Plugins.Popup.Services;
 using Syncfusion.XForms.Border;
 using System;
 using System.Collections.Generic;
@@ -35,34 +36,23 @@ namespace VBMTablet._pages._promo
 
         async void bdpromo_tapped(object sender, EventArgs e)
         {
+            this.IsEnabled = false;
             var ctr = sender as SfBorder;
-            await ctr.ScaleTo(0.9, 1);
-            await this.FadeTo(0.9, 1);
-            try
-            {
-                
-                await ctr.ScaleTo(1, 100);
-                await this.FadeTo(1, 100);
-            }
-            catch
-            {
-                await ctr.ScaleTo(1, 100);
-                await this.FadeTo(1, 100);
-            }
-            
-        }
+            await ctr.ScaleTo(0.8, 150);
 
-        async void GrPromoDetail_Tapped(object sender, EventArgs e)
-        {
-            var ctr = sender as Grid;
             var cv = (PromoStatus)ctr.BindingContext;
             try
             {
                 var promodetai = new promo_detail();
-                await Navigation.PushPopupAsync(promodetai);
+                await PopupNavigation.Instance.PushAsync(promodetai);
                 promodetai.Render(cv.promotion);
             }
             catch { }
+
+            this.IsEnabled = true;
+            await ctr.ScaleTo(1, 150);
+
         }
+
     }
 }

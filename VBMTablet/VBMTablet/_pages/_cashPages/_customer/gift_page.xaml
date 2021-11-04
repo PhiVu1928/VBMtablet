@@ -1,52 +1,64 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
-             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-             x:Class="VBMTablet._pages._home.gift_page"
-             BackgroundColor="{StaticResource vbmwhite}">
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="VBMTablet._pages._home.gift_page"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+    xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    BackgroundColor="{StaticResource vbmwhite}">
+
     <ScrollView>
-        <StackLayout Margin="20,0"
-                     Spacing="20"
-                     BindableLayout.ItemsSource="{Binding customerGiftStatuses}">
+        <StackLayout
+            Margin="20,0"
+            BindableLayout.ItemsSource="{Binding customerGiftStatuses}"
+            Spacing="20">
             <BindableLayout.ItemTemplate>
                 <DataTemplate>
-                    <border:SfBorder BackgroundColor="{StaticResource vbmlightgray}"
-                                     BorderColor="{StaticResource vbmwhite}"
-                                     HasShadow="False"
-                                     CornerRadius="30"
-                                     Padding="20">
+
+                    <border:SfBorder
+                        Padding="20"
+                        BackgroundColor="{StaticResource vbmlightgray}"
+                        BorderColor="{StaticResource vbmwhite}"
+                        CornerRadius="30"
+                        HasShadow="False">
 
                         <Grid>
 
-                            <StackLayout Orientation="Vertical"
-                                         HorizontalOptions="Start"
-                                         VerticalOptions="Center"
-                                         Spacing="20">
+                            <StackLayout
+                                HorizontalOptions="Start"
+                                Orientation="Vertical"
+                                Spacing="10"
+                                VerticalOptions="Center">
 
-                                <Label Text="{Binding expireDate}"
-                                       TextColor="{StaticResource vbmgray}"
-                                       FontSize="25" />
+                                <Label
+                                    FontSize="20"
+                                    Text="{Binding expireDate}"
+                                    TextColor="{StaticResource vbmgray}" />
 
-                                <Label Text="{Binding solg}"
-                                       FontSize="25" />
+                                <Label
+                                    FontSize="20"
+                                    Text="{Binding solg}"
+                                    TextColor="{StaticResource vbmgray}" />
 
-                                <Label Text="{Binding name}"
-                                       FontSize="25"
-                                       FontAttributes="Bold" />
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="20"
+                                    Text="{Binding name}"
+                                    TextColor="{StaticResource vbmgray}" />
 
                             </StackLayout>
 
-                            <ff:CachedImage Source="quabinhthuonng"
-                                            WidthRequest="70"
-                                            HeightRequest="70"
-                                            HorizontalOptions="End"
-                                            VerticalOptions="Center" />
+                            <ff:CachedImage
+                                HeightRequest="70"
+                                HorizontalOptions="End"
+                                Source="quabinhthuonng"
+                                VerticalOptions="Center"
+                                WidthRequest="70" />
 
                             <Grid.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="grdGift_tapped"/>
+                                <TapGestureRecognizer Tapped="grdGift_tapped" />
                             </Grid.GestureRecognizers>
-                            
+
                         </Grid>
 
                     </border:SfBorder>
@@ -59,5 +71,5 @@
         </StackLayout>
 
     </ScrollView>
-  
+
 </ContentView>

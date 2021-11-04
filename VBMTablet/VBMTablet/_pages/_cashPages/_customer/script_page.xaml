@@ -1,80 +1,92 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
-             x:Class="VBMTablet._pages._home.script_page">
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="VBMTablet._pages._home.script_page"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms">
+
     <ScrollView>
-        
-        <StackLayout Orientation="Vertical"
-                 Spacing="20">
 
-            <border:SfBorder BackgroundColor="{StaticResource vbmlightsky}"
-                         BorderColor="Transparent"
-                         HasShadow="False"
-                         CornerRadius="30">
+        <StackLayout Orientation="Vertical" Spacing="20">
 
-                <StackLayout Orientation="Vertical"
-                         Padding="15"
-                         Spacing="10">
+            <border:SfBorder
+                Padding="10"
+                BackgroundColor="{StaticResource vbmlightsky}"
+                BorderColor="Transparent"
+                CornerRadius="30"
+                HasShadow="False">
 
-                    <Label Text="Phản hồi của khách"
-                       FontSize="30" />
+                <StackLayout
+                    Padding="10"
+                    Orientation="Vertical"
+                    Spacing="10">
 
-                    <Label Text="Khách đã có 3 lần trải nghiệm không tốt"
-                       FontSize="30"
-                       TextColor="{StaticResource vbmyellow}"
-                       FontAttributes="Bold" />
+                    <Label FontSize="20" Text="Phản hồi của khách:" />
 
-                    <Label Text="Lý do:"
-                       FontSize="30"
-                       TextColor="{StaticResource vbmyellow}"
-                       FontAttributes="Bold" />
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="20"
+                        Text="Khách đã có 3 lần trải nghiệm không tốt"
+                        TextColor="{StaticResource vbmyellow}" />
 
-                    <Label Text=" • Note không ớt mà vẫn để"
-                       FontSize="30"
-                       TextColor="{StaticResource vbmpinttext}"
-                       FontAttributes="Bold" />
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="20"
+                        Text="Lý do:"
+                        TextColor="{StaticResource vbmyellow}" />
 
-                    <Label Text=" • Chả cá có mùi hôi"
-                       FontSize="30"
-                       TextColor="{StaticResource vbmpinttext}"
-                       FontAttributes="Bold" />
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="20"
+                        Text=" • Note không ớt mà vẫn để"
+                        TextColor="{StaticResource vbmpinttext}" />
 
-                    <Label Text=" • Bánh mì không nóng"
-                       FontSize="30"
-                       TextColor="{StaticResource vbmpinttext}"
-                       FontAttributes="Bold" />
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="20"
+                        Text=" • Chả cá có mùi hôi"
+                        TextColor="{StaticResource vbmpinttext}" />
 
-                    <Label Text="Xin lỗi anh/chi về lần trước, tụi em đã cẩn thận cho lần này. Hy vọng anh/chị sẽ hài lòng. Cảm ơn anh/chị nhiều ạ!"
-                       FontSize="25" />
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="20"
+                        Text=" • Bánh mì không nóng"
+                        TextColor="{StaticResource vbmpinttext}" />
+
+                    <Label FontSize="20" Text="Xin lỗi anh/chi về lần trước, tụi em đã cẩn thận cho lần này. Hy vọng anh/chị sẽ hài lòng. Cảm ơn anh/chị nhiều ạ!" />
 
                 </StackLayout>
 
             </border:SfBorder>
 
-            <border:SfBorder BackgroundColor="{StaticResource vbmlightmiddlegray}"
-                         BorderColor="Transparent"
-                         HasShadow="False"
-                         CornerRadius="30">
+            <border:SfBorder
+                Padding="10"
+                BackgroundColor="{StaticResource vbmlightmiddlegray}"
+                BorderColor="Transparent"
+                CornerRadius="30"
+                HasShadow="False">
 
-                <StackLayout Orientation="Vertical"
-                         Spacing="20"
-                         Padding="15">
+                <StackLayout
+                    Padding="15"
+                    Orientation="Vertical"
+                    Spacing="10">
 
-                    <Label Text="HƯỚNG DẪN  TƯƠNG TÁC  VỚI KHÁCH HÀNG"
-                       FontSize="30"/>
+                    <Label FontSize="20" Text="HƯỚNG DẪN  TƯƠNG TÁC  VỚI KHÁCH HÀNG:" />
 
-                    <Label Text="Bước 1: Chào khách 'Xin chào anh/chị đến với Vua Bánh Mì, em có thể giúp gì được ạ?'"
-                       FontSize="25"
-                       TextColor="{StaticResource vbmdeepgray}"/>
+                    <Label
+                        FontSize="20"
+                        Text="Bước 1: Xin chào anh/chị đến với Vua Bánh Mì, em có thể giúp gì được ạ?"
+                        TextColor="{StaticResource vbmdeepgray}" />
 
-                    <Label Text="Bước 2: Lấy order - Offter khuyến mãi đang có '.............'"
-                       FontSize="25"
-                       TextColor="{StaticResource vbmdeepgray}"/>
+                    <Label
+                        FontSize="20"
+                        Text="Bước 2: Lấy order - Offter khuyến mãi đang có"
+                        TextColor="{StaticResource vbmdeepgray}" />
 
-                    <Label Text="Bước 3: Xác nhận đơn hàng '.............'"
-                       FontSize="25"
-                       TextColor="{StaticResource vbmdeepgray}"/>
+                    <Label
+                        FontSize="20"
+                        Text="Bước 3: Xác nhận đơn hàng"
+                        TextColor="{StaticResource vbmdeepgray}" />
 
                 </StackLayout>
             </border:SfBorder>

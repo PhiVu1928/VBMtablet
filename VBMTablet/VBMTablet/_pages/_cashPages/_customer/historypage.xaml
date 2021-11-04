@@ -1,66 +1,72 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
-             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-             x:Class="VBMTablet._pages._home.historypage"
-             BackgroundColor="{StaticResource vbmwhite}">
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="VBMTablet._pages._home.historypage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+    xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    BackgroundColor="{StaticResource vbmwhite}">
     <ScrollView>
-        <StackLayout Margin="20,0"
-                     BindableLayout.ItemsSource="{Binding orderedStatuses}"
-                     Spacing="20">
+        <StackLayout
+            Margin="20,0"
+            BindableLayout.ItemsSource="{Binding orderedStatuses}"
+            Spacing="20">
             <BindableLayout.ItemTemplate>
                 <DataTemplate>
-                    <border:SfBorder BackgroundColor="{StaticResource vbmlightgray}"
-                                     BorderColor="{StaticResource vbmwhite}"
-                                     HasShadow="False"
-                                     CornerRadius="30"
-                                     Padding="30">
+                    <border:SfBorder
+                        Padding="20"
+                        BackgroundColor="{StaticResource vbmlightgray}"
+                        BorderColor="{StaticResource vbmwhite}"
+                        CornerRadius="30"
+                        HasShadow="False">
                         <Grid>
 
-                            <StackLayout Spacing="20"
-                                         Orientation="Vertical">
+                            <StackLayout Orientation="Vertical" Spacing="20">
 
-                                <Label Text="{Binding orderedDate}"
-                                       FontAttributes="Bold"
-                                       TextColor="{StaticResource vbmgray}"
-                                       FontSize="25"/>
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="20"
+                                    Text="{Binding orderedDate}"
+                                    TextColor="{StaticResource vbmgray}" />
 
 
                                 <Grid VerticalOptions="Center">
 
+                                    <Label
+                                        FontSize="20"
+                                        HorizontalOptions="Start"
+                                        Text="{Binding name}"
+                                        TextColor="{StaticResource vbmgray}"
+                                        VerticalOptions="Center" />
 
-                                    <Label Text="{Binding name}"
-                                           FontSize="25"
-                                           TextColor="{StaticResource vbmgray}"
-                                           HorizontalOptions="Start"
-                                           VerticalOptions="Center"/>
-
-                                    <Label Text="{Binding solg}"
-                                           FontSize="25"
-                                           TextColor="{StaticResource vbmgray}"
-                                           HorizontalOptions="End"
-                                           VerticalOptions="Center"/>
+                                    <Label
+                                        FontSize="20"
+                                        HorizontalOptions="End"
+                                        Text="{Binding solg}"
+                                        TextColor="{StaticResource vbmgray}"
+                                        VerticalOptions="Center" />
 
                                 </Grid>
 
-                                <StackLayout Orientation="Horizontal"
-                                             HorizontalOptions="Start"
-                                             VerticalOptions="End"
-                                             Spacing="20">
+                                <StackLayout
+                                    HorizontalOptions="Start"
+                                    Orientation="Horizontal"
+                                    Spacing="10">
 
-                                    <ff:CachedImage Source="chuanbiicon"
-                                                    Aspect="Fill"
-                                                    WidthRequest="30"
-                                                    HeightRequest="30"/>
-                                    <Grid>
-                                        <Label Text="Đặt lại theo đơn hàng này"
-                                           FontSize="25"
-                                           FontAttributes="Bold"/>
-                                        <Grid.GestureRecognizers>
-                                            <TapGestureRecognizer Tapped="grdReOrder_Tapped"/>
-                                        </Grid.GestureRecognizers>
-                                    </Grid>
+                                    <ff:CachedImage
+                                        Aspect="Fill"
+                                        HeightRequest="30"
+                                        Source="chuanbiicon"
+                                        WidthRequest="30" />
+
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="20"
+                                        Text="Đặt lại theo đơn hàng này" />
+
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="grdReOrder_Tapped" />
+                                    </StackLayout.GestureRecognizers>
 
                                 </StackLayout>
 

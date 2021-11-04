@@ -76,8 +76,7 @@
                         VerticalOptions="Center"
                         WidthRequest="40" />
                     <border:SfBorder.GestureRecognizers>
-                        <TapGestureRecognizer
-                            Tapped="bdChangeMode_Tapped"/>
+                        <TapGestureRecognizer Tapped="bdChangeMode_Tapped" />
                     </border:SfBorder.GestureRecognizers>
                 </border:SfBorder>
 

@@ -4,7 +4,6 @@
                  xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
                  xmlns:popup="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
                  xmlns:animation="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
-                 xmlns:sf="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
                  xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
                  x:Class="VBMTablet._pages._thanhtoan.discount_page">
     
@@ -30,7 +29,7 @@
                          ShadowColor="WhiteSmoke"
                          BackgroundColor="White">
             
-            <Grid Padding="{OnIdiom Phone=20,Tablet=50}">
+            <Grid Padding="20">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
@@ -50,66 +49,65 @@
                 </ff:CachedImage>
 
                 <Label Text="MÃ GIẢM GIÁ"
-                       FontSize="{OnIdiom Phone= 16,Tablet=36}"
+                       FontSize="26"
                        HorizontalOptions="Center"
                        VerticalOptions="Center"
                        Grid.Row="1"/>
 
 
                 <Grid Grid.Row="2">
-                    <sf:SfListView ItemsSource="{Binding discounts}"
-                                   IsScrollingEnabled="False"
-                                   ItemSize="{OnIdiom Phone=60,Tablet=100}"
-                                   ItemSpacing="0,20,0,0"
-                                   HorizontalOptions="Center"
-                                   VerticalOptions="Center"
-                                   SelectionBackgroundColor="Transparent"
-                                   Orientation="Vertical">
-                        <sf:SfListView.ItemTemplate>
+
+                    <StackLayout
+                        Orientation="Vertical"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Spacing="20"
+                        BindableLayout.ItemsSource="{Binding cartPromoItems}">
+                        <BindableLayout.ItemTemplate>
                             <DataTemplate>
                                 <StackLayout Orientation="Horizontal"
                                              HorizontalOptions="Center"
                                              VerticalOptions="Center"
-                                             Spacing="{OnIdiom Phone=-10,Tablet=-20}">
-                                    
+                                             Spacing="-20">
+
                                     <border:SfBorder WidthRequest="433"
-                                                     HeightRequest="100"
+                                                     HeightRequest="40"
                                                      CornerRadius="30"
                                                      HasShadow="False"
                                                      BorderColor="#C2C2C2"
-                                                     BackgroundColor="{Binding BorderColor}"
+                                                     BackgroundColor="{Binding borderColor}"
                                                      HorizontalOptions="Start"
-                                                     VerticalOptions="Center"
-                                                     Padding="{OnIdiom Phone=10,Tablet=20}">
-                                        <Label Text="{Binding Name}"
-                                               TextColor="{Binding TextColor}"
+                                                     Padding="20">
+                                        <Label Text="{Binding name}"
+                                               TextColor="{Binding textColor}"
                                                HorizontalTextAlignment="Center"
-                                               FontSize="{OnIdiom Phone=10,Tablet=22}"
-                                               HorizontalOptions="Center"
+                                               FontSize="22"
+                                               HorizontalOptions="Start"
                                                VerticalOptions="Center"/>
                                     </border:SfBorder>
-                                    
+
                                     <border:SfBorder WidthRequest="136"
-                                                     HeightRequest="100"
+                                                     HeightRequest="40"
                                                      CornerRadius="30"
                                                      HasShadow="False"
                                                      BorderColor="#C2C2C2"
-                                                     BackgroundColor="{Binding BorderColor}"
-                                                     HorizontalOptions="End"
-                                                     VerticalOptions="Center">
+                                                     BackgroundColor="{Binding borderColor}"
+                                                     HorizontalOptions="End">
                                         <Label Text="Dùng"
-                                               TextColor="{Binding TextColor}"
-                                               FontSize="{OnIdiom Phone=10,Tablet=22}"
+                                               TextColor="{Binding textColor}"
+                                               FontSize="22"
                                                HorizontalOptions="Center"
                                                VerticalOptions="Center"/>
                                     </border:SfBorder>
                                     <StackLayout.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                                        <TapGestureRecognizer Tapped="stlCartPromo_tapped"/>
                                     </StackLayout.GestureRecognizers>
                                 </StackLayout>
+
                             </DataTemplate>
-                        </sf:SfListView.ItemTemplate>
-                    </sf:SfListView>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+                    
                 </Grid>
 
             </Grid>

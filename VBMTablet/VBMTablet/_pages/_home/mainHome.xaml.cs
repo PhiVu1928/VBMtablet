@@ -54,21 +54,18 @@ namespace VBMTablet._pages._info
         async void ff_order_tapped(object sender, EventArgs e)
         {
             await ordericon.ScaleTo(0.9, 1);
-            await this.FadeTo(0.9, 1);
+            this.IsEnabled = false;
             try
             {
-                var popup = new _pages._info.popup_xacnhan();
+                var popup = new popup_xacnhan();
                 await Navigation.PushPopupAsync(popup);
-
-                await ordericon.ScaleTo(1, 100);
-                await this.FadeTo(1, 100);
             }
             catch(Exception)
             {
                 //error show here
-                await ordericon.ScaleTo(0.9, 1);
-                await this.FadeTo(0.9, 1);
             }
+            await ordericon.ScaleTo(0.9, 1);
+            this.IsEnabled = true;
         }
 
     }

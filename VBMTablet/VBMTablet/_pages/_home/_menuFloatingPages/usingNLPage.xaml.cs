@@ -38,15 +38,15 @@ namespace VBMTablet._pages._home._menuFloatingPages
         {
             var ctr = sender as StackLayout;
             await ctr.ScaleTo(0.9, 1);
-            await this.FadeTo(0.9, 1);
+            this.IsEnabled = false;
             try
             {
                 var ScanQRPage = new VBMTablet._pages._home._menuFloatingPages.scanBarCodePage();
                 await Navigation.PushPopupAsync(ScanQRPage);
-                await ctr.ScaleTo(1, 100);
-                await this.FadeTo(1, 100);
             }
             catch { }
+            await ctr.ScaleTo(1,1501);
+            this.IsEnabled = true;
         }
         private void ff_backicon_tapped(object sender, EventArgs e)
         {
@@ -57,7 +57,7 @@ namespace VBMTablet._pages._home._menuFloatingPages
         {
             var ctr = sender as SfBorder;
             await ctr.ScaleTo(0.9, 1);
-            await this.FadeTo(0.9, 1);
+            this.IsEnabled = false;
             try
             {
                 if(localdb.nlBarcode != null)
@@ -81,10 +81,10 @@ namespace VBMTablet._pages._home._menuFloatingPages
                 {
                     await Application.Current.MainPage.DisplayAlert("", "Vui lòng scan lại barcode trước khi lưu!", "OK");
                 }
-                await ctr.ScaleTo(1, 100);
-                await this.FadeTo(1, 100);
             }
             catch { }
+            await ctr.ScaleTo(1, 100);
+            this.IsEnabled = true;
         }
         public void actionAfterSave()
         {

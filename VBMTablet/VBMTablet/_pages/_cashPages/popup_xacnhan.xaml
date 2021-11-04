@@ -20,23 +20,25 @@
             PositionOut="Center" />
     </popup:PopupPage.Animation>
 
-    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+    <border:SfBorder
+        Margin="50,100"
+        Padding="20,30"
+        BackgroundColor="{StaticResource vbmwhite}"
+        BorderColor="Transparent"
+        CornerRadius="15"
+        HasShadow="False"
+        VerticalOptions="Center">
 
-        <Frame
-            BackgroundColor="{StaticResource vbmwhite}"
-            CornerRadius="15"
-            HeightRequest="309"
-            WidthRequest="495">
+        <StackLayout Spacing="20">
 
             <Grid>
 
                 <Label
-                    Margin="0,30,0,0"
                     FontAttributes="Bold"
-                    FontSize="20"
+                    FontSize="25"
                     HorizontalOptions="Center"
                     Text="Xác nhận nhân viên"
-                    VerticalOptions="Start" />
+                    VerticalOptions="Center" />
 
                 <ff:CachedImage
                     x:Name="close"
@@ -44,82 +46,88 @@
                     HeightRequest="20"
                     HorizontalOptions="End"
                     Source="Close"
-                    VerticalOptions="Start"
+                    VerticalOptions="Center"
                     WidthRequest="20">
                     <ff:CachedImage.GestureRecognizers>
                         <TapGestureRecognizer Tapped="ff_close_tapped" />
                     </ff:CachedImage.GestureRecognizers>
                 </ff:CachedImage>
 
-
-                <border:SfBorder
-                    Padding="10"
-                    BackgroundColor="{StaticResource vbmlightgray}"
-                    BorderColor="{StaticResource vbmwhite}"
-                    CornerRadius="30"
-                    HasShadow="False"
-                    HeightRequest="85"
-                    HorizontalOptions="Fill"
-                    VerticalOptions="Center">
-
-                    <StackLayout
-                        Margin="20,0,0,0"
-                        Orientation="Horizontal"
-                        VerticalOptions="Center">
-
-                        <ff:CachedImage
-                            Aspect="Fill"
-                            HorizontalOptions="Start"
-                            Source="searchicon"
-                            VerticalOptions="Center" />
-
-                        <sfinput:SfTextInputLayout
-                            BackgroundColor="Transparent"
-                            ContainerType="Outlined"
-                            FocusedColor="Transparent"
-                            UnfocusedColor="Transparent"
-                            WidthRequest="300">
-
-                            <Entry
-                                FontSize="25"
-                                Keyboard="Telephone"
-                                Placeholder="Số điện thoại" 
-                                x:Name="ETInputMNV"/>
-
-                        </sfinput:SfTextInputLayout>
-
-
-                    </StackLayout>
-
-                </border:SfBorder>
-
-                <border:SfBorder
-                    x:Name="xacnhan"
-                    BackgroundColor="{StaticResource vbmlightyellow}"
-                    BorderColor="{StaticResource vbmwhite}"
-                    CornerRadius="30"
-                    HasShadow="False"
-                    HeightRequest="55"
-                    HorizontalOptions="Center"
-                    VerticalOptions="End"
-                    WidthRequest="160">
-
-                    <Label
-                        FontSize="20"
-                        HorizontalOptions="Center"
-                        Text="OK"
-                        VerticalOptions="Center" />
-
-                    <border:SfBorder.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="ff_ok_tapped" />
-                    </border:SfBorder.GestureRecognizers>
-
-                </border:SfBorder>
-
             </Grid>
 
-        </Frame>
 
-    </StackLayout>
+            <border:SfBorder
+                Margin="0,20,0,0"
+                Padding="20,0"
+                BackgroundColor="{StaticResource vbmlightgray}"
+                BorderColor="Transparent"
+                CornerRadius="30"
+                HasShadow="False"
+                HeightRequest="80"
+                HorizontalOptions="Fill">
+
+                <Grid>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Image
+                        Aspect="AspectFit"
+                        HeightRequest="40"
+                        HorizontalOptions="Center"
+                        Source="searchicon"
+                        VerticalOptions="Center"
+                        WidthRequest="40" />
+
+                    <sfinput:SfTextInputLayout
+                        Grid.Column="1"
+                        BackgroundColor="Transparent"
+                        ContainerType="Outlined"
+                        FocusedColor="Transparent"
+                        UnfocusedColor="Transparent"
+                        VerticalOptions="Center">
+
+                        <Entry
+                            x:Name="ETInputMNV"
+                            ClearButtonVisibility="WhileEditing"
+                            FontSize="20"
+                            Keyboard="Telephone"
+                            Placeholder="Mã nhân viên" />
+
+                    </sfinput:SfTextInputLayout>
+
+
+                </Grid>
+
+            </border:SfBorder>
+
+            <border:SfBorder
+                x:Name="xacnhan"
+                BackgroundColor="{StaticResource vbmlightyellow}"
+                BorderColor="{StaticResource vbmwhite}"
+                CornerRadius="30"
+                HasShadow="False"
+                HeightRequest="55"
+                HorizontalOptions="Center"
+                VerticalOptions="End"
+                WidthRequest="160">
+
+                <Label
+                    FontSize="20"
+                    HorizontalOptions="Center"
+                    Text="OK"
+                    VerticalOptions="Center" />
+
+                <border:SfBorder.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ff_ok_tapped" />
+                </border:SfBorder.GestureRecognizers>
+
+            </border:SfBorder>
+
+        </StackLayout>
+
+    </border:SfBorder>
 
 </popup:PopupPage>

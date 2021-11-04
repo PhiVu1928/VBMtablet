@@ -14,11 +14,13 @@ namespace VBMTablet._pages._menu
     public partial class menu_page : ContentView
     {
         vmmenu vmmenu { get; set; }
+
         public menu_page()
         {
             InitializeComponent();
             
         }
+
         public async Task Render()
         {
             vmmenu = new vmmenu();
@@ -27,8 +29,6 @@ namespace VBMTablet._pages._menu
                 this.BindingContext = vmmenu;
                 vmmenu.SfTabView.SelectionChanged += SfTabView_SelectionChanged;
                 grouptitle.Children.Add(vmmenu.SfTabView);
-                busyindicator.IsBusy = false;
-                busyindicator.IsVisible = false;
             });
             localdb.menu_Page = this;
         }
@@ -44,12 +44,8 @@ namespace VBMTablet._pages._menu
                     var cv2 = (GroupMenu)cv.Content.BindingContext;
                     if(cv2.emenu == null)
                     {
-                        busyindicator.IsBusy = true;
-                        busyindicator.IsVisible = true;
                         cv2.RenderEmenu(true);
                         await Task.Delay(1000);
-                        busyindicator.IsBusy = false;
-                        busyindicator.IsVisible = false;
                     }
                 }
                 else
@@ -58,8 +54,6 @@ namespace VBMTablet._pages._menu
                 }
             }
         }
-
-
 
     }
 }

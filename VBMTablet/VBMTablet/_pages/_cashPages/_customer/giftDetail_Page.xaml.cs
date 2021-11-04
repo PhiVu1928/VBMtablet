@@ -44,7 +44,7 @@ namespace VBMTablet._pages._cashPages._customer
         {
             var ctr = sender as Grid;
             await ctr.ScaleTo(0.9, 1);
-            await this.FadeTo(0.9, 1);
+            this.IsEnabled = false;
             try
             {
                 var cv = (giftDetailItem)ctr.BindingContext;
@@ -52,9 +52,11 @@ namespace VBMTablet._pages._cashPages._customer
                 await Navigation.PushPopupAsync(ChooseGiftItemPage);
                 ChooseGiftItemPage.Render(this, CustomerGiftStatus.GiftObjs, cv.gift_Items, cv.eMenu);
                 await ctr.ScaleTo(1, 100);
-                await this.FadeTo(1, 100);
+                this.IsEnabled = true;
             }
             catch { }
+            this.IsEnabled = true;
+            await ctr.ScaleTo(1, 150);
         }
         public async Task addGiftItemTCard(gift_item giftSize, long id, int slg)
         {

@@ -35,42 +35,37 @@ namespace VBMTablet._pages._info
         async void Tinhtrangdon_Tapped(object sender, EventArgs e)
         {
             await tinhtrang.ScaleTo(0.9, 1);
-            await tinhtrang.FadeTo(0.9, 1);
+            this.IsEnabled = false;
             try
             {
                 var billInDayPage = new VBMTablet._pages._home._menuFloatingPages.billInDayPage();
                 await Navigation.PushAsync(billInDayPage);
                 billInDayPage.Render();
-
-                await tinhtrang.ScaleTo(1, 100);
-                await this.FadeTo(1, 100);
             }
             catch(Exception)
             {
-                await tinhtrang.ScaleTo(1, 100);
-                await tinhtrang.FadeTo(1, 100);
+
             }
+            await tinhtrang.ScaleTo(1, 100);
+            this.IsEnabled = true;
         }
 
         async void Chuanbi_Tapped(object sender, EventArgs e)
         {
             await ready.ScaleTo(0.9, 1);
-            await this.FadeTo(0.9, 1);
+            this.IsEnabled = false;
             try
             {
                 var prepareNlPage = new VBMTablet._pages._home._menuFloatingPages.prepareNLPage();
                 await Navigation.PushAsync(prepareNlPage);
                 prepareNlPage.Render();
-
-                await ready.ScaleTo(1, 100);
-                await this.FadeTo(1, 100);
             }
             catch
             {
                 //log error
-                await ready.ScaleTo(1, 100);
-                await this.FadeTo(1, 100);
             }
+            await ready.ScaleTo(1, 100);
+            this.IsEnabled = true;
         }
 
 
@@ -78,34 +73,45 @@ namespace VBMTablet._pages._info
         {
             var ctr = sender as Grid;
             await ctr.ScaleTo(0.9, 1);
-            await this.FadeTo(0.9, 1);
+            this.IsEnabled = false;
+
+            //thuc hien xoa cac thong tin
             localdb.NhanVieninfo = null;
+            localdb.shopID = 0;
+            localdb.groupMenus = null;
+            localdb.extra_Spices = null;
+            localdb.FullNhanVienInfo = null;
+            localdb.home_Page = null;
+            localdb.CartProd = null;
+            localdb.promotionObjs = null;
+            localdb.menu_Page = null;
+            localdb.thanh_Toan_Page = null;
+            localdb.fullUserInfo = null;
+
             var loginPage = new VBMTablet._pages._login.login_page();
             await Navigation.PushAsync(loginPage);
             loginPage.Render();
             await ctr.ScaleTo(1, 100);
-            await this.FadeTo(1, 100);
+            this.IsEnabled = true;
         }
 
         async void grdUsingNL_Tapped(object sender, EventArgs e)
         {
             var ctr = sender as Grid;
             await ctr.ScaleTo(0.9, 1);
-            await this.FadeTo(0.9, 1);
+            this.IsEnabled = false;
             try
             {
                 var UsingNlPage = new VBMTablet._pages._home._menuFloatingPages.usingNLPage();
                 await Navigation.PushAsync(UsingNlPage);
                 UsingNlPage.Render();
-                await ctr.ScaleTo(1, 100);
-                await this.FadeTo(1, 100);
             }
             catch
             {
                 //log error
-                await ctr.ScaleTo(1, 100);
-                await this.FadeTo(1, 100);
             }
+            await ctr.ScaleTo(1, 100);
+            this.IsEnabled = true;
         }
     }
 }

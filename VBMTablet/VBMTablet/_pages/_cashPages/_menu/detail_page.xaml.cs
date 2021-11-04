@@ -34,6 +34,7 @@ namespace VBMTablet._pages._menu
             Device.BeginInvokeOnMainThread(() =>
             {
                 this.BindingContext = vmdetail;
+                grMain.IsVisible = true;
             });
         }
         public async Task RenderCart(CartProd cartProd)
@@ -42,9 +43,11 @@ namespace VBMTablet._pages._menu
             Device.BeginInvokeOnMainThread(() =>
             {
                 this.BindingContext = vmCartEdit;
+                grMain.IsVisible = true;
             });
             vmCartEdit.ChangePrice();
         }
+
         public void ff_backicon_tapped(object sender, EventArgs e)
         {
             Navigation.RemovePage(this);
@@ -99,7 +102,7 @@ namespace VBMTablet._pages._menu
             var ctr = sender as SfBorder;
             var cv = (DrinkComboRender)ctr.BindingContext;
             await ctr.ScaleTo(0.9, 1);
-            await this.FadeTo(0.9, 1);
+            this.IsEnabled = false;
             try
             {
                 if (vmdetail != null)
@@ -142,15 +145,13 @@ namespace VBMTablet._pages._menu
                     }
                     vmdetail.ChangePrice();
                 }
-                await ctr.ScaleTo(1, 100);
-                await this.FadeTo(1, 100);
             }
             catch (Exception ex)
             {
-                await ctr.ScaleTo(1, 100);
-                await this.FadeTo(1, 100);
 
             }
+            await ctr.ScaleTo(1, 100);
+            this.IsEnabled = true;
         }
 
         private void decreaseExSl_tapped(object sender, EventArgs e)
@@ -260,7 +261,7 @@ namespace VBMTablet._pages._menu
         {
             var ctr = sender as SfBorder;
             await ctr.ScaleTo(0.9, 1);
-            await this.FadeTo(0.9, 1);
+            this.IsEnabled = false;
             try
             {
                 if(vmdetail != null)
@@ -367,7 +368,7 @@ namespace VBMTablet._pages._menu
             var ctr = sender as SfBorder;
             var cv = (SizeRender)ctr.BindingContext;
             await ctr.ScaleTo(0.9, 1);
-            await this.FadeTo(0.9, 1);
+            this.IsEnabled = false;
             try
             {
                 if(vmdetail != null)
@@ -402,15 +403,13 @@ namespace VBMTablet._pages._menu
                         }
                     }
                 }
-                await ctr.ScaleTo(1, 100);
-                await this.FadeTo(1, 100);
             }
             catch(Exception ex)
             {
-                await ctr.ScaleTo(1, 100);
-                await this.FadeTo(1, 100);
-
+                
             }
+            await ctr.ScaleTo(1, 100);
+            this.IsEnabled = true;
         }
     }
 }

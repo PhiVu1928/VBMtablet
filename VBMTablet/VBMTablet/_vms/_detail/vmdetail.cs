@@ -24,9 +24,7 @@ namespace VBMTablet._vms._detail
             isbusy = true;
             this.eMenu = eMenu;
             this.name = eMenu.nameVN;
-            RenderSize();
-            RenderDrinkCombo(monid);
-            RenderExtraSpice();
+            generateUI();
             slg = 1;
             foreach(var item in eMenu.lst_size)
             {
@@ -40,6 +38,9 @@ namespace VBMTablet._vms._detail
         #region bien
         bool _isbusy;
         bool _visSize;
+        bool _visDrink;
+        bool _visExtraTitle;
+        bool _visSpiceTitle;
         int _slg;
         string _price;
         ObservableCollection<SizeRender> _sizeRenders;
@@ -47,6 +48,42 @@ namespace VBMTablet._vms._detail
         ObservableCollection<SpiceStatus> _spiceStatuses;
         ObservableCollection<ExtraStatus> _extraStatuses;
 
+        public bool visExtraTitle
+        {
+            get
+            {
+                return _visExtraTitle;
+            }
+            set
+            {
+                _visExtraTitle = value;
+                OnPropertyChanged("visExtraTitle");
+            }
+        }
+        public bool visSpiceTitle
+        {
+            get
+            {
+                return _visSpiceTitle;
+            }
+            set
+            {
+                _visSpiceTitle = value;
+                OnPropertyChanged("visSpiceTitle");
+            }
+        }
+        public bool visDrink
+        {
+            get
+            {
+                return _visDrink;
+            }
+            set
+            {
+                _visDrink = value;
+                OnPropertyChanged("visDrink");
+            }
+        }
         public string price
         {
             get
@@ -150,12 +187,13 @@ namespace VBMTablet._vms._detail
         }
         #endregion
         #region Progess
-        void RenderSize()
+
+        async void generateUI()
         {
             var sizerender = new ObservableCollection<SizeRender>();
-            foreach(var item in eMenu.lst_size.OrderBy(x => x.price))
+            foreach (var item in eMenu.lst_size.OrderBy(x => x.price))
             {
-                if(item.size == 2 || item.size < 1)
+                if (item.size == 2 || item.size < 1)
                 {
                     sizerender.Add(new SizeRender(item, true));
                     monid = item.id;
@@ -166,7 +204,7 @@ namespace VBMTablet._vms._detail
                 }
             }
             sizeRenders = sizerender;
-            if(sizeRenders.Count > 1)
+            if (sizeRenders.Count > 1)
             {
                 visSize = true;
             }
@@ -174,28 +212,24 @@ namespace VBMTablet._vms._detail
             {
                 visSize = false;
             }
-        }
 
-        async Task RenderDrinkCombo(long id)
-        {
             var drk_Combos = new List<DrinkComboRender>();
             try
             {
-                lstDrinkcb = await drink_combo.getLstDrCbs(id);
+                lstDrinkcb = await drink_combo.getLstDrCbs(monid);
             }
             catch { }
-            if(lstDrinkcb != null)
+            if (lstDrinkcb != null)
             {
-                foreach(var item in lstDrinkcb)
+                foreach (var item in lstDrinkcb)
                 {
                     drk_Combos.Add(new DrinkComboRender(item));
                 }
             }
             drink_Combos = drk_Combos;
-        }
 
-        void RenderExtraSpice()
-        {
+            visDrink = eMenu.class_id == 1 ? true : false;
+
             var spice = new ObservableCollection<SpiceStatus>();
             try
             {
@@ -217,16 +251,21 @@ namespace VBMTablet._vms._detail
                 spiceStatuses = spice;
             }
             catch { }
+            visSpiceTitle = spiceStatuses.Count > 0 ? true : false;
             var extra = new ObservableCollection<ExtraStatus>();
             try
             {
-                foreach (var item in localdb.extra_Spices.extras)
+                if(eMenu.class_id == 1)
                 {
-                    extra.Add(new ExtraStatus(item));
-                }
+                    foreach (var item in localdb.extra_Spices.extras)
+                    {
+                        extra.Add(new ExtraStatus(item));
+                    }
+                }                
             }
             catch { }
             extraStatuses = extra;
+            visExtraTitle = extraStatuses.Count > 0 ? true : false;
         }
 
         public void ChangePrice()
@@ -283,6 +322,9 @@ namespace VBMTablet._vms._detail
 
         bool _isbusy;
         bool _visSize;
+        bool _visDrink;
+        bool _visExtraTitle;
+        bool _visSpiceTitle;
         int _slg;
         string _price;
         ObservableCollection<SizeRender> _sizeRenders;
@@ -290,6 +332,42 @@ namespace VBMTablet._vms._detail
         ObservableCollection<SpiceStatus> _spiceStatuses;
         ObservableCollection<ExtraStatus> _extraStatuses;
 
+        public bool visExtraTitle
+        {
+            get
+            {
+                return _visExtraTitle;
+            }
+            set
+            {
+                _visExtraTitle = value;
+                OnPropertyChanged("visExtraTitle");
+            }
+        }
+        public bool visSpiceTitle
+        {
+            get
+            {
+                return _visSpiceTitle;
+            }
+            set
+            {
+                _visSpiceTitle = value;
+                OnPropertyChanged("visSpiceTitle");
+            }
+        }
+        public bool visDrink
+        {
+            get
+            {
+                return _visDrink;
+            }
+            set
+            {
+                _visDrink = value;
+                OnPropertyChanged("visDrink");
+            }
+        }
         public string price
         {
             get
@@ -434,6 +512,8 @@ namespace VBMTablet._vms._detail
             }
             drink_Combos = drk_Combos;
 
+            visDrink = eMenu.class_id == 1 ? true : false;
+
             var spice = new ObservableCollection<SpiceStatus>();
             try
             {
@@ -456,6 +536,7 @@ namespace VBMTablet._vms._detail
             }
             catch { }
             spiceStatuses = spice;
+            visSpiceTitle = spiceStatuses.Count > 0 ? true : false;
 
             var extra = new ObservableCollection<ExtraStatus>();
             try
@@ -470,6 +551,8 @@ namespace VBMTablet._vms._detail
             }
             catch { }
             extraStatuses = extra;
+            visExtraTitle = extraStatuses.Count > 0 ? true : false;
+
             slg = CartProd.slg;
             ChangePrice();
             isbusy = false;

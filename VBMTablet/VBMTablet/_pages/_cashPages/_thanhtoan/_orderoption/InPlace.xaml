@@ -27,7 +27,7 @@
                          ShadowColor="WhiteSmoke"
                          BackgroundColor="White"
                          Margin="20,50">
-            <Grid Padding="{OnIdiom Phone=20,Tablet=50}">
+            <Grid Padding="20">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="20"/>
                     <RowDefinition Height="Auto"/>
@@ -49,7 +49,7 @@
                 <Label Text="ĐẶT TẠI CHỖ"
                        HorizontalTextAlignment="Center"
                        FontFamily="{StaticResource lbo}"
-                       FontSize="{OnIdiom Phone=16,Tablet=36}"
+                       FontSize="26"
                        HorizontalOptions="Center"
                        VerticalOptions="Center"
                        Grid.Row="1"/>

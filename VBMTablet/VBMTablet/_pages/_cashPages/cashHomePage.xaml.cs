@@ -17,6 +17,7 @@ using Syncfusion.XForms.TabView;
 using System.Net.Http;
 using Newtonsoft.Json.Linq;
 using Rg.Plugins.Popup.Extensions;
+using VBMTablet._pages._cashPages._customer;
 
 namespace VBMTablet._pages._home
 {
@@ -24,21 +25,24 @@ namespace VBMTablet._pages._home
     public partial class home_page : ContentPage
     {
         vmhome vmhome { get; set; }
+
         public home_page()
         {
             InitializeComponent();
         }
+
         public async Task render()
         {
             vmhome = new vmhome();
+            localdb.home_Page = this;
             Device.BeginInvokeOnMainThread(() =>
             {
-                this.BindingContext = vmhome;                
+                this.BindingContext = vmhome;
+                stlEmMenu.IsVisible = false;
+                stlPromoMenu.IsVisible = false;
+                stlCartMenu.IsVisible = false;
+                busyindicator.IsVisible = false;
             });
-            localdb.home_Page = this;
-            stlEmMenu.IsVisible = false;
-            stlPromoMenu.IsVisible = false;
-            stlCartMenu.IsVisible = false;
         }
         
         async void ff_backicon_tapped(object sender, EventArgs e)
@@ -55,14 +59,14 @@ namespace VBMTablet._pages._home
         async void ff_homeicon_tapped(object sender, EventArgs e)
         {
             await khachicon.ScaleTo(0.9, 1);
-            await this.FadeTo(0.9, 1);
+            this.IsEnabled = false;
             try
             {
-                stlHomeMenu.IsVisible = true;
+                grHomeMenu.IsVisible = true;
                 stlEmMenu.IsVisible = false;
                 stlPromoMenu.IsVisible = false;
                 stlCartMenu.IsVisible = false;
-                if(stlHomeMenu.Children.Count == 0)
+                if(grHomeMenu.Children.Count == 0)
                 {
                     //                    
                 }
@@ -74,124 +78,85 @@ namespace VBMTablet._pages._home
                 menuicon.Source = "menuicon";
                 Promoicon.Source = "promotionicon";
                 ffcarticon.Source = "promotionicon1";
-
-                await khachicon.ScaleTo(1, 100);
-                await this.FadeTo(1, 100);
             }
             catch
             {
-                //error show here
-                await khachicon.ScaleTo(1, 100);
-                await this.FadeTo(1, 100);
+                
             }
+            await khachicon.ScaleTo(1, 100);
+            this.IsEnabled = true;
         }
 
-        async void ff_menuicon_tapped(object sender, EventArgs e)
+        public async void ff_menuicon_tapped(object sender, EventArgs e)
         {
+            busyindicator.IsVisible = true;
+            busyindicator.IsBusy = true;
             await menuicon.ScaleTo(0.9, 1);
-            await this.FadeTo(0.9, 1);
+            this.IsEnabled = false;
+
+
             try
             {
-                stlHomeMenu.IsVisible = false;
+                grHomeMenu.IsVisible = false;
                 stlEmMenu.IsVisible = true;
                 stlPromoMenu.IsVisible = false;
                 stlCartMenu.IsVisible = false;
                 if (stlEmMenu.Children.Count == 0)
                 {
+                    var menupage = new _pages._menu.menu_page();
                     Device.BeginInvokeOnMainThread(() =>
                     {
-                        var menupage = new _pages._menu.menu_page();
                         stlEmMenu.Children.Add(menupage);
-                        menupage.Render();
-                    });                    
-                }
-                else
-                {
-                    //
+                    });
+                    menupage.Render();
                 }
                 khachicon.Source = "khachicon";
                 menuicon.Source = "menuiconpress";
                 Promoicon.Source = "promotionicon";
                 ffcarticon.Source = "promotionicon1";
 
-
-                await menuicon.ScaleTo(1, 100);
-                await this.FadeTo(1, 100);
             }
             catch
             {
-                //error show here
-                await menuicon.ScaleTo(1, 100);
-                await this.FadeTo(1, 100);
+
             }
+
+            await menuicon.ScaleTo(1, 100);
+            this.IsEnabled = true;
+            busyindicator.IsVisible = false;
+            busyindicator.IsBusy = false;
         }
+
         async void ff_promoicon_tapped(object sender, EventArgs e)
         {
             await Promoicon.ScaleTo(0.9, 1);
-            await this.FadeTo(0.9, 1);
+            this.IsEnabled = false;
             try
             {
-                stlHomeMenu.IsVisible = false;
+                grHomeMenu.IsVisible = false;
                 stlEmMenu.IsVisible = false;
                 stlPromoMenu.IsVisible = true;
                 stlCartMenu.IsVisible = false;
                 if (stlPromoMenu.Children.Count == 0)
                 {
-                    var promopage = new _pages._promo.khuyen_mai_page();
+                    var promopage = new _promo.khuyen_mai_page();
                     stlPromoMenu.Children.Add(promopage);
                     promopage.Render();
-                }
-                else
-                {
-                    //
                 }
                 khachicon.Source = "khachicon";
                 menuicon.Source = "menuicon";
                 Promoicon.Source = "promotioniconpress";
                 ffcarticon.Source = "promotionicon1";
-
-                await Promoicon.ScaleTo(1, 100);
-                await this.FadeTo(1, 100);
-
             }
             catch
             {
-                this.IsEnabled = false;
-                //error show here
-                await Promoicon.ScaleTo(1, 100);
-                await this.FadeTo(1, 100);
+                
             }
+            this.IsEnabled = true;
+            //error show here
+            await Promoicon.ScaleTo(1, 100);
         }
 
-        async void ff_cart_tapped(object sender, EventArgs e)
-        {
-            await carticon.ScaleTo(0.9, 1);
-            await this.FadeTo(0.9, 1);
-            try
-            {
-                stlHomeMenu.IsVisible = false;
-                stlEmMenu.IsVisible = false;
-                stlPromoMenu.IsVisible = false;
-                stlCartMenu.IsVisible = true;
-                stlCartMenu.Children.Clear();
-                var cartpage = new VBMTablet._pages._thanhtoan.thanh_toan_page();
-                stlCartMenu.Children.Add(cartpage);
-                cartpage.Render();
-                khachicon.Source = "khachicon";
-                menuicon.Source = "menuicon";
-                Promoicon.Source = "promotionicon";
-                ffcarticon.Source = "promotioniconpress1";
-                await menuicon.ScaleTo(1, 100);
-                await this.FadeTo(1, 100);
-
-            }
-            catch(Exception ex)
-            {
-                //error show here
-                await menuicon.ScaleTo(1, 100);
-                await this.FadeTo(1, 100);
-            }
-        }
         public async void updateSlCart()
         {
             vmhome.Cartcount = localdb.CartProd.Sum(p => p.slg);
@@ -201,7 +166,7 @@ namespace VBMTablet._pages._home
         {
             var ctr = sender as SfBorder;
             await ctr.ScaleTo(0.9, 1);
-            await this.FadeTo(0.9, 1);
+            this.IsEnabled = false;
             var sdt = vmhome.sdt;
             try
             {
@@ -226,7 +191,7 @@ namespace VBMTablet._pages._home
                             vmhome.visNonUserInfo = false;
                             vmhome.visUserInfo = true;
                             lblTenKhachHang.Text = localdb.fullUserInfo.UserInfo.Fullname;
-                            var Customer = new VBMTablet._pages._home.customer_page();
+                            var Customer = new customer_page();
                             tvCustomer.Items[0].Content = Customer;
                             Customer.Render(localdb.fullUserInfo.UserInfo);
                         }
@@ -244,14 +209,15 @@ namespace VBMTablet._pages._home
                     }
                 }
                 await ctr.ScaleTo(1, 100);
-                await this.FadeTo(1, 100);
+                this.IsEnabled = true;
             }
             catch
             {
                 await ctr.ScaleTo(1, 100);
-                await this.FadeTo(1, 100);
+                this.IsEnabled = true;
             }
         }
+
         async void tvCustomer_SelectionChanging(object sender, SelectionChangingEventArgs e)
         {
             switch (e.Index)
@@ -260,7 +226,7 @@ namespace VBMTablet._pages._home
                 case 1:
                     if(tvCustomer.Items[1].Content == null)
                     {
-                        tvCustomer.Items[1].Content = new VBMTablet._pages._home.script_page();
+                        tvCustomer.Items[1].Content = new script_page();
                     }
                     break;
                 case 2:
@@ -272,7 +238,7 @@ namespace VBMTablet._pages._home
                             UserGiftObjs userGiftObjs = await UserGiftObjs.getUserGiftData(vmhome.sdt, localdb.fullUserInfo.UserInfo.UserID);
                             if (userGiftObjs != null)
                             {
-                                var giftPage = new VBMTablet._pages._home.gift_page();
+                                var giftPage = new gift_page();
                                 tvCustomer.Items[2].Content = giftPage;
                                 giftPage.Render(userGiftObjs);
                             }
@@ -298,7 +264,7 @@ namespace VBMTablet._pages._home
                                         var str = tools.GetJArrayValue(jOb, "Datas");
                                         var data = JsonConvert.DeserializeObject<List<userOrdered>>(str);
                                         List<userOrdered> userOrdereds = data;
-                                        var historyPage = new VBMTablet._pages._home.historypage();
+                                        var historyPage = new historypage();
                                         tvCustomer.Items[3].Content = historyPage;
                                         historyPage.Render(userOrdereds);
                                     }
@@ -314,8 +280,8 @@ namespace VBMTablet._pages._home
         {
             var ctr = sender as Grid;
             await ctr.ScaleTo(0.9, 1);
-            await this.FadeTo(0.9, 1);
-            if(localdb.CartProd != null)
+            this.IsEnabled = false;
+            if (localdb.CartProd != null)
             {
                 var ques = await Application.Current.MainPage.DisplayAlert("", "Bạn có muốn làm mới giỏ hàng ?", "Ok", "No");
                 if(ques)
@@ -325,7 +291,67 @@ namespace VBMTablet._pages._home
                 }
             }
             await ctr.ScaleTo(1, 100);
-            await this.FadeTo(1, 100);
+            this.IsEnabled = true;
+        }
+
+        async void ff_cart_tapped(object sender, EventArgs e)
+        {
+            this.IsEnabled = false;
+            using (var progress = UserDialogs.Instance.Loading("...", null, null, true, MaskType.Black))
+            {
+                try
+                {
+                    var cartpage = new _thanhtoan.thanh_toan_page();
+                    await Navigation.PushAsync(cartpage);
+                    cartpage.Render();
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
+            this.IsEnabled = true;
+        }
+
+        async void bdVoucher_tapped(object sender, EventArgs e)
+        {
+            this.IsEnabled = false;
+            var ctr = sender as SfBorder;
+            await ctr.ScaleTo(0.9, 1);
+            var voucher = new voucher_page();
+            await Navigation.PushAsync(voucher);
+            await ctr.ScaleTo(1, 100);
+            this.IsEnabled = true;
+        }
+
+        public async void GotoMenu()
+        {
+            busyindicator.IsVisible = true;
+            busyindicator.IsBusy = true;
+            try
+            {
+                grHomeMenu.IsVisible = false;
+                stlEmMenu.IsVisible = true;
+                stlPromoMenu.IsVisible = false;
+                stlCartMenu.IsVisible = false;
+                if (stlEmMenu.Children.Count == 0)
+                {
+                    var menupage = new _pages._menu.menu_page();
+                    Device.BeginInvokeOnMainThread(() =>
+                    {
+                        stlEmMenu.Children.Add(menupage);
+                    });
+                    menupage.Render();
+                }
+                khachicon.Source = "khachicon";
+                menuicon.Source = "menuiconpress";
+                Promoicon.Source = "promotionicon";
+                ffcarticon.Source = "promotionicon1";
+
+            }
+            catch { }
+            busyindicator.IsVisible = false;
+            busyindicator.IsBusy = false;
         }
     }
 }

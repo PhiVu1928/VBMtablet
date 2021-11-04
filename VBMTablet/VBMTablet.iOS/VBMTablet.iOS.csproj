@@ -65,6 +65,11 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="_ctrls\_datePicker.cs" />
+    <Compile Include="_ctrls\_editor.cs" />
+    <Compile Include="_ctrls\_entry.cs" />
+    <Compile Include="_ctrls\_picker.cs" />
+    <Compile Include="_ctrls\_timePicker.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -149,9 +154,6 @@
       <Version>19.3.0.45</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfListView">
-      <Version>19.3.0.45</Version>
-    </PackageReference>
-    <PackageReference Include="Syncfusion.Xamarin.SfPicker">
       <Version>19.3.0.45</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfPopupLayout">
@@ -267,7 +269,7 @@
     <BundleResource Include="Resources\Stroke1.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Stroke2.png" />
+    <BundleResource Include="Resources\chooseicon.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\sudungicon.png" />
@@ -364,5 +366,14 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\khachiconpress.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\beamin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GRAB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\kaipass.png" />
   </ItemGroup>
 </Project>

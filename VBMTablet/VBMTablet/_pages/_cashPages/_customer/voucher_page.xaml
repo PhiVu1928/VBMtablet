@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VBMTablet._pages._cashPages._customer.voucher_page"
+             xmlns:_ctrls="clr-namespace:VBM._ctrls"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:input="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource vbmwhite}">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+
+        <StackLayout Orientation="Vertical"
+                     Spacing="20"
+                     Margin="0,20">
+
+            <Grid HeightRequest="60">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="120" />
+                </Grid.ColumnDefinitions>
+
+                <border:SfBorder
+                        Padding="10,0"
+                        BackgroundColor="{StaticResource vbmlightblue}"
+                        BorderColor="Transparent"
+                        CornerRadius="30"
+                        HasShadow="False">
+
+                    <Grid>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Image
+                                Aspect="AspectFit"
+                                Source="vouchericon"
+                                VerticalOptions="Center" />
+
+                        <_ctrls:_entry
+                                Margin="0,-10,0,0"
+                                Grid.Column="1"
+                                ClearButtonVisibility="WhileEditing"
+                                FontSize="20"
+                                HorizontalOptions="FillAndExpand"
+                                HorizontalTextAlignment="Start"
+                                Keyboard="Telephone"
+                                Placeholder="Mã voucher"
+                                VerticalOptions="Center"/>
+
+                    </Grid>
+
+                </border:SfBorder>
+
+                <border:SfBorder
+                        Grid.Column="1"
+                        BackgroundColor="{StaticResource vbmdeeplightgray}"
+                        BorderColor="{StaticResource vbmwhite}"
+                        CornerRadius="30"
+                        HasShadow="False">
+
+                    <Label
+                            FontSize="15"
+                            HorizontalOptions="Center"
+                            Text="Thêm"
+                            TextColor="{StaticResource vbmwhite}"
+                            VerticalOptions="Center" />
+                </border:SfBorder>
+
+                <border:SfBorder
+                        Grid.Column="2"
+                        BackgroundColor="{StaticResource vbmdeeplightgray}"
+                        BorderColor="{StaticResource vbmwhite}"
+                        CornerRadius="30"
+                        HasShadow="False">
+
+                    <Label
+                            FontSize="15"
+                            HorizontalOptions="Center"
+                            Text="Scan"
+                            TextColor="{StaticResource vbmwhite}"
+                            VerticalOptions="Center" />
+
+                    <border:SfBorder.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="bdScanVoucher_tapped"/>
+                    </border:SfBorder.GestureRecognizers>
+
+                </border:SfBorder>
+
+            </Grid>
+
+            <Grid Margin="30,0">
+
+                <Image Source="beamin"
+                       Aspect="Fill"
+                       HeightRequest="80"
+                       WidthRequest="80"
+                       HorizontalOptions="Start"/>
+                
+                <Image Source="GRAB"
+                       Aspect="Fill"
+                       HeightRequest="80"
+                       WidthRequest="80"
+                       HorizontalOptions="Center"/>
+
+                <Image Source="kaipass"
+                       Aspect="Fill"
+                       HeightRequest="80"
+                       WidthRequest="80"
+                       HorizontalOptions="End"/>
+
+            </Grid>
+
+            <border:SfBorder
+                BackgroundColor="{StaticResource vbmgray}"
+                BorderColor="Transparent"
+                HasShadow="False"
+                CornerRadius="100"
+                HeightRequest="70">
+                <Label Text="TIN TỨC MỚI"
+                       FontSize="20"
+                       TextColor="{StaticResource vbmwhite}"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"/>
+            </border:SfBorder>
+
+        </StackLayout>
+
+        <StackLayout Grid.Row="1"
+                     Orientation="Horizontal"
+                     HorizontalOptions="Center"
+                     VerticalOptions="Center"
+                     Spacing="30">
+
+            <border:SfBorder
+                BackgroundColor="{StaticResource vbmgreen}"
+                BorderColor="Transparent"
+                CornerRadius="30"
+                HeightRequest="50"
+                WidthRequest="100"
+                HasShadow="False"
+                HorizontalOptions="Center"
+                VerticalOptions="Center">
+
+                <Label Text="Xóa hết"
+                       FontSize="15"
+                       TextColor="{StaticResource vbmlightyellow}"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"/>
+
+            </border:SfBorder>
+            <border:SfBorder
+                BackgroundColor="{StaticResource vbmlightyellow}"
+                BorderColor="Transparent"
+                CornerRadius="30"
+                HeightRequest="50"
+                WidthRequest="100"
+                HasShadow="False"
+                HorizontalOptions="Center"
+                VerticalOptions="Center">
+
+                <Label Text="Vào Menu"
+                       FontSize="15"
+                       TextColor="{StaticResource vbmgreen}"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"/>
+
+                <border:SfBorder.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="bdGotoMenu_tapped"/>
+                </border:SfBorder.GestureRecognizers>
+
+            </border:SfBorder>
+            
+        </StackLayout>
+        
+    </Grid>
+</ContentPage>

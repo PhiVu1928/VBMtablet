@@ -30,21 +30,20 @@ namespace VBMTablet._pages._promo
         {
             var ctr = sender as Grid;
             await ctr.ScaleTo(0.9, 1);
-            await this.FadeTo(0.9, 1);
+            this.IsEnabled = false;
             try
             {
                 using (var progress = UserDialogs.Instance.Loading("Loading...", null, null, true, MaskType.Black))
                 {
                     
-                }                   
-                await ctr.ScaleTo(1, 100);
-                await this.FadeTo(1, 100);
+                }           
             }
             catch
             {
-                await ctr.ScaleTo(1, 100);
-                await this.FadeTo(1, 100);
+                
             }
+            await ctr.ScaleTo(1, 100);
+            this.IsEnabled = true;
         }
     }
 }

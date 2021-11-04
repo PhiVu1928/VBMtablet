@@ -39,15 +39,10 @@ namespace VBMTablet._pages._login
         private void sfpickstore_SelectedIndexChanged(object sender, EventArgs e)
         {
             var ctr = sender as Picker;
-            var a = JsonConvert.SerializeObject(ctr.SelectedItem);
-            var res = JsonConvert.DeserializeObject<StoreStatus>(a);
-            if (res != null)
-            {
-                localdb.shopID = res.StoreObj.ShopID;
-                //lay full nhan vien info su dung signalR
-                //localdb.signalR.HubProxy.Invoke("SystemAction", "doListAllNV{}" + localdb.shopID + "$0{}");
-            }
-
+            var cv = (StoreStatus)ctr.SelectedItem;
+            localdb.shopID = cv.StoreObj.ShopID;
+            //lay full nhan vien info su dung signalR
+            //localdb.signalR.HubProxy.Invoke("SystemAction", "doListAllNV{}" + localdb.shopID + "$0{}");
         }
 
         async void bdChangeMode_Tapped(object sender, EventArgs e)
@@ -65,7 +60,7 @@ namespace VBMTablet._pages._login
         async void login_Tapped(object sender, EventArgs e)
         {
             await btnlogin.ScaleTo(0.9, 1);
-            await this.FadeTo(0.9, 1);
+            this.IsEnabled = false;
             string sdt = vmlogin.sdt;
             string pwd = vmlogin.pwd;
 
@@ -152,12 +147,8 @@ namespace VBMTablet._pages._login
                 }
             }
 
-            
-
-            
-
             await btnlogin.ScaleTo(1, 100);
-            await this.FadeTo(1, 100);
+            this.IsEnabled = true;
         }
     }
 

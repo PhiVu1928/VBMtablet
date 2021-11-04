@@ -3,7 +3,9 @@
     x:Class="VBMTablet._pages._home.home_page"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:_ctrls="clr-namespace:VBM._ctrls"
     xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+    xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
     xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     xmlns:sf="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
@@ -13,229 +15,207 @@
     BackgroundColor="{StaticResource vbmwhite}"
     NavigationPage.HasNavigationBar="False">
 
-    <Grid>
+    <Grid Padding="10,0">
+
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="80" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="115" />
+            <RowDefinition Height="100" />
         </Grid.RowDefinitions>
 
-        <StackLayout Margin="0,46,0,0" Orientation="Vertical">
+        <Grid>
 
-            <Grid>
+            <Image
+                Aspect="AspectFit"
+                BackgroundColor="White"
+                HeightRequest="30"
+                HorizontalOptions="Start"
+                Source="Stroke"
+                VerticalOptions="Center">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ff_backicon_tapped" />
+                </Image.GestureRecognizers>
+            </Image>
 
+            <Label
+                x:Name="lblTenKhachHang"
+                FontSize="25"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"
+                IsVisible="{Binding visUserInfo}"
+                VerticalOptions="Center" />
+
+            <Label
+                FontSize="25"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"
+                IsVisible="{Binding visNonUserInfo}"
+                Text="Làm mới giỏ hàng"
+                VerticalOptions="Center" />
+
+            <Grid HorizontalOptions="End" VerticalOptions="Center">
                 <ff:CachedImage
                     BackgroundColor="White"
-                    HeightRequest="25"
-                    HorizontalOptions="Start"
-                    Source="Stroke"
-                    VerticalOptions="Center"
-                    WidthRequest="50">
-                    <ff:CachedImage.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="ff_backicon_tapped" />
-                    </ff:CachedImage.GestureRecognizers>
-                </ff:CachedImage>
-
-                <Label
-                    FontSize="36"
-                    x:Name="lblTenKhachHang"
-                    HorizontalOptions="Center"
-                    HorizontalTextAlignment="Center"
-                    VerticalOptions="Center"
-                    IsVisible="{Binding visUserInfo}"/>
-
-                <Label
-                    FontSize="36"
-                    IsVisible="{Binding visNonUserInfo}"
-                    Margin="70,0,0,0"
-                    HorizontalOptions="Center"
-                    HorizontalTextAlignment="Center"
-                    Text="Làm mới giỏ hàng"
-                    VerticalOptions="Center" />
-                <Grid HorizontalOptions="End"
-                      Margin="0,0,28,0"
-                      VerticalOptions="Center">
-                    <ff:CachedImage
-                        BackgroundColor="White"
-                        HeightRequest="40"
-                        Source="refreshicon"
-                        WidthRequest="40" />
-                    <Grid.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="grdResetCart_tapped"/>
-                    </Grid.GestureRecognizers>
-
-                </Grid>
-
+                    HeightRequest="40"
+                    Source="refreshicon"
+                    WidthRequest="40" />
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="grdResetCart_tapped" />
+                </Grid.GestureRecognizers>
 
             </Grid>
 
-        </StackLayout>
+        </Grid>
 
         <Grid Grid.Row="1">
 
-            <StackLayout
-                x:Name="stlHomeMenu"
-                Margin="10,0"
-                Orientation="Vertical">
+            <Grid x:Name="grHomeMenu">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
                 <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="auto" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
 
-                    <StackLayout
-                        Margin="10,0"
-                        Orientation="Horizontal"
-                        Spacing="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="120" />
+                        <ColumnDefinition Width="120" />
+                    </Grid.ColumnDefinitions>
 
+                    <border:SfBorder
+                        Padding="10,0"
+                        BackgroundColor="{StaticResource vbmlightblue}"
+                        BorderColor="Transparent"
+                        CornerRadius="30"
+                        HasShadow="False">
 
+                        <Grid>
 
-                        <border:SfBorder
-                            BackgroundColor="{StaticResource vbmlightmiddlegray}"
-                            BorderColor="Transparent"
-                            CornerRadius="30"
-                            HasShadow="False"
-                            HeightRequest="83"
-                            WidthRequest="368">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
 
-                            <Grid VerticalOptions="Center"
-                                  RowSpacing="10">
-
-                                <ff:CachedImage
-                                    Aspect="Fill"
-                                    HorizontalOptions="Start"
-                                    Source="mobileicon"
-                                    VerticalOptions="Center" />
-
-                                <sfinput:SfTextInputLayout
-                                    Margin="5"
-                                    BackgroundColor="Transparent"
-                                    ContainerType="Outlined"
-                                    FocusedColor="Transparent"
-                                    HorizontalOptions="Center"
-                                    UnfocusedColor="Transparent"
-                                    VerticalOptions="Center"
-                                    WidthRequest="200">
-
-                                    <Entry
-                                        FontSize="22"
-                                        Keyboard="Telephone"
-                                        Placeholder="Số điện thoại"
-                                        Text="{Binding sdt, Mode=TwoWay}"
-                                        VerticalOptions="Center"
-                                        HorizontalOptions="Center"/>
-
-                                </sfinput:SfTextInputLayout>
-
-                                <Label
-                                    FontSize="20"
-                                    HorizontalOptions="End"
-                                    Text=" X "
-                                    TextColor="{StaticResource vbmgreen}" />
-
-                            </Grid>
-                        </border:SfBorder>
-
-                        <border:SfBorder
-                            BackgroundColor="{StaticResource vbmdeeplightgray}"
-                            BorderColor="{StaticResource vbmwhite}"
-                            CornerRadius="30"
-                            HasShadow="False"
-                            HeightRequest="67"
-                            WidthRequest="160">
-
-                            <Label
-                                FontSize="20"
-                                HorizontalOptions="Center"
-                                Text="Tìm kiếm"
-                                TextColor="{StaticResource vbmwhite}"
-                                VerticalOptions="Center" />
-                            <border:SfBorder.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="bdSearchUser_Tapped" />
-                            </border:SfBorder.GestureRecognizers>
-
-                        </border:SfBorder>
-
-                        <border:SfBorder
-                            BackgroundColor="{StaticResource vbmdeeplightgray}"
-                            BorderColor="{StaticResource vbmwhite}"
-                            CornerRadius="30"
-                            HasShadow="False"
-                            HeightRequest="67"
-                            WidthRequest="160">
-
-                            <Label
-                                FontSize="20"
-                                HorizontalOptions="Center"
-                                Text="Voucher"
-                                TextColor="{StaticResource vbmwhite}"
+                            <ff:CachedImage
+                                Aspect="AspectFit"
+                                Source="mobileicon"
                                 VerticalOptions="Center" />
 
-                        </border:SfBorder>
+                            <_ctrls:_entry
+                                Grid.Column="1"
+                                Margin="0,-10,0,0"
+                                ClearButtonVisibility="WhileEditing"
+                                FontSize="20"
+                                HorizontalOptions="FillAndExpand"
+                                HorizontalTextAlignment="Start"
+                                Keyboard="Telephone"
+                                Placeholder="Số điện thoại"
+                                Text="{Binding sdt, Mode=TwoWay}"
+                                VerticalOptions="Center" />
 
+                        </Grid>
 
+                    </border:SfBorder>
 
-                    </StackLayout>
+                    <border:SfBorder
+                        Grid.Column="1"
+                        BackgroundColor="{StaticResource vbmdeeplightgray}"
+                        BorderColor="{StaticResource vbmwhite}"
+                        CornerRadius="30"
+                        HasShadow="False">
 
-                    <StackLayout
-                        Grid.Row="1"
+                        <Label
+                            FontSize="15"
+                            HorizontalOptions="Center"
+                            Text="Tìm kiếm"
+                            TextColor="{StaticResource vbmwhite}"
+                            VerticalOptions="Center" />
+                        <border:SfBorder.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="bdSearchUser_Tapped" />
+                        </border:SfBorder.GestureRecognizers>
+
+                    </border:SfBorder>
+
+                    <border:SfBorder
+                        Grid.Column="2"
+                        BackgroundColor="{StaticResource vbmdeeplightgray}"
+                        BorderColor="{StaticResource vbmwhite}"
+                        CornerRadius="30"
+                        HasShadow="False">
+
+                        <Label
+                            FontSize="15"
+                            HorizontalOptions="Center"
+                            Text="Voucher"
+                            TextColor="{StaticResource vbmwhite}"
+                            VerticalOptions="Center" />
+
+                        <border:SfBorder.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="bdVoucher_tapped"/>
+                        </border:SfBorder.GestureRecognizers>
+
+                    </border:SfBorder>
+
+                </Grid>
+
+                <Grid Grid.Row="1">
+
+                    <border:SfBorder
+                        Padding="10,5"
+                        BackgroundColor="{StaticResource vbmlightsky}"
+                        BorderColor="Transparent"
+                        CornerRadius="30"
+                        HasShadow="False"
                         IsVisible="{Binding visNonUserInfo}"
-                        Orientation="Vertical">
+                        VerticalOptions="Start">
 
-                        <border:SfBorder
-                            BackgroundColor="{StaticResource vbmlightsky}"
-                            BorderColor="Transparent"
-                            CornerRadius="30"
-                            HasShadow="False">
+                        <StackLayout
+                            Padding="{OnIdiom Phone=10,
+                                              Tablet=30}"
+                            Orientation="Vertical"
+                            Spacing="20">
 
-                            <StackLayout
-                                Padding="{OnIdiom Phone=10,
-                                                  Tablet=30}"
-                                Orientation="Vertical"
-                                Spacing="20">
+                            <Label FontSize="30" Text="Thông tin chương trình True Lie" />
 
-                                <Label FontSize="30" Text="Thông tin chương trình True Lie" />
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="30"
+                                Text="Bánh mì zeromeat size vừa 15k"
+                                TextColor="{StaticResource vbmyellow}" />
 
-                                <Label
-                                    FontAttributes="Bold"
-                                    FontSize="40"
-                                    Text="Bánh mì zeromeat size vừa 15k"
-                                    TextColor="{StaticResource vbmyellow}" />
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="20"
+                                Text="Số khách đã dùng chương trình: 03"
+                                TextColor="{StaticResource vbmgray}" />
 
-                                <Label
-                                    FontAttributes="Bold"
-                                    FontSize="24"
-                                    Text="Số khách đã dùng chương trình: 03"
-                                    TextColor="{StaticResource vbmgray}" />
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="20"
+                                Text="Zeromeat khách dùng nhiều nhất "
+                                TextColor="{StaticResource vbmgreen}" />
 
-                                <Label
-                                    FontAttributes="Bold"
-                                    FontSize="24"
-                                    Text="Zeromeat khách dùng nhiều nhất "
-                                    TextColor="{StaticResource vbmgreen}" />
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="20"
+                                Text="BM Nấm Chay: 12 "
+                                TextColor="{StaticResource vbmgreen}" />
 
-                                <Label
-                                    FontAttributes="Bold"
-                                    FontSize="24"
-                                    Text="BM Nấm Chay: 12 "
-                                    TextColor="{StaticResource vbmgreen}" />
-
-                                <Label
-                                    FontAttributes="Bold"
-                                    FontSize="24"
-                                    Text="BM Đậu hũ phá lấu: 05 "
-                                    TextColor="{StaticResource vbmgreen}" />
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="20"
+                                Text="BM Đậu hũ phá lấu: 05 "
+                                TextColor="{StaticResource vbmgreen}" />
 
 
-                            </StackLayout>
+                        </StackLayout>
 
-                        </border:SfBorder>
-
-                    </StackLayout>
+                    </border:SfBorder>
 
                     <tabview:SfTabView
                         x:Name="tvCustomer"
-                        Grid.Row="1"
                         BackgroundColor="Transparent"
                         IsVisible="{Binding visUserInfo}"
                         SelectionChanging="tvCustomer_SelectionChanging"
@@ -272,7 +252,8 @@
 
                 </Grid>
 
-            </StackLayout>
+            </Grid>
+
             <StackLayout x:Name="stlEmMenu" />
             <StackLayout x:Name="stlPromoMenu" />
             <StackLayout x:Name="stlCartMenu" />
@@ -282,17 +263,16 @@
         <Grid Grid.Row="2">
 
             <StackLayout
-                HorizontalOptions="Center"
+                HorizontalOptions="Start"
                 Orientation="Horizontal"
-                Spacing="100"
+                Spacing="50"
                 VerticalOptions="Center">
 
                 <ff:CachedImage
                     x:Name="khachicon"
-                    Aspect="Fill"
-                    HeightRequest="30"
+                    Aspect="AspectFit"
                     Source="khachiconpress"
-                    WidthRequest="30">
+                    WidthRequest="40">
                     <ff:CachedImage.GestureRecognizers>
                         <TapGestureRecognizer Tapped="ff_homeicon_tapped" />
                     </ff:CachedImage.GestureRecognizers>
@@ -300,10 +280,9 @@
 
                 <ff:CachedImage
                     x:Name="menuicon"
-                    Aspect="Fill"
-                    HeightRequest="30"
+                    Aspect="AspectFit"
                     Source="menuicon"
-                    WidthRequest="30">
+                    WidthRequest="40">
                     <ff:CachedImage.GestureRecognizers>
                         <TapGestureRecognizer Tapped="ff_menuicon_tapped" />
                     </ff:CachedImage.GestureRecognizers>
@@ -311,10 +290,9 @@
 
                 <ff:CachedImage
                     x:Name="Promoicon"
-                    Aspect="Fill"
-                    HeightRequest="30"
+                    Aspect="AspectFit"
                     Source="promotionicon"
-                    WidthRequest="30">
+                    WidthRequest="40">
                     <ff:CachedImage.GestureRecognizers>
                         <TapGestureRecognizer Tapped="ff_promoicon_tapped" />
                     </ff:CachedImage.GestureRecognizers>
@@ -374,9 +352,18 @@
 
             </Grid>
 
-
-
         </Grid>
+
+        <busyindicator:SfBusyIndicator
+            x:Name="busyindicator"
+            Grid.RowSpan="3"
+            AnimationType="Cupertino"
+            HeightRequest="50"
+            HorizontalOptions="Center"
+            IsBusy="True"
+            TextColor="#1d5234"
+            VerticalOptions="Center"
+            WidthRequest="50" />
 
     </Grid>
 

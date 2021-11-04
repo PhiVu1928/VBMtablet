@@ -19,7 +19,6 @@
     <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="19.3.0.45" />
     <PackageReference Include="Syncfusion.Xamarin.SfBusyIndicator" Version="19.3.0.45" />
     <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="19.3.0.45" />
-    <PackageReference Include="Syncfusion.Xamarin.SfPicker" Version="19.3.0.45" />
     <PackageReference Include="Syncfusion.Xamarin.SfPopupLayout" Version="19.3.0.45" />
     <PackageReference Include="Syncfusion.Xamarin.SfTabView" Version="19.3.0.45" />
     <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
@@ -60,6 +59,21 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="_pages\_cashPages\_customer\giftDetail_Page.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="_pages\_cashPages\_customer\scanVoucher_page.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="_pages\_cashPages\_customer\voucher_page.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="_pages\_cashPages\_thanhtoan\_ewallet\scanQRZalo_page.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="_pages\_cashPages\_thanhtoan\_orderoption\Delivery.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="_pages\_cashPages\_thanhtoan\_orderoption\PickUp.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="_pages\_home\mainHome.xaml">

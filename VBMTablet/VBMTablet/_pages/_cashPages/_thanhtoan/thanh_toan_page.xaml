@@ -1,501 +1,523 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
-             xmlns:sf="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
-             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
-             x:Class="VBMTablet._pages._thanhtoan.thanh_toan_page"
-             NavigationPage.HasNavigationBar="False"
-             BackgroundColor="{StaticResource vbmwhite}">
-    
-    <Grid Grid.Row="1">
+<ContentPage
+    x:Class="VBMTablet._pages._thanhtoan.thanh_toan_page"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+    xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+    xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:sf="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+    BackgroundColor="{StaticResource vbmwhite}"
+    NavigationPage.HasNavigationBar="False">
+
+    <Grid Grid.Row="1" Padding="10,0">
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="360"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="340" />
         </Grid.RowDefinitions>
 
-        <ScrollView>
-            <StackLayout Orientation="Vertical"
-                     HorizontalOptions="Center"
-                     VerticalOptions="Center"
-                     Margin="10,0"
-                     BindableLayout.ItemsSource="{Binding cartItems}">
+        <Grid
+            HeightRequest="40"
+            HorizontalOptions="Start"
+            VerticalOptions="Center"
+            WidthRequest="40">
+            <Image
+                Aspect="AspectFit"
+                BackgroundColor="White"
+                HeightRequest="30"
+                HorizontalOptions="Start"
+                Source="Stroke"
+                VerticalOptions="Center" />
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="ff_backicon_tapped" />
+            </Grid.GestureRecognizers>
+        </Grid>
+
+        <ScrollView Grid.Row="1">
+
+            <StackLayout
+                BindableLayout.ItemsSource="{Binding cartItems}"
+                HorizontalOptions="Center"
+                Orientation="Vertical"
+                Spacing="20">
+
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
-                        <border:SfBorder CornerRadius="40"
-                                     BorderColor="WhiteSmoke"
-                                     BorderWidth="2"
-                                     BackgroundColor="{StaticResource vbmwhite}"
-                                     HasShadow="False"
-                                     Margin="10">
+                        <border:SfBorder
+                            Margin="0,0,0,20"
+                            Padding="0,0,0,15"
+                            BackgroundColor="{StaticResource vbmwhite}"
+                            BorderColor="WhiteSmoke"
+                            BorderWidth="2"
+                            CornerRadius="40"
+                            HasShadow="False">
 
-                            <Grid RowSpacing="0">
+                            <Grid RowSpacing="5">
+
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="71"/>
-                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="60" />
+                                    <RowDefinition Height="*" />
                                 </Grid.RowDefinitions>
 
-                                <Grid Padding="10"
-                                      BackgroundColor="{StaticResource vbmdeepgreen}">
+                                <Grid BackgroundColor="{StaticResource vbmdeepgreen}">
 
-                                    <StackLayout Orientation="Horizontal"
-                                                 VerticalOptions="Center"
-                                                 HorizontalOptions="Start"
-                                                 Margin="17,0,0,0"
-                                                 Spacing="20">
+                                    <StackLayout
+                                        Margin="20,0"
+                                        HorizontalOptions="Start"
+                                        Orientation="Horizontal"
+                                        Spacing="5"
+                                        VerticalOptions="Center">
 
-                                        <Grid>
-                                            <Label Text="×"
-                                                   FontSize="40"
-                                                   TextColor="{StaticResource vbmwhite}"/>
+                                        <Grid
+                                            HeightRequest="30"
+                                            VerticalOptions="Center"
+                                            WidthRequest="30">
+                                            <Label
+                                                FontSize="20"
+                                                Text="×"
+                                                TextColor="{StaticResource vbmwhite}"
+                                                VerticalOptions="Center" />
                                             <Grid.GestureRecognizers>
-                                                <TapGestureRecognizer Tapped="lbldeletecart_tapped"/>
+                                                <TapGestureRecognizer Tapped="lbldeletecart_tapped" />
                                             </Grid.GestureRecognizers>
                                         </Grid>
 
-                                        <Label Text="{Binding tonggia}"
-                                           FontSize="23"
-                                           TextColor="{StaticResource vbmlightyellow}"/>
+                                        <Label
+                                            FontSize="20"
+                                            Text="{Binding tonggia}"
+                                            TextColor="{StaticResource vbmwhite}"
+                                            VerticalOptions="Center" />
 
                                     </StackLayout>
 
-                                    <Label Text="{Binding orderCode}"
-                                       FontSize="23"
-                                       HorizontalOptions="End"
-                                       VerticalOptions="Center"
-                                       TextColor="{StaticResource vbmwhite}"
-                                       Margin="0,0,17,0"/>
+                                    <Label
+                                        Margin="20,0"
+                                        FontSize="20"
+                                        HorizontalOptions="End"
+                                        Text="{Binding orderCode}"
+                                        TextColor="{StaticResource vbmwhite}"
+                                        VerticalOptions="Center" />
 
                                 </Grid>
 
-                                <StackLayout Grid.Row="1"
-                                             Orientation="Vertical"
-                                             Margin="10,0"
-                                             Spacing="5">
-                                    <Grid>
+                                <StackLayout
+                                    Grid.Row="1"
+                                    Padding="10,0"
+                                    Orientation="Vertical"
+                                    Spacing="10">
 
-                                        <StackLayout Orientation="Horizontal"
-                                                     WidthRequest="250"
-                                                     HeightRequest="70"
-                                                     VerticalOptions="Center"
-                                                     HorizontalOptions="Start"
-                                                     Spacing="10">
+                                    <Grid ColumnSpacing="10">
 
-                                            <Label Text="{Binding monchinh_name}"
-                                               TextColor="{StaticResource vbmgray}"
-                                               FontSize="30"/>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="100" />
+                                            <ColumnDefinition Width="auto" />
+                                        </Grid.ColumnDefinitions>
 
-                                        </StackLayout>
-
-                                        <StackLayout Orientation="Horizontal"
-                                                     HeightRequest="60"
-                                                     HorizontalOptions="End"
-                                                     VerticalOptions="Center"
-                                                     Spacing="15">
-
-                                            <border:SfBorder BackgroundColor="{StaticResource vbmlightgray}"
-                                                             BorderColor="Transparent"
-                                                             HasShadow="False"
-                                                             CornerRadius="50"
-                                                             HeightRequest="60"
-                                                             WidthRequest="174"
-                                                             HorizontalOptions="End"
-                                                             VerticalOptions="Center">
-
-                                                <StackLayout Orientation="Horizontal"
-                                                             VerticalOptions="Center"
-                                                             HorizontalOptions="Center"
-                                                             Spacing="15">
-
-                                                    <Grid>
-                                                        <Label Text="-"
-                                                               FontSize="33"
-                                                               TextColor="{StaticResource vbmgray}"/>
-                                                        <Grid.GestureRecognizers>
-                                                            <TapGestureRecognizer Tapped="lbldecreasecartitem_tapped"/>
-                                                        </Grid.GestureRecognizers>
-
-                                                    </Grid>
-
-
-                                                    <Label Text="{Binding solg}"
-                                                           FontSize="23"
-                                                           TextColor="{StaticResource vbmgray}"/>
-
-                                                    <Grid>
-                                                        <Label Text="+"
-                                                               FontSize="33"
-                                                               TextColor="{StaticResource vbmgray}"/>
-                                                        <Grid.GestureRecognizers>
-                                                            <TapGestureRecognizer Tapped="lblincreasecartitem_tapped"/>
-                                                        </Grid.GestureRecognizers>
-
-                                                    </Grid>
-
-
-                                                </StackLayout>
-
-                                            </border:SfBorder>
-
-                                            <Label Text="{Binding monchinh_dongia}"
-                                               TextColor="{StaticResource vbmpinttext}"
-                                               FontSize="25"
-                                               HorizontalOptions="End"
-                                               VerticalOptions="Center"/>
-
-                                        </StackLayout>
-
-
-                                    </Grid>
-
-
-                                    <StackLayout Orientation="Horizontal"
-                                                 VerticalOptions="Start"
-                                                 HorizontalOptions="Start"
-                                                 Spacing="20">
-                                        <Label Text="{Binding monchinh_giavi}"
-                                               TextColor="{StaticResource vbmpinttext}"
-                                               FontSize="20"/>
-                                    </StackLayout>
-
-
-
-                                    <Grid>
-
-                                        <StackLayout Orientation="Horizontal"
-                                                     HeightRequest="75"
-                                                     VerticalOptions="Center"
-                                                     HorizontalOptions="Start"
-                                                     Spacing="15"
-                                                     IsVisible="{Binding visExtra}"
-                                                     BindableLayout.ItemsSource="{Binding monchinh_extrasRender}">
-                                            <BindableLayout.ItemTemplate>
-                                                <DataTemplate>
-
-                                                    <border:SfBorder BackgroundColor="{StaticResource vbmdeeplightgray}"
-                                                                 BorderColor="Transparent"
-                                                                 WidthRequest="181"                                                     
-                                                                 HasShadow="False"
-                                                                 CornerRadius="50"
-                                                                 HeightRequest="60">
-
-                                                        <Label Text="{Binding name}"
-                                                           FontSize="20"
-                                                           TextColor="{StaticResource vbmwhite}"
-                                                           HorizontalTextAlignment="Center"
-                                                           HorizontalOptions="Center"
-                                                           VerticalOptions="Center"/>
-
-                                                    </border:SfBorder>
-
-                                                </DataTemplate>
-                                            </BindableLayout.ItemTemplate>
-
-                                        </StackLayout>
-
-                                    </Grid>
-                                    <Grid IsVisible="{Binding visDrinkCb}">
-
-                                        <Grid WidthRequest="550">
-
-                                            <StackLayout Orientation="Horizontal"
-                                                     VerticalOptions="Center"
-                                                     HorizontalOptions="Start">
-
-                                                <Label Text="{Binding drinkname}"
-                                                   TextColor="{StaticResource vbmgray}"
-                                                   FontSize="30"
-                                                   HorizontalOptions="Start"
-                                                   VerticalOptions="Center"/>
-
-                                            </StackLayout>
-
-                                            <StackLayout Orientation="Horizontal"
-                                                     HeightRequest="60"
-                                                     HorizontalOptions="End"
-                                                     VerticalOptions="Center">
-
-
-                                                <Label Text="{Binding drink_dongia}"
-                                                   TextColor="{StaticResource vbmpinttext}"
-                                                   FontSize="25"
-                                                   HorizontalOptions="End"
-                                                   VerticalOptions="Center"/>
-
-                                            </StackLayout>
-
-
+                                        <Grid>
+                                            <Label
+                                                FontAttributes="Bold"
+                                                FontSize="20"
+                                                Text="{Binding monchinh_name}"
+                                                TextColor="{StaticResource vbmgreen}"
+                                                VerticalOptions="Center" />
+                                            <Grid.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="brEdit_tapped" />
+                                            </Grid.GestureRecognizers>
                                         </Grid>
 
+                                        <border:SfBorder
+                                            Grid.Column="1"
+                                            Padding="5,0"
+                                            BackgroundColor="{StaticResource vbmlightgray}"
+                                            BorderColor="Transparent"
+                                            CornerRadius="50"
+                                            HasShadow="False"
+                                            HeightRequest="50"
+                                            VerticalOptions="Center">
+
+                                            <StackLayout
+                                                HorizontalOptions="Center"
+                                                Orientation="Horizontal"
+                                                Spacing="20"
+                                                VerticalOptions="Center">
+
+                                                <Grid>
+                                                    <Label
+                                                        FontSize="20"
+                                                        HorizontalOptions="Center"
+                                                        Text="-"
+                                                        TextColor="{StaticResource vbmgray}"
+                                                        VerticalOptions="Center" />
+                                                    <Grid.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="lbldecreasecartitem_tapped" />
+                                                    </Grid.GestureRecognizers>
+                                                </Grid>
+
+                                                <Label
+                                                    FontSize="20"
+                                                    Text="{Binding solg}"
+                                                    TextColor="{StaticResource vbmgray}"
+                                                    VerticalOptions="Center" />
+
+                                                <Grid>
+                                                    <Label
+                                                        FontSize="20"
+                                                        HorizontalOptions="Center"
+                                                        Text="+"
+                                                        TextColor="{StaticResource vbmgray}"
+                                                        VerticalOptions="Center" />
+                                                    <Grid.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="lblincreasecartitem_tapped" />
+                                                    </Grid.GestureRecognizers>
+                                                </Grid>
+
+
+                                            </StackLayout>
+
+                                        </border:SfBorder>
+
+                                        <Label
+                                            Grid.Column="2"
+                                            FontSize="20"
+                                            Text="{Binding monchinh_dongia}"
+                                            TextColor="{StaticResource vbmgray}"
+                                            VerticalOptions="Center" />
 
                                     </Grid>
 
+                                    <Label
+                                        FontSize="15"
+                                        Text="{Binding monchinh_giavi}"
+                                        TextColor="{StaticResource vbmgray}" />
+
+                                    <ScrollView HorizontalScrollBarVisibility="Never" Orientation="Horizontal">
+                                        <StackLayout
+                                            BindableLayout.ItemsSource="{Binding monchinh_extrasRender}"
+                                            HorizontalOptions="Start"
+                                            IsVisible="{Binding visExtra}"
+                                            Orientation="Horizontal"
+                                            Spacing="15"
+                                            VerticalOptions="Center">
+                                            <BindableLayout.ItemTemplate>
+                                                <DataTemplate>
+                                                    <border:SfBorder
+                                                        Padding="10,0"
+                                                        BackgroundColor="{StaticResource vbmdeeplightgray}"
+                                                        BorderColor="Transparent"
+                                                        CornerRadius="50"
+                                                        HasShadow="False"
+                                                        HeightRequest="50">
+                                                        <Label
+                                                            FontSize="15"
+                                                            HorizontalOptions="Center"
+                                                            HorizontalTextAlignment="Center"
+                                                            Text="{Binding name}"
+                                                            TextColor="{StaticResource vbmwhite}"
+                                                            VerticalOptions="Center" />
+                                                    </border:SfBorder>
+                                                </DataTemplate>
+                                            </BindableLayout.ItemTemplate>
+                                        </StackLayout>
+                                    </ScrollView>
+
+                                    <Grid Padding="10,0" IsVisible="{Binding visDrinkCb}">
+
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="20"
+                                            HorizontalOptions="Start"
+                                            Text="{Binding drinkname}"
+                                            TextColor="{StaticResource vbmgreen}"
+                                            VerticalOptions="Center" />
+
+                                        <Label
+                                            FontSize="20"
+                                            HorizontalOptions="End"
+                                            Text="{Binding drink_dongia}"
+                                            TextColor="{StaticResource vbmgray}"
+                                            VerticalOptions="Center" />
+
+                                    </Grid>
 
                                 </StackLayout>
 
-
                             </Grid>
 
+                        </border:SfBorder>
+
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+
+            </StackLayout>
+
+        </ScrollView>
+
+        <Grid Grid.Row="2" RowSpacing="10">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60" />
+                <RowDefinition Height="60" />
+                <RowDefinition Height="60" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+
+            <Grid ColumnSpacing="20">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <border:SfBorder
+                    x:Name="borderwallet"
+                    Padding="20,0"
+                    BackgroundColor="{StaticResource vbmlightgray}"
+                    BorderColor="Transparent"
+                    CornerRadius="50"
+                    HasShadow="False">
+
+                    <Grid VerticalOptions="Center">
+
+                        <ff:CachedImage
+                            x:Name="walleticon"
+                            Aspect="AspectFit"
+                            HeightRequest="30"
+                            HorizontalOptions="Start"
+                            Source="walleticon"
+                            VerticalOptions="Center" />
+
+                        <Label
+                            x:Name="labelwallet"
+                            FontAttributes="Bold"
+                            FontSize="20"
+                            HorizontalOptions="Center"
+                            Text="TIỀN MẶT"
+                            TextColor="{StaticResource vbmgray}" />
+
+                    </Grid>
+
+                    <border:SfBorder.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ff_thanhtoan_tapped" />
+                    </border:SfBorder.GestureRecognizers>
+
+                </border:SfBorder>
+
+                <border:SfBorder
+                    x:Name="voucherborder"
+                    Grid.Column="1"
+                    Padding="20,0"
+                    BackgroundColor="{StaticResource vbmlightgray}"
+                    BorderColor="Transparent"
+                    CornerRadius="50"
+                    HasShadow="False">
+
+                    <Grid VerticalOptions="Center">
+
+                        <ff:CachedImage
+                            x:Name="vouchericon"
+                            Aspect="AspectFit"
+                            HeightRequest="30"
+                            HorizontalOptions="Start"
+                            Source="vouchericon"
+                            VerticalOptions="Center" />
+
+                        <Label
+                            x:Name="voucherlable"
+                            FontAttributes="Bold"
+                            FontSize="20"
+                            HorizontalTextAlignment="Center"
+                            Text="MÃ GIẢM GIÁ"
+                            TextColor="{StaticResource vbmgray}" />
+
+                    </Grid>
+
+                    <border:SfBorder.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ff_discount_tapped" />
+                    </border:SfBorder.GestureRecognizers>
+                </border:SfBorder>
+
+            </Grid>
+
+            <Grid Grid.Row="1" ColumnSpacing="20">
+
+                <Entry
+                    ClearButtonVisibility="WhileEditing"
+                    FontSize="20"
+                    HorizontalOptions="Start"
+                    HorizontalTextAlignment="Center"
+                    Placeholder="Mật khẩu"
+                    PlaceholderColor="#d2d2d2"
+                    TextColor="{StaticResource vbmgreen}"
+                    VerticalOptions="Center"
+                    WidthRequest="170" />
+
+                <border:SfBorder
+                    x:Name="brhoadon"
+                    Grid.Column="1"
+                    Padding="20,0"
+                    BackgroundColor="{StaticResource vbmlightgray}"
+                    BorderColor="Transparent"
+                    CornerRadius="50"
+                    HasShadow="False">
+
+                    <Label
+                        x:Name="lblhoadon"
+                        FontSize="18"
+                        HorizontalOptions="Center"
+                        HorizontalTextAlignment="Center"
+                        Text="HOÁ ĐƠN ĐỎ"
+                        TextColor="{StaticResource vbmgray}"
+                        VerticalOptions="Center" />
+
+                    <border:SfBorder.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ff_hoadon_tapped" />
+                    </border:SfBorder.GestureRecognizers>
+
+                </border:SfBorder>
+
+                <border:SfBorder
+                    x:Name="brcombo"
+                    Grid.Column="2"
+                    Padding="20,0"
+                    BackgroundColor="{StaticResource vbmlightgray}"
+                    BorderColor="Transparent"
+                    CornerRadius="50"
+                    HasShadow="False">
+
+                    <Label
+                        x:Name="lblcombo"
+                        FontSize="18"
+                        HorizontalOptions="Center"
+                        HorizontalTextAlignment="Center"
+                        Text="COMBONV"
+                        TextColor="{StaticResource vbmgray}"
+                        VerticalOptions="Center" />
+
+                    <border:SfBorder.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ff_combo_tapped" />
+                    </border:SfBorder.GestureRecognizers>
+                </border:SfBorder>
+
+            </Grid>
+
+            <StackLayout
+                Grid.Row="2"
+                BindableLayout.ItemsSource="{Binding orderOptions}"
+                HorizontalOptions="Center"
+                Orientation="Horizontal"
+                Spacing="20">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <border:SfBorder
+                            BackgroundColor="{Binding BorderColor}"
+                            BorderColor="Transparent"
+                            CornerRadius="50"
+                            HasShadow="False"
+                            HeightRequest="60"
+                            WidthRequest="150">
+                            <Label
+                                FontSize="18"
+                                HorizontalOptions="Center"
+                                HorizontalTextAlignment="Center"
+                                Text="{Binding name}"
+                                TextColor="{Binding TextColor}"
+                                VerticalOptions="Center" />
                             <border:SfBorder.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="brEdit_tapped"/>
+                                <TapGestureRecognizer Tapped="orderOption_tapped" />
                             </border:SfBorder.GestureRecognizers>
-                            
                         </border:SfBorder>
 
                     </DataTemplate>
                 </BindableLayout.ItemTemplate>
 
 
-            </StackLayout>
-
-        </ScrollView>
-
-
-        <StackLayout BackgroundColor="White"
-                             Grid.Row="1"
-                             Margin="20,0">
-
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-            </Grid>
-
-            <StackLayout Orientation="Horizontal"
-                             HorizontalOptions="Center"
-                             VerticalOptions="End">
-
-                <border:SfBorder BackgroundColor="{StaticResource vbmlightgray}"
-                                     BorderColor="Transparent"
-                                     WidthRequest="322"
-                                     HeightRequest="77"
-                                     CornerRadius="50"
-                                     HasShadow="False"
-                                     x:Name="borderwallet">
-
-                    <StackLayout Orientation="Horizontal"
-                                     HorizontalOptions="Center"
-                                     VerticalOptions="Center"
-                                     Spacing="50"
-                                     Margin="20,0">
-
-                        <ff:CachedImage Source="walleticon"
-                                            x:Name="walleticon"
-                                            Aspect="Fill"/>
-
-                        <Label Text="TIỀN MẶT"
-                                   x:Name="labelwallet"
-                                   FontSize="18"
-                                   TextColor="{StaticResource vbmgray}"
-                                   FontAttributes="Bold"/>
-
-                    </StackLayout>
-
-                    <border:SfBorder.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="ff_thanhtoan_tapped"/>
-                    </border:SfBorder.GestureRecognizers>
-
-                </border:SfBorder>
-
-                <border:SfBorder BackgroundColor="{StaticResource vbmlightgray}"
-                                     BorderColor="Transparent"
-                                     WidthRequest="322"
-                                     HeightRequest="77"
-                                     CornerRadius="50"
-                                     HasShadow="False"
-                                     x:Name="voucherborder">
-
-                    <StackLayout Orientation="Horizontal"
-                                     HorizontalOptions="Center"
-                                     VerticalOptions="Center"
-                                     Spacing="50"
-                                     Margin="20,0">
-
-                        <ff:CachedImage Source="vouchericon"
-                                            x:Name="vouchericon"
-                                            Aspect="Fill"/>
-
-                        <Label Text="MÃ GIẢM GIÁ"
-                                   x:Name="voucherlable"
-                                   HorizontalTextAlignment="Center"
-                                   FontSize="18"
-                                   TextColor="{StaticResource vbmgray}"
-                                   FontAttributes="Bold"/>
-
-                    </StackLayout>
-                    <border:SfBorder.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="ff_discount_tapped"/>
-                    </border:SfBorder.GestureRecognizers>
-                </border:SfBorder>
-
 
             </StackLayout>
 
-            <StackLayout Orientation="Horizontal"
-                             HorizontalOptions="Center"
-                             VerticalOptions="Center"
-                             Spacing="30"
-                             Grid.Row="1">
+            <StackLayout
+                Grid.Row="3"
+                Margin="15,0"
+                Spacing="10">
 
-                <Entry Placeholder="Mật khẩu"
-                           FontSize="25"
-                           HorizontalTextAlignment="Center"
-                           TextColor="{StaticResource vbmgreen}"
-                           HorizontalOptions="Start"
-                           VerticalOptions="Center"
-                           WidthRequest="170"/>
+                <Grid VerticalOptions="Center">
 
-                <border:SfBorder BackgroundColor="{StaticResource vbmlightgray}"
-                                     BorderColor="Transparent"
-                                     HasShadow="False"
-                                     CornerRadius="50"
-                                     HeightRequest="60"
-                                     WidthRequest="214"
-                                     x:Name="brhoadon">
+                    <Label
+                        FontSize="20"
+                        HorizontalOptions="Start"
+                        Text="Tổng Cộng:"
+                        TextColor="{StaticResource vbmgray}"
+                        VerticalOptions="Center" />
 
-                    <Label Text="HOÁ ĐƠN ĐỎ"
-                               x:Name="lblhoadon"
-                               FontSize="20"
-                               TextColor="{StaticResource vbmgray}"
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center"
-                               HorizontalTextAlignment="Center"/>
+                    <Label
+                        FontSize="20"
+                        HorizontalOptions="End"
+                        Text="{Binding tongtien}"
+                        TextColor="{StaticResource vbmbrick}"
+                        VerticalOptions="Center" />
 
-                    <border:SfBorder.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="ff_hoadon_tapped"/>
-                    </border:SfBorder.GestureRecognizers>
+                </Grid>
 
-                </border:SfBorder>
+                <Grid>
 
-                <border:SfBorder BackgroundColor="{StaticResource vbmlightgray}"
-                                     BorderColor="Transparent"
-                                     HasShadow="False"
-                                     CornerRadius="50"
-                                     HeightRequest="60"
-                                     WidthRequest="214"
-                                     x:Name="brcombo">
+                    <Label
+                        FontSize="20"
+                        HorizontalOptions="Start"
+                        Text="Voucher:"
+                        TextColor="{StaticResource vbmgray}"
+                        VerticalOptions="Center" />
 
-                    <Label Text="COMBONV"
-                               x:Name="lblcombo"
-                               FontSize="20"
-                               TextColor="{StaticResource vbmgray}"
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center"
-                               HorizontalTextAlignment="Center"/>
-                    <border:SfBorder.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="ff_combo_tapped"/>
-                    </border:SfBorder.GestureRecognizers>
-                </border:SfBorder>
+                    <Label
+                        FontSize="20"
+                        HorizontalOptions="End"
+                        Text="000"
+                        TextColor="{StaticResource vbmbrick}"
+                        VerticalOptions="Center" />
 
+                </Grid>
+
+                <Grid>
+
+                    <Label
+                        FontSize="20"
+                        HorizontalOptions="Start"
+                        Text="Giảm giá:"
+                        TextColor="{StaticResource vbmgray}"
+                        VerticalOptions="Center" />
+
+                    <Label
+                        FontSize="20"
+                        HorizontalOptions="End"
+                        Text="{Binding giamgia}"
+                        TextColor="{StaticResource vbmbrick}"
+                        VerticalOptions="Center" />
+
+                </Grid>
+
+                <Grid>
+
+                    <Label
+                        FontSize="20"
+                        HorizontalOptions="Start"
+                        Text="Thành tiền:"
+                        TextColor="{StaticResource vbmgray}"
+                        VerticalOptions="Center" />
+
+                    <Label
+                        FontSize="20"
+                        HorizontalOptions="End"
+                        Text="{Binding thanhtien}"
+                        TextColor="{StaticResource vbmbrick}"
+                        VerticalOptions="Center" />
+
+                </Grid>
 
             </StackLayout>
 
-            <Grid Grid.Row="2">
-
-                <StackLayout HorizontalOptions="Start"
-                             Orientation="Vertical"
-                             VerticalOptions="Center"
-                             BindableLayout.ItemsSource="{Binding orderOptions}">
-                    <BindableLayout.ItemTemplate>
-                        <DataTemplate>
-                            <border:SfBorder BackgroundColor="{Binding BorderColor}"
-                                                     BorderColor="Transparent"
-                                                     HasShadow="False"
-                                                     WidthRequest="172"
-                                                     HeightRequest="60"
-                                                     HorizontalOptions="Start"
-                                                     VerticalOptions="Center"
-                                                     CornerRadius="50">
-
-                                <Label Text="{Binding name}"
-                                               HorizontalOptions="Center"
-                                               VerticalOptions="Center"
-                                               HorizontalTextAlignment="Center"
-                                               FontSize="20"
-                                               TextColor="{Binding TextColor}"/>
-                                <border:SfBorder.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="orderOption_tapped"/>
-                                </border:SfBorder.GestureRecognizers>
-                            </border:SfBorder>
-
-                        </DataTemplate>
-                    </BindableLayout.ItemTemplate>
-
-
-
-                </StackLayout>
-
-
-                <StackLayout Orientation="Vertical"
-                                 HorizontalOptions="End"
-                                 VerticalOptions="Center"
-                                 WidthRequest="350">
-
-                    <Grid VerticalOptions="Center">
-
-                        <Label Text="Tổng Cộng"
-                                       FontSize="23"
-                                       HorizontalOptions="Start"/>
-
-                        <Label Text="{Binding tongtien}"
-                                       FontSize="25"
-                                       HorizontalOptions="End"/>
-
-                    </Grid>
-
-                    <Grid>
-
-                        <Label Text="VOUCHER"
-                                       TextColor="{StaticResource vbmdeeplightgray}"
-                                       FontSize="25"
-                                       HorizontalOptions="Start"/>
-
-                        <Label Text="000"
-                                       FontSize="25"
-                                       HorizontalOptions="End"/>
-
-                    </Grid>
-
-                    <Grid>
-
-                        <Label Text="GIẢM GIÁ"
-                                       TextColor="{StaticResource vbmdeeplightgray}"
-                                       FontSize="25"
-                                       HorizontalOptions="Start"/>
-
-                        <Label Text="{Binding giamgia}"
-                                       FontSize="25"
-                                       HorizontalOptions="End"/>
-
-                    </Grid>
-
-                    <Grid>
-
-                        <Label Text="THÀNH TIỀN"
-                                       TextColor="{StaticResource vbmpinttext}"
-                                       FontSize="25"
-                                       HorizontalOptions="Start"/>
-
-                        <Label Text="{Binding thanhtien}"
-                                       TextColor="{StaticResource vbmpinttext}"
-                                       FontSize="25"
-                                       HorizontalOptions="End"/>
-
-                    </Grid>
-
-                </StackLayout>
-
-
-            </Grid>
-
-
-
-        </StackLayout>
+        </Grid>
 
     </Grid>
 
-</ContentView>
+</ContentPage>
