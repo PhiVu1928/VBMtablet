@@ -1,13 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
-             xmlns:sf="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
-             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
-             x:Class="VBMTablet._pages._cashPages._customer.giftDetail_Page"
-             NavigationPage.HasNavigationBar="False"
-             BackgroundColor="{StaticResource vbmwhite}">
+<ContentPage
+    x:Class="VBMTablet._pages._cashPages._customer.giftDetail_Page"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+    xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+    xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:sf="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+    BackgroundColor="{StaticResource vbmwhite}"
+    NavigationPage.HasNavigationBar="False">
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
@@ -35,51 +36,55 @@
                         FontSize="36"
                         HorizontalOptions="Center"
                         HorizontalTextAlignment="Center"
-                        VerticalOptions="Center"
-                        Text="{Binding titlePage}"/>
+                        Text="{Binding titlePage}"
+                        VerticalOptions="Center" />
 
                 </Grid>
 
             </StackLayout>
 
-            <sf:SfListView ItemsSource="{Binding giftDetailItems}"
-                           ItemSize="230"
-                           Margin="0,20,0,0"
-                           ItemSpacing="0"
-                           SelectionBackgroundColor="Transparent"
-                           HorizontalOptions="Center"
-                           VerticalOptions="Start"
-                           Grid.Row="1">
+            <sf:SfListView
+                Grid.Row="1"
+                Margin="0,20,0,0"
+                HorizontalOptions="Center"
+                ItemSize="230"
+                ItemSpacing="0"
+                ItemsSource="{Binding giftDetailItems}"
+                SelectionBackgroundColor="Transparent"
+                VerticalOptions="Start">
                 <sf:SfListView.LayoutManager>
-                    <sf:GridLayout SpanCount="3"/>
+                    <sf:GridLayout SpanCount="3" />
                 </sf:SfListView.LayoutManager>
                 <sf:SfListView.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout Orientation="Horizontal"                             
-                                     Spacing="70"
-                                     VerticalOptions="Center"
-                                     HorizontalOptions="Center">
+                        <StackLayout
+                            HorizontalOptions="Center"
+                            Orientation="Horizontal"
+                            Spacing="70"
+                            VerticalOptions="Center">
                             <Grid>
 
-                                <border:SfBorder BackgroundColor="{StaticResource vbmwhite}"
-                                                 HeightRequest="197"
-                                                 WidthRequest="161"
-                                                 BorderWidth="1"
-                                                 BorderColor="#E5E5E5"
-                                                 HasShadow="True"
-                                                 ShadowColor="#E5E5E5"
-                                                 CornerRadius="30"
-                                                 HorizontalOptions="Center"
-                                                 VerticalOptions="Center">
+                                <border:SfBorder
+                                    BackgroundColor="{StaticResource vbmwhite}"
+                                    BorderColor="#E5E5E5"
+                                    BorderWidth="1"
+                                    CornerRadius="30"
+                                    HasShadow="True"
+                                    HeightRequest="197"
+                                    HorizontalOptions="Center"
+                                    ShadowColor="#E5E5E5"
+                                    VerticalOptions="Center"
+                                    WidthRequest="161">
                                     <Grid>
 
-                                        <Label Text="{Binding name}"
-                                               FontSize="18"
-                                               FontAttributes="Bold"
-                                               Margin="25,20"
-                                               HorizontalOptions="Center"
-                                               VerticalOptions="End"
-                                               HorizontalTextAlignment="Center"/>
+                                        <Label
+                                            Margin="25,20"
+                                            FontAttributes="Bold"
+                                            FontSize="18"
+                                            HorizontalOptions="Center"
+                                            HorizontalTextAlignment="Center"
+                                            Text="{Binding name}"
+                                            VerticalOptions="End" />
 
                                     </Grid>
 
@@ -87,18 +92,18 @@
 
                                 </border:SfBorder>
 
-                                <border:SfBorder WidthRequest="123"
-                                                 HeightRequest="138"
-                                                 CornerRadius="20"
-                                                 HasShadow="False"
-                                                 HorizontalOptions="Center"
-                                                 VerticalOptions="Start">
-                                    <ff:CachedImage Source="{Binding img}"
-                                                    Aspect="Fill"/>
+                                <border:SfBorder
+                                    CornerRadius="20"
+                                    HasShadow="False"
+                                    HeightRequest="138"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Start"
+                                    WidthRequest="123">
+                                    <ff:CachedImage Aspect="Fill" Source="{Binding img}" />
                                 </border:SfBorder>
 
                                 <Grid.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="grdChooseGiftItem_tapped"/>
+                                    <TapGestureRecognizer Tapped="grdChooseGiftItem_tapped" />
                                 </Grid.GestureRecognizers>
 
                             </Grid>
@@ -113,15 +118,15 @@
         </Grid>
 
         <busyindicator:SfBusyIndicator
-                        x:Name="busyindicator"
-                        AnimationType="Cupertino"
-                        HeightRequest="100"
-                        HorizontalOptions="Center"
-                        IsBusy="{Binding isbusy}"
-                        IsVisible="{Binding isbusy}"
-                        TextColor="#1d5234"
-                        VerticalOptions="Center"
-                        WidthRequest="100" />
+            x:Name="busyindicator"
+            AnimationType="Cupertino"
+            HeightRequest="100"
+            HorizontalOptions="Center"
+            IsBusy="{Binding isbusy}"
+            IsVisible="{Binding isbusy}"
+            TextColor="#1d5234"
+            VerticalOptions="Center"
+            WidthRequest="100" />
 
 
     </Grid>

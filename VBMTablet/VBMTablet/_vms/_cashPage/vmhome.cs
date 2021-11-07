@@ -79,6 +79,60 @@ namespace VBMTablet._vms._home
         #endregion
 
     }
+
+    public class vmCustomerScript : INotifyPropertyChanged
+    {
+        public event PropertyChangedEventHandler PropertyChanged;
+        void pchange(string name)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+
+        public vmCustomerScript()
+        {
+
+        }
+
+        public vmCustomerScript(userinfo userinfo)
+        {
+            var script = new ObservableCollection<CustomerScriptStatus>();
+            foreach(var item in userinfo.wow_histories)
+            {
+                script.Add(new CustomerScriptStatus(item));
+            }
+            customerScriptStatuses = script;
+            int count = customerScriptStatuses.Count();
+            if(count == 0)
+            {
+                CountScript = "Khách có trải nghiệm tốt";
+                vislydo = false;
+            }
+            else
+            {
+                CountScript = "Khách đã có " + count.ToString() + " lần trải nghiệm không tốt";
+                vislydo = true;
+            }
+        }
+        #region bien
+        bool vislydo_;
+
+        public bool vislydo
+        {
+            get
+            {
+                return vislydo_;
+            }
+            set
+            {
+                vislydo_ = value;
+                pchange("vislydo");
+            }
+        }
+
+        public string CountScript { get; set; }
+        public ObservableCollection<CustomerScriptStatus> customerScriptStatuses { get; set; }
+        #endregion
+    }
     public class vmCustomerOrdered
     {
         public vmCustomerOrdered()
@@ -122,6 +176,19 @@ namespace VBMTablet._vms._home
         #region bien
         public ObservableCollection<CustomerGiftStatus> customerGiftStatuses { get; set; }
         #endregion
+    }
+
+    public class CustomerScriptStatus 
+    {
+        public CustomerScriptStatus(wow_histories wow_Histories)
+        {
+            this.wow_Histories = wow_Histories;
+            this.lydo = "• " + wow_Histories.LyDo;
+            this.shopname = wow_Histories.ShopName;
+        }
+        public wow_histories wow_Histories { get; set; }
+        public string lydo { get; set; }
+        public string shopname { get; set; }
     }
     public class CustomerGiftStatus : INotifyPropertyChanged
     {

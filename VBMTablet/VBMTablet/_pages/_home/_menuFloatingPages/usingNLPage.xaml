@@ -1,40 +1,44 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="VBMTablet._pages._home._menuFloatingPages.usingNLPage"
-             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
-             BackgroundColor="{StaticResource vbmwhite}"
-             NavigationPage.HasNavigationBar="False">
+<ContentPage
+    x:Class="VBMTablet._pages._home._menuFloatingPages.usingNLPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+    xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    BackgroundColor="{StaticResource vbmwhite}"
+    NavigationPage.HasNavigationBar="False">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="90"/>
+            <RowDefinition Height="100" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="90" />
         </Grid.RowDefinitions>
 
-        <StackLayout Orientation="Vertical"
-                     Margin="0,46,0,0"
-                     Spacing="40">
+        <StackLayout
+            Margin="0,46,0,0"
+            Orientation="Vertical"
+            Spacing="40">
 
             <Grid>
 
-                <ff:CachedImage Source="Stroke"
-                                WidthRequest="50"
-                                HeightRequest="25"
-                                HorizontalOptions="Start"
-                                VerticalOptions="Center"
-                                BackgroundColor="White">
+                <ff:CachedImage
+                    BackgroundColor="White"
+                    HeightRequest="25"
+                    HorizontalOptions="Start"
+                    Source="Stroke"
+                    VerticalOptions="Center"
+                    WidthRequest="50">
                     <ff:CachedImage.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="ff_backicon_tapped"/>
+                        <TapGestureRecognizer Tapped="ff_backicon_tapped" />
                     </ff:CachedImage.GestureRecognizers>
                 </ff:CachedImage>
 
-                <Label Text="Sử Dụng Nguyên Liệu"
-                       FontSize="36"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center"
-                       HorizontalTextAlignment="Center"/>
+                <Label
+                    FontSize="36"
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    Text="Sử Dụng Nguyên Liệu"
+                    VerticalOptions="Center" />
 
 
             </Grid>
@@ -44,116 +48,131 @@
         <ScrollView Grid.Row="1">
 
 
-            <StackLayout Orientation="Vertical"
-                             Spacing="71"
-                             Padding="50"
-                             HorizontalOptions="Center"
-                             VerticalOptions="Center">
+            <StackLayout
+                Padding="50"
+                HorizontalOptions="Center"
+                Orientation="Vertical"
+                Spacing="71"
+                VerticalOptions="Center">
 
-                <StackLayout Orientation="Horizontal"
-                             Spacing="47">
+                <StackLayout Orientation="Horizontal" Spacing="47">
 
-                    <ff:CachedImage Source="qricon"
-                                    Aspect="Fill"
-                                    HeightRequest="100"
-                                    WidthRequest="100"
-                                    VerticalOptions="Center"/>
+                    <ff:CachedImage
+                        Aspect="Fill"
+                        HeightRequest="100"
+                        Source="qricon"
+                        VerticalOptions="Center"
+                        WidthRequest="100" />
 
-                    <Label Text="SCAN BARCODE"
-                           TextColor="{StaticResource vbmgreen}"
-                           FontSize="30"
-                           VerticalOptions="Center"/>
+                    <Label
+                        FontSize="30"
+                        Text="SCAN BARCODE"
+                        TextColor="{StaticResource vbmgreen}"
+                        VerticalOptions="Center" />
 
                     <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="stlOpenQR_tapped"/>
+                        <TapGestureRecognizer Tapped="stlOpenQR_tapped" />
                     </StackLayout.GestureRecognizers>
 
                 </StackLayout>
 
                 <Grid>
 
-                    <Label Text="Nguyên liệu:"
-                           FontSize="30"
-                           TextColor="{StaticResource vbmgreen}"
-                           VerticalOptions="Center"/>
-                    <Label FontSize="30"
-                           TextColor="{StaticResource vbmgreen}"
-                           VerticalOptions="Center"
-                           HorizontalOptions="End"
-                           x:Name="lblNguyenLieu"/>
+                    <Label
+                        FontSize="30"
+                        Text="Nguyên liệu:"
+                        TextColor="{StaticResource vbmgreen}"
+                        VerticalOptions="Center" />
+                    <Label
+                        x:Name="lblNguyenLieu"
+                        FontSize="30"
+                        HorizontalOptions="End"
+                        TextColor="{StaticResource vbmgreen}"
+                        VerticalOptions="Center" />
 
                 </Grid>
 
                 <Grid>
 
-                    <Label Text="Số lượng còn lại:"
-                               FontSize="30"
-                               TextColor="{StaticResource vbmgreen}"
-                               VerticalOptions="Center"/>
-                    <Label FontSize="30"
-                           TextColor="{StaticResource vbmgreen}"
-                           VerticalOptions="Center"
-                           HorizontalOptions="End"
-                           x:Name="lblSlConLai"/>
+                    <Label
+                        FontSize="30"
+                        Text="Số lượng còn lại:"
+                        TextColor="{StaticResource vbmgreen}"
+                        VerticalOptions="Center" />
+                    <Label
+                        x:Name="lblSlConLai"
+                        FontSize="30"
+                        HorizontalOptions="End"
+                        TextColor="{StaticResource vbmgreen}"
+                        VerticalOptions="Center" />
                 </Grid>
 
                 <Grid>
 
-                    <Label Text="Barcode:"
-                               FontSize="30"
-                               TextColor="{StaticResource vbmgreen}"
-                               VerticalOptions="Center"/>
-                    <Label FontSize="30"
-                           TextColor="{StaticResource vbmgreen}"
-                           VerticalOptions="Center"
-                           HorizontalOptions="End"
-                           x:Name="lblBarCode"/>
+                    <Label
+                        FontSize="30"
+                        Text="Barcode:"
+                        TextColor="{StaticResource vbmgreen}"
+                        VerticalOptions="Center" />
+                    <Label
+                        x:Name="lblBarCode"
+                        FontSize="30"
+                        HorizontalOptions="End"
+                        TextColor="{StaticResource vbmgreen}"
+                        VerticalOptions="Center" />
                 </Grid>
 
                 <Grid>
 
-                    <Label Text="Ngày hết hạn:"
-                               FontSize="30"
-                               TextColor="{StaticResource vbmgreen}"
-                               VerticalOptions="Center"/>
-                    <Label FontSize="30"
-                           TextColor="{StaticResource vbmgreen}"
-                           VerticalOptions="Center"
-                           HorizontalOptions="End"
-                           x:Name="lblNgayHetHan"/>
+                    <Label
+                        FontSize="30"
+                        Text="Ngày hết hạn:"
+                        TextColor="{StaticResource vbmgreen}"
+                        VerticalOptions="Center" />
+                    <Label
+                        x:Name="lblNgayHetHan"
+                        FontSize="30"
+                        HorizontalOptions="End"
+                        TextColor="{StaticResource vbmgreen}"
+                        VerticalOptions="Center" />
                 </Grid>
 
                 <StackLayout Orientation="Vertical">
 
-                    <Label Text="Lượng sử dụng:"
-                               FontSize="30"
-                               TextColor="{StaticResource vbmgreen}"
-                               VerticalOptions="Center"/>
+                    <Label
+                        FontSize="30"
+                        Text="Lượng sử dụng:"
+                        TextColor="{StaticResource vbmgreen}"
+                        VerticalOptions="Center" />
 
-                    <Entry FontSize="22"
-                           x:Name="etSlSD"
-                               VerticalOptions="Center"                           
-                               Margin="0,50,90,0"/>
+                    <Entry
+                        x:Name="etSlSD"
+                        Margin="0,50,90,0"
+                        FontSize="22"
+                        VerticalOptions="Center" />
 
-                    <Label Text="*Phần số lẻ ngăn cách bằng dấu chấm (.)"
-                               FontSize="30"
-                               FontAttributes="Italic"
-                               TextColor="{StaticResource vbmgreen}"
-                               VerticalOptions="Center"/>
+                    <Label
+                        FontAttributes="Italic"
+                        FontSize="30"
+                        Text="*Phần số lẻ ngăn cách bằng dấu chấm (.)"
+                        TextColor="{StaticResource vbmgreen}"
+                        VerticalOptions="Center" />
 
                 </StackLayout>
 
                 <StackLayout Orientation="Vertical">
 
-                    <Label Text="Ghi chú:"
-                               FontSize="30"
-                               TextColor="{StaticResource vbmgreen}"
-                               VerticalOptions="Center"/>
+                    <Label
+                        FontSize="30"
+                        Text="Ghi chú:"
+                        TextColor="{StaticResource vbmgreen}"
+                        VerticalOptions="Center" />
 
-                    <Entry FontSize="22"
-                           x:Name="etNote"
-                               VerticalOptions="Center"                           
-                               Margin="0,50,90,0"/>
+                    <Entry
+                        x:Name="etNote"
+                        Margin="0,50,90,0"
+                        FontSize="22"
+                        VerticalOptions="Center" />
 
                 </StackLayout>
 
@@ -162,23 +181,25 @@
 
         </ScrollView>
 
-        <border:SfBorder BackgroundColor="{StaticResource vbmlightyellow}"
-                         BorderColor="{StaticResource vbmwhite}"
-                         HorizontalOptions="Center"
-                         VerticalOptions="Center"
-                         WidthRequest="160"
-                         HeightRequest="67"
-                         CornerRadius="30"
-                         HasShadow="False"
-                         Margin="10"
-                         Grid.Row="2">
+        <border:SfBorder
+            Grid.Row="2"
+            Margin="10"
+            BackgroundColor="{StaticResource vbmlightyellow}"
+            BorderColor="{StaticResource vbmwhite}"
+            CornerRadius="30"
+            HasShadow="False"
+            HeightRequest="67"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            WidthRequest="160">
 
-            <Label Text="Lưu"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center"
-                   FontSize="25"/>
+            <Label
+                FontSize="25"
+                HorizontalOptions="Center"
+                Text="Lưu"
+                VerticalOptions="Center" />
             <border:SfBorder.GestureRecognizers>
-                <TapGestureRecognizer Tapped="brdSave_tapped"/>
+                <TapGestureRecognizer Tapped="brdSave_tapped" />
             </border:SfBorder.GestureRecognizers>
         </border:SfBorder>
 

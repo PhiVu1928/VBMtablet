@@ -1,17 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:tb="clr-namespace:Syncfusion.XForms.TabView;assembly=Syncfusion.SfTabView.XForms"
-             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
-             x:Class="VBMTablet._pages._menu.menu_page"
-             NavigationPage.HasNavigationBar="False"
-             BackgroundColor="{StaticResource vbmwhite}">
+<ContentView
+    x:Class="VBMTablet._pages._menu.menu_page"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+    xmlns:tb="clr-namespace:Syncfusion.XForms.TabView;assembly=Syncfusion.SfTabView.XForms"
+    BackgroundColor="{StaticResource vbmwhite}"
+    NavigationPage.HasNavigationBar="False">
 
     <Grid Margin="10,0">
 
-        <Grid x:Name="grouptitle"
-              Margin="10"
-              RowSpacing="10"/>
+        <Grid
+            x:Name="grouptitle"
+            Margin="10"
+            RowSpacing="10" />
 
     </Grid>
 

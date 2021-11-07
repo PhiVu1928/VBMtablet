@@ -26,32 +26,37 @@
                     <Label
                         FontAttributes="Bold"
                         FontSize="20"
-                        Text="Khách đã có 3 lần trải nghiệm không tốt"
+                        Text="{Binding CountScript}"
                         TextColor="{StaticResource vbmyellow}" />
 
                     <Label
                         FontAttributes="Bold"
                         FontSize="20"
+                        IsVisible="{Binding vislydo}"
                         Text="Lý do:"
                         TextColor="{StaticResource vbmyellow}" />
 
-                    <Label
-                        FontAttributes="Bold"
-                        FontSize="20"
-                        Text=" • Note không ớt mà vẫn để"
-                        TextColor="{StaticResource vbmpinttext}" />
 
-                    <Label
-                        FontAttributes="Bold"
-                        FontSize="20"
-                        Text=" • Chả cá có mùi hôi"
-                        TextColor="{StaticResource vbmpinttext}" />
+                    <StackLayout BindableLayout.ItemsSource="{Binding customerScriptStatuses}">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Orientation="Vertical">
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="20"
+                                        Text="{Binding shopname}"
+                                        TextColor="{StaticResource vbmpinttext}" />
 
-                    <Label
-                        FontAttributes="Bold"
-                        FontSize="20"
-                        Text=" • Bánh mì không nóng"
-                        TextColor="{StaticResource vbmpinttext}" />
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="20"
+                                        Text="{Binding lydo}"
+                                        TextColor="{StaticResource vbmpinttext}" />
+
+                                </StackLayout>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
 
                     <Label FontSize="20" Text="Xin lỗi anh/chi về lần trước, tụi em đã cẩn thận cho lần này. Hy vọng anh/chị sẽ hài lòng. Cảm ơn anh/chị nhiều ạ!" />
 

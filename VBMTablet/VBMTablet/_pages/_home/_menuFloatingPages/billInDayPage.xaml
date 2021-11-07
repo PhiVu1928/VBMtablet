@@ -1,81 +1,91 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="VBMTablet._pages._home._menuFloatingPages.billInDayPage"
-             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
-             xmlns:sfinput="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
-             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
-             BackgroundColor="{StaticResource vbmwhite}"
-             NavigationPage.HasNavigationBar="False">
+<ContentPage
+    x:Class="VBMTablet._pages._home._menuFloatingPages.billInDayPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+    xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+    xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:sfinput="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+    BackgroundColor="{StaticResource vbmwhite}"
+    NavigationPage.HasNavigationBar="False">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="{OnIdiom Phone=300,Tablet=350}"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="{OnIdiom Phone=300, Tablet=350}" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <StackLayout Orientation="Vertical"
-                     Margin="0,46,0,0"
-                     Spacing="40">
+        <StackLayout
+            Margin="0,46,0,0"
+            Orientation="Vertical"
+            Spacing="40">
 
             <Grid>
 
-                <ff:CachedImage Source="Stroke"
-                                WidthRequest="50"
-                                HeightRequest="25"
-                                HorizontalOptions="Start"
-                                VerticalOptions="Center"
-                                BackgroundColor="White">
+                <ff:CachedImage
+                    BackgroundColor="White"
+                    HeightRequest="25"
+                    HorizontalOptions="Start"
+                    Source="Stroke"
+                    VerticalOptions="Center"
+                    WidthRequest="50">
                     <ff:CachedImage.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="FF_left_Tapped"/>
+                        <TapGestureRecognizer Tapped="FF_left_Tapped" />
                     </ff:CachedImage.GestureRecognizers>
                 </ff:CachedImage>
 
-                <Label Text="Danh sách đơn hàng"
-                       FontSize="36"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center"
-                       HorizontalTextAlignment="Center"/>
+                <Label
+                    FontSize="36"
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    Text="Danh sách đơn hàng"
+                    VerticalOptions="Center" />
 
 
             </Grid>
 
-            <StackLayout Orientation="Vertical"
-                         Spacing="20"
-                         Margin="88,0"
-                         HorizontalOptions="Center"
-                         VerticalOptions="Center">
+            <StackLayout
+                Margin="88,0"
+                HorizontalOptions="Center"
+                Orientation="Vertical"
+                Spacing="20"
+                VerticalOptions="Center">
                 <Grid>
 
-                    <border:SfBorder BackgroundColor="{StaticResource vbmlightgray}"
-                                     HorizontalOptions="Center"
-                                     VerticalOptions="Center"
-                                     BorderColor="White"
-                                     HasShadow="False"
-                                     WidthRequest="624"
-                                     HeightRequest="83"
-                                     CornerRadius="30">
+                    <border:SfBorder
+                        BackgroundColor="{StaticResource vbmlightgray}"
+                        BorderColor="White"
+                        CornerRadius="30"
+                        HasShadow="False"
+                        HeightRequest="83"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        WidthRequest="624">
 
-                        <StackLayout Orientation="Horizontal"
-                                     HorizontalOptions="Start"
-                                     VerticalOptions="Center">
+                        <StackLayout
+                            HorizontalOptions="Start"
+                            Orientation="Horizontal"
+                            VerticalOptions="Center">
 
-                            <ff:CachedImage Source="searchicon"
-                                            HeightRequest="30"
-                                            WidthRequest="30"                                           
-                                            Margin="29,0,0,0"/>
+                            <ff:CachedImage
+                                Margin="29,0,0,0"
+                                HeightRequest="30"
+                                Source="searchicon"
+                                WidthRequest="30" />
 
-                            <sfinput:SfTextInputLayout Margin="5"    
-                                                       ContainerType="Outlined"                                                       
-                                                       BackgroundColor="Transparent"
-                                                       FocusedColor="Transparent"
-                                                       WidthRequest="200"
-                                                       UnfocusedColor="Transparent">
+                            <sfinput:SfTextInputLayout
+                                Margin="5"
+                                BackgroundColor="Transparent"
+                                ContainerType="Outlined"
+                                FocusedColor="Transparent"
+                                UnfocusedColor="Transparent"
+                                WidthRequest="200">
 
-                                <Entry Placeholder="Mã đơn hàng"
-                                       Keyboard="Telephone"
-                                       FontSize="22"
-                                       VerticalOptions="Start"/>
+                                <Entry
+                                    FontSize="22"
+                                    Keyboard="Telephone"
+                                    Placeholder="Mã đơn hàng"
+                                    VerticalOptions="Start" />
 
                             </sfinput:SfTextInputLayout>
 
@@ -88,45 +98,49 @@
 
                 <StackLayout Orientation="Horizontal">
 
-                    <border:SfBorder BackgroundColor="{StaticResource vbmlightgray}"
-                                     BorderColor="White"
-                                     HasShadow="False"
-                                     HorizontalOptions="Start"
-                                     VerticalOptions="Center"
-                                     HeightRequest="67"
-                                     WidthRequest="260"
-                                     CornerRadius="30"
-                                     x:Name="btnBill">
+                    <border:SfBorder
+                        x:Name="btnBill"
+                        BackgroundColor="{StaticResource vbmlightgray}"
+                        BorderColor="White"
+                        CornerRadius="30"
+                        HasShadow="False"
+                        HeightRequest="67"
+                        HorizontalOptions="Start"
+                        VerticalOptions="Center"
+                        WidthRequest="260">
 
-                        <Label Text="HIỆN BILL TẠI TIỆM"
-                               x:Name="lblbilltiem"
-                               FontSize="20"
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center"
-                               HorizontalTextAlignment="Center"/>
-                        
+                        <Label
+                            x:Name="lblbilltiem"
+                            FontSize="20"
+                            HorizontalOptions="Center"
+                            HorizontalTextAlignment="Center"
+                            Text="HIỆN BILL TẠI TIỆM"
+                            VerticalOptions="Center" />
+
 
                     </border:SfBorder>
 
-                    <border:SfBorder BackgroundColor="{StaticResource vbmgray}"
-                                     BorderColor="White"
-                                     HasShadow="False"
-                                     HorizontalOptions="End"
-                                     VerticalOptions="Center"
-                                     HeightRequest="67"
-                                     WidthRequest="260"
-                                     CornerRadius="30"
-                                     x:Name="btnbilldeli">
+                    <border:SfBorder
+                        x:Name="btnbilldeli"
+                        BackgroundColor="{StaticResource vbmgray}"
+                        BorderColor="White"
+                        CornerRadius="30"
+                        HasShadow="False"
+                        HeightRequest="67"
+                        HorizontalOptions="End"
+                        VerticalOptions="Center"
+                        WidthRequest="260">
 
-                        <Label Text="HIỆN BILL DELIVERY"
-                               x:Name="lblbilldeli"
-                               FontSize="20"
-                               TextColor="{StaticResource vbmwhite}"
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center"
-                               HorizontalTextAlignment="Center"/>
+                        <Label
+                            x:Name="lblbilldeli"
+                            FontSize="20"
+                            HorizontalOptions="Center"
+                            HorizontalTextAlignment="Center"
+                            Text="HIỆN BILL DELIVERY"
+                            TextColor="{StaticResource vbmwhite}"
+                            VerticalOptions="Center" />
 
-                        
+
                     </border:SfBorder>
 
                 </StackLayout>
@@ -140,157 +154,174 @@
 
             <Grid>
 
-                <StackLayout Orientation="Vertical"
-                             BindableLayout.ItemsSource="{Binding billStatuses}">
+                <StackLayout BindableLayout.ItemsSource="{Binding billStatuses}" Orientation="Vertical">
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
-                            <border:SfBorder CornerRadius="30"
-                                             BorderColor="White"
-                                             BackgroundColor="{StaticResource vbmlightgray}"
-                                             HasShadow="False"
-                                             Margin="10">
+                            <border:SfBorder
+                                Margin="10"
+                                BackgroundColor="{StaticResource vbmlightgray}"
+                                BorderColor="White"
+                                CornerRadius="30"
+                                HasShadow="False">
 
                                 <Grid>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="102"/>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="102" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="*" />
                                     </Grid.RowDefinitions>
 
-                                    <Grid Padding="20"
-                                          BackgroundColor="{StaticResource vbmgray}">
+                                    <Grid Padding="20" BackgroundColor="{StaticResource vbmgray}">
 
-                                        <Label Text="{Binding name}"
-                                               HorizontalTextAlignment="Start"
-                                               HorizontalOptions="Start"
-                                               VerticalOptions="Center"
-                                               WidthRequest="200"
-                                               TextColor="{StaticResource vbmwhite}"
-                                               FontSize="25"/>
+                                        <Label
+                                            FontSize="25"
+                                            HorizontalOptions="Start"
+                                            HorizontalTextAlignment="Start"
+                                            Text="{Binding name}"
+                                            TextColor="{StaticResource vbmwhite}"
+                                            VerticalOptions="Center"
+                                            WidthRequest="200" />
 
-                                        <Label Text="{Binding BillID}"
-                                               HorizontalTextAlignment="Start"
-                                               HorizontalOptions="Center"
-                                               VerticalOptions="Center"
-                                               TextColor="{StaticResource vbmwhite}"
-                                               FontSize="25"/>
+                                        <Label
+                                            FontSize="25"
+                                            HorizontalOptions="Center"
+                                            HorizontalTextAlignment="Start"
+                                            Text="{Binding BillID}"
+                                            TextColor="{StaticResource vbmwhite}"
+                                            VerticalOptions="Center" />
 
-                                        <Label Text="{Binding BillDate}"
-                                               HorizontalTextAlignment="End"
-                                               HorizontalOptions="End"
-                                               VerticalOptions="Center"
-                                               TextColor="{StaticResource vbmwhite}"
-                                               FontSize="25"
-                                               WidthRequest="152"/>
+                                        <Label
+                                            FontSize="25"
+                                            HorizontalOptions="End"
+                                            HorizontalTextAlignment="End"
+                                            Text="{Binding BillDate}"
+                                            TextColor="{StaticResource vbmwhite}"
+                                            VerticalOptions="Center"
+                                            WidthRequest="152" />
 
                                     </Grid>
 
-                                    <StackLayout Orientation="Vertical"
-                                                 Grid.Row="1"
-                                                 IsVisible="{Binding visDetail}"
-                                                 BindableLayout.ItemsSource="{Binding billDetails}">
+                                    <StackLayout
+                                        Grid.Row="1"
+                                        BindableLayout.ItemsSource="{Binding billDetails}"
+                                        IsVisible="{Binding visDetail}"
+                                        Orientation="Vertical">
                                         <BindableLayout.ItemTemplate>
                                             <DataTemplate>
                                                 <Grid>
-                                                    <Label Text="{Binding name}"
-                                                           HorizontalOptions="Start"
-                                                           VerticalOptions="Center"
-                                                           TextColor="{StaticResource vbmgray}"/>
+                                                    <Label
+                                                        HorizontalOptions="Start"
+                                                        Text="{Binding name}"
+                                                        TextColor="{StaticResource vbmgray}"
+                                                        VerticalOptions="Center" />
 
-                                                    <Label Text="{Binding solg}"
-                                                           HorizontalOptions="Center"
-                                                           VerticalOptions="Center"
-                                                           TextColor="{StaticResource vbmgray}"/>
+                                                    <Label
+                                                        HorizontalOptions="Center"
+                                                        Text="{Binding solg}"
+                                                        TextColor="{StaticResource vbmgray}"
+                                                        VerticalOptions="Center" />
 
-                                                    <Label Text="{Binding price}"
-                                                           HorizontalOptions="End"
-                                                           VerticalOptions="Center"
-                                                           TextColor="{StaticResource vbmgray}"/>
+                                                    <Label
+                                                        HorizontalOptions="End"
+                                                        Text="{Binding price}"
+                                                        TextColor="{StaticResource vbmgray}"
+                                                        VerticalOptions="Center" />
 
                                                 </Grid>
                                             </DataTemplate>
                                         </BindableLayout.ItemTemplate>
                                     </StackLayout>
 
-                                    <StackLayout Orientation="Vertical"
-                                                 Padding="20"
-                                                 Spacing="20"
-                                                 Grid.Row="2">
+                                    <StackLayout
+                                        Grid.Row="2"
+                                        Padding="20"
+                                        Orientation="Vertical"
+                                        Spacing="20">
 
                                         <Grid>
 
-                                            <Label Text="{Binding BillType}"
-                                                   FontSize="30"
-                                                   TextColor="{StaticResource vbmgray}"
-                                                   HorizontalOptions="Start"
-                                                   VerticalOptions="Center"/>
+                                            <Label
+                                                FontSize="30"
+                                                HorizontalOptions="Start"
+                                                Text="{Binding BillType}"
+                                                TextColor="{StaticResource vbmgray}"
+                                                VerticalOptions="Center" />
 
-                                            <Label Text="{Binding billStatus}"
-                                                   FontSize="30"
-                                                   TextColor="{Binding BillStatusColor}"
-                                                   HorizontalOptions="Center"
-                                                   VerticalOptions="Center"/>
+                                            <Label
+                                                FontSize="30"
+                                                HorizontalOptions="Center"
+                                                Text="{Binding billStatus}"
+                                                TextColor="{Binding BillStatusColor}"
+                                                VerticalOptions="Center" />
 
-                                            <Label Text="{Binding tgTien}"
-                                                   FontSize="30"
-                                                   TextColor="{StaticResource vbmpinttext}"
-                                                   HorizontalOptions="End"
-                                                   VerticalOptions="Center"/>
+                                            <Label
+                                                FontSize="30"
+                                                HorizontalOptions="End"
+                                                Text="{Binding tgTien}"
+                                                TextColor="{StaticResource vbmpinttext}"
+                                                VerticalOptions="Center" />
 
 
                                         </Grid>
 
-                                        <StackLayout Orientation="Horizontal"
-                                                     HeightRequest="67"
-                                                     Spacing="20">
+                                        <StackLayout
+                                            HeightRequest="67"
+                                            Orientation="Horizontal"
+                                            Spacing="20">
 
-                                            <border:SfBorder BackgroundColor="{StaticResource vbmgreen}"
-                                                             BorderColor="{StaticResource vbmwhite}"
-                                                             HasShadow="False"
-                                                             WidthRequest="160"
-                                                             HeightRequest="67"
-                                                             CornerRadius="30">
+                                            <border:SfBorder
+                                                BackgroundColor="{StaticResource vbmgreen}"
+                                                BorderColor="{StaticResource vbmwhite}"
+                                                CornerRadius="30"
+                                                HasShadow="False"
+                                                HeightRequest="67"
+                                                WidthRequest="160">
 
-                                                <Label Text="IN BILL"
-                                                       TextColor="{StaticResource vbmlightyellow}"
-                                                       FontSize="20"
-                                                       HorizontalOptions="Center"
-                                                       VerticalOptions="Center"/>
-
-                                            </border:SfBorder>
-
-                                            <border:SfBorder BackgroundColor="{StaticResource vbmlightyellow}"
-                                                             BorderColor="{StaticResource vbmwhite}"
-                                                             HasShadow="False"
-                                                             WidthRequest="160"
-                                                             HeightRequest="67"
-                                                             CornerRadius="30">
-
-                                                <Label Text="IN LABEL"
-                                                       TextColor="{StaticResource vbmgreen}"
-                                                       FontSize="20"
-                                                       HorizontalOptions="Center"
-                                                       VerticalOptions="Center"/>
-
+                                                <Label
+                                                    FontSize="20"
+                                                    HorizontalOptions="Center"
+                                                    Text="IN BILL"
+                                                    TextColor="{StaticResource vbmlightyellow}"
+                                                    VerticalOptions="Center" />
 
                                             </border:SfBorder>
 
-                                            <border:SfBorder BackgroundColor="{StaticResource vbmgray}"
-                                                             BorderColor="{StaticResource vbmwhite}"
-                                                             HasShadow="False"
-                                                             WidthRequest="190"
-                                                             HeightRequest="67"
-                                                             CornerRadius="30"
-                                                             Margin="20,0,0,0">
+                                            <border:SfBorder
+                                                BackgroundColor="{StaticResource vbmlightyellow}"
+                                                BorderColor="{StaticResource vbmwhite}"
+                                                CornerRadius="30"
+                                                HasShadow="False"
+                                                HeightRequest="67"
+                                                WidthRequest="160">
 
-                                                <Label Text="XEM CHI TIẾT"
-                                                       TextColor="{StaticResource vbmwhite}"
-                                                       FontSize="20"
-                                                       HorizontalTextAlignment="Center"
-                                                       HorizontalOptions="Center"
-                                                       VerticalOptions="Center"/>
+                                                <Label
+                                                    FontSize="20"
+                                                    HorizontalOptions="Center"
+                                                    Text="IN LABEL"
+                                                    TextColor="{StaticResource vbmgreen}"
+                                                    VerticalOptions="Center" />
+
+
+                                            </border:SfBorder>
+
+                                            <border:SfBorder
+                                                Margin="20,0,0,0"
+                                                BackgroundColor="{StaticResource vbmgray}"
+                                                BorderColor="{StaticResource vbmwhite}"
+                                                CornerRadius="30"
+                                                HasShadow="False"
+                                                HeightRequest="67"
+                                                WidthRequest="190">
+
+                                                <Label
+                                                    FontSize="20"
+                                                    HorizontalOptions="Center"
+                                                    HorizontalTextAlignment="Center"
+                                                    Text="XEM CHI TIẾT"
+                                                    TextColor="{StaticResource vbmwhite}"
+                                                    VerticalOptions="Center" />
                                                 <border:SfBorder.GestureRecognizers>
-                                                    <TapGestureRecognizer Tapped="brdBillDetail_tapped"/>
+                                                    <TapGestureRecognizer Tapped="brdBillDetail_tapped" />
                                                 </border:SfBorder.GestureRecognizers>
 
                                             </border:SfBorder>
@@ -313,14 +344,14 @@
         </ScrollView>
 
         <busyindicator:SfBusyIndicator
-                        x:Name="busyindicator"
-                        AnimationType="Cupertino"
-                        HeightRequest="100"
-                        HorizontalOptions="Center"
-                        IsBusy="{Binding isbusy}"
-                        IsVisible="{Binding isbusy}"
-                        TextColor="#1d5234"
-                        VerticalOptions="Center"
-                        WidthRequest="100" />
+            x:Name="busyindicator"
+            AnimationType="Cupertino"
+            HeightRequest="100"
+            HorizontalOptions="Center"
+            IsBusy="{Binding isbusy}"
+            IsVisible="{Binding isbusy}"
+            TextColor="#1d5234"
+            VerticalOptions="Center"
+            WidthRequest="100" />
     </Grid>
 </ContentPage>

@@ -10,46 +10,46 @@
     BackgroundColor="{StaticResource vbmwhite}">
 
     <Grid Margin="10">
-        <StackLayout            
-            Orientation="Vertical"
-            VerticalOptions="Start"
+        <StackLayout
             HorizontalOptions="Start"
-            Spacing="40">
+            Orientation="Vertical"
+            Spacing="40"
+            VerticalOptions="Start">
 
 
             <Grid>
 
                 <ff:CachedImage
-                Aspect="Fill"
-                HeightRequest="40"
-                HorizontalOptions="Start"
-                Source="usericon"
-                VerticalOptions="Center"
-                WidthRequest="40" />
+                    Aspect="Fill"
+                    HeightRequest="40"
+                    HorizontalOptions="Start"
+                    Source="usericon"
+                    VerticalOptions="Center"
+                    WidthRequest="40" />
 
                 <Label
-                Margin="64,0,0,0"
-                FontSize="25"
-                HorizontalTextAlignment="Start"
-                x:Name="lblStaffName"/>
+                    x:Name="lblStaffName"
+                    Margin="64,0,0,0"
+                    FontSize="25"
+                    HorizontalTextAlignment="Start" />
 
             </Grid>
 
             <Grid x:Name="tinhtrang">
 
                 <ff:CachedImage
-                Aspect="Fill"
-                HeightRequest="40"
-                HorizontalOptions="Start"
-                Source="viewicon"
-                VerticalOptions="Center"
-                WidthRequest="40" />
+                    Aspect="Fill"
+                    HeightRequest="40"
+                    HorizontalOptions="Start"
+                    Source="viewicon"
+                    VerticalOptions="Center"
+                    WidthRequest="40" />
 
                 <Label
-                Margin="64,0,0,0"
-                FontSize="25"
-                HorizontalTextAlignment="Start"
-                Text="Xem tình trạng đơn" />
+                    Margin="64,0,0,0"
+                    FontSize="25"
+                    HorizontalTextAlignment="Start"
+                    Text="Xem tình trạng đơn" />
 
                 <Grid.GestureRecognizers>
                     <TapGestureRecognizer Tapped="Tinhtrangdon_Tapped" />
@@ -60,18 +60,18 @@
             <Grid x:Name="ready">
 
                 <ff:CachedImage
-                Aspect="Fill"
-                HeightRequest="40"
-                HorizontalOptions="Start"
-                Source="chuanbiicon"
-                VerticalOptions="Center"
-                WidthRequest="40" />
+                    Aspect="Fill"
+                    HeightRequest="40"
+                    HorizontalOptions="Start"
+                    Source="chuanbiicon"
+                    VerticalOptions="Center"
+                    WidthRequest="40" />
 
                 <Label
-                Margin="64,0,0,0"
-                FontSize="25"
-                HorizontalTextAlignment="Start"
-                Text="Chuẩn bị nguyên liệu" />
+                    Margin="64,0,0,0"
+                    FontSize="25"
+                    HorizontalTextAlignment="Start"
+                    Text="Chuẩn bị nguyên liệu" />
 
                 <Grid.GestureRecognizers>
                     <TapGestureRecognizer Tapped="Chuanbi_Tapped" />
@@ -82,20 +82,20 @@
             <Grid>
 
                 <ff:CachedImage
-                Aspect="Fill"
-                HeightRequest="40"
-                HorizontalOptions="Start"
-                Source="sudungicon"
-                VerticalOptions="Center"
-                WidthRequest="40" />
+                    Aspect="Fill"
+                    HeightRequest="40"
+                    HorizontalOptions="Start"
+                    Source="sudungicon"
+                    VerticalOptions="Center"
+                    WidthRequest="40" />
 
                 <Label
-                Margin="64,0,0,0"
-                FontSize="25"
-                HorizontalTextAlignment="Start"
-                Text="Sử dụng nguyên liệu" />
+                    Margin="64,0,0,0"
+                    FontSize="25"
+                    HorizontalTextAlignment="Start"
+                    Text="Sử dụng nguyên liệu" />
                 <Grid.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="grdUsingNL_Tapped"/>
+                    <TapGestureRecognizer Tapped="grdUsingNL_Tapped" />
                 </Grid.GestureRecognizers>
 
             </Grid>
@@ -103,28 +103,27 @@
             <Grid>
 
                 <ff:CachedImage
-                Aspect="Fill"
-                HeightRequest="40"
-                HorizontalOptions="Start"
-                Source="logouticon"
-                VerticalOptions="Center"
-                WidthRequest="40" />
+                    Aspect="Fill"
+                    HeightRequest="40"
+                    HorizontalOptions="Start"
+                    Source="logouticon"
+                    VerticalOptions="Center"
+                    WidthRequest="40" />
 
                 <Label
-                Margin="64,0,0,0"
-                FontSize="25"
-                HorizontalTextAlignment="Start"
-                Text="Đăng xuất" />
+                    Margin="64,0,0,0"
+                    FontSize="25"
+                    HorizontalTextAlignment="Start"
+                    Text="Đăng xuất" />
                 <Grid.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="grdLogOut_tapped"/>
+                    <TapGestureRecognizer Tapped="grdLogOut_tapped" />
                 </Grid.GestureRecognizers>
 
-            </Grid>           
+            </Grid>
 
         </StackLayout>
 
-        <Grid HorizontalOptions="Start"
-              VerticalOptions="End">
+        <Grid HorizontalOptions="Start" VerticalOptions="End">
 
             <ff:CachedImage
                 Aspect="Fill"

@@ -1,78 +1,80 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<popup:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
-                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                 xmlns:popup="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
-                 xmlns:animation="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
-                 xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
-                 xmlns:button="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
-                 xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-                 x:Class="VBMTablet._pages._thanhtoan._orderoption.InPlace">
+<popup:PopupPage
+    x:Class="VBMTablet._pages._thanhtoan._orderoption.InPlace"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:animation="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+    xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+    xmlns:button="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+    xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:popup="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup">
     <popup:PopupPage.Animation>
         <animation:ScaleAnimation
-            PositionIn="Center"
-            PositionOut="Center"
-           
             DurationIn="400"
             DurationOut="300"
             EasingIn="SinOut"
             EasingOut="SinIn"
-            HasBackgroundAnimation="True">
-        </animation:ScaleAnimation>
+            HasBackgroundAnimation="True"
+            PositionIn="Center"
+            PositionOut="Center" />
     </popup:PopupPage.Animation>
-    <StackLayout HorizontalOptions="Center"
-                 VerticalOptions="Center">
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
 
-        <border:SfBorder CornerRadius="50"
-                         HasShadow="True"
-                         ShadowColor="WhiteSmoke"
-                         BackgroundColor="White"
-                         Margin="20,50">
+        <border:SfBorder
+            Margin="20,50"
+            BackgroundColor="White"
+            CornerRadius="50"
+            HasShadow="True"
+            ShadowColor="WhiteSmoke">
             <Grid Padding="20">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="20"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
-                <ff:CachedImage Source="Close"
-                                x:Name="close"
-                                Aspect="Fill"
-                                HeightRequest="20"
-                                WidthRequest="20"
-                                HorizontalOptions="End"
-                                VerticalOptions="Start">
+                <ff:CachedImage
+                    x:Name="close"
+                    Aspect="Fill"
+                    HeightRequest="20"
+                    HorizontalOptions="End"
+                    Source="Close"
+                    VerticalOptions="Start"
+                    WidthRequest="20">
                     <ff:CachedImage.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="ff_close_tapped"/>
+                        <TapGestureRecognizer Tapped="ff_close_tapped" />
                     </ff:CachedImage.GestureRecognizers>
                 </ff:CachedImage>
 
-                <Label Text="ĐẶT TẠI CHỖ"
-                       HorizontalTextAlignment="Center"
-                       FontFamily="{StaticResource lbo}"
-                       FontSize="26"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center"
-                       Grid.Row="1"/>
+                <Label
+                    Grid.Row="1"
+                    FontFamily="{StaticResource lbo}"
+                    FontSize="26"
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    Text="ĐẶT TẠI CHỖ"
+                    VerticalOptions="Center" />
 
 
-                <StackLayout Grid.Row="2"
-                             Orientation="Vertical">
-                    <Label Text="Tiền khách đưa"
-                           FontSize="25"
-                           HorizontalOptions="Start"
-                           VerticalOptions="Center"/>
-                    
+                <StackLayout Grid.Row="2" Orientation="Vertical">
+                    <Label
+                        FontSize="25"
+                        HorizontalOptions="Start"
+                        Text="Tiền khách đưa"
+                        VerticalOptions="Center" />
+
                     <Grid x:Name="layoutButton" Margin="20">
-                        
-                        <button:SfButton x:Name="btnFull"
-                                         Grid.Row="0"
-                                         Grid.Column="0"
-                                         BackgroundColor="#F6F9F8"
-                                         Clicked="CustomButton"
-                                         CornerRadius="50"
-                                         IsCheckable="True"
-                                         Text="ĐƯA ĐỦ"
-                                         TextColor="#71867B">
+
+                        <button:SfButton
+                            x:Name="btnFull"
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            BackgroundColor="#F6F9F8"
+                            Clicked="CustomButton"
+                            CornerRadius="50"
+                            IsCheckable="True"
+                            Text="ĐƯA ĐỦ"
+                            TextColor="#71867B">
                             <VisualStateManager.VisualStateGroups>
                                 <VisualStateGroup>
                                     <VisualState x:Name="Checked">
@@ -90,15 +92,16 @@
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
                         </button:SfButton>
-                        <button:SfButton x:Name="btn40k"
-                                         Grid.Row="0"
-                                         Grid.Column="1"
-                                         BackgroundColor="#F6F9F8"
-                                         Clicked="CustomButton"
-                                         CornerRadius="50"
-                                         IsCheckable="True"
-                                         Text="40.000"
-                                         TextColor="#71867B">
+                        <button:SfButton
+                            x:Name="btn40k"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            BackgroundColor="#F6F9F8"
+                            Clicked="CustomButton"
+                            CornerRadius="50"
+                            IsCheckable="True"
+                            Text="40.000"
+                            TextColor="#71867B">
                             <VisualStateManager.VisualStateGroups>
                                 <VisualStateGroup>
                                     <VisualState x:Name="Checked">
@@ -116,15 +119,16 @@
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
                         </button:SfButton>
-                        <button:SfButton x:Name="btn50k"
-                                         Grid.Row="0"
-                                         Grid.Column="2"
-                                         BackgroundColor="#F6F9F8"
-                                         Clicked="CustomButton"
-                                         CornerRadius="50"
-                                         IsCheckable="True"
-                                         Text="50.000"
-                                         TextColor="#71867B">
+                        <button:SfButton
+                            x:Name="btn50k"
+                            Grid.Row="0"
+                            Grid.Column="2"
+                            BackgroundColor="#F6F9F8"
+                            Clicked="CustomButton"
+                            CornerRadius="50"
+                            IsCheckable="True"
+                            Text="50.000"
+                            TextColor="#71867B">
                             <VisualStateManager.VisualStateGroups>
                                 <VisualStateGroup>
                                     <VisualState x:Name="Checked">
@@ -142,15 +146,16 @@
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
                         </button:SfButton>
-                        <button:SfButton x:Name="btn100k"
-                                         Grid.Row="1"
-                                         Grid.Column="0"
-                                         BackgroundColor="#F6F9F8"
-                                         Clicked="CustomButton"
-                                         CornerRadius="50"
-                                         IsCheckable="True"
-                                         Text="100.000"
-                                         TextColor="#71867B">
+                        <button:SfButton
+                            x:Name="btn100k"
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            BackgroundColor="#F6F9F8"
+                            Clicked="CustomButton"
+                            CornerRadius="50"
+                            IsCheckable="True"
+                            Text="100.000"
+                            TextColor="#71867B">
                             <VisualStateManager.VisualStateGroups>
                                 <VisualStateGroup>
                                     <VisualState x:Name="Checked">
@@ -168,15 +173,16 @@
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
                         </button:SfButton>
-                        <button:SfButton x:Name="btn200k"
-                                         Grid.Row="1"
-                                         Grid.Column="1"
-                                         BackgroundColor="#F6F9F8"
-                                         Clicked="CustomButton"
-                                         CornerRadius="50"
-                                         IsCheckable="True"
-                                         Text="200.000"
-                                         TextColor="#71867B">
+                        <button:SfButton
+                            x:Name="btn200k"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            BackgroundColor="#F6F9F8"
+                            Clicked="CustomButton"
+                            CornerRadius="50"
+                            IsCheckable="True"
+                            Text="200.000"
+                            TextColor="#71867B">
                             <VisualStateManager.VisualStateGroups>
                                 <VisualStateGroup>
                                     <VisualState x:Name="Checked">
@@ -194,15 +200,16 @@
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
                         </button:SfButton>
-                        <button:SfButton x:Name="btn500k"
-                                         Grid.Row="1"
-                                         Grid.Column="2"
-                                         BackgroundColor="#F6F9F8"
-                                         Clicked="CustomButton"
-                                         CornerRadius="50"
-                                         IsCheckable="True"
-                                         Text="500.000"
-                                         TextColor="#71867B">
+                        <button:SfButton
+                            x:Name="btn500k"
+                            Grid.Row="1"
+                            Grid.Column="2"
+                            BackgroundColor="#F6F9F8"
+                            Clicked="CustomButton"
+                            CornerRadius="50"
+                            IsCheckable="True"
+                            Text="500.000"
+                            TextColor="#71867B">
                             <VisualStateManager.VisualStateGroups>
                                 <VisualStateGroup>
                                     <VisualState x:Name="Checked">
@@ -221,38 +228,43 @@
                             </VisualStateManager.VisualStateGroups>
                         </button:SfButton>
                     </Grid>
-                    <Label x:Name="lblExcessCash"
-                           Margin="0,20,0,0"
-                           FontSize="14"
-                           HorizontalOptions="CenterAndExpand"
-                           TextColor="{StaticResource vbmpinttext}" />
-                    <Editor x:Name="lblNote"
-                            Margin="20,20,20,0"
-                            Completed="OnEditorCompleted"
-                            FontSize="14"
-                            HeightRequest="70"
-                            Placeholder="Ghi chú..."
-                            TextChanged="OnEditorTextChanged" />
+                    <Label
+                        x:Name="lblExcessCash"
+                        Margin="0,20,0,0"
+                        FontSize="14"
+                        HorizontalOptions="CenterAndExpand"
+                        TextColor="{StaticResource vbmpinttext}" />
+                    <Editor
+                        x:Name="lblNote"
+                        Margin="20,20,20,0"
+                        Completed="OnEditorCompleted"
+                        FontSize="14"
+                        HeightRequest="70"
+                        Placeholder="Ghi chú..."
+                        TextChanged="OnEditorTextChanged" />
                     <StackLayout Margin="20" Orientation="Horizontal">
-                        <Label FontSize="14"
-                                HorizontalOptions="StartAndExpand"
-                                Text="Phương thức thanh toán"
-                                TextColor="#71867B"
-                                VerticalTextAlignment="Center" />
-                        <button:SfButton x:Name="btnMethod"
-                                         Text="Tiền mặt"
-                                         BackgroundColor="#F6F9F8"
-                                         CornerRadius="50"
-                                         TextColor="#71867B" />
+                        <Label
+                            FontSize="14"
+                            HorizontalOptions="StartAndExpand"
+                            Text="Phương thức thanh toán"
+                            TextColor="#71867B"
+                            VerticalTextAlignment="Center" />
+                        <button:SfButton
+                            x:Name="btnMethod"
+                            BackgroundColor="#F6F9F8"
+                            CornerRadius="50"
+                            Text="Tiền mặt"
+                            TextColor="#71867B" />
                     </StackLayout>
-                    <button:SfButton x:Name="btnSubmit"
-                                     BackgroundColor="#FBE200"
-                                     Clicked="btnSubmit_Clicked"
-                                     CornerRadius="50"
-                                     HorizontalOptions="CenterAndExpand"
-                                     Text="OK"
-                                     TextColor="#266248"
-                                     WidthRequest="100" />
+                    <button:SfButton
+                        x:Name="btnSubmit"
+                        BackgroundColor="#FBE200"
+                        Clicked="btnSubmit_Clicked"
+                        CornerRadius="50"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="OK"
+                        TextColor="#266248"
+                        WidthRequest="100" />
                 </StackLayout>
 
             </Grid>

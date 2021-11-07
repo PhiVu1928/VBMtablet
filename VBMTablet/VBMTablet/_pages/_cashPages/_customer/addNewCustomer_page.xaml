@@ -21,46 +21,47 @@
     <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
 
         <Frame
+            Margin="20"
             BackgroundColor="{StaticResource vbmwhite}"
             CornerRadius="50"
-            HorizontalOptions="FillAndExpand"
-            Margin="20">
+            HorizontalOptions="FillAndExpand">
 
             <Grid Padding="20">
 
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
                 <Grid>
                     <Label
-                    Margin="0,30,0,0"
-                    FontSize="36"
-                    HorizontalOptions="Center"
-                    Text="KHÁCH HÀNG MỚI"
-                    VerticalOptions="Start"/>
+                        Margin="0,30,0,0"
+                        FontSize="36"
+                        HorizontalOptions="Center"
+                        Text="KHÁCH HÀNG MỚI"
+                        VerticalOptions="Start" />
 
                     <ff:CachedImage
-                    x:Name="close"
-                    Aspect="Fill"
-                    HeightRequest="20"
-                    HorizontalOptions="End"
-                    Source="Close"
-                    VerticalOptions="Start"
-                    WidthRequest="20">
+                        x:Name="close"
+                        Aspect="Fill"
+                        HeightRequest="20"
+                        HorizontalOptions="End"
+                        Source="Close"
+                        VerticalOptions="Start"
+                        WidthRequest="20">
                         <ff:CachedImage.GestureRecognizers>
                             <TapGestureRecognizer Tapped="ff_close_tapped" />
                         </ff:CachedImage.GestureRecognizers>
                     </ff:CachedImage>
                 </Grid>
-                
 
 
-                <StackLayout Orientation="Vertical"
-                             HorizontalOptions="FillAndExpand"
-                             VerticalOptions="Center"
-                             Grid.Row="1">
+
+                <StackLayout
+                    Grid.Row="1"
+                    HorizontalOptions="FillAndExpand"
+                    Orientation="Vertical"
+                    VerticalOptions="Center">
                     <border:SfBorder
                         Padding="10"
                         BackgroundColor="{StaticResource vbmlightgray}"
@@ -79,106 +80,115 @@
                             WidthRequest="300">
 
                             <Entry
+                                x:Name="ETInputMNV"
                                 FontSize="25"
                                 Keyboard="Telephone"
-                                Placeholder="Tên khách hàng" 
-                                x:Name="ETInputMNV"/>
+                                Placeholder="Tên khách hàng" />
 
                         </sfinput:SfTextInputLayout>
 
                     </border:SfBorder>
 
-                    <Label Text="Độ tuổi của khách ( Dự đoán):"
-                           TextColor="{StaticResource vbmgreen}"
-                           FontSize="30"/>
+                    <Label
+                        FontSize="30"
+                        Text="Độ tuổi của khách ( Dự đoán):"
+                        TextColor="{StaticResource vbmgreen}" />
 
-                    <StackLayout Orientation="Vertical"
-                                 Padding="20"
-                                 BindableLayout.ItemsSource="{Binding userAgeStatuses}">
+                    <StackLayout
+                        Padding="20"
+                        BindableLayout.ItemsSource="{Binding userAgeStatuses}"
+                        Orientation="Vertical">
                         <BindableLayout.ItemTemplate>
                             <DataTemplate>
-                                <StackLayout Orientation="Horizontal"
-                                             Spacing="20">
-                                    <border:SfBorder WidthRequest="50"
-                                                     HeightRequest="50"
-                                                     CornerRadius="30"
-                                                     HasShadow="False"
-                                                     BackgroundColor="{StaticResource vbmwhite}"
-                                                     BorderColor="{StaticResource vbmdeepgreen}"
-                                                     HorizontalOptions="Start"
-                                                     VerticalOptions="Center">
-                                        <ff:CachedImage Source="Stroke2"
-                                                        Aspect="AspectFill"
-                                                        HorizontalOptions="Center"
-                                                        VerticalOptions="Center"
-                                                        IsVisible="{Binding visCheck}"/>
+                                <StackLayout Orientation="Horizontal" Spacing="20">
+                                    <border:SfBorder
+                                        BackgroundColor="{StaticResource vbmwhite}"
+                                        BorderColor="{StaticResource vbmdeepgreen}"
+                                        CornerRadius="30"
+                                        HasShadow="False"
+                                        HeightRequest="50"
+                                        HorizontalOptions="Start"
+                                        VerticalOptions="Center"
+                                        WidthRequest="50">
+                                        <ff:CachedImage
+                                            Aspect="AspectFill"
+                                            HorizontalOptions="Center"
+                                            IsVisible="{Binding visCheck}"
+                                            Source="Stroke2"
+                                            VerticalOptions="Center" />
                                     </border:SfBorder>
 
-                                    <Label Text="{Binding age}"
-                                           FontSize="27"
-                                           TextColor="{StaticResource vbmdeepmiddlegray}"/>
+                                    <Label
+                                        FontSize="27"
+                                        Text="{Binding age}"
+                                        TextColor="{StaticResource vbmdeepmiddlegray}" />
                                     <StackLayout.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="stlAge_Tapped"/>
+                                        <TapGestureRecognizer Tapped="stlAge_Tapped" />
                                     </StackLayout.GestureRecognizers>
                                 </StackLayout>
                             </DataTemplate>
                         </BindableLayout.ItemTemplate>
                     </StackLayout>
 
-                    <Label Text="Giới tính của khách:"
-                           TextColor="{StaticResource vbmgreen}"
-                           FontSize="{OnIdiom Phone=20,Tablet=30}"/>
+                    <Label
+                        FontSize="{OnIdiom Phone=20,
+                                           Tablet=30}"
+                        Text="Giới tính của khách:"
+                        TextColor="{StaticResource vbmgreen}" />
 
-                    <StackLayout Orientation="Vertical"
-                                 BindableLayout.ItemsSource="{Binding userGioiTinhStatuses}"
-                                 Padding="20">
+                    <StackLayout
+                        Padding="20"
+                        BindableLayout.ItemsSource="{Binding userGioiTinhStatuses}"
+                        Orientation="Vertical">
                         <BindableLayout.ItemTemplate>
                             <DataTemplate>
-                                <StackLayout Orientation="Horizontal"
-                                             Spacing="20">
-                                    <border:SfBorder WidthRequest="50"
-                                                     HeightRequest="50"
-                                                     CornerRadius="30"
-                                                     HasShadow="False"
-                                                     BackgroundColor="{StaticResource vbmwhite}"
-                                                     BorderColor="{StaticResource vbmdeepgreen}"
-                                                     HorizontalOptions="Start"
-                                                     VerticalOptions="Center">
-                                        <ff:CachedImage Source="Stroke2"
-                                                        Aspect="AspectFill"
-                                                        HorizontalOptions="Center"
-                                                        VerticalOptions="Center"
-                                                        IsVisible="{Binding visCheck}"/>
+                                <StackLayout Orientation="Horizontal" Spacing="20">
+                                    <border:SfBorder
+                                        BackgroundColor="{StaticResource vbmwhite}"
+                                        BorderColor="{StaticResource vbmdeepgreen}"
+                                        CornerRadius="30"
+                                        HasShadow="False"
+                                        HeightRequest="50"
+                                        HorizontalOptions="Start"
+                                        VerticalOptions="Center"
+                                        WidthRequest="50">
+                                        <ff:CachedImage
+                                            Aspect="AspectFill"
+                                            HorizontalOptions="Center"
+                                            IsVisible="{Binding visCheck}"
+                                            Source="Stroke2"
+                                            VerticalOptions="Center" />
                                     </border:SfBorder>
 
-                                    <Label Text="{Binding gioiTinh}"
-                                           FontSize="27"
-                                           TextColor="{StaticResource vbmdeepmiddlegray}"/>
+                                    <Label
+                                        FontSize="27"
+                                        Text="{Binding gioiTinh}"
+                                        TextColor="{StaticResource vbmdeepmiddlegray}" />
                                     <StackLayout.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="stlGioiTinh_tapped"/>
+                                        <TapGestureRecognizer Tapped="stlGioiTinh_tapped" />
                                     </StackLayout.GestureRecognizers>
-                                    
+
                                 </StackLayout>
                             </DataTemplate>
                         </BindableLayout.ItemTemplate>
                     </StackLayout>
 
                     <border:SfBorder
-                    x:Name="xacnhan"
-                    BackgroundColor="{StaticResource vbmlightyellow}"
-                    BorderColor="{StaticResource vbmwhite}"
-                    CornerRadius="30"
-                    HasShadow="False"
-                    HeightRequest="55"
-                    HorizontalOptions="Center"
-                    VerticalOptions="End"
-                    WidthRequest="160">
+                        x:Name="xacnhan"
+                        BackgroundColor="{StaticResource vbmlightyellow}"
+                        BorderColor="{StaticResource vbmwhite}"
+                        CornerRadius="30"
+                        HasShadow="False"
+                        HeightRequest="55"
+                        HorizontalOptions="Center"
+                        VerticalOptions="End"
+                        WidthRequest="160">
 
                         <Label
-                        FontSize="20"
-                        HorizontalOptions="Center"
-                        Text="OK"
-                        VerticalOptions="Center" />
+                            FontSize="20"
+                            HorizontalOptions="Center"
+                            Text="OK"
+                            VerticalOptions="Center" />
 
 
                     </border:SfBorder>

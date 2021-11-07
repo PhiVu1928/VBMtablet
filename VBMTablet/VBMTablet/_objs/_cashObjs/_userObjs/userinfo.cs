@@ -50,7 +50,7 @@ namespace VBMTablet._objs._userObjs
                 return tools.getVNName(ddStatus);
             }
         }
-        public List<object> wow_histories { get; set; }
+        public List<wow_histories> wow_histories { get; set; }
         
         public userinfo clone()
         {
@@ -79,7 +79,7 @@ namespace VBMTablet._objs._userObjs
                 SoBanhTichLuy = SoBanhTichLuy,
                 SoQuaTichLuyConLai = SoQuaTichLuyConLai,
                 special_voucher = special_voucher,
-                wow_histories = new List<object>(),
+                wow_histories = new List<wow_histories>(),
             };
             wow_histories.ForEach(p => rt.wow_histories.Add(p));
             return rt;
@@ -119,5 +119,15 @@ namespace VBMTablet._objs._userObjs
             return null;
         }
 
+        
+
+    }
+    public class wow_histories
+    {
+        public DateTime NgayDat { get; set; }
+        public string LyDo { get; set; }
+        public string ShopName { get; set; }
+        public long BillID { get; set; }
+        public string MaBill { get; set; }
     }
 }

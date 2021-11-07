@@ -33,7 +33,7 @@ namespace VBMTablet._vms._detail
                     price = item.price.ToString("#,##0") + " đ";
                 }
             }
-            isbusy = false;
+            isbusy = false;            
         }
         #region bien
         bool _isbusy;

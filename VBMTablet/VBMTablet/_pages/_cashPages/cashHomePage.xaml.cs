@@ -224,12 +224,23 @@ namespace VBMTablet._pages._home
             {
                 case 0: break;
                 case 1:
+                    //load script khach
                     if(tvCustomer.Items[1].Content == null)
                     {
-                        tvCustomer.Items[1].Content = new script_page();
+                        using (var progress = UserDialogs.Instance.Loading("Loading...", null, null, true, MaskType.Black))
+                        {
+                            UserGiftObjs userGiftObjs = await UserGiftObjs.getUserGiftData(vmhome.sdt, localdb.fullUserInfo.UserInfo.UserID);
+                            if (localdb.fullUserInfo != null)
+                            {
+                                var ScriptPage = new script_page();
+                                tvCustomer.Items[1].Content = ScriptPage;
+                                ScriptPage.Render(localdb.fullUserInfo.UserInfo);
+                            }
+                        }
                     }
                     break;
                 case 2:
+                    //load qua khach
                     if (tvCustomer.Items[2].Content == null && vmhome.sdt.Length != 1)
                     {
                         using (var progress = UserDialogs.Instance.Loading("Loading...", null, null, true, MaskType.Black))
@@ -246,6 +257,7 @@ namespace VBMTablet._pages._home
                     }
                     break;
                 case 3:
+                    //load history bill khach
                     if(tvCustomer.Items[3].Content == null)
                     {
                         using (var progress = UserDialogs.Instance.Loading("Loading...", null, null, true, MaskType.Black))

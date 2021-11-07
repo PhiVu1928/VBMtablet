@@ -153,7 +153,7 @@
                             VerticalOptions="Center" />
 
                         <border:SfBorder.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="bdVoucher_tapped"/>
+                            <TapGestureRecognizer Tapped="bdVoucher_tapped" />
                         </border:SfBorder.GestureRecognizers>
 
                     </border:SfBorder>

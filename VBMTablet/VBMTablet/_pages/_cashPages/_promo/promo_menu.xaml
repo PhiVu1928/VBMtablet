@@ -1,84 +1,94 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="VBMTablet._pages._promo.promo_menu"
-             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-             xmlns:sf="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
-             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
-             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
-             BackgroundColor="White"
-             NavigationPage.HasBackButton="False"
-             NavigationPage.HasNavigationBar="False">
+<ContentPage
+    x:Class="VBMTablet._pages._promo.promo_menu"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+    xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+    xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:sf="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+    BackgroundColor="White"
+    NavigationPage.HasBackButton="False"
+    NavigationPage.HasNavigationBar="False">
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="{OnIdiom Phone=80,Tablet=Auto}"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="{OnIdiom Phone=80, Tablet=Auto}" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <StackLayout Margin="{OnIdiom Phone='0,20,0,0',Tablet='0,46,0,0'}"
-                     Orientation="Vertical">
+        <StackLayout Margin="{OnIdiom Phone='0,20,0,0', Tablet='0,46,0,0'}" Orientation="Vertical">
 
             <Grid>
 
-                <ff:CachedImage Source="Stroke"
-                                WidthRequest="50"
-                                HeightRequest="25"
-                                HorizontalOptions="Start"
-                                VerticalOptions="Center"
-                                BackgroundColor="White">
+                <ff:CachedImage
+                    BackgroundColor="White"
+                    HeightRequest="25"
+                    HorizontalOptions="Start"
+                    Source="Stroke"
+                    VerticalOptions="Center"
+                    WidthRequest="50">
                     <ff:CachedImage.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                     </ff:CachedImage.GestureRecognizers>
                 </ff:CachedImage>
 
-                <Label Text="{Binding Selected_promo.name_vn}"
-                       FontSize="{OnIdiom Phone=16,Tablet=36}"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center"
-                       HorizontalTextAlignment="Center"/>
+                <Label
+                    FontSize="{OnIdiom Phone=16,
+                                       Tablet=36}"
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    Text="{Binding Selected_promo.name_vn}"
+                    VerticalOptions="Center" />
 
             </Grid>
 
         </StackLayout>
         <StackLayout Grid.Row="1">
-            <sf:SfListView x:Name="lstemes"
-                           ItemsSource="{Binding promo_menus}"
-                           ItemSize="230"
-                           Margin="0,20,0,0"
-                           ItemSpacing="{OnIdiom Phone='0,0,0,20',Tablet=0}"
-                           LoadMoreCommand="{Binding LoadMoreItemsCommand}"
-                           LoadMoreOption="AutoOnScroll"
-                           SelectionBackgroundColor="Transparent">
+            <sf:SfListView
+                x:Name="lstemes"
+                Margin="0,20,0,0"
+                ItemSize="230"
+                ItemSpacing="{OnIdiom Phone='0,0,0,20',
+                                      Tablet=0}"
+                ItemsSource="{Binding promo_menus}"
+                LoadMoreCommand="{Binding LoadMoreItemsCommand}"
+                LoadMoreOption="AutoOnScroll"
+                SelectionBackgroundColor="Transparent">
                 <sf:SfListView.LayoutManager>
-                    <sf:GridLayout SpanCount="{OnIdiom Phone=2, Tablet=3}"/>
+                    <sf:GridLayout SpanCount="{OnIdiom Phone=2, Tablet=3}" />
                 </sf:SfListView.LayoutManager>
                 <sf:SfListView.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout Orientation="Horizontal"                             
-                                     Spacing="{OnIdiom Phone=10,Tablet=70}"
-                                     VerticalOptions="Center"
-                                     HorizontalOptions="Center">
+                        <StackLayout
+                            HorizontalOptions="Center"
+                            Orientation="Horizontal"
+                            Spacing="{OnIdiom Phone=10,
+                                              Tablet=70}"
+                            VerticalOptions="Center">
                             <Grid>
 
-                                <border:SfBorder BackgroundColor="{StaticResource vbmwhite}"
-                                                 HeightRequest="197"
-                                                 WidthRequest="161"
-                                                 BorderWidth="1"
-                                                 BorderColor="#E5E5E5"
-                                                 HasShadow="True"
-                                                 ShadowColor="#E5E5E5"
-                                                 CornerRadius="30"
-                                                 HorizontalOptions="Center"
-                                                 VerticalOptions="Center">
+                                <border:SfBorder
+                                    BackgroundColor="{StaticResource vbmwhite}"
+                                    BorderColor="#E5E5E5"
+                                    BorderWidth="1"
+                                    CornerRadius="30"
+                                    HasShadow="True"
+                                    HeightRequest="197"
+                                    HorizontalOptions="Center"
+                                    ShadowColor="#E5E5E5"
+                                    VerticalOptions="Center"
+                                    WidthRequest="161">
                                     <Grid>
 
-                                        <Label Text="{Binding name_vn}"
-                                               FontSize="{OnIdiom Phone=13,Tablet=18}"
-                                               FontAttributes="Bold"
-                                               Margin="25,20"
-                                               HorizontalOptions="Center"
-                                               VerticalOptions="End"
-                                               HorizontalTextAlignment="Center"/>
+                                        <Label
+                                            Margin="25,20"
+                                            FontAttributes="Bold"
+                                            FontSize="{OnIdiom Phone=13,
+                                                               Tablet=18}"
+                                            HorizontalOptions="Center"
+                                            HorizontalTextAlignment="Center"
+                                            Text="{Binding name_vn}"
+                                            VerticalOptions="End" />
 
                                     </Grid>
 
@@ -86,18 +96,20 @@
 
                                 </border:SfBorder>
 
-                                <border:SfBorder WidthRequest="{OnIdiom Phone=113,Tablet=123}"
-                                                 HeightRequest="{OnIdiom Phone=128,Tablet=138}"
-                                                 CornerRadius="20"
-                                                 HasShadow="False"
-                                                 HorizontalOptions="Center"
-                                                 VerticalOptions="Start">
-                                    <ff:CachedImage Source="{Binding img,Converter={StaticResource ImageConverter}}"
-                                                    Aspect="Fill"/>
+                                <border:SfBorder
+                                    CornerRadius="20"
+                                    HasShadow="False"
+                                    HeightRequest="{OnIdiom Phone=128,
+                                                            Tablet=138}"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Start"
+                                    WidthRequest="{OnIdiom Phone=113,
+                                                           Tablet=123}">
+                                    <ff:CachedImage Aspect="Fill" Source="{Binding img, Converter={StaticResource ImageConverter}}" />
                                 </border:SfBorder>
 
                                 <Grid.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="GrPromoItemTapped"/>
+                                    <TapGestureRecognizer Tapped="GrPromoItemTapped" />
                                 </Grid.GestureRecognizers>
 
 

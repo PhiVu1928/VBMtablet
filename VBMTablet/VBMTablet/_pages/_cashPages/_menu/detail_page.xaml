@@ -91,8 +91,8 @@
                         Margin="10"
                         AlignItems="Center"
                         BindableLayout.ItemsSource="{Binding drink_Combos}"
-                        IsVisible="{Binding visDrink}"
                         Direction="Row"
+                        IsVisible="{Binding visDrink}"
                         JustifyContent="SpaceAround"
                         Wrap="Wrap">
                         <BindableLayout.ItemTemplate>
@@ -124,8 +124,10 @@
                         </BindableLayout.ItemTemplate>
                     </FlexLayout>
 
-                    <StackLayout Orientation="Vertical" Spacing="10"
-                                 IsVisible="{Binding visSpiceTitle}">
+                    <StackLayout
+                        IsVisible="{Binding visSpiceTitle}"
+                        Orientation="Vertical"
+                        Spacing="10">
 
                         <StackLayout
                             Padding="10,0"
@@ -218,8 +220,8 @@
                         <StackLayout
                             Padding="10,0"
                             HorizontalOptions="Center"
-                            Spacing="5"
-                            IsVisible="{Binding visExtraTitle}">
+                            IsVisible="{Binding visExtraTitle}"
+                            Spacing="5">
 
                             <StackLayout
                                 HorizontalOptions="Center"

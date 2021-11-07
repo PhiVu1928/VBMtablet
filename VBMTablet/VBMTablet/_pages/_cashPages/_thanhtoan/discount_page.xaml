@@ -1,113 +1,121 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<popup:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
-                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                 xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
-                 xmlns:popup="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
-                 xmlns:animation="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
-                 xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-                 x:Class="VBMTablet._pages._thanhtoan.discount_page">
-    
+<popup:PopupPage
+    x:Class="VBMTablet._pages._thanhtoan.discount_page"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:animation="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+    xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+    xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:popup="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup">
+
     <popup:PopupPage.Animation>
         <animation:ScaleAnimation
-            PositionIn="Center"
-            PositionOut="Center"
-           
             DurationIn="400"
             DurationOut="300"
             EasingIn="SinOut"
             EasingOut="SinIn"
-            HasBackgroundAnimation="True">
-        </animation:ScaleAnimation>
+            HasBackgroundAnimation="True"
+            PositionIn="Center"
+            PositionOut="Center" />
     </popup:PopupPage.Animation>
 
-    <StackLayout HorizontalOptions="Center"
-                 VerticalOptions="Center"
-                 Margin="20,50">
+    <StackLayout
+        Margin="20,50"
+        HorizontalOptions="Center"
+        VerticalOptions="Center">
 
-        <border:SfBorder CornerRadius="50"
-                         HasShadow="True"
-                         ShadowColor="WhiteSmoke"
-                         BackgroundColor="White">
-            
+        <border:SfBorder
+            BackgroundColor="White"
+            CornerRadius="50"
+            HasShadow="True"
+            ShadowColor="WhiteSmoke">
+
             <Grid Padding="20">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                
-                <ff:CachedImage Source="Close"
-                                x:Name="close"
-                                Aspect="Fill"
-                                HeightRequest="20"
-                                WidthRequest="20"
-                                HorizontalOptions="End"
-                                VerticalOptions="Start">
+
+                <ff:CachedImage
+                    x:Name="close"
+                    Aspect="Fill"
+                    HeightRequest="20"
+                    HorizontalOptions="End"
+                    Source="Close"
+                    VerticalOptions="Start"
+                    WidthRequest="20">
                     <ff:CachedImage.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="ff_close_tapped"/>
+                        <TapGestureRecognizer Tapped="ff_close_tapped" />
                     </ff:CachedImage.GestureRecognizers>
                 </ff:CachedImage>
 
-                <Label Text="MÃ GIẢM GIÁ"
-                       FontSize="26"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center"
-                       Grid.Row="1"/>
+                <Label
+                    Grid.Row="1"
+                    FontSize="26"
+                    HorizontalOptions="Center"
+                    Text="MÃ GIẢM GIÁ"
+                    VerticalOptions="Center" />
 
 
                 <Grid Grid.Row="2">
 
                     <StackLayout
-                        Orientation="Vertical"
+                        BindableLayout.ItemsSource="{Binding cartPromoItems}"
                         HorizontalOptions="Center"
-                        VerticalOptions="Center"
+                        Orientation="Vertical"
                         Spacing="20"
-                        BindableLayout.ItemsSource="{Binding cartPromoItems}">
+                        VerticalOptions="Center">
                         <BindableLayout.ItemTemplate>
                             <DataTemplate>
-                                <StackLayout Orientation="Horizontal"
-                                             HorizontalOptions="Center"
-                                             VerticalOptions="Center"
-                                             Spacing="-20">
+                                <StackLayout
+                                    HorizontalOptions="Center"
+                                    Orientation="Horizontal"
+                                    Spacing="-20"
+                                    VerticalOptions="Center">
 
-                                    <border:SfBorder WidthRequest="433"
-                                                     HeightRequest="40"
-                                                     CornerRadius="30"
-                                                     HasShadow="False"
-                                                     BorderColor="#C2C2C2"
-                                                     BackgroundColor="{Binding borderColor}"
-                                                     HorizontalOptions="Start"
-                                                     Padding="20">
-                                        <Label Text="{Binding name}"
-                                               TextColor="{Binding textColor}"
-                                               HorizontalTextAlignment="Center"
-                                               FontSize="22"
-                                               HorizontalOptions="Start"
-                                               VerticalOptions="Center"/>
+                                    <border:SfBorder
+                                        Padding="20"
+                                        BackgroundColor="{Binding borderColor}"
+                                        BorderColor="#C2C2C2"
+                                        CornerRadius="30"
+                                        HasShadow="False"
+                                        HeightRequest="40"
+                                        HorizontalOptions="Start"
+                                        WidthRequest="433">
+                                        <Label
+                                            FontSize="22"
+                                            HorizontalOptions="Start"
+                                            HorizontalTextAlignment="Center"
+                                            Text="{Binding name}"
+                                            TextColor="{Binding textColor}"
+                                            VerticalOptions="Center" />
                                     </border:SfBorder>
 
-                                    <border:SfBorder WidthRequest="136"
-                                                     HeightRequest="40"
-                                                     CornerRadius="30"
-                                                     HasShadow="False"
-                                                     BorderColor="#C2C2C2"
-                                                     BackgroundColor="{Binding borderColor}"
-                                                     HorizontalOptions="End">
-                                        <Label Text="Dùng"
-                                               TextColor="{Binding textColor}"
-                                               FontSize="22"
-                                               HorizontalOptions="Center"
-                                               VerticalOptions="Center"/>
+                                    <border:SfBorder
+                                        BackgroundColor="{Binding borderColor}"
+                                        BorderColor="#C2C2C2"
+                                        CornerRadius="30"
+                                        HasShadow="False"
+                                        HeightRequest="40"
+                                        HorizontalOptions="End"
+                                        WidthRequest="136">
+                                        <Label
+                                            FontSize="22"
+                                            HorizontalOptions="Center"
+                                            Text="Dùng"
+                                            TextColor="{Binding textColor}"
+                                            VerticalOptions="Center" />
                                     </border:SfBorder>
                                     <StackLayout.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="stlCartPromo_tapped"/>
+                                        <TapGestureRecognizer Tapped="stlCartPromo_tapped" />
                                     </StackLayout.GestureRecognizers>
                                 </StackLayout>
 
                             </DataTemplate>
                         </BindableLayout.ItemTemplate>
                     </StackLayout>
-                    
+
                 </Grid>
 
             </Grid>
@@ -115,5 +123,5 @@
         </border:SfBorder>
 
     </StackLayout>
-    
+
 </popup:PopupPage>

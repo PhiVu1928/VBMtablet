@@ -1,51 +1,55 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="VBMTablet._pages._home._menuFloatingPages.prepareNLPage"
-             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
-             NavigationPage.HasNavigationBar="False"
-             BackgroundColor="{StaticResource vbmwhite}">
+<ContentPage
+    x:Class="VBMTablet._pages._home._menuFloatingPages.prepareNLPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+    xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    BackgroundColor="{StaticResource vbmwhite}"
+    NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <Grid Margin="10">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            
+
             <Grid>
-                <ff:CachedImage Source="Stroke"
-                                WidthRequest="50"
-                                HeightRequest="25"
-                                HorizontalOptions="Start"
-                                VerticalOptions="Center"
-                                BackgroundColor="White">
+                <ff:CachedImage
+                    BackgroundColor="White"
+                    HeightRequest="25"
+                    HorizontalOptions="Start"
+                    Source="Stroke"
+                    VerticalOptions="Center"
+                    WidthRequest="50">
                     <ff:CachedImage.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="FF_left_Tapped"/>
+                        <TapGestureRecognizer Tapped="FF_left_Tapped" />
                     </ff:CachedImage.GestureRecognizers>
                 </ff:CachedImage>
 
-                <Label x:Name="lblPrepareName"
-                       FontSize="36"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center"
-                       HorizontalTextAlignment="Center"/>
+                <Label
+                    x:Name="lblPrepareName"
+                    FontSize="36"
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    VerticalOptions="Center" />
             </Grid>
 
-            <WebView Grid.Row="1"
-                     HorizontalOptions="FillAndExpand"
-                     VerticalOptions="FillAndExpand"
-                     x:Name="WVPrepareNL"/>
+            <WebView
+                x:Name="WVPrepareNL"
+                Grid.Row="1"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand" />
 
             <busyindicator:SfBusyIndicator
-                        Grid.Row="1"
-                        x:Name="busyindicator"
-                        AnimationType="Cupertino"
-                        HeightRequest="100"
-                        HorizontalOptions="Center"
-                        TextColor="#1d5234"
-                        VerticalOptions="Center"
-                        WidthRequest="100" />
+                x:Name="busyindicator"
+                Grid.Row="1"
+                AnimationType="Cupertino"
+                HeightRequest="100"
+                HorizontalOptions="Center"
+                TextColor="#1d5234"
+                VerticalOptions="Center"
+                WidthRequest="100" />
 
         </Grid>
     </ContentPage.Content>
