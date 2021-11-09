@@ -106,6 +106,27 @@
                     Aspect="Fill"
                     HeightRequest="40"
                     HorizontalOptions="Start"
+                    Source="viewicon"
+                    VerticalOptions="Center"
+                    WidthRequest="40" />
+
+                <Label
+                    Margin="64,0,0,0"
+                    FontSize="25"
+                    HorizontalTextAlignment="Start"
+                    Text="Đơn hàng Karuna" />
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="grdKaruna_Tapped" />
+                </Grid.GestureRecognizers>
+
+            </Grid>
+
+            <Grid>
+
+                <ff:CachedImage
+                    Aspect="Fill"
+                    HeightRequest="40"
+                    HorizontalOptions="Start"
                     Source="logouticon"
                     VerticalOptions="Center"
                     WidthRequest="40" />

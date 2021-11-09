@@ -376,4 +376,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\kaipass.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\karuna.png" />
+  </ItemGroup>
 </Project>

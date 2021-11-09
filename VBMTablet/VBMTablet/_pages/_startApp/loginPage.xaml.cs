@@ -42,7 +42,7 @@ namespace VBMTablet._pages._login
             var cv = (StoreStatus)ctr.SelectedItem;
             localdb.shopID = cv.StoreObj.ShopID;
             //lay full nhan vien info su dung signalR
-            //localdb.signalR.HubProxy.Invoke("SystemAction", "doListAllNV{}" + localdb.shopID + "$0{}");
+            localdb.signalR.HubProxy.Invoke("SystemAction", "doListAllNV{}" + localdb.shopID + "$0{}");
         }
 
         async void bdChangeMode_Tapped(object sender, EventArgs e)

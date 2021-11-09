@@ -11,6 +11,8 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using VBMTablet._vms._homeVMs;
 using Syncfusion.XForms.Border;
+using VBMTablet._objs._staffObjs;
+using VBMTablet._pages._home._contentCash;
 
 namespace VBMTablet._pages._info
 {
@@ -65,6 +67,52 @@ namespace VBMTablet._pages._info
                 //error show here
             }
             await ordericon.ScaleTo(0.9, 1);
+            this.IsEnabled = true;
+        }
+        async void imgKaruna_tapped(object sender, EventArgs e)
+        {
+            var ctr = sender as Image;
+            await ctr.ScaleTo(0.9, 1);
+            this.IsEnabled = false;
+            try
+            {
+                string result = await Application.Current.MainPage.DisplayPromptAsync("Nhân viên", "Mã nhân viên của bạn là gì nhỉ?", "OK", "", "Mã nhân viên", 10, Keyboard.Numeric, "");
+                if (!string.IsNullOrEmpty(result))
+                {
+                    bool isTrue = false;
+
+                    foreach (staff objU in localdb.FullNhanVienInfo)
+                    {
+                        if (((int)objU.UserID).ToString() == result.Trim())
+                        {
+                            isTrue = true;
+                            break;
+                        }
+                    }
+
+                    if (!isTrue)
+                    {
+                        await Application.Current.MainPage.DisplayAlert("", "Vui lòng nhập đúng mã nhân viên", "OK");
+                    }
+                    else
+                    {
+                        var page = new karunaOrder();
+                        await Navigation.PushAsync(page);
+                        page.render(result.Trim());
+                    }
+
+                }
+                else
+                {
+                    await Application.Current.MainPage.DisplayAlert("", "Vui lòng nhập mã nhân viên", "OK");
+                }
+                await ctr.ScaleTo(1, 100);
+            }
+            catch(Exception)
+            {
+                //error show here
+            }
+            await ctr.ScaleTo(0.9, 1);
             this.IsEnabled = true;
         }
 

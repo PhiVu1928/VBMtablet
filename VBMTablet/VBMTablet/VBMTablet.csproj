@@ -88,7 +88,13 @@
     <EmbeddedResource Update="_pages\_cashPages\popup_xacnhan.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="_pages\_home\_contentCash\karunaOrder.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="_pages\_home\_menuFloatingPages\billInDayPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="_pages\_home\_menuFloatingPages\lstBillKarunaPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="_pages\_home\_menuFloatingPages\prepareNLPage.xaml">

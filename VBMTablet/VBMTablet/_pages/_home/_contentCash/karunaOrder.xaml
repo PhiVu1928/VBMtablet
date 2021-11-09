@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="VBMTablet._pages._home._contentCash.karunaOrder"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Đặt hàng Karuna"
+    BackgroundColor="{StaticResource vbmwhite}">
+    <Grid>
+        <WebView
+            x:Name="wv"
+            HorizontalOptions="FillAndExpand"
+            Navigated="wv_Navigated"
+            VerticalOptions="FillAndExpand" />
+        <ActivityIndicator
+            x:Name="acti"
+            HeightRequest="50"
+            HorizontalOptions="Center"
+            IsRunning="true"
+            IsVisible="true"
+            VerticalOptions="Center"
+            WidthRequest="50"
+            Color="#1d5234" />
+    </Grid>
+</ContentPage>

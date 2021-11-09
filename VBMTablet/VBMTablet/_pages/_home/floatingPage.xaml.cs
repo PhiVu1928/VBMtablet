@@ -67,6 +67,24 @@ namespace VBMTablet._pages._info
             await ready.ScaleTo(1, 100);
             this.IsEnabled = true;
         }
+        async void grdKaruna_Tapped(object sender, EventArgs e)
+        {
+            var ctr = sender as Grid;
+            await ctr.ScaleTo(0.9, 1);
+            this.IsEnabled = false;
+            try
+            {
+                var lstBillKarunaPage = new VBMTablet._pages._home._menuFloatingPages.lstBillKarunaPage();
+                await Navigation.PushAsync(lstBillKarunaPage);
+                lstBillKarunaPage.Render();
+            }
+            catch
+            {
+                //log error
+            }
+            await ctr.ScaleTo(1, 100);
+            this.IsEnabled = true;
+        }
 
 
         async void grdLogOut_tapped(object sender, EventArgs e)

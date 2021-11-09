@@ -304,21 +304,36 @@
             TextColor="{StaticResource vbmbrick}"
             VerticalOptions="End" />
 
-        <Image
-            x:Name="ordericon"
+        <StackLayout
             Grid.RowSpan="2"
-            Margin="0,0,30,20"
-            Aspect="Fill"
-            HeightRequest="70"
             HorizontalOptions="End"
-            IsVisible="{Binding visCash}"
-            Source="ordericon"
-            VerticalOptions="End"
-            WidthRequest="80">
-            <Image.GestureRecognizers>
-                <TapGestureRecognizer Tapped="ff_order_tapped" />
-            </Image.GestureRecognizers>
-        </Image>
+            Orientation="Horizontal"
+            Spacing="20"
+            VerticalOptions="End">
+            <Image
+                Margin="0,0,20,20"
+                Aspect="AspectFit"
+                HeightRequest="70"
+                IsVisible="{Binding visCash}"
+                Source="karuna">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="imgKaruna_tapped" />
+                </Image.GestureRecognizers>
+            </Image>
+            <Image
+                x:Name="ordericon"
+                Margin="0,0,20,20"
+                Aspect="Fill"
+                HeightRequest="70"
+                IsVisible="{Binding visCash}"
+                Source="ordericon"
+                WidthRequest="80">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ff_order_tapped" />
+                </Image.GestureRecognizers>
+            </Image>
+
+        </StackLayout>
 
 
 
